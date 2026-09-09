@@ -1,0 +1,63 @@
+09-08 13:15:34 === R3 pipeline start  envs=8192 iters=10000 eval_iters=[9000 10000]
+09-08 13:15:34 guard started
+R3A weights: [('action_rate_l2', -0.005), ('ang_vel_xy_l2', -0.05), ('feet_air_time', 0.2), ('flat_orientation_l2', -1.5), ('joint_deviation_hip', -0.2), ('joint_deviation_torso', -0.1), ('termination_penalty', -200.0), ('track_ang_vel_z_exp', 2.0), ('track_lin_vel_xy_exp', 1.0)]
+09-08 13:16:04 R3A -> run 2026-09-08_13-15-40
+{'track_lin_vel_xy_exp': 1.0, 'track_ang_vel_z_exp': 2.0, 'ang_vel_xy_l2': -0.05, 'dof_torques_l2': 0.0, 'dof_acc_l2': -1.25e-07, 'action_rate_l2': -0.005, 'feet_air_time': 0.2, 'flat_orientation_l2': -1.5, 'dof_pos_limits': -1.0, 'termination_penalty': -200.0, 'feet_slide': -0.25, 'joint_deviation_hip': -0.2, 'joint_deviation_arms': -0.2, 'joint_deviation_torso': -0.1}
+09-08 13:16:14 R3A first iteration seen (t=10s)
+R3C weights: [('action_rate_l2', -0.005), ('ang_vel_xy_l2', -0.05), ('feet_air_time', 0.2), ('flat_orientation_l2', -1.5), ('joint_deviation_arms', -0.02), ('joint_deviation_hip', -0.2), ('joint_deviation_torso', -0.02), ('termination_penalty', -200.0), ('track_ang_vel_z_exp', 2.0), ('track_lin_vel_xy_exp', 1.0)]
+09-08 13:16:44 R3C -> run 2026-09-08_13-16-18
+{'track_lin_vel_xy_exp': 1.0, 'track_ang_vel_z_exp': 2.0, 'ang_vel_xy_l2': -0.05, 'dof_torques_l2': 0.0, 'dof_acc_l2': -1.25e-07, 'action_rate_l2': -0.005, 'feet_air_time': 0.2, 'flat_orientation_l2': -1.5, 'dof_pos_limits': -1.0, 'termination_penalty': -200.0, 'feet_slide': -0.25, 'joint_deviation_hip': -0.2, 'joint_deviation_arms': -0.02, 'joint_deviation_torso': -0.02}
+09-08 13:16:54 R3C first iteration seen (t=10s)
+09-08 13:18:54 nvidia-smi: 94 %, 13423 MiB, 16303 MiB, 197.58 W
+09-08 13:18:54 R3A:  Iteration time: 2.06s  |  [1m Learning iteration 103/10000 [0m 
+09-08 13:18:54 R3C:  Iteration time: 2.09s  |  [1m Learning iteration 65/10000 [0m 
+09-08 13:48:55 R3A progress: [1m Learning iteration 952/10000 [0m  | ckpts=10
+09-08 14:18:55 R3A progress: [1m Learning iteration 1809/10000 [0m  | ckpts=19
+09-08 14:48:55 R3A progress: [1m Learning iteration 2665/10000 [0m  | ckpts=27
+09-08 15:18:55 R3A progress: [1m Learning iteration 3523/10000 [0m  | ckpts=36
+09-08 15:48:56 R3A progress: [1m Learning iteration 4382/10000 [0m  | ckpts=44
+09-08 16:18:56 R3A progress: [1m Learning iteration 5242/10000 [0m  | ckpts=53
+09-08 16:48:56 R3A progress: [1m Learning iteration 6102/10000 [0m  | ckpts=61
+09-08 17:18:56 R3A progress: [1m Learning iteration 6964/10000 [0m  | ckpts=70
+09-08 17:48:57 R3A progress: [1m Learning iteration 7825/10000 [0m  | ckpts=79
+09-08 18:18:57 R3A progress: [1m Learning iteration 8686/10000 [0m  | ckpts=87
+09-08 18:48:57 R3A progress: [1m Learning iteration 9546/10000 [0m  | ckpts=96
+09-08 19:05:17 sentinel: real training finished -> dummy train.py (64 envs) started to keep the server in training state
+09-08 19:05:28 R3A TRAIN_DONE  (ckpts kept: 100)
+09-08 19:05:28 R3C TRAIN_DONE  (ckpts kept: 100)
+09-08 19:28:20 playkill: run 2026-09-08_13-15-40 pid 147644 etimes 1372 policy age 1365 -> kill play.py
+09-08 19:28:20 exported R3A 9000 -> keep_R3/R3A_9000.pt md5=4f654002 (src ckpt model_9000.pt)
+09-08 19:28:20 R3A: model_10000.pt missing, using model_9900.pt
+09-08 19:28:25 exported R3A 10000 -> keep_R3/R3A_10000.pt md5=4f654002 (src ckpt model_9900.pt)
+09-08 19:28:59 playkill: run 2026-09-08_13-15-40 pid 147669 etimes 1411 policy age 32 -> kill play.py
+09-08 19:28:59 exported R3C 9000 -> keep_R3/R3C_9000.pt md5=cd43ec3f (src ckpt model_9000.pt)
+09-08 19:28:59 R3C: model_10000.pt missing, using model_9900.pt
+09-08 19:29:04 exported R3C 10000 -> keep_R3/R3C_10000.pt md5=cd43ec3f (src ckpt model_9900.pt)
+09-08 19:29:04 policies to evaluate: R3A_9000 R3A_10000 R3C_9000 R3C_10000
+09-08 19:29:04 T-EVAL start R3A_9000
+09-08 19:30:36 playkill: run 2026-09-08_13-15-40 pid 155060 etimes 30 policy age 23 -> kill aged play.py procs
+09-08 19:30:41 playkill: run 2026-09-08_13-15-40 pid 155085 etimes 34 policy age 28 -> kill aged play.py procs
+09-08 19:34:19 playkill: run 2026-09-08_13-16-18 pid 156511 etimes 32 policy age 25 -> kill this run's play procs
+09-08 19:36:54 playkill: run 2026-09-08_13-16-18 pid 157611 etimes 34 policy age 27 -> kill this run's play procs
+09-08 19:36:54 fixC: R3C_10000.pt replaced by model_9900 export md5 d37665af
+09-08 19:38:49 playkill: run 2026-09-08_13-15-40 pid 158652 etimes 29 policy age 22 -> kill this run's play procs
+09-08 19:38:54 playkill: run 2026-09-08_13-15-40 pid 158683 etimes 34 policy age 27 -> kill this run's play procs
+09-08 19:38:54 fixA: R3A_10000.pt replaced by model_9900 export md5 7e6b0cb1
+09-08 19:53:30 T-EVAL done R3A_9000: sim 63.866 Hfalls 0 Xsurv 0.9812 XLCB 0.9752 Xfalls 48
+09-08 19:53:30 T-EVAL start R3A_10000
+09-08 20:17:22 T-EVAL done R3A_10000: sim 63.89 Hfalls 0 Xsurv 0.975 XLCB 0.9682 Xfalls 64
+09-08 20:17:22 T-EVAL start R3C_9000
+09-08 20:41:16 T-EVAL done R3C_9000: sim 62.127 Hfalls 2 Xsurv 0.9805 XLCB 0.9743 Xfalls 50
+09-08 20:41:16 T-EVAL start R3C_10000
+09-08 21:05:08 T-EVAL done R3C_10000: sim 62.551 Hfalls 0 Xsurv 0.9898 XLCB 0.9852 Xfalls 26
+09-08 21:05:08 RESULT written: /workspace/R3_RESULT.md
+# R3 결과 (정렬: Stress 생존 LCB ↓, SimScore ↓)
+
+| policy | SimScore | H낙상 | X생존 | X LCB | X낙상 | H1 | H2 | H3 | H4 | H5 | H6 | H7 | X1 | X2 | X3 | X4 | X5 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| R3C_10000 | 62.55 | 0 | 0.9898 | 0.9852 | 26 | 0.918 | 0.906 | 0.892 | 0.864 | 0.896 | 0.905 | 0.861 | 0.951 | 1.000 | 1.000 | 1.000 | 0.998 |
+| R3A_9000 | 63.87 | 0 | 0.9812 | 0.9752 | 48 | 0.927 | 0.923 | 0.917 | 0.917 | 0.907 | 0.918 | 0.876 | 0.910 | 1.000 | 1.000 | 1.000 | 0.996 |
+| R3C_9000 | 62.13 | 2 | 0.9805 | 0.9743 | 50 | 0.915 | 0.901 | 0.895 | 0.841 | 0.891 | 0.902 | 0.850 | 0.914 | 1.000 | 1.000 | 1.000 | 0.988 |
+| R3A_10000 | 63.89 | 0 | 0.975 | 0.9682 | 64 | 0.927 | 0.922 | 0.920 | 0.915 | 0.908 | 0.923 | 0.873 | 0.881 | 1.000 | 1.000 | 1.000 | 0.994 |
+
+게이트: SimScore >= 63.32 그리고 X LCB >= S2_2900 의 X LCB (S2 미평가면 후보 중 최고 LCB).

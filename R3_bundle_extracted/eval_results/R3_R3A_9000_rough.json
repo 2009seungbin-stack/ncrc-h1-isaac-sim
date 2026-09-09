@@ -1,0 +1,94 @@
+{
+  "run_id": "R3A_9000",
+  "checkpoint": "keep_R3/R3A_9000.pt",
+  "eval_seed_set": "EVAL_SET_A",
+  "scenarios": {
+    "H5": {
+      "w": 0.15,
+      "desc": "약한 요철",
+      "terrain": "rough",
+      "episodes": 512,
+      "survived": 512,
+      "survival": 1.0,
+      "survival_lcb": 0.9926,
+      "tracking": 0.9075,
+      "score": 0.9075,
+      "rmse": {
+        "vx": 0.0729,
+        "vy": 0.0525,
+        "yaw": 0.142
+      },
+      "rmse_used": 0.097,
+      "axis_mode": "all",
+      "axis_weights": {
+        "vx": 1.0,
+        "vy": 1.0,
+        "yaw": 1.0
+      },
+      "segment_cmds": [
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.3
+        ],
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          -0.3
+        ]
+      ],
+      "segment_tracking": [
+        0.9087,
+        0.9075,
+        0.9057,
+        0.9083
+      ],
+      "segment_falls": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "seg_s": 5.0,
+      "push_mag": null,
+      "push_period_s": null,
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0
+    }
+  },
+  "coverage_weight": 0.15,
+  "sim_score": 9.529,
+  "sim_score_pct": 90.75,
+  "official_offset": null,
+  "falls": 0,
+  "nan_actions": 0,
+  "crashes": 0,
+  "stress": null,
+  "config": {
+    "seg_s": 5.0,
+    "transient_s": 0.5,
+    "num_envs": 128,
+    "seeds": "103,280,512,991",
+    "rough_range": [
+      0.02,
+      0.06
+    ],
+    "slope_deg": 10.0,
+    "push_period_s": 2.5,
+    "push_mag": 1.0,
+    "obs_noise": true,
+    "tracking_def": "exp(-RMSE)",
+    "axis_mode": "all"
+  }
+}

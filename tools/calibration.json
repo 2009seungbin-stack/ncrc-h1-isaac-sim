@@ -1,0 +1,29 @@
+{
+  "records": [
+    {
+      "run_id": "H1_R1_model_4600",
+      "date": "2026-09-01",
+      "checkpoint": "model_4600.pt",
+      "note": "termination_penalty -5 -> -200 단일 변경. 공식 70.34점.",
+      "features": {
+        "step": 4600,
+        "base_contact": 0.18823,
+        "err_xy": 0.53001,
+        "err_yaw": 3.83144,
+        "terrain": 5.24955,
+        "mean_reward": -5.36449,
+        "ep_len": 884.77
+      },
+      "official_sim": 42.34,
+      "official_q": {
+        "H1": 0.667,
+        "H2": 0.598,
+        "H3": 0.661,
+        "H4": 0.5,
+        "H5": 0.562,
+        "H6": 0.612,
+        "H7": 0.62
+      }
+    }
+  ]
+}

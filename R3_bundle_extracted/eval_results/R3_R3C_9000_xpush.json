@@ -1,0 +1,108 @@
+{
+  "run_id": "R3C_9000",
+  "checkpoint": "keep_R3/R3C_9000.pt",
+  "eval_seed_set": "EVAL_SET_A",
+  "scenarios": {
+    "X5": {
+      "w": 0.0,
+      "desc": "STRESS 밀침 1.5 + 요철 (--rough_min 0.04 --rough_max 0.08 로 실행)",
+      "terrain": "rough",
+      "episodes": 512,
+      "survived": 506,
+      "survival": 0.9883,
+      "survival_lcb": 0.9747,
+      "tracking": 0.7788,
+      "score": 0.7697,
+      "rmse": {
+        "vx": 0.3016,
+        "vy": 0.2333,
+        "yaw": 0.2051
+      },
+      "rmse_used": 0.25,
+      "axis_mode": "all",
+      "axis_weights": {
+        "vx": 1.0,
+        "vy": 1.0,
+        "yaw": 1.0
+      },
+      "segment_cmds": [
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.0
+        ]
+      ],
+      "segment_tracking": [
+        0.7886,
+        0.7786,
+        0.7698,
+        0.7788
+      ],
+      "segment_falls": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "seg_s": 5.0,
+      "push_mag": 1.5,
+      "push_period_s": 2.5,
+      "falls": 6,
+      "nan_actions": 0,
+      "crashes": 0
+    }
+  },
+  "coverage_weight": 0.0,
+  "sim_score": 0.0,
+  "sim_score_pct": 0.0,
+  "official_offset": null,
+  "falls": 0,
+  "nan_actions": 0,
+  "crashes": 0,
+  "stress": {
+    "episodes": 512,
+    "survived": 506,
+    "falls": 6,
+    "survival": 0.9883,
+    "survival_lcb": 0.9747,
+    "per_scenario": {
+      "X5": {
+        "survival": 0.9883,
+        "survival_lcb": 0.9747,
+        "falls": 6,
+        "tracking": 0.7788
+      }
+    }
+  },
+  "config": {
+    "seg_s": 5.0,
+    "transient_s": 0.5,
+    "num_envs": 128,
+    "seeds": "103,280,512,991",
+    "rough_range": [
+      0.04,
+      0.08
+    ],
+    "slope_deg": 10.0,
+    "push_period_s": 2.5,
+    "push_mag": 1.0,
+    "obs_noise": true,
+    "tracking_def": "exp(-RMSE)",
+    "axis_mode": "all"
+  }
+}

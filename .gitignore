@@ -1,0 +1,16 @@
+# Large derived archives (contents are tracked in their extracted form)
+/R3_bundle.tgz
+/h1_current_training_bundle_20260901.zip
+/h1_upload_ready.zip
+
+# TensorBoard event files (regenerable training telemetry, ~68MB)
+*.tfevents
+events.out.tfevents.*
+
+# Multi-MB raw training logs
+/R3_bundle_extracted/workspace/r3logs/train_R3A.log
+/R3_bundle_extracted/workspace/r3logs/train_R3C.log
+
+# Python bytecode
+__pycache__/
+*.pyc

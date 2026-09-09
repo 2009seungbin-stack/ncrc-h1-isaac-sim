@@ -1,0 +1,2 @@
+echo LEN=$(wc -c < /tmp/x.b64) EXPECT=20880
+echo MD5=$(md5sum /tmp/x.b64 | cut -d' ' -f1) EXPECT=3a94cc63568a3f9c73650a38fc5c37cb

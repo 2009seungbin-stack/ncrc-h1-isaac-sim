@@ -1,0 +1,220 @@
+{
+  "run_id": "E1",
+  "checkpoint": "exported/policy.pt (model_8300, iter 8311)",
+  "eval_seed_set": "EVAL_SET_A",
+  "scenarios": {
+    "H1": {
+      "w": 0.15,
+      "survival": 1.0,
+      "survival_lcb": 0.9926,
+      "tracking": 0.8001,
+      "score": 0.8001,
+      "rmse": {
+        "vx": 0.0429,
+        "vy": 0.1064,
+        "yaw": 0.3689
+      },
+      "segment_tracking_legacy": [
+        0.8016,
+        0.8004,
+        0.7997,
+        0.7986
+      ],
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0,
+      "axis_mode": "all",
+      "axis_weights": {
+        "vx": 1.0,
+        "vy": 1.0,
+        "yaw": 1.0
+      }
+    },
+    "H2": {
+      "w": 0.2,
+      "survival": 1.0,
+      "survival_lcb": 0.9926,
+      "tracking": 0.6357,
+      "score": 0.6357,
+      "rmse": {
+        "vx": 0.0541,
+        "vy": 0.0612,
+        "yaw": 0.7804
+      },
+      "segment_tracking_legacy": [
+        0.9567,
+        0.9538,
+        0.9487,
+        0.9334
+      ],
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0,
+      "axis_mode": "all",
+      "axis_weights": {
+        "vx": 1.0,
+        "vy": 1.0,
+        "yaw": 1.0
+      }
+    },
+    "H3": {
+      "w": 0.1,
+      "survival": 1.0,
+      "survival_lcb": 0.9926,
+      "tracking": 0.789,
+      "score": 0.789,
+      "rmse": {
+        "vx": 0.0446,
+        "vy": 0.0753,
+        "yaw": 0.4011
+      },
+      "segment_tracking_legacy": [
+        0.93,
+        0.9319,
+        0.9253,
+        0.923
+      ],
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0,
+      "axis_mode": "all",
+      "axis_weights": {
+        "vx": 1.0,
+        "vy": 1.0,
+        "yaw": 1.0
+      }
+    },
+    "H4": {
+      "w": 0.1,
+      "survival": 1.0,
+      "survival_lcb": 0.9926,
+      "tracking": 0.5601,
+      "score": 0.5601,
+      "rmse": {
+        "vx": 0.0446,
+        "vy": 0.0849,
+        "yaw": 0.9995
+      },
+      "segment_tracking_legacy": [
+        0.4287,
+        0.6698,
+        0.4454,
+        0.504
+      ],
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0,
+      "axis_mode": "all",
+      "axis_weights": {
+        "vx": 1.0,
+        "vy": 1.0,
+        "yaw": 1.0
+      }
+    },
+    "H5": {
+      "w": 0.15,
+      "survival": 1.0,
+      "survival_lcb": 0.9926,
+      "tracking": 0.6357,
+      "score": 0.6357,
+      "rmse": {
+        "vx": 0.0613,
+        "vy": 0.0626,
+        "yaw": 0.7798
+      },
+      "segment_tracking_legacy": [
+        0.5896,
+        0.4968,
+        0.588,
+        0.6595
+      ],
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0,
+      "axis_mode": "all",
+      "axis_weights": {
+        "vx": 1.0,
+        "vy": 1.0,
+        "yaw": 1.0
+      }
+    },
+    "H6": {
+      "w": 0.15,
+      "survival": 1.0,
+      "survival_lcb": 0.9926,
+      "tracking": 0.6624,
+      "score": 0.6624,
+      "rmse": {
+        "vx": 0.054,
+        "vy": 0.0593,
+        "yaw": 0.7088
+      },
+      "segment_tracking_legacy": [
+        0.9474,
+        0.9501,
+        0.9527,
+        0.9405
+      ],
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0,
+      "axis_mode": "all",
+      "axis_weights": {
+        "vx": 1.0,
+        "vy": 1.0,
+        "yaw": 1.0
+      }
+    },
+    "H7": {
+      "w": 0.15,
+      "survival": 1.0,
+      "survival_lcb": 0.9926,
+      "tracking": 0.6053,
+      "score": 0.6053,
+      "rmse": {
+        "vx": 0.1262,
+        "vy": 0.1262,
+        "yaw": 0.851
+      },
+      "segment_tracking_legacy": [
+        0.8807,
+        0.8855,
+        0.8805,
+        0.8791
+      ],
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0,
+      "axis_mode": "all",
+      "axis_weights": {
+        "vx": 1.0,
+        "vy": 1.0,
+        "yaw": 1.0
+      }
+    }
+  },
+  "coverage_weight": 1.0,
+  "sim_score": 46.73,
+  "sim_score_pct": 66.76,
+  "official_offset": null,
+  "falls": 0,
+  "nan_actions": 0,
+  "crashes": 0,
+  "config": {
+    "seg_s": 5.0,
+    "transient_s": 0.5,
+    "num_envs": 128,
+    "seeds": "103,280,512,991",
+    "rough_range": [
+      0.02,
+      0.06
+    ],
+    "slope_deg": 10.0,
+    "push_period_s": 2.5,
+    "push_mag": 1.0,
+    "obs_noise": true,
+    "tracking_def": "exp(-RMSE)",
+    "axis_mode": "all",
+    "recomputed": true
+  }
+}
