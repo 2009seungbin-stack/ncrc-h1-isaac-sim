@@ -37,6 +37,14 @@ import os
 import struct
 import sys
 
+# 표가 한글·기호를 쓴다. 윈도우 콘솔 기본 코덱(cp949)에서 죽지 않게 UTF-8로 돌린다.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 LEDGER = os.path.join(HERE, "calibration.json")
 

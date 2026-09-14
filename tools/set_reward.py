@@ -19,6 +19,14 @@ import re
 import shutil
 import sys
 
+# 표가 한글·기호를 쓴다. 윈도우 콘솔 기본 코덱(cp949)에서 죽지 않게 UTF-8로 돌린다.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
+
 # 파일 주석의 추천 범위 + NVIDIA 원본값 + 우리 검증값.
 # (항목명, 추천 하한, 추천 상한, NVIDIA 원본, NCRC baseline)
 KNOWN = {
