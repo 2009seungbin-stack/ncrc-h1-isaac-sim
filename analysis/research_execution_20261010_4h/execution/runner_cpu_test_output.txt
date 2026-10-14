@@ -1,0 +1,50 @@
+test_actual_final_parent_candidate_and_budget_match (__main__.RunnerContracts) ... ok
+test_actual_postcleanup_final_path_absent_preserved_is_valid (__main__.RunnerContracts) ... ok
+test_all_deadlines_anchored_to_allocation (__main__.RunnerContracts) ... ok
+test_backward_wall_clock_cannot_extend_deadline (__main__.RunnerContracts) ... ok
+test_checkpoint_nonfinite_and_hash_change_refused (__main__.RunnerContracts) ... ok
+test_complete_iterations_missing1499_distinct_no_best_substitution (__main__.RunnerContracts) ... ok
+test_corrupt1000_selection_does_not_become_timeout_fallback (__main__.RunnerContracts) ... ok
+RETRIEVE {"path": "C:\\Users\\2009s\\AppData\\Local\\Temp\\tmpoe4u337z\\run_critical.tar.gz", "bytes": 634, "sha256": "60fe930d85eaa55b2d6af49cbeed76dd79bbed3fdb2579a807e396a111028c46", "kind": "critical_partial", "created_epoch": 101, "contains_complete_validation": false, "local_retrieval_verified": false}
+test_critical_archive_preserves_exact_selected_hash (__main__.RunnerContracts) ... ok
+test_current_streaming_error_ack_is_fatal (__main__.RunnerContracts) ... ok
+test_deadline_reader_stops_long_archive (__main__.RunnerContracts) ... ok
+test_disabled_screen_never_calls_evaluator_or_controller (__main__.RunnerContracts) ... ok
+test_effective_config_weights_env_seed_length_resume (__main__.RunnerContracts) ... ok
+test_evaluation_audit_snapshot_is_immutable_and_not_periodic_file (__main__.RunnerContracts) ... ok
+test_expired_setup_rejected (__main__.RunnerContracts) ... ok
+test_four_hour_training_admission_margin (__main__.RunnerContracts) ... ok
+test_frozen_candidate_exact_dictionary_only (__main__.RunnerContracts) ... ok
+test_full_compute_admission_stricter_than30minute_start_backstop (__main__.RunnerContracts) ... ok
+test_initialization_failure_is_not_suppressed_or_rolled_back (__main__.RunnerContracts) ... ok
+test_late_training_cannot_begin_even_if_estimate_fits (__main__.RunnerContracts) ... ok
+test_missing1000_falls_back_to_exact1499_without_optimality (__main__.RunnerContracts) ... ok
+test_mutation_outside_dictionary_refused (__main__.RunnerContracts) ... ok
+test_new_deadlines_protect25minute_dashboard_margin (__main__.RunnerContracts) ... ok
+test_owned_group_all_old_members_gone_cannot_signal_new_group (__main__.RunnerContracts) ... ok
+test_owned_group_parent_exit_keeps_current_descendant_identity (__main__.RunnerContracts) ... ok
+test_owned_group_reused_leader_pid_refused (__main__.RunnerContracts) ... ok
+test_owned_group_session_mismatch_refused_before_signal (__main__.RunnerContracts) ... ok
+test_partial_iterations_distinct_from_checkpoint_missing (__main__.RunnerContracts) ... ok
+test_placeholder_candidate_refuses_execution_constructor (__main__.RunnerContracts) ... ok
+test_profile_rejects_duplicate_skipped_or_resumed_headers (__main__.RunnerContracts) ... ok
+test_profile_uses_logged_iteration_without_resume (__main__.RunnerContracts) ... ok
+test_provided_and_fresh_runtime_hash_guard (__main__.RunnerContracts) ... ok
+test_release_ack_preserves_final_compute_stage_for_archive (__main__.RunnerContracts) ... ok
+test_screen_timeout_stops_without_repeat_and_keeps_latest_train_begin (__main__.RunnerContracts) ... ok
+test_selection_fall_precedes_quality_and_bad_mask_rejected (__main__.RunnerContracts) ... ok
+test_selection_tie_prefers_later_checkpoint (__main__.RunnerContracts) ... ok
+test_setup_target_is_not_extended_compute (__main__.RunnerContracts) ... ok
+test_shell_leader_exit_does_not_skip_group_stop (__main__.RunnerContracts) ... ok
+test_signal_stops_without_training_restart (__main__.RunnerContracts) ... ok
+test_stop_requires_current_identity_before_every_signal (__main__.RunnerContracts) ... ok
+test_terminal_complete_published_only_after_cleanup_release_ack (__main__.RunnerContracts) ... ok
+test_terminal_error_published_only_after_cleanup_release_ack (__main__.RunnerContracts) ... ok
+test_unicode_ast_offsets_are_bytes (__main__.RunnerContracts) ... ok
+test_unknown_reward_edit_is_never_overwritten (__main__.RunnerContracts) ... ok
+test_wrong_preserved_iteration_is_fatal_not_timeout_fallback (__main__.RunnerContracts) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 2.807s
+
+OK

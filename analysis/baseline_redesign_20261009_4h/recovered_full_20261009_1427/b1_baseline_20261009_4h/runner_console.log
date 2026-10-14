@@ -1,0 +1,24 @@
+[3gH    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H   [INFO] Using python from: /workspace/IsaacLab/_isaac_sim/python.sh
+{"stage": "PREPARED", "epoch": 1791547911.4232473}
+{"stage": "RUNNING_train_B1", "epoch": 1791547911.4689283}
+{"stage": "RUNNING_train_B1", "epoch": 1791547941.5363898}
+{"stage": "RUNNING_train_B1", "epoch": 1791548467.640161}
+{"stage": "RUNNING_train_B1", "epoch": 1791548964.023516}
+{"stage": "RUNNING_train_B1", "epoch": 1791549445.615309}
+{"stage": "RUNNING_train_B1", "epoch": 1791549927.549922}
+{"stage": "RUNNING_train_B1", "epoch": 1791550409.821685}
+{"stage": "RUNNING_train_B1", "epoch": 1791550877.3797941}
+{"stage": "RUNNING_train_B1", "epoch": 1791551345.2047162}
+{"stage": "RUNNING_train_B1", "epoch": 1791551813.3811584}
+{"stage": "RUNNING_train_B1", "epoch": 1791552281.816563}
+{"stage": "RUNNING_train_B1", "epoch": 1791552765.662889}
+{"stage": "RUNNING_train_B1", "epoch": 1791553234.7100852}
+{"stage": "RUNNING_train_B1", "epoch": 1791553704.0846817}
+{"stage": "RUNNING_train_B1", "epoch": 1791554173.7638702}
+{"stage": "RUNNING_train_B1", "epoch": 1791554643.7431557}
+{"stage": "RUNNING_train_B1", "epoch": 1791555098.8299217}
+{"stage": "RUNNING_train_B1", "epoch": 1791555100.8403}
+{"stage": "RUNNING_train_B1", "epoch": 1791555101.0249047}
+{"stage": "STOPPED_PARTIAL_RETRIEVE_AND_STOP_ALLOCATION", "epoch": 1791555101.040054}
+{"stage": "STOPPED_PARTIAL_RETRIEVE_AND_STOP_ALLOCATION", "epoch": 1791555101.0776012}
+RETRIEVE {"path": "/workspace/student_workspace/b1_baseline_20261009_4h_critical.tar.gz", "bytes": 6403369, "sha256": "7c32a8354b100af92af429d83da256b3124d890ea188d60b371c785587fd2a41", "kind": "critical_partial", "created_epoch": 1791555101.2340164, "contains_complete_validation": false, "local_retrieval_verified": false}

@@ -1,0 +1,426 @@
+{
+  "date": "2026-10-01",
+  "status": "UNTRAINED_CANDIDATES_AND_CONDITIONAL_PLAN",
+  "server_started": false,
+  "official_total": 176.14,
+  "leader_gap_at_read": 0.25,
+  "remaining_server_hours_at_board_read": 51.416666666666664,
+  "rules": "Only provided REWARD_WEIGHTS values; supported CLI options require wrapper verification.",
+  "sources": {
+    "competition_rules": "https://robotics.connect.or.kr/rules/preliminary_regulations.html",
+    "reward_functions": "https://github.com/isaac-sim/IsaacLab/blob/v2.3.2/source/isaaclab_tasks/isaaclab_tasks/manager_based/locomotion/velocity/mdp/rewards.py",
+    "resume_cli": "https://github.com/isaac-sim/IsaacLab/blob/v2.3.2/scripts/reinforcement_learning/rsl_rl/cli_args.py",
+    "runner_reference_not_verified_server_version": "https://github.com/leggedrobotics/rsl_rl/blob/v5.0.0/rsl_rl/runners/on_policy_runner.py",
+    "off_policy_research_outside_current_rules": "https://arxiv.org/abs/2512.01996"
+  },
+  "input_sha256": {
+    "R3_bundle_extracted\\eval_results\\R3_R3A_9000.json": "602131ecc691cb1b0fd91c0afef5f0046fdcdea7fcef3995c50201ad50b784b3",
+    "longrun_C0\\C0_5500_ALL.json": "c74924f108b8c1fe1f7ea988d7fe4423ab54f77d461dafd3d85c0138986c9af1",
+    "longrun_D1\\cfg\\quadruped_rewards.py": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7",
+    "tools\\r3\\humanoid_rewards_R3A.py": "0260596a386d55e4cf098303386766123e3a16196dc95a38ea27bc7b03964d29",
+    "submit_C0\\env.yaml": "39c301a37ed9b45cf040c61f6be3f713f24a468b843ac2961b6fc8bbb3fcf8fe",
+    "submit_R3\\env.yaml": "a68d9ee84881f43a7ce3b36f65c634b32f3360c5394b2b2054515c1c577c9235"
+  },
+  "checkpoints": {
+    "Go2_C0": {
+      "path": "longrun_C0/model_5500.pt",
+      "sha256": "8d553e697ed4c2856ab002431af96d626eb8b0d23e56b7c754d652193026b1d3",
+      "iter": 5500,
+      "top_level_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "tensor_count": 68,
+      "nonfinite_tensors": [],
+      "std_parameters": {
+        "/actor_state_dict/distribution.std_param": {
+          "dimensions": 12,
+          "min": 0.5896813273429871,
+          "max": 1.4908729791641235,
+          "mean": 0.9978134036064148
+        }
+      },
+      "limitation": "Finite checkpoint does not establish safe future PPO updates."
+    },
+    "H1_R3A": {
+      "path": "R3_bundle_extracted/keep_R3/R3A_9000_model.pt",
+      "sha256": "c861e9ec94efbab1d5c01d0cd5c457827242b66580f8de7fd0509466c3e6f539",
+      "iter": 9000,
+      "top_level_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "tensor_count": 68,
+      "nonfinite_tensors": [],
+      "std_parameters": {
+        "/actor_state_dict/distribution.std_param": {
+          "dimensions": 19,
+          "min": 0.054192714393138885,
+          "max": 1.9094027280807495,
+          "mean": 1.0453808307647705
+        }
+      },
+      "limitation": "Finite checkpoint does not establish safe future PPO updates."
+    }
+  },
+  "robots": {
+    "H1_R2": {
+      "weighted_axis_mse": {
+        "vx": 0.005070666999999999,
+        "vy": 0.0050423615,
+        "yaw": 0.016194367499999997
+      },
+      "axis_fraction_of_local_mse3": {
+        "vx": 0.1927468229846846,
+        "vy": 0.19167087080758585,
+        "yaw": 0.6155823062077296
+      },
+      "counterfactual_sim_score_delta": {
+        "yaw_rmse_minus_20pct": {
+          "floor": 0.304114081388974,
+          "ratio_0.905": 0.6757850265223979
+        },
+        "yaw_rmse_minus_50pct": {
+          "floor": 0.6458206822004726,
+          "ratio_0.905": 1.5736757626330231
+        },
+        "xy_rmse_minus_50pct": {
+          "floor": 0.38147959822677535,
+          "ratio_0.905": 0.7620413489627893
+        },
+        "all3_rmse_minus_50pct": {
+          "floor": 1.055412875127729,
+          "ratio_0.905": 2.7094286589490295
+        }
+      }
+    },
+    "Go2_R4": {
+      "weighted_axis_mse": {
+        "vx": 0.0036952695,
+        "vy": 0.005445693000000001,
+        "yaw": 0.0137964145
+      },
+      "axis_fraction_of_local_mse3": {
+        "vx": 0.16110253147079545,
+        "vy": 0.2374156818366808,
+        "yaw": 0.6014817866925237
+      },
+      "counterfactual_sim_score_delta": {
+        "yaw_rmse_minus_20pct": {
+          "floor": 0.2627711808991009,
+          "ratio_0.905": 0.5966878008422682
+        },
+        "yaw_rmse_minus_50pct": {
+          "floor": 0.5567177940917603,
+          "ratio_0.905": 1.3661858494259036
+        },
+        "xy_rmse_minus_50pct": {
+          "floor": 0.36038916057390225,
+          "ratio_0.905": 0.8028599489041213
+        },
+        "all3_rmse_minus_50pct": {
+          "floor": 0.9404560558266866,
+          "ratio_0.905": 2.570339839550833
+        }
+      }
+    }
+  },
+  "candidates": [
+    {
+      "id": "Go2_CONTROL",
+      "robot": "Go2",
+      "path": "analysis\\training_efficiency_20261001\\Go2_CONTROL_rewards.py",
+      "changes_from_current": {},
+      "weights": {
+        "track_lin_vel_xy_exp": 2.0,
+        "feet_air_time": 0.01,
+        "lin_vel_z_l2": -3.0,
+        "ang_vel_xy_l2": -0.08,
+        "action_rate_l2": -0.01,
+        "track_ang_vel_z_exp": 0.75
+      },
+      "sha256": "4570c277b0aa58fa64d8aa8886232bfe92b4d46bc8d07f3b42377c9420deb9ff"
+    },
+    {
+      "id": "H1_CONTROL",
+      "robot": "H1",
+      "path": "analysis\\training_efficiency_20261001\\H1_CONTROL_rewards.py",
+      "changes_from_current": {},
+      "weights": {
+        "track_lin_vel_xy_exp": 1.0,
+        "track_ang_vel_z_exp": 2.0,
+        "feet_air_time": 0.2,
+        "termination_penalty": -200.0,
+        "flat_orientation_l2": -1.5,
+        "ang_vel_xy_l2": -0.05,
+        "joint_deviation_hip": -0.2,
+        "joint_deviation_torso": -0.1,
+        "action_rate_l2": -0.005
+      },
+      "sha256": "0260596a386d55e4cf098303386766123e3a16196dc95a38ea27bc7b03964d29"
+    },
+    {
+      "id": "GY10",
+      "robot": "Go2",
+      "path": "analysis\\training_efficiency_20261001\\GY10_rewards.py",
+      "changes_from_current": {
+        "track_ang_vel_z_exp": {
+          "from": 0.75,
+          "to": 1.0
+        }
+      },
+      "priority": 1,
+      "hypothesis_not_result": "Increase underweighted yaw tracking.",
+      "weights": {
+        "track_lin_vel_xy_exp": 2.0,
+        "feet_air_time": 0.01,
+        "lin_vel_z_l2": -3.0,
+        "ang_vel_xy_l2": -0.08,
+        "action_rate_l2": -0.01,
+        "track_ang_vel_z_exp": 1.0
+      },
+      "sha256": "1427f4a768498c51072dc820dfc46c83daba867b7d46e1caa18af7e377d8e311"
+    },
+    {
+      "id": "GY15",
+      "robot": "Go2",
+      "path": "analysis\\training_efficiency_20261001\\GY15_rewards.py",
+      "changes_from_current": {
+        "track_ang_vel_z_exp": {
+          "from": 0.75,
+          "to": 1.5
+        }
+      },
+      "priority": 1,
+      "hypothesis_not_result": "Restore original yaw to linear reward ratio with linear=2.",
+      "weights": {
+        "track_lin_vel_xy_exp": 2.0,
+        "feet_air_time": 0.01,
+        "lin_vel_z_l2": -3.0,
+        "ang_vel_xy_l2": -0.08,
+        "action_rate_l2": -0.01,
+        "track_ang_vel_z_exp": 1.5
+      },
+      "sha256": "0a9b91a9d21e4d8a422520bcc814f4735546a13b5afa9f88fecccc94353fd5a9"
+    },
+    {
+      "id": "HY30",
+      "robot": "H1",
+      "path": "analysis\\training_efficiency_20261001\\HY30_rewards.py",
+      "changes_from_current": {
+        "track_ang_vel_z_exp": {
+          "from": 2.0,
+          "to": 3.0
+        }
+      },
+      "priority": 2,
+      "hypothesis_not_result": "Exploratory yaw gain; exceeds suggested range, not the editable-value rule.",
+      "weights": {
+        "track_lin_vel_xy_exp": 1.0,
+        "track_ang_vel_z_exp": 3.0,
+        "feet_air_time": 0.2,
+        "termination_penalty": -200.0,
+        "flat_orientation_l2": -1.5,
+        "ang_vel_xy_l2": -0.05,
+        "joint_deviation_hip": -0.2,
+        "joint_deviation_torso": -0.1,
+        "action_rate_l2": -0.005
+      },
+      "sha256": "2889b67864bff4c6c10e0d85c7f74a6b3b0afe72d67ed7813fa8242161ab4813"
+    },
+    {
+      "id": "HO10",
+      "robot": "H1",
+      "path": "analysis\\training_efficiency_20261001\\HO10_rewards.py",
+      "changes_from_current": {
+        "flat_orientation_l2": {
+          "from": -1.5,
+          "to": -1.0
+        }
+      },
+      "priority": 2,
+      "hypothesis_not_result": "Test more posture freedom on rough terrain and slopes.",
+      "weights": {
+        "track_lin_vel_xy_exp": 1.0,
+        "track_ang_vel_z_exp": 2.0,
+        "feet_air_time": 0.2,
+        "termination_penalty": -200.0,
+        "flat_orientation_l2": -1.0,
+        "ang_vel_xy_l2": -0.05,
+        "joint_deviation_hip": -0.2,
+        "joint_deviation_torso": -0.1,
+        "action_rate_l2": -0.005
+      },
+      "sha256": "ccfb9a527ad7f74d7ebcd44f264a110986d34b33f27217782f05e62fbb939456"
+    },
+    {
+      "id": "GF00",
+      "robot": "Go2",
+      "path": "analysis\\training_efficiency_20261001\\GF00_rewards.py",
+      "changes_from_current": {
+        "feet_air_time": {
+          "from": 0.01,
+          "to": 0.0
+        }
+      },
+      "priority": 3,
+      "hypothesis_not_result": "Test whether signed airtime shaping at threshold .5 hinders gait.",
+      "weights": {
+        "track_lin_vel_xy_exp": 2.0,
+        "feet_air_time": 0.0,
+        "lin_vel_z_l2": -3.0,
+        "ang_vel_xy_l2": -0.08,
+        "action_rate_l2": -0.01,
+        "track_ang_vel_z_exp": 0.75
+      },
+      "sha256": "f9dbcbf68334ee452ca8761410ae049f142cfbfa11450438e73ea16e852320de"
+    },
+    {
+      "id": "GF03",
+      "robot": "Go2",
+      "path": "analysis\\training_efficiency_20261001\\GF03_rewards.py",
+      "changes_from_current": {
+        "feet_air_time": {
+          "from": 0.01,
+          "to": 0.03
+        }
+      },
+      "priority": 3,
+      "hypothesis_not_result": "Small gait-shaping increase; not a direct foot-height target.",
+      "weights": {
+        "track_lin_vel_xy_exp": 2.0,
+        "feet_air_time": 0.03,
+        "lin_vel_z_l2": -3.0,
+        "ang_vel_xy_l2": -0.08,
+        "action_rate_l2": -0.01,
+        "track_ang_vel_z_exp": 0.75
+      },
+      "sha256": "c5bcc1ecc78b100c32f08c8017f5b3e7c5ac1573358c116e191a672f644f6d53"
+    },
+    {
+      "id": "HX15",
+      "robot": "H1",
+      "path": "analysis\\training_efficiency_20261001\\HX15_rewards.py",
+      "changes_from_current": {
+        "track_lin_vel_xy_exp": {
+          "from": 1.0,
+          "to": 1.5
+        }
+      },
+      "priority": 3,
+      "hypothesis_not_result": "Test linear tracking if yaw variants plateau.",
+      "weights": {
+        "track_lin_vel_xy_exp": 1.5,
+        "track_ang_vel_z_exp": 2.0,
+        "feet_air_time": 0.2,
+        "termination_penalty": -200.0,
+        "flat_orientation_l2": -1.5,
+        "ang_vel_xy_l2": -0.05,
+        "joint_deviation_hip": -0.2,
+        "joint_deviation_torso": -0.1,
+        "action_rate_l2": -0.005
+      },
+      "sha256": "7cc7c9ddcee3817b85ab7f888a43972b6cb3d97047ae9e4e27099e1594080ba3"
+    },
+    {
+      "id": "HA15",
+      "robot": "H1",
+      "path": "analysis\\training_efficiency_20261001\\HA15_rewards.py",
+      "changes_from_current": {
+        "feet_air_time": {
+          "from": 0.2,
+          "to": 0.15
+        }
+      },
+      "priority": 3,
+      "hypothesis_not_result": "Reduce biped gait constraint if terrain/video evidence warrants it.",
+      "weights": {
+        "track_lin_vel_xy_exp": 1.0,
+        "track_ang_vel_z_exp": 2.0,
+        "feet_air_time": 0.15,
+        "termination_penalty": -200.0,
+        "flat_orientation_l2": -1.5,
+        "ang_vel_xy_l2": -0.05,
+        "joint_deviation_hip": -0.2,
+        "joint_deviation_torso": -0.1,
+        "action_rate_l2": -0.005
+      },
+      "sha256": "88bf719eea9c2822fe7ff2bd36cec39df2d90626683ad9ffa9697736adb457c4"
+    }
+  ],
+  "proxy_c": 0.02684614570005177,
+  "proxy_warning": "Two policies only. Counterfactuals assume unchanged survival and all other axes; they are not measured gains or confidence intervals.",
+  "performance": {
+    "source": "longrun_D1\\logs\\events.out.tfevents.1789946121.da-perfect13.11143.0",
+    "sha256": "ff2cc81901ac6df01a90e8f5a7ac9196dcaf5ebbb75adad2e2351df1f7381190",
+    "steps": ">=500",
+    "robot": "Go2_D1",
+    "num_envs": 6144,
+    "steps_per_env": 24,
+    "Perf/total_fps": {
+      "count": 2000,
+      "median": 31308.0,
+      "mean": 31175.826
+    },
+    "Perf/collection_time": {
+      "count": 2000,
+      "median": 4.596089124679565,
+      "mean": 4.618414072751999
+    },
+    "Perf/learning_time": {
+      "count": 2000,
+      "median": 0.11340796947479248,
+      "mean": 0.11335109782218933
+    },
+    "collection_fraction_of_reported_iteration_time": 0.9760446485114911,
+    "maximum_speedup_removing_all_reported_learning_time": 1.0245432947407087,
+    "transitions_per_iteration": 147456
+  },
+  "cost_model": {
+    "seconds_per_iteration_planning_estimate_go2": 4.8,
+    "hours_by_additional_iterations": {
+      "100": 0.13333333333333333,
+      "300": 0.4,
+      "500": 0.6666666666666666,
+      "800": 1.0666666666666667,
+      "1200": 1.6,
+      "2000": 2.6666666666666665,
+      "2500": 3.3333333333333335,
+      "5500": 7.333333333333333
+    },
+    "four_scratch_2500_hours": 13.333333333333334,
+    "control_plus_four_resume_800_hours": 5.333333333333333,
+    "conditional_training_cost_ratio": 2.5,
+    "scope": "Training only; unequal learning histories, startup/evaluation/curriculum recovery excluded. Validate resume quality before using this saving."
+  },
+  "execution_plan": [
+    "Read competition train wrapper, imported CLI module and README. Do not call train.py --help: local runbook records checkpoint cleanup on this path.",
+    "Verify provided --resume/--checkpoint semantics. Upstream max_iterations means additional iterations; competition wrapper remains unverified.",
+    "Run same-reward 50-100 iteration resume pilot first. C0 failed at 5528; finite model5500 is not proof it will survive another 28 updates.",
+    "If C0 pilot fails, train one fresh C0 trunk for 2000-2500 iterations and preserve its full checkpoint; old C0 model2000 is not locally available.",
+    "Branch CONTROL, GY10 and GY15 independently from identical parent and reset curriculum. Use 300 preview then 800-1200 total additional updates; do not discard terrain variants before curriculum recovers.",
+    "Verify saved env.yaml actual reward weights and tensor health. Keep full checkpoints outside wrapper cleanup every available save interval; do not edit checkpoint tensors.",
+    "Compare all seven scenarios at same env count and seeds. Screen 128 env x1 seed; finalists 128 env x4 seeds. Confirm training stochasticity with an independent parent/seed where wrapper supports it.",
+    "Rank by survival, paired axis RMSE and both 3/6-axis diagnostics plus frozen score proxies, never raw training reward across changed weights. New falls or serious rough/stair/push regressions block promotion pending expanded evaluation.",
+    "Extend only consistent winners by 1500-2000 updates or retrain one winner from scratch if curriculum reset is harmful. Render videos for finalists; keep contact/slip/gait evidence for airtime changes.",
+    "If provided num_envs CLI allows it, benchmark 2048/4096/6144 one job at a time; match transition budget and measure eval improvement per wall hour. Prior sweep records 8192 contact-patch overflow and 12288 overflow; the previous above-6144 suggestion is withdrawn for this configuration.",
+    "Initial campaign soft budget 8-12 hours, reserve at least 20 hours for later rounds/validation. Stop/rescope after failed pilot or absent paired improvement."
+  ],
+  "excluded_from_current_execution": [
+    "Algorithm, architecture, learning rate, entropy, normalization or std parameterization edits.",
+    "Training push/randomization/physics/terrain changes; local guide says push is play-only.",
+    "Large airtime jump .01->.25 without gait evidence; airtime function rewards duration, not height.",
+    "Repeating D1 angular penalty -0.08->-0.16: existing equal-budget comparison failed all predeclared gates.",
+    "FastSAC/FastTD3 and symmetry augmentation: useful research directions outside current competition edit scope.",
+    "Go2 num_envs 8192/12288 under unchanged current PhysX buffer settings: overflow recorded in earlier experiments, not an eligible default speedup candidate."
+  ],
+  "original_input_hashes_unchanged": true,
+  "controls_match_actual_submitted_reward_weights": true,
+  "candidate_nonreward_code_unchanged": true
+}

@@ -1,0 +1,34 @@
+{
+  "runner.py": {
+    "bytes": 26837,
+    "sha256": "0420ff7e3678ea5f1935c8db4723baf7a5203a9564dab009d7ca4945e179e2dd"
+  },
+  "source_snapshot.py": {
+    "bytes": 1898,
+    "sha256": "5e7092cda5e749ba701f5455e8afbfe6d6e74331fb4acc048e5351ee547a6fbf"
+  },
+  "batch_eval.py": {
+    "bytes": 9182,
+    "sha256": "d8325a93f95bf72b9587dd0829dcf4d9a0220e231abd4a2e928dbaef276f1ed7"
+  },
+  "t_eval.py": {
+    "bytes": 52863,
+    "sha256": "bd95f7e7df231454927c70b2bb2431b05cd504ad38c736f16f91dab3435651d9"
+  },
+  "t_eval_go2_core.py": {
+    "bytes": 7652,
+    "sha256": "baa43b161ec7a02d9ae1dfebfe593976f17d78916354d9029ba22b239f0cff6e"
+  },
+  "RUNNER_USAGE.txt": {
+    "bytes": 5499,
+    "sha256": "61fd11bbf173b79b0307f4d633c719f9720379414bfd68be8c2b01a25aedf353"
+  },
+  "protocol.txt": {
+    "bytes": 3987,
+    "sha256": "f2505ab5f6ba126901cb02b50bfd4cf54af45bcb3862b36b9b314db0d27a1251"
+  },
+  "previous_source_hashes_20261002.json": {
+    "bytes": 353,
+    "sha256": "8161c241c64ef110650d3aebd1806886361b8dc146b9b1151fca6d952c4ec8f2"
+  }
+}

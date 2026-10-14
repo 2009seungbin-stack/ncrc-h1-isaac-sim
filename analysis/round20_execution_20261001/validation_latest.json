@@ -1,0 +1,60 @@
+{
+  "audit": "validation_progress",
+  "suites": {
+    "F00_model_3000_A": {
+      "floor": 57.519588113490244,
+      "ratio": 57.11203743437046,
+      "raw": 63.10722368438724,
+      "weighted_survival": 0.995305
+    },
+    "F10_model_3000_A": {
+      "floor": 58.41930693025822,
+      "ratio": 58.752940474467366,
+      "raw": 64.92037621488107,
+      "weighted_survival": 1
+    },
+    "original_A": {
+      "floor": 58.128491365917505,
+      "ratio": 58.07913924860655,
+      "raw": 64.1758444735984,
+      "weighted_survival": 0.9998
+    },
+    "F00_model_3999_A": {
+      "floor": 57.67007349408297,
+      "ratio": 57.208512298915906,
+      "raw": 63.21382574465846,
+      "weighted_survival": 0.9994149999999999
+    }
+  },
+  "complete": {
+    "eval/F00_model_3000_A/rough.json": "d8b99cf94fedcfd51bad5e553fbebc02b56018bd8f6ddb4e5e670a31947b7ab9",
+    "eval/F00_model_3000_A/flat.json": "120fe80ded7d49445b55b8eba48efc25157f2d6451104203c4ea4eb97f1e7209",
+    "eval/F00_model_3000_A/merged.json": "0b783925dc2e4a287d16640f46b0254557dfcbe971c858588e144db4a721c4fb",
+    "eval/F00_model_3000_A/dr.json": "e39a03b33cc61fe93f87a368bfbf919530270e2018f25284a5be7cdf49d6953c",
+    "eval/F00_model_3000_A/stairs.json": "6be248ec2e70bf3996b8ba8b901f1300e0b5aacd82a74b0cf7081e468b63ba0b",
+    "eval/F00_model_3000_A/slope.json": "d0b112af6065c74ce94ba882da4a810eb866c1fafeacb1f90fbcd98ccbeebf99",
+    "eval/F10_model_3999_A/rough.json": "8dafeece2800fb8883a9626674d27a6487470dd719f45761a600a0a4dabdbc57",
+    "eval/F10_model_3999_A/flat.json": "0020b4b18767a41f1c4b576a5f9981e0d10213d9300b641dddede0e939cb0fdf",
+    "eval/F10_model_3999_A/stairs.json": "a399a1023e0d1d809cc9b3d69e2c5536bdf64d2756dfdd4d9ebd7fdc3658e212",
+    "eval/F10_model_3999_A/slope.json": "1d6a80b02a6a0fdd2800447226489f372a8293f81b6b807f6e1fb5ccff53e517",
+    "eval/F10_model_3000_A/rough.json": "543023fae3b9287a2b950856feb74104c307823bfd4c691614bb5a3df22f1aaf",
+    "eval/F10_model_3000_A/flat.json": "79753dac355aa7600cc37c07be45a58a437f7dd7430244e1672464c803467d50",
+    "eval/F10_model_3000_A/merged.json": "953c625c81cb2e5eed9e05695c9d497e8d7c43f90c56f8510bab2330df734e3c",
+    "eval/F10_model_3000_A/dr.json": "e03f595d28f8cd518cbabf15ce662c1a13f0086aa0c5d705c89866742dc90812",
+    "eval/F10_model_3000_A/stairs.json": "a1de08342458a890e0b0e6a7d8f7bd50affa39c7b4cfcac93ad94f694a44d1af",
+    "eval/F10_model_3000_A/slope.json": "448fa68987fcdf7452349b61a44865e078948484bd49636598957f0cf50c9b4f",
+    "eval/original_A/rough.json": "b818637fd33503c1971884cb9542f3595d2edd5a93a5924e54bd046d78c97d52",
+    "eval/original_A/flat.json": "105e8ee492186e14305c6eaa7cb4af6275ca3c3e50fa9fc6bbca7dbde9a9a84f",
+    "eval/original_A/merged.json": "51ea0e6625b0232806aa5d222d608e5a9a867bae2e25aae79a150eea9e90710e",
+    "eval/original_A/dr.json": "fc4a16b165a70742480265335faaa0810c0ee19fc9133663b42b47b6227a489a",
+    "eval/original_A/stairs.json": "eb8ad087329f24ab96574e2efee032281fe35460318998b2992b63b0e7e2fd47",
+    "eval/original_A/slope.json": "948e5c2e4f92a397cfa03146ff014f8d1b684510d2c6045c0b18a8201e99fa0e",
+    "eval/F00_model_3999_A/rough.json": "7bdd68e241a839612b4016bf60503a3f0a58cd5456dce6cacd80414e437bd244",
+    "eval/F00_model_3999_A/flat.json": "2ff6908215ad5b35eae91cfadf18b362496cfcad8af54f6459863246b9cdea6e",
+    "eval/F00_model_3999_A/merged.json": "6d6855a74c09e89e3ec24632907fb951ebe8c978a66ceb6917c56ee5a4981de8",
+    "eval/F00_model_3999_A/dr.json": "390ea86e86cdd4573ca0ad0cfac7584267af5f139daa77df95191eb3ada2f3a3",
+    "eval/F00_model_3999_A/stairs.json": "e0c3aa46a6a074a4540419981b6f355ca09d0bfe0d20e2ccf64273eae212da84",
+    "eval/F00_model_3999_A/slope.json": "c6250cfc97ab7ec59e63464bbc35aef9b7f9802dba898cdbbfbb4326a64b27a2"
+  },
+  "selection": null
+}

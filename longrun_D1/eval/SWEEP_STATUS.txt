@@ -1,0 +1,48 @@
+09-21 08:15:00 === sweep preflight ===
+09-21 08:15:00 --- train.py 가 받는 인자 (소스에서 읽음, 실행 안 함) ---
+09-21 08:15:00 !! train.py 에 --resume 이 안 보인다. 위 목록을 보고 RESUME_ARGS 로 직접 넘겨라.
+09-21 08:15:00    예: RESUME_ARGS='--resume --load_run TRUNK --checkpoint model_1500.pt'
+baseline OK: [('action_rate_l2', -0.01), ('ang_vel_xy_l2', -0.08), ('feet_air_time', 0.01), ('lin_vel_z_l2', -3.0), ('track_lin_vel_xy_exp', 1.0)]
+weights: [('action_rate_l2', -0.01), ('ang_vel_xy_l2', -0.16), ('feet_air_time', 0.01), ('lin_vel_z_l2', -3.0), ('track_lin_vel_xy_exp', 2.0)]
+09-21 08:15:00 팔 검증 통과: [D1]
+09-21 08:15:00 guard 시작 (45초마다 ckpt_keep/ 로 복사)
+09-21 08:15:00 SCRATCH 모드 — 트렁크·resume 없이 설정마다 처음부터 학습
+09-21 08:15:00 === ARM D1 : track_lin_vel_xy_exp=2.0 ang_vel_xy_l2=-0.16 | resume SKIP + 2500 iter ===
+weights: [('action_rate_l2', -0.01), ('ang_vel_xy_l2', -0.16), ('feet_air_time', 0.01), ('lin_vel_z_l2', -3.0), ('track_lin_vel_xy_exp', 2.0)]
+09-21 08:15:30   첫 iteration (t=30s) — 보상 파일을 읽었다
+09-21 08:25:30   [1m Learning iteration 118/2500 [0m 
+09-21 08:35:31   [1m Learning iteration 233/2500 [0m 
+09-21 08:45:31   [1m Learning iteration 351/2500 [0m 
+09-21 08:55:31   [1m Learning iteration 468/2500 [0m 
+09-21 09:05:31   [1m Learning iteration 585/2500 [0m 
+09-21 09:15:31   [1m Learning iteration 708/2500 [0m 
+09-21 09:25:31   [1m Learning iteration 833/2500 [0m 
+09-21 09:35:32   [1m Learning iteration 960/2500 [0m 
+09-21 09:45:32   [1m Learning iteration 1087/2500 [0m 
+09-21 09:55:32   [1m Learning iteration 1214/2500 [0m 
+09-21 10:05:32   [1m Learning iteration 1341/2500 [0m 
+09-21 10:15:32   [1m Learning iteration 1468/2500 [0m 
+09-21 10:25:32   [1m Learning iteration 1595/2500 [0m 
+09-21 10:35:32   [1m Learning iteration 1722/2500 [0m 
+09-21 10:45:33   [1m Learning iteration 1850/2500 [0m 
+09-21 10:55:33   [1m Learning iteration 1978/2500 [0m 
+09-21 11:05:33   [1m Learning iteration 2106/2500 [0m 
+09-21 11:15:33   [1m Learning iteration 2234/2500 [0m 
+09-21 11:25:33   [1m Learning iteration 2363/2500 [0m 
+09-21 11:35:33   [1m Learning iteration 2492/2500 [0m 
+09-21 11:36:53   TRAIN_DONE
+09-21 11:37:44   D1 run=2026-09-21_08-15-06 ckpt=ckpt_keep/2026-09-21_08-15-06/model_2499.pt
+09-21 11:37:44   render D1/G1
+09-21 11:39:38   render D1/G5
+09-21 11:40:41 === sweep done. /workspace/films.tgz 13568516 bytes ===
+09-21 11:40:41 브라우저에서 remote-resource fetch 로 films.tgz 하나만 받으면 된다
+total 17012
+drwxr-xr-x 2 root root    4096 Sep 21 11:40 .
+drwxr-xr-x 1 root root    4096 Sep 21 11:40 ..
+-rw-r--r-- 1 root root    1649 Sep 21 11:39 D1_G1.json
+-rw-r--r-- 1 root root 6683287 Sep 21 11:39 D1_G1.mp4
+-rw-r--r-- 1 root root    1625 Sep 21 11:40 D1_G5.json
+-rw-r--r-- 1 root root 6629962 Sep 21 11:40 D1_G5.mp4
+-rw-r--r-- 1 root root   15077 Sep 21 11:39 render_D1_G1.log
+-rw-r--r-- 1 root root   15042 Sep 21 11:40 render_D1_G5.log
+-rw-r--r-- 1 root root 4043537 Sep 21 11:36 train_D1.log

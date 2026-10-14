@@ -1,0 +1,27 @@
+test_controller_hold_without_recovery_is_not_success (__main__.LauncherContracts) ... ok
+test_current_argv_and_parent_proof_are_mandatory (__main__.LauncherContracts) ... ok
+test_exact_fresh_runner_then_one_helper_with_proven_identity (__main__.LauncherContracts) ... ok
+test_exited_runner_cannot_receive_controller (__main__.LauncherContracts) ... ok
+test_expired_setup_refuses_child (__main__.LauncherContracts) ... ok
+test_helper_early_loss_stops_runner_promptly (__main__.LauncherContracts) ... ok
+test_helper_launch_failure_cleans_only_runner_and_no_retry (__main__.LauncherContracts) ... ok
+test_helper_normal_exit_after_terminal_does_not_stop_archiving_runner (__main__.LauncherContracts) ... ok
+test_helper_wait_cannot_extend_compute_recovery_bound (__main__.LauncherContracts) ... ok
+test_missing_helper_source_refuses_any_child (__main__.LauncherContracts) ... ok
+test_missing_state_timeout_is_bounded (__main__.LauncherContracts) ... ok
+test_no_authorization_or_wrong_allocation_refuses_before_claim (__main__.LauncherContracts) ... ok
+test_one_shot_claim_prohibits_second_attempt (__main__.LauncherContracts) ... ok
+test_prior_state_or_helper_claim_prohibits_launch (__main__.LauncherContracts) ... ok
+test_runner_grace_does_not_escalate_during55s_child_cleanup (__main__.LauncherContracts) ... ok
+test_state_start_ticks_mismatch_refuses_helper (__main__.LauncherContracts) ... ok
+test_training_prior_controller_ack_refuses_helper (__main__.LauncherContracts) ... ok
+test_wrapper_cleanup_cannot_wait_past_OFFminus60 (__main__.LauncherContracts) ... ok
+test_wrapper_every_escalation_refreshes_current_identity (__main__.LauncherContracts) ... ok
+test_wrapper_interrupt_cleans_runner_and_checks_helper_recovery (__main__.LauncherContracts) ... ok
+test_wrapper_refuses_changed_current_runner_argv_before_signal (__main__.LauncherContracts) ... ok
+test_wrapper_signal_requests_normal_cleanup (__main__.LauncherContracts) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.132s
+
+OK

@@ -1,0 +1,27 @@
+Codex browser diagnostic — 2026-10-08
+
+Scope: read-only inspection of desktop diagnostic logs and browser-related configuration keys. No portal request, browser permission store, authentication file, application source, or browser profile was inspected. No setting was changed.
+
+Reproduced by the parent agent:
+- Chrome extension browser and tab discovery succeed.
+- Opening robotics.connect.or.kr fails before navigation: saved browser permissions could not be verified; Browser Use could not request permission.
+
+Local evidence:
+- Log directory: C:\Users\2009s\AppData\Local\Codex\Logs\2026\10\08
+- Current desktop log reports release 26.1002.52244. Its CUA MCP startup reaches ready, and the in-app browser backend startup reaches ready.
+- The log contains 28 warnings with "No ChatGPT browser route is available for browser session". Nineteen warnings are associated with this Go2 conversation, from 2026-10-08 10:22:23.140 UTC through 10:30:44.926 UTC (19:22:23 through 19:30:44 KST).
+- Those nineteen records are specifically [browser-use-iab-api] IAB_LIFECYCLE "iab backend info request failed" warnings. They concern an in-app browser information request. They do not establish the cause of the Chrome saved-permission verification failure.
+- The exact saved-permission failure text is absent from the desktop logs searched. No evidence establishes corrupted permission storage or an extension installation failure.
+- Browser-related configuration exposes chrome,iab,mcpapps as available backends. This is not proof that permission verification works.
+
+Conclusion:
+The supported tool currently cannot verify site permission. A concurrent app session-routing problem is confirmed, but its causal relation to the Chrome error remains unproven. Reinstalling again, changing to full access, deleting permission data, or modifying internal configuration is not justified by this evidence.
+
+Minimal safe next steps (not executed):
+1. Fully close and reopen Codex, open this conversation in the main app window, and verify the Chrome connection through the normal Computer Use settings. Then retry one normal browser action. This is a diagnostic attempt, not a confirmed fix; omit repeated restarts if already attempted without a change.
+2. If unchanged, use the app's normal feedback/support flow and include the exact tool error, build, and sanitized log summary above. Do not attach raw authentication or browser-profile files. The failure needs app-side permission/session routing diagnosis.
+
+Official documentation checked:
+https://learn.chatgpt.com/docs/browser?surface=app
+https://learn.chatgpt.com/docs/config-file/config-reference
+The documentation establishes browser origin permission controls; it does not provide an exact repair for this error.

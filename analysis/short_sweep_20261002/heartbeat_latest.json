@@ -1,0 +1,100 @@
+{
+  "checked_utc": "2026-10-02T16:59:25.221066+00:00",
+  "job": "HELDOUT_COMPLETE",
+  "iteration": null,
+  "max_iterations": null,
+  "iteration_seconds": null,
+  "elapsed": null,
+  "eta": null,
+  "completed_arms": [
+    "control",
+    "action",
+    "acc",
+    "linear"
+  ],
+  "control_completed_utc": "2026-10-02T12:42:05.701677Z",
+  "control_duration_seconds": 3866.1143,
+  "control_checkpoint": "preserved/short_20261002_control/2026-10-02_20-37-44_short_20261002_control/model_799.pt",
+  "control_checkpoint_sha256": "bbe5192e24aad58db28d91bcb20f710226d9a4e5e096b866ea8654955a399c62",
+  "decision": "COMPLETE",
+  "note": "Full archive recovered and verified. User stopped server; dashboard start button confirmed. go2 automation PAUSED. Offline detailed analysis complete.",
+  "preserved_checkpoints_by_arm": {
+    "control": [
+      0,
+      100,
+      200,
+      300,
+      400,
+      500,
+      600,
+      700,
+      799
+    ],
+    "action": [
+      0,
+      100,
+      200,
+      300,
+      400,
+      500,
+      600,
+      700,
+      799
+    ],
+    "acc": [
+      0,
+      100,
+      200,
+      300,
+      400,
+      500,
+      600,
+      700,
+      799
+    ],
+    "linear": [
+      0,
+      100,
+      200,
+      300,
+      400,
+      500,
+      600,
+      700,
+      799
+    ]
+  },
+  "new_download_found": true,
+  "training_time_out_rate": null,
+  "training_base_contact_rate": null,
+  "action_completed_utc": "2026-10-02T13:46:31.696044Z",
+  "action_duration_seconds": 3865.988475084305,
+  "action_checkpoint": "preserved/short_20261002_action/2026-10-02_21-42-09_short_20261002_action/model_799.pt",
+  "action_checkpoint_sha256": "ada90e26dc549c448e92b3aee42ee00dba67f953f0605e148eb48e9a01fff797",
+  "acc_started_utc": "2026-10-02T13:46:31.702794Z",
+  "acc_completed_utc": "2026-10-02T14:50:41.47822Z",
+  "acc_duration_seconds": 3849.775305747986,
+  "acc_checkpoint": "preserved/short_20261002_acc/2026-10-02_22-46-35_short_20261002_acc/model_799.pt",
+  "acc_checkpoint_sha256": "256af12f1ff93f5998670966dbb64cbdcc1a5a00ff2fe11b2be7fc8bb7b631fb",
+  "linear_started_utc": "2026-10-02T14:50:41.482591Z",
+  "linear_completed_utc": "2026-10-02T15:54:37.2319Z",
+  "linear_duration_seconds": 3835.7491896152496,
+  "linear_checkpoint": "preserved/short_20261002_linear/2026-10-02_23-50-45_short_20261002_linear/model_799.pt",
+  "linear_checkpoint_sha256": "c421a9d39bd3555d80c63c6e3b59cd61a3286ed44add2a402b5b8447d5e6bdd4",
+  "completed_heldout_groups": [
+    "flat",
+    "rough",
+    "slope",
+    "stairs",
+    "dr"
+  ],
+  "completed_heldout_scenarios": [
+    "G1",
+    "G2",
+    "G3",
+    "G4",
+    "G5",
+    "G6",
+    "G7"
+  ]
+}

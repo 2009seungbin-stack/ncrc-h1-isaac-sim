@@ -1,0 +1,18 @@
+2026-10-08
+User approved cause separation: control/torque/posture, scratch2000 each, env6144, seed42; 10h server budget inclusive.
+Portal navigation initially blocked: saved browser permissions could not be verified. Server not started.
+User reports recurrence since Codex reinstall, later requested retry.
+After retry request, stale browser3 unavailable. Fresh inventory showed reconnected Chrome extension browser4 with normal tab list.
+Selected that reconnected Chrome, named session, retried supported createBrowserTab to exact portal /board.
+Same permission verification error before portal page access. No server created, no training launched, no safety-control workaround attempted.
+Copied batch_eval.py, t_eval.py and t_eval_go2_core.py unchanged from verified recovered20261003 archive.
+Stored previous_source_hashes_20261002.json as historical reference only; it is not a current server preflight.
+Local bounded-runner preparation and CPU-only verification continue independently of browser blocker.
+Read-only app-log diagnostic saved to browser_diagnostic.txt. This Go2 conversation has 19 IAB routing warnings; their causal relationship to Chrome permission verification is unproven.
+Parent review found initial per-training cap below historical measured duration and evaluation reservation too conservative for 3 runs. Fixed to train cap12000, train admission estimate9636 each, common evaluation reservation1800, with absolute compute deadline and45min recovery/shutdown reserve dominant.
+Verified actual recovered control env.yaml parses to the expected10 reward weights. All3 reward patches compiled against actual recovered original. All new Python sources compile without writing bytecode.
+Built allow-listed input tarball (runner, read-only source snapshot helper, unchanged3 evaluators, protocol, usage, historical hash reference, package manifest); archive members/hash validated. Browser diagnostic, local logs, execution state and credentials are excluded.
+No portal upload, server allocation or training occurred.
+Final local CPU verification:18 tests PASS, including preservation after source removal and archive member manifest/sidecar SHA consistency. Real Linux GPU execution/process-group termination unverified. Package ready; browser permission remains blocked; no remote compute started.
+
+2026-10-08T15:06:02.0598427Z - Browser recovery confirmed through supported CUA read of authenticated NCRC /board. Installed Codex remains26.1002.7124.0; downgrade and backup did not occur. No rollback task remains. Portal server is stopped; no server allocation or training launched this verification turn. Cause of recovery unproven.

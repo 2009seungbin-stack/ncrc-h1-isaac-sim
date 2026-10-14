@@ -1,0 +1,36 @@
+{
+  "source": "b1_baseline_20261009_4h_results.tar.gz",
+  "bytes": 115670853,
+  "parts": [
+    {
+      "name": "b1_results.part000",
+      "bytes": 20971520,
+      "sha256": "0b39b74c222efd782d497c19bca7123ca3d06dd4c10c53d1c071b30ddc8cb23b"
+    },
+    {
+      "name": "b1_results.part001",
+      "bytes": 20971520,
+      "sha256": "c662b06a451e4fcefd58184ded5a3c8c678459127b9fa2aaca5ee38c8b7d9b8c"
+    },
+    {
+      "name": "b1_results.part002",
+      "bytes": 20971520,
+      "sha256": "8f6e0ff705f157d4b15d2ac09033fda3982b4b4cfd2555d3dc7f0b96da0518ab"
+    },
+    {
+      "name": "b1_results.part003",
+      "bytes": 20971520,
+      "sha256": "7561769a428dfa7211d662d7c383051ce9880e550997f9b368d79bb532fb3331"
+    },
+    {
+      "name": "b1_results.part004",
+      "bytes": 20971520,
+      "sha256": "67bc0661fe1dfbaaa3bbce356732ed7d83f79e38e6a6bee0fda82081a6fbd4cf"
+    },
+    {
+      "name": "b1_results.part005",
+      "bytes": 10813253,
+      "sha256": "21789210c56e5a3e7252e759f43858386bd8f7caef583dc6c3357f78255d62b0"
+    }
+  ]
+}

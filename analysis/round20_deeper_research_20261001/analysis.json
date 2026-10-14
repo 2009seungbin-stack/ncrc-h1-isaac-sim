@@ -1,0 +1,539 @@
+{
+  "date": "2026-10-01",
+  "status": "OFFLINE_RESEARCH_NO_TRAINING_OR_SUBMISSION",
+  "checkpoint_audit": {
+    "R3A_9000": {
+      "checkpoint": "R3_bundle_extracted/keep_R3/R3A_9000_model.pt",
+      "checkpoint_sha256": "c861e9ec94efbab1d5c01d0cd5c457827242b66580f8de7fd0509466c3e6f539",
+      "jit": "R3_bundle_extracted/keep_R3/R3A_9000.pt",
+      "jit_sha256": "f4aa44b054aae9336168b226bb27adcb44686027f7b523e4340d03a33a4639d2",
+      "actual_iteration": 9000,
+      "optimizer_learning_rates": [
+        0.00017085937500000009
+      ],
+      "initial_config_lr": 0.001,
+      "initial_over_saved_lr": [
+        5.852766346593504
+      ],
+      "actor_jit_max_difference": 0.0,
+      "probe_is_mathematical_parity_not_simulator_quality": true
+    },
+    "R3A_10000": {
+      "checkpoint": "R3_bundle_extracted/keep_R3/R3A_10000_model.pt",
+      "checkpoint_sha256": "0288fc9738f9d976fa708259b2a27f1b1b7cec1587a2616b708807aa9c6b9474",
+      "jit": "R3_bundle_extracted/keep_R3/R3A_10000.pt",
+      "jit_sha256": "0737109767172761d8f1f85d941c4077a63aaa5d5cb19d3c5f64b932f458bc29",
+      "actual_iteration": 9900,
+      "optimizer_learning_rates": [
+        7.593750000000004e-05
+      ],
+      "initial_config_lr": 0.001,
+      "initial_over_saved_lr": [
+        13.168724279835384
+      ],
+      "actor_jit_max_difference": 0.0,
+      "probe_is_mathematical_parity_not_simulator_quality": true
+    },
+    "R3C_9000": {
+      "checkpoint": "R3_bundle_extracted/keep_R3/R3C_9000_model.pt",
+      "checkpoint_sha256": "7aca328c96ef5300af1a82d2969d1c9db8ac58d29adef42a3b508275faa6ab1d",
+      "jit": "R3_bundle_extracted/keep_R3/R3C_9000.pt",
+      "jit_sha256": "7bc8966739511cc70172d89a9a3a49d066b1d44cc856a944017b1b0ad32d6b30",
+      "actual_iteration": 9000,
+      "optimizer_learning_rates": [
+        1e-05
+      ],
+      "initial_config_lr": 0.001,
+      "initial_over_saved_lr": [
+        100.0
+      ],
+      "actor_jit_max_difference": 0.0,
+      "probe_is_mathematical_parity_not_simulator_quality": true
+    },
+    "R3C_10000": {
+      "checkpoint": "R3_bundle_extracted/keep_R3/R3C_10000_model.pt",
+      "checkpoint_sha256": "d4a15c8aaf35da5d1fe3fe7f3bdd4ee8cbb7a0a7b00e999cc5c5cd751e06638c",
+      "jit": "R3_bundle_extracted/keep_R3/R3C_10000.pt",
+      "jit_sha256": "feb803e2097230368236a9ac14ea055512867519b53f16152cc72a0000c072a6",
+      "actual_iteration": 9900,
+      "optimizer_learning_rates": [
+        1e-05
+      ],
+      "initial_config_lr": 0.001,
+      "initial_over_saved_lr": [
+        100.0
+      ],
+      "actor_jit_max_difference": 0.0,
+      "probe_is_mathematical_parity_not_simulator_quality": true
+    },
+    "Go2_C0_5500": {
+      "checkpoint": "longrun_C0/model_5500.pt",
+      "checkpoint_sha256": "8d553e697ed4c2856ab002431af96d626eb8b0d23e56b7c754d652193026b1d3",
+      "jit": "longrun_C0/C0_5500_policy.pt",
+      "jit_sha256": "1a11b661301564afee85f82f5866ae34e5e7b374c8bcec31a23a67996e92fbdd",
+      "actual_iteration": 5500,
+      "optimizer_learning_rates": [
+        7.593750000000002e-05
+      ],
+      "initial_config_lr": 0.001,
+      "initial_over_saved_lr": [
+        13.168724279835388
+      ],
+      "actor_jit_max_difference": 0.0,
+      "probe_is_mathematical_parity_not_simulator_quality": true
+    }
+  },
+  "event_log_audit": {
+    "Go2_D1": {
+      "path": "longrun_D1/logs/events.out.tfevents.1789946121.da-perfect13.11143.0",
+      "sha256": "ff2cc81901ac6df01a90e8f5a7ac9196dcaf5ebbb75adad2e2351df1f7381190",
+      "median_windows_100_iterations": {
+        "100": {
+          "Curriculum/terrain_levels": 2.1210668087005615,
+          "Metrics/base_velocity/error_vel_xy": 1.4843770861625671,
+          "Metrics/base_velocity/error_vel_yaw": 0.9760201871395111,
+          "Episode_Termination/base_contact": 0.275685653090477,
+          "Loss/value": 0.02357033733278513,
+          "Loss/learning_rate": 0.0006666666595265269,
+          "Policy/mean_std": 0.6333174109458923
+        },
+        "300": {
+          "Curriculum/terrain_levels": 0.3423767387866974,
+          "Metrics/base_velocity/error_vel_xy": 1.5299118757247925,
+          "Metrics/base_velocity/error_vel_yaw": 0.5164647102355957,
+          "Episode_Termination/base_contact": 0.1103074885904789,
+          "Loss/value": 0.031002648174762726,
+          "Loss/learning_rate": 0.0004444444493856281,
+          "Policy/mean_std": 0.5664004683494568
+        },
+        "600": {
+          "Curriculum/terrain_levels": 0.7402445673942566,
+          "Metrics/base_velocity/error_vel_xy": 1.3309749364852905,
+          "Metrics/base_velocity/error_vel_yaw": 0.46741774678230286,
+          "Episode_Termination/base_contact": 0.0723741389811039,
+          "Loss/value": 0.03600026108324528,
+          "Loss/learning_rate": 0.0004444444493856281,
+          "Policy/mean_std": 0.5582132041454315
+        },
+        "1000": {
+          "Curriculum/terrain_levels": 4.1742424964904785,
+          "Metrics/base_velocity/error_vel_xy": 0.7078140079975128,
+          "Metrics/base_velocity/error_vel_yaw": 0.5012077391147614,
+          "Episode_Termination/base_contact": 0.1255120262503624,
+          "Loss/value": 0.07731451466679573,
+          "Loss/learning_rate": 0.0002562890585977584,
+          "Policy/mean_std": 0.5626720786094666
+        },
+        "1500": {
+          "Curriculum/terrain_levels": 4.8935041427612305,
+          "Metrics/base_velocity/error_vel_xy": 0.6143541932106018,
+          "Metrics/base_velocity/error_vel_yaw": 0.5240506827831268,
+          "Episode_Termination/base_contact": 0.1860385611653328,
+          "Loss/value": 0.38377171754837036,
+          "Loss/learning_rate": 0.00017085937724914402,
+          "Policy/mean_std": 0.7294053733348846
+        },
+        "2000": {
+          "Curriculum/terrain_levels": 5.1175336837768555,
+          "Metrics/base_velocity/error_vel_xy": 0.5842263400554657,
+          "Metrics/base_velocity/error_vel_yaw": 0.5344074368476868,
+          "Episode_Termination/base_contact": 0.2651164084672928,
+          "Loss/value": 0.623939573764801,
+          "Loss/learning_rate": 0.00011390625149942935,
+          "Policy/mean_std": 0.8485815823078156
+        },
+        "2500": {
+          "Curriculum/terrain_levels": 5.332448482513428,
+          "Metrics/base_velocity/error_vel_xy": 0.5482235252857208,
+          "Metrics/base_velocity/error_vel_yaw": 0.5305022895336151,
+          "Episode_Termination/base_contact": 0.2404344528913498,
+          "Loss/value": 1.2157045006752014,
+          "Loss/learning_rate": 0.00011390625149942935,
+          "Policy/mean_std": 0.9040679931640625
+        }
+      },
+      "wall_seconds_per_iteration": 4.737062200419363,
+      "wall_measurement_range": [
+        500,
+        2499
+      ],
+      "wall_index_tag": "Perf/total_fps",
+      "train_termination_metric_is_not_official_survival": true,
+      "scratch_curve_is_not_resume_recovery_evidence": true
+    },
+    "H1_R3A": {
+      "path": "R3_bundle_extracted/logs/rsl_rl/humanoid/2026-09-08_13-15-40/events.out.tfevents.1788840956.da-perfect28.16598.0",
+      "sha256": "d8926147a7aeed2317e38fe4e5e98faed537b504a3d005fb119956ff80553dfa",
+      "median_windows_100_iterations": {
+        "100": {
+          "Curriculum/terrain_levels": 0.01805623434484005,
+          "Metrics/base_velocity/error_vel_xy": 0.26700282096862793,
+          "Metrics/base_velocity/error_vel_yaw": 0.7665308713912964,
+          "Episode_Termination/base_contact": 1.0,
+          "Loss/value": 0.03396129421889782,
+          "Loss/learning_rate": 0.0010000000474974513,
+          "Policy/mean_std": 0.9606490135192871
+        },
+        "300": {
+          "Curriculum/terrain_levels": 1.0904033184051514,
+          "Metrics/base_velocity/error_vel_xy": 0.6009494066238403,
+          "Metrics/base_velocity/error_vel_yaw": 2.2478554248809814,
+          "Episode_Termination/base_contact": 0.2333780974149704,
+          "Loss/value": 0.035031670704483986,
+          "Loss/learning_rate": 0.0004444444493856281,
+          "Policy/mean_std": 1.0507763028144836
+        },
+        "600": {
+          "Curriculum/terrain_levels": 4.6233649253845215,
+          "Metrics/base_velocity/error_vel_xy": 0.49361543357372284,
+          "Metrics/base_velocity/error_vel_yaw": 1.3098766803741455,
+          "Episode_Termination/base_contact": 0.2670389860868454,
+          "Loss/value": 0.045467013493180275,
+          "Loss/learning_rate": 0.0002962962898891419,
+          "Policy/mean_std": 1.1709420084953308
+        },
+        "1000": {
+          "Curriculum/terrain_levels": 5.364171504974365,
+          "Metrics/base_velocity/error_vel_xy": 0.4569859653711319,
+          "Metrics/base_velocity/error_vel_yaw": 0.9954147040843964,
+          "Episode_Termination/base_contact": 0.2644246518611908,
+          "Loss/value": 0.0465898122638464,
+          "Loss/learning_rate": 0.0002962962898891419,
+          "Policy/mean_std": 1.1899755597114563
+        },
+        "1500": {
+          "Curriculum/terrain_levels": 5.6514997482299805,
+          "Metrics/base_velocity/error_vel_xy": 0.4439023435115814,
+          "Metrics/base_velocity/error_vel_yaw": 0.9212578535079956,
+          "Episode_Termination/base_contact": 0.2647603452205658,
+          "Loss/value": 0.04576847329735756,
+          "Loss/learning_rate": 0.00019753086962737143,
+          "Policy/mean_std": 1.1928309798240662
+        },
+        "2000": {
+          "Curriculum/terrain_levels": 5.807609558105469,
+          "Metrics/base_velocity/error_vel_xy": 0.42524178326129913,
+          "Metrics/base_velocity/error_vel_yaw": 0.8593525290489197,
+          "Episode_Termination/base_contact": 0.2569987177848816,
+          "Loss/value": 0.04616075940430164,
+          "Loss/learning_rate": 0.00019753086962737143,
+          "Policy/mean_std": 1.1697975397109985
+        },
+        "2500": {
+          "Curriculum/terrain_levels": 5.8584442138671875,
+          "Metrics/base_velocity/error_vel_xy": 0.4210279583930969,
+          "Metrics/base_velocity/error_vel_yaw": 0.8264468014240265,
+          "Episode_Termination/base_contact": 0.2382761687040329,
+          "Loss/value": 0.04425591789186001,
+          "Loss/learning_rate": 0.00019753086962737143,
+          "Policy/mean_std": 1.1599383354187012
+        },
+        "4000": {
+          "Curriculum/terrain_levels": 5.898770809173584,
+          "Metrics/base_velocity/error_vel_xy": 0.4210375249385834,
+          "Metrics/base_velocity/error_vel_yaw": 0.7884497940540314,
+          "Episode_Termination/base_contact": 0.19464111328125,
+          "Loss/value": 0.0412833821028471,
+          "Loss/learning_rate": 0.00019753086962737143,
+          "Policy/mean_std": 1.1171869039535522
+        },
+        "9000": {
+          "Curriculum/terrain_levels": 5.909177303314209,
+          "Metrics/base_velocity/error_vel_xy": 0.37944261729717255,
+          "Metrics/base_velocity/error_vel_yaw": 0.6675663888454437,
+          "Episode_Termination/base_contact": 0.1501566618680954,
+          "Loss/value": 0.036244532093405724,
+          "Loss/learning_rate": 0.00017085937724914402,
+          "Policy/mean_std": 1.0423668026924133
+        },
+        "9900": {
+          "Curriculum/terrain_levels": 5.864400386810303,
+          "Metrics/base_velocity/error_vel_xy": 0.38261349499225616,
+          "Metrics/base_velocity/error_vel_yaw": 0.657052218914032,
+          "Episode_Termination/base_contact": 0.13933055102825165,
+          "Loss/value": 0.034653522074222565,
+          "Loss/learning_rate": 0.00017085937724914402,
+          "Policy/mean_std": 1.030120074748993
+        }
+      },
+      "wall_seconds_per_iteration": 2.095419422879145,
+      "wall_measurement_range": [
+        500,
+        9999
+      ],
+      "wall_index_tag": "Perf/total_fps",
+      "train_termination_metric_is_not_official_survival": true,
+      "scratch_curve_is_not_resume_recovery_evidence": true
+    },
+    "H1_R3C": {
+      "path": "R3_bundle_extracted/logs/rsl_rl/humanoid/2026-09-08_13-16-18/events.out.tfevents.1788840996.da-perfect28.17131.0",
+      "sha256": "9d6a80cb61311ee2d79c2375a470eb04fe987d4261a02f853a962326decb8568",
+      "median_windows_100_iterations": {
+        "100": {
+          "Curriculum/terrain_levels": 0.02007039450109005,
+          "Metrics/base_velocity/error_vel_xy": 0.2540971040725708,
+          "Metrics/base_velocity/error_vel_yaw": 0.7122047245502472,
+          "Episode_Termination/base_contact": 1.0,
+          "Loss/value": 0.03905770182609558,
+          "Loss/learning_rate": 0.0010000000474974513,
+          "Policy/mean_std": 0.9776312112808228
+        },
+        "300": {
+          "Curriculum/terrain_levels": 1.3287048935890198,
+          "Metrics/base_velocity/error_vel_xy": 0.5749647319316864,
+          "Metrics/base_velocity/error_vel_yaw": 2.4733792543411255,
+          "Episode_Termination/base_contact": 0.2448781356215477,
+          "Loss/value": 0.03702324070036411,
+          "Loss/learning_rate": 0.0004444444493856281,
+          "Policy/mean_std": 1.147306203842163
+        },
+        "600": {
+          "Curriculum/terrain_levels": 4.999873161315918,
+          "Metrics/base_velocity/error_vel_xy": 0.4908478409051895,
+          "Metrics/base_velocity/error_vel_yaw": 1.388116478919983,
+          "Episode_Termination/base_contact": 0.2664947658777237,
+          "Loss/value": 0.047524794936180115,
+          "Loss/learning_rate": 0.0002962962898891419,
+          "Policy/mean_std": 1.3093711137771606
+        },
+        "1000": {
+          "Curriculum/terrain_levels": 5.513888120651245,
+          "Metrics/base_velocity/error_vel_xy": 0.46140992641448975,
+          "Metrics/base_velocity/error_vel_yaw": 1.0571687817573547,
+          "Episode_Termination/base_contact": 0.27696990966796875,
+          "Loss/value": 0.05243919417262077,
+          "Loss/learning_rate": 0.00019753086962737143,
+          "Policy/mean_std": 1.37212336063385
+        },
+        "1500": {
+          "Curriculum/terrain_levels": 5.756319761276245,
+          "Metrics/base_velocity/error_vel_xy": 0.44205738604068756,
+          "Metrics/base_velocity/error_vel_yaw": 0.8637494742870331,
+          "Episode_Termination/base_contact": 0.2630971372127533,
+          "Loss/value": 0.05509128421545029,
+          "Loss/learning_rate": 0.0001316872367169708,
+          "Policy/mean_std": 1.3893017768859863
+        },
+        "2000": {
+          "Curriculum/terrain_levels": 5.883194208145142,
+          "Metrics/base_velocity/error_vel_xy": 0.4367083013057709,
+          "Metrics/base_velocity/error_vel_yaw": 0.8072046339511871,
+          "Episode_Termination/base_contact": 0.2563171535730362,
+          "Loss/value": 0.05467751622200012,
+          "Loss/learning_rate": 0.0001316872367169708,
+          "Policy/mean_std": 1.3964987397193909
+        },
+        "2500": {
+          "Curriculum/terrain_levels": 5.8648681640625,
+          "Metrics/base_velocity/error_vel_xy": 0.42178305983543396,
+          "Metrics/base_velocity/error_vel_yaw": 0.7625289559364319,
+          "Episode_Termination/base_contact": 0.24533335864543915,
+          "Loss/value": 0.05348833650350571,
+          "Loss/learning_rate": 8.77914935699664e-05,
+          "Policy/mean_std": 1.392957091331482
+        },
+        "4000": {
+          "Curriculum/terrain_levels": 5.881434440612793,
+          "Metrics/base_velocity/error_vel_xy": 0.4289289563894272,
+          "Metrics/base_velocity/error_vel_yaw": 0.6967180669307709,
+          "Episode_Termination/base_contact": 0.20558421313762665,
+          "Loss/value": 0.04880411922931671,
+          "Loss/learning_rate": 7.593750342493877e-05,
+          "Policy/mean_std": 1.3571454882621765
+        },
+        "9000": {
+          "Curriculum/terrain_levels": 5.881978511810303,
+          "Metrics/base_velocity/error_vel_xy": 0.45077046751976013,
+          "Metrics/base_velocity/error_vel_yaw": 0.666827380657196,
+          "Episode_Termination/base_contact": 0.23413340747356415,
+          "Loss/value": 0.05601882003247738,
+          "Loss/learning_rate": 9.999999747378752e-06,
+          "Policy/mean_std": 1.3543623089790344
+        },
+        "9900": {
+          "Curriculum/terrain_levels": 5.912142515182495,
+          "Metrics/base_velocity/error_vel_xy": 0.45717647671699524,
+          "Metrics/base_velocity/error_vel_yaw": 0.6876806616783142,
+          "Episode_Termination/base_contact": 0.21824900805950165,
+          "Loss/value": 0.05067237466573715,
+          "Loss/learning_rate": 9.999999747378752e-06,
+          "Policy/mean_std": 1.3620441555976868
+        }
+      },
+      "wall_seconds_per_iteration": 2.0883134659095393,
+      "wall_measurement_range": [
+        500,
+        9999
+      ],
+      "wall_index_tag": "Perf/total_fps",
+      "train_termination_metric_is_not_official_survival": true,
+      "scratch_curve_is_not_resume_recovery_evidence": true
+    }
+  },
+  "existing_h1_choices": {
+    "R3A_9000": {
+      "actual_iteration": 9000,
+      "proxy_delta": {
+        "raw3": 0.0,
+        "floor": 0.0,
+        "ratio": 0.0
+      },
+      "main_survival": 1.0,
+      "strong_push_survival": 0.9102,
+      "strong_push_official_weight": 0.0,
+      "scenario_delta": {
+        "H1": 0.0,
+        "H2": 0.0,
+        "H3": 0.0,
+        "H4": 0.0,
+        "H5": 0.0,
+        "H6": 0.0,
+        "H7": 0.0
+      }
+    },
+    "R3A_10000": {
+      "actual_iteration": 9900,
+      "proxy_delta": {
+        "raw3": 0.02390736447311781,
+        "floor": 0.00384911606440852,
+        "ratio": 0.0216361648481751
+      },
+      "main_survival": 1.0,
+      "strong_push_survival": 0.8809,
+      "strong_push_official_weight": 0.0,
+      "scenario_delta": {
+        "H1": -0.00039999999999995595,
+        "H2": -0.00040000000000006697,
+        "H3": 0.0030000000000000027,
+        "H4": -0.0010999999999999899,
+        "H5": 0.0009000000000000119,
+        "H6": 0.0045999999999999375,
+        "H7": -0.0034999999999999476
+      }
+    },
+    "R3C_9000": {
+      "actual_iteration": 9000,
+      "proxy_delta": {
+        "raw3": -1.7381445663881294,
+        "floor": -0.9037867923644782,
+        "ratio": -1.573020832581257
+      },
+      "main_survival": 0.9994149999999999,
+      "strong_push_survival": 0.9141,
+      "strong_push_official_weight": 0.0,
+      "scenario_delta": {
+        "H1": -0.012399999999999967,
+        "H2": -0.02190000000000003,
+        "H3": -0.02210000000000001,
+        "H4": -0.07579999999999998,
+        "H5": -0.01639999999999997,
+        "H6": -0.01639999999999997,
+        "H7": -0.025900000000000034
+      }
+    },
+    "R3C_10000": {
+      "actual_iteration": 9900,
+      "proxy_delta": {
+        "raw3": -1.3166491235254796,
+        "floor": -0.6456603121016471,
+        "ratio": -1.1915674567905512
+      },
+      "main_survival": 1.0,
+      "strong_push_survival": 0.9512,
+      "strong_push_official_weight": 0.0,
+      "scenario_delta": {
+        "H1": -0.00990000000000002,
+        "H2": -0.017300000000000093,
+        "H3": -0.025399999999999978,
+        "H4": -0.052200000000000024,
+        "H5": -0.011599999999999944,
+        "H6": -0.013600000000000056,
+        "H7": -0.01529999999999998
+      }
+    }
+  },
+  "h1_late_comparison_actual_iterations": 900,
+  "lr_resume_risk": {
+    "upstream_reference": "https://raw.githubusercontent.com/leggedrobotics/rsl_rl/v5.0.0/rsl_rl/algorithms/ppo.py",
+    "finding": "v5.0.0 restores optimizer state but does not restore PPO.learning_rate scalar; adaptive update subsequently writes the scalar into optimizer groups.",
+    "installed_server_version_not_verified": true,
+    "consequence_is_hypothesis_not_crash_cause": "If installed load has this behavior, resume initial scheduler scalar differs from saved optimizer LR; verify both before expensive branching.",
+    "no_lr_algorithm_or_checkpoint_mutation_authorized_or_performed": true
+  },
+  "selection_threshold_demo": [
+    {
+      "assumed_sd_of_paired_seed_delta": 0.1,
+      "seed_clusters": 4,
+      "threshold": 0.15,
+      "normal_iid_demo_only": true,
+      "probability_one_null_candidate_exceeds_threshold": 0.0013498980316300985,
+      "probability_either_of_two_independent_null_candidates_exceeds": 0.0026979738385644048
+    },
+    {
+      "assumed_sd_of_paired_seed_delta": 0.2,
+      "seed_clusters": 4,
+      "threshold": 0.15,
+      "normal_iid_demo_only": true,
+      "probability_one_null_candidate_exceeds_threshold": 0.06680720126885813,
+      "probability_either_of_two_independent_null_candidates_exceeds": 0.12915120039633843
+    },
+    {
+      "assumed_sd_of_paired_seed_delta": 0.3,
+      "seed_clusters": 4,
+      "threshold": 0.15,
+      "normal_iid_demo_only": true,
+      "probability_one_null_candidate_exceeds_threshold": 0.15865525393145707,
+      "probability_either_of_two_independent_null_candidates_exceeds": 0.29213901826285904
+    }
+  ],
+  "survival_sensitivity": {
+    "common_one_percentage_point_drop_cost_at_sim58_14": 0.5814,
+    "common_survival_drop_that_erases_proxy_gain_point15": 0.0025799793601651187,
+    "assumption": "Uniform survival reduction with unchanged tracking; sensitivity, not measured outcome."
+  },
+  "timing_findings": {
+    "h1_main_plus_all_stress_eval_minutes_from_status": [
+      23.866666666666667,
+      23.9,
+      23.866666666666667
+    ],
+    "this_is_not_seven_main_scenarios_only": true,
+    "go2_main_eval_minutes_from_status": [
+      8.766666666666667,
+      8.533333333333333,
+      8.65
+    ],
+    "old_h1_export_wait_minutes": 22.86666666666656,
+    "old_pipeline_has_post_training_keepalive_and_dummy_training": true,
+    "old_pipeline_not_safe_to_reuse_unchanged": true
+  },
+  "h1_concurrency": {
+    "historical_runs_were_concurrent": true,
+    "historical_gpu_memory_mib": 13423,
+    "historical_gpu_total_mib": 16303,
+    "single_job_timing_under_same_conditions_not_available": true,
+    "no_proven_parallel_speedup": true,
+    "optional_test": "Only H1: measure solo and paired steady-state throughput within planned first100-200 iterations, no additional training jobs. Require safe memory and >15% net throughput gain to retain concurrency.",
+    "go2_parallel_not_recommended_under_recorded_configuration": true
+  },
+  "revised_budget_hours": {
+    "diagnostics": 1.0,
+    "h1_pair_conditional": 2.25,
+    "go2_matched_pair": 4.75,
+    "adaptive_finalist": 6.5,
+    "final_verification": 3.0,
+    "contingency_including_shutdown": 2.5
+  },
+  "revised_go2_screen": {
+    "branches": 2,
+    "iterations_per_branch": 1500,
+    "training_hours": 4,
+    "replaced_three_branches_1000_same_training_cost": true,
+    "narrower_but_longer_is_not_proven_optimal": true
+  },
+  "sources": {
+    "statistics_paper": "https://arxiv.org/abs/2108.13264",
+    "runner": "https://raw.githubusercontent.com/leggedrobotics/rsl_rl/v5.0.0/rsl_rl/runners/on_policy_runner.py"
+  },
+  "prior_evaluation_inputs_unchanged": true
+}

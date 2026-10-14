@@ -1,0 +1,51 @@
+Go2 원인 분리 비교 — 2026-10-08
+
+승인 범위
+control / torque / posture 3개를 scratch, seed42, 6144 environments, 각 2000 iterations로 순차 학습한다.
+현재 서버는 시작하지 않았다. 실제 할당 시작 시각을 확인하기 전에는 실행 deadline을 만들거나 runner를 실행하지 않는다.
+서버 사용 한도는 준비·학습·평가·회수·종료를 합쳐 10시간이다.
+계산 deadline은 실제 서버 시작 +9시간15분 이하이며, 회수·종료에 최소45분을 남긴다.
+과거 800회 실험의 측정속도로 학습만 약8.03시간이며 새로운 서버의 성능을 보장하지 않는다.
+이번 범위에는 추가 후보, 추가 training seed, 공식 제출, 로컬 PC 종료가 없다.
+
+보상 가중치
+control: track_lin_vel_xy_exp=2, track_ang_vel_z_exp=1.5, feet_air_time=0.01,
+lin_vel_z_l2=-3, ang_vel_xy_l2=-0.08, action_rate_l2=-0.01,
+dof_acc_l2=-2.5e-7, dof_torques_l2=-0.0002,
+flat_orientation_l2=0, dof_pos_limits=0.
+torque: control에서 dof_torques_l2만 -0.00015로 변경.
+posture: control에서 flat_orientation_l2만 -0.3으로 변경.
+두 가설을 섞지 않는다. 낮은 토크 자체가 성능 저하의 원인이라는 주장은 아직 검증되지 않았다.
+
+원본 보존
+제공된 train.py/play.py/go2_task/agent_cfg.py/go2_task/env_cfg.py와 PPO 코드는 수정하지 않는다.
+새 서버에서 현재 파일의 해시를 취득하고 과거 참고 해시와 비교한다. 차이가 있으면 원인을 확인한다.
+보상 파일은 새 서버의 현재 원본을 보존하고, 단계 종료 및 오류 시 복구/해시를 검증한다.
+정식 checkpoint model_1999.pt와 가능한 중간 모델, params, event, 학습 로그를 wrapper 정리 범위 밖에 보존한다.
+남은 시간 부족이나 실패 시 다음 작업을 추가하지 않고 보존·복구·회수를 우선한다.
+
+공통 평가
+기존 회수본 batch_eval.py/t_eval.py/t_eval_go2_core.py를 그대로 사용한다.
+G1~G7, 128 environments, reset seeds809/1201, startup seed303, terrain seed9049.
+이전 평가가 가설 선택에 사용됐으므로 새 미사용 holdout이라고 부르지 않는다.
+생존율, vx/vy/yaw RMSE 및 MAE, transient와 steady 구간, G6 충격 직후 회복, 학습 곡선을 함께 비교한다.
+가중치가 다른 총 보상으로 순위를 정하지 않는다.
+첫 낙상 이후 추종 샘플을 제외하고, 측정 중 timeout은 실험 오류로 처리한다.
+현재 평가의 push 적용 직후 관측에 한 step 지연 가능성이 있어 절대적인 실제 회복값으로 과해석하지 않는다.
+훈련 seed 반복이 없으므로 seed42 조건의 원인 분리 비교이며 보편적인 개선을 확정하지 않는다.
+
+점수 해석
+내부 품질은 공식 점수가 아니다. 기존 88.36 보정식 출력은 검증된 예측값이 아니며 최우선 판단에서 철회했다.
+공식 90점 이상을 보장하거나 내부 품질0.9를 공식90점으로 환산하지 않는다.
+
+완료 조건
+모든 계산 완료만으로 완료 표시하지 않는다.
+원격 archive 크기/SHA256 취득 → 로컬 회수 → 동일 크기/SHA256 검증 → 안전한 하위폴더에 압축 해제 → 3개 최종모델/로그/평가결과 확인 → 분석 저장 → 할당서버 종료 확인.
+다운로드가 막힌 채로 긴 학습을 시작하지 않는다. 작은 파일의 정상 UI 회수 경로를 먼저 확인한다.
+10시간 종료 한도에는 요약과 가능한 결과를 보존하고 할당서버를 종료한다. 회수 미완료는 정확히 미완료로 보고한다.
+
+접근 방법
+포털은 mcp__cua_repl의 지원된 브라우저 UI로만 조작한다.
+저장된 브라우저 권한 검증 실패 상태에서는 재연결/복구 후 재시도 외 우회 접속하지 않는다.
+숨은 API, fetch, raw CDP, 페이지 전역 상태, chrome://downloads는 사용하지 않는다.
+원격 Python은 /workspace/IsaacLab/isaaclab.sh -p 를 사용한다.

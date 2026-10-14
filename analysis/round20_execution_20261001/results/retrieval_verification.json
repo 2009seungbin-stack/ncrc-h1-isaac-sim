@@ -1,0 +1,27 @@
+{
+  "archive_verified": true,
+  "archive_bytes": 566387722,
+  "archive_sha256": "b66790910954f7661c5c73a8fb21f4dca8c75ecd9b5a79ae8c7908ea19282d1f",
+  "archive_members": 202,
+  "required_missing": [],
+  "final_models": {
+    "preserved\\F00\\2026-10-01_13-44-14_round20_F00\\model_3999.pt": {
+      "bytes": 6882293,
+      "sha256": "34827817b188d79ee23943b1f801b8886ffcaa592d619c66c024f5b182e07305",
+      "env_exists": true
+    },
+    "preserved\\F10\\2026-10-01_18-55-04_round20_F10\\model_3999.pt": {
+      "bytes": 6882293,
+      "sha256": "6c9daffc3b6db5193bae7cfe2ec9b68957ddf4554e9af6a2da7ea9d54d5398d1",
+      "env_exists": true
+    }
+  },
+  "eval_files": 28,
+  "state": {
+    "stage": "STOPPED_REQUIRES_REVIEW",
+    "utc": "2026-10-01T15:46:12.920570+00:00",
+    "elapsed_hours": 11.243311272263528,
+    "error": "eval_F10_model_3999_A_dr exit=1; inspect /workspace/student_workspace/round20_20261001/logs/eval_F10_model_3999_A_dr.log"
+  },
+  "video_files": []
+}

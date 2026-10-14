@@ -1,0 +1,99 @@
+{
+  "status": "LOCAL_PACKAGE_READY_BROWSER_VERIFIED_REMOTE_NOT_STARTED",
+  "date": "2026-10-08",
+  "user_authorized": true,
+  "plan": {
+    "arms": [
+      "control",
+      "torque",
+      "posture"
+    ],
+    "iterations_per_arm": 2000,
+    "training_environments": 6144,
+    "training_seed": 42,
+    "scratch": true,
+    "sequential": true,
+    "server_budget_hours": 10,
+    "minimum_recovery_shutdown_reserve_seconds": 2700,
+    "evaluation_environments": 128,
+    "evaluation_reset_seeds": [
+      809,
+      1201
+    ],
+    "evaluation_startup_seed": 303,
+    "evaluation_terrain_seed": 9049,
+    "evaluation_scenarios": [
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7"
+    ],
+    "independent_training_seed_repeats": false,
+    "untouched_holdout": false
+  },
+  "server_started": false,
+  "server": null,
+  "server_started_utc": null,
+  "compute_deadline_utc": null,
+  "server_shutdown_by_utc": null,
+  "remote_folder_intended": "/workspace/student_workspace/causal_sweep_20261008",
+  "training_started": false,
+  "remote_source_hashes_fresh": false,
+  "upload_complete": false,
+  "download_roundtrip_verified": false,
+  "official_submission": false,
+  "local_pc_shutdown": false,
+  "browser": {
+    "id": "3",
+    "type": "Chrome extension",
+    "inventory_succeeded": true,
+    "portal_navigation_succeeded": true,
+    "blocked_origin": "https://robotics.connect.or.kr",
+    "error": null,
+    "retry_requested_by_user": true,
+    "retried_after_extension_reconnected": true,
+    "bypass_attempted": false,
+    "previous_error": "Browser Use could not request permission: saved browser permissions could not be verified.",
+    "authenticated_portal_read_verified": true,
+    "verified_tab_id": "330034289",
+    "verified_utc": "2026-10-08T15:06:02.0598427Z"
+  },
+  "existing_automation": {
+    "id": "go2",
+    "last_known_status": "PAUSED",
+    "changed_this_attempt": false
+  },
+  "package_validation": "Python syntax, unchanged evaluator hashes, archive member hashes verified; CPU recovery tests passing; real Linux GPU runtime unverified",
+  "checked_utc": "2026-10-08T15:06:02.0598427Z",
+  "browser_diagnostic": "browser_diagnostic.txt",
+  "input_archive": {
+    "archive": "D:\\UserData\\Desktop\\issac_sim\\analysis\\causal_sweep_20261008_inputs.tar.gz",
+    "bytes": 36730,
+    "sha256": "62cf5786c0e422e9ff3c8684b4cca01ae99a22dfba2990a654b3bbefb0ff4d44",
+    "verified_members": 9,
+    "evaluators_unchanged": true,
+    "python_sources_compile": true,
+    "gpu_validation": false,
+    "remote_launch": false
+  },
+  "cpu_verification": {
+    "tests_passed": 18,
+    "test_file": "tests_runner.py",
+    "verified": [
+      "reward isolation and restoration",
+      "protected source and evaluator hash gates",
+      "no duplicate training",
+      "deadline and budget gates",
+      "checkpoint params events preservation",
+      "archive internal manifest and sidecar hashes"
+    ],
+    "not_verified": [
+      "remote IsaacLab GPU startup",
+      "real Linux process group termination",
+      "current server quota and source files"
+    ]
+  }
+}

@@ -1,0 +1,365 @@
+[3gH    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H   [INFO] Using python from: /workspace/IsaacLab/_isaac_sim/python.sh
+[INFO][AppLauncher]: Using device: cuda:0
+[INFO][AppLauncher]: Loading experience file: /workspace/IsaacLab/apps/isaaclab.python.headless.kit
+[t_eval] ckpt iter=5500 actor layers=[(512, 235), (256, 512), (128, 256), (12, 128)]
+[t_eval] 체크포인트 actor 로드: /workspace/student_workspace/go2_validation_20261002/original_C0_model_5500.pt
+
+[t_eval] === terrain='stairs' 환경 생성: G5 ===
+[INFO]: Parsing configuration from: go2_task.env_cfg:QuadrupedRoughEnvCfg
+[Quadruped:student] 6 reward 항목 로드
+  [OK] track_lin_vel_xy_exp.weight = 2.0
+  [OK] feet_air_time.weight = 0.01
+  [OK] lin_vel_z_l2.weight = -3.0
+  [OK] ang_vel_xy_l2.weight = -0.08
+  [OK] action_rate_l2.weight = -0.01
+  [OK] track_ang_vel_z_exp.weight = 0.75
+[Quadruped:student] terrain override - boxes ≤0.15m
+
+[36m======================================================================================[0m
+[36m[1m[INFO][IsaacLab]: Logging to file: /tmp/isaaclab/logs/isaaclab_2026-10-02_07-51-01.log[0m
+[36m======================================================================================[0m
+
+[33m07:51:01 [simulation_context.py] WARNING: The `enable_external_forces_every_iteration` parameter in the PhysxCfg is set to False. If you are experiencing noisy velocities, consider enabling this flag. You may need to slightly increase the number of velocity iterations (setting it to 1 or 2 rather than 0), together with this flag, to improve the accuracy of velocity updates.[0m
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : None
+	Physics step-size     : 0.005
+	Rendering step-size   : 0.02
+	Environment step-size : 0.02
+[INFO] Generating terrains randomly took : 0.153481 seconds
+[INFO]: Time taken for scene creation : 1.019192 seconds
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 128
+	Environment spacing   : 2.5
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : ['/World/ground']
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Time taken for simulation start : 0.498978 seconds
+[INFO] Command Manager:  <CommandManager> contains 1 active terms.
++------------------------------------------------+
+|              Active Command Terms              |
++-------+---------------+------------------------+
+| Index | Name          |          Type          |
++-------+---------------+------------------------+
+|   0   | base_velocity | UniformVelocityCommand |
++-------+---------------+------------------------+
+
+[INFO] Event Manager:  <EventManager> contains 2 active terms.
++--------------------------------------+
+| Active Event Terms in Mode: 'startup' |
++----------+---------------------------+
+|  Index   | Name                      |
++----------+---------------------------+
+|    0     | physics_material          |
+|    1     | add_base_mass             |
++----------+---------------------------+
++---------------------------------------+
+|  Active Event Terms in Mode: 'reset'  |
++--------+------------------------------+
+| Index  | Name                         |
++--------+------------------------------+
+|   0    | base_external_force_torque   |
+|   1    | reset_base                   |
+|   2    | reset_robot_joints           |
++--------+------------------------------+
+
+[INFO] Recorder Manager:  <RecorderManager> contains 0 active terms.
++---------------------+
+| Active Recorder Terms |
++-----------+---------+
+|   Index   | Name    |
++-----------+---------+
++-----------+---------+
+
+[INFO] Action Manager:  <ActionManager> contains 1 active terms.
++------------------------------------+
+|  Active Action Terms (shape: 12)   |
++--------+-------------+-------------+
+| Index  | Name        |   Dimension |
++--------+-------------+-------------+
+|   0    | joint_pos   |          12 |
++--------+-------------+-------------+
+
+[INFO] Observation Manager: <ObservationManager> contains 1 groups.
++----------------------------------------------------------+
+| Active Observation Terms in Group: 'policy' (shape: (235,)) |
++-----------+--------------------------------+-------------+
+|   Index   | Name                           |    Shape    |
++-----------+--------------------------------+-------------+
+|     0     | base_lin_vel                   |     (3,)    |
+|     1     | base_ang_vel                   |     (3,)    |
+|     2     | projected_gravity              |     (3,)    |
+|     3     | velocity_commands              |     (3,)    |
+|     4     | joint_pos                      |    (12,)    |
+|     5     | joint_vel                      |    (12,)    |
+|     6     | actions                        |    (12,)    |
+|     7     | height_scan                    |    (187,)   |
++-----------+--------------------------------+-------------+
+
+[INFO] Termination Manager:  <TerminationManager> contains 2 active terms.
++---------------------------------+
+|     Active Termination Terms    |
++-------+--------------+----------+
+| Index | Name         | Time Out |
++-------+--------------+----------+
+|   0   | time_out     |   True   |
+|   1   | base_contact |  False   |
++-------+--------------+----------+
+
+[INFO] Reward Manager:  <RewardManager> contains 10 active terms.
++-----------------------------------------+
+|           Active Reward Terms           |
++-------+----------------------+----------+
+| Index | Name                 |   Weight |
++-------+----------------------+----------+
+|   0   | track_lin_vel_xy_exp |      2.0 |
+|   1   | track_ang_vel_z_exp  |     0.75 |
+|   2   | lin_vel_z_l2         |     -3.0 |
+|   3   | ang_vel_xy_l2        |    -0.08 |
+|   4   | dof_torques_l2       |  -0.0002 |
+|   5   | dof_acc_l2           | -2.5e-07 |
+|   6   | action_rate_l2       |    -0.01 |
+|   7   | feet_air_time        |     0.01 |
+|   8   | flat_orientation_l2  |      0.0 |
+|   9   | dof_pos_limits       |      0.0 |
++-------+----------------------+----------+
+
+[INFO] Curriculum Manager:  <CurriculumManager> contains 0 active terms.
++----------------------+
+| Active Curriculum Terms |
++-----------+----------+
+|   Index   | Name     |
++-----------+----------+
++-----------+----------+
+
+[INFO]: Completed setting up the environment...
+[t_eval] --- G5 (계단 10~15cm) ---
+[t_eval] G5: survival=0.998 (LCB 0.989)  tracking=0.909  score=0.907
+{
+  "run_id": "original_B",
+  "checkpoint": "/workspace/student_workspace/go2_validation_20261002/original_C0_model_5500.pt",
+  "eval_seed_set": "EVAL_SET_A",
+  "scenarios": {
+    "G5": {
+      "w": 0.15,
+      "desc": "계단 10~15cm",
+      "terrain": "stairs",
+      "episodes": 512,
+      "survived": 511,
+      "survival": 0.998,
+      "survival_lcb": 0.989,
+      "tracking": 0.9089,
+      "score": 0.9072,
+      "rmse": {
+        "vx": 0.0707,
+        "vy": 0.0672,
+        "yaw": 0.1335
+      },
+      "rmse_used": 0.0955,
+      "rmse_extra": {
+        "vz": 0.0828,
+        "wx": 0.3925,
+        "wy": 0.3673
+      },
+      "mae": {
+        "vx": 0.0553,
+        "vy": 0.0535,
+        "yaw": 0.103
+      },
+      "mse_seg": {
+        "vx": [
+          0.00485,
+          0.00589,
+          0.00374,
+          0.00552
+        ],
+        "vy": [
+          0.00414,
+          0.00571,
+          0.00374,
+          0.00445
+        ],
+        "yaw": [
+          0.01685,
+          0.02312,
+          0.01407,
+          0.0173
+        ]
+      },
+      "axis_mode": "all",
+      "axis_weights": {
+        "vx": 1.0,
+        "vy": 1.0,
+        "yaw": 1.0
+      },
+      "segment_cmds": [
+        [
+          0.4,
+          0.0,
+          0.0
+        ],
+        [
+          0.4,
+          0.0,
+          0.0
+        ],
+        [
+          0.4,
+          0.0,
+          0.0
+        ],
+        [
+          0.4,
+          0.0,
+          0.0
+        ]
+      ],
+      "segment_tracking": [
+        0.9114,
+        0.898,
+        0.9187,
+        0.9091
+      ],
+      "segment_mean_actual": [
+        [
+          0.378,
+          -0.016,
+          -0.004
+        ],
+        [
+          0.385,
+          -0.02,
+          0.002
+        ],
+        [
+          0.378,
+          -0.011,
+          -0.011
+        ],
+        [
+          0.375,
+          -0.011,
+          -0.015
+        ]
+      ],
+      "segment_falls": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "seg_s": 5.0,
+      "push_mag": null,
+      "push_period_s": null,
+      "falls": 1,
+      "nan_actions": 0,
+      "crashes": 0
+    }
+  },
+  "coverage_weight": 0.15,
+  "sim_score": 9.526,
+  "sim_score_pct": 90.72,
+  "sim_score_by_axis_mode": {
+    "all": 9.525,
+    "scenario": 9.764,
+    "yaw": 9.169
+  },
+  "official_pred": {
+    "all": {
+      "self_q": 0.1361,
+      "official_sim": 0.33,
+      "official_total": 30.33,
+      "total_lo": 30.33,
+      "total_hi": 38.73,
+      "band": 8.4,
+      "anchor": "2R R3A_9000 + 1R model_4600 (V1)",
+      "target_total": 91.0,
+      "target_self_sim": 66.15,
+      "borrowed_anchor": true,
+      "ratio": null
+    },
+    "scenario": {
+      "self_q": 0.1395,
+      "official_sim": 0.58,
+      "official_total": 30.58,
+      "total_lo": 30.58,
+      "total_hi": 38.95,
+      "band": 8.37,
+      "anchor": "2R R3A_9000 + 1R model_4600 (V1)",
+      "target_total": 91.0,
+      "target_self_sim": 66.15,
+      "borrowed_anchor": true,
+      "ratio": null
+    },
+    "yaw": {
+      "self_q": 0.131,
+      "official_sim": -0.05,
+      "official_total": 29.95,
+      "total_lo": 29.95,
+      "total_hi": 38.4,
+      "band": 8.46,
+      "anchor": "2R R3A_9000 + 1R model_4600 (V1)",
+      "target_total": 91.0,
+      "target_self_sim": 66.15,
+      "borrowed_anchor": true,
+      "ratio": null
+    }
+  },
+  "h_survival": 0.998,
+  "h_survival_lcb": 0.989,
+  "official_offset": null,
+  "falls": 1,
+  "nan_actions": 0,
+  "crashes": 0,
+  "stress": null,
+  "config": {
+    "seg_s": 5.0,
+    "transient_s": 0.5,
+    "num_envs": 128,
+    "seeds": "137,389,743,1201",
+    "rough_range": [
+      0.04,
+      0.1
+    ],
+    "slope_deg": 20.0,
+    "push_period_s": 2.5,
+    "push_mag": 1.0,
+    "obs_noise": true,
+    "tracking_def": "exp(-RMSE)",
+    "axis_mode": "all",
+    "cmd_scale": 1.0,
+    "stair_height": 0.12,
+    "stair_width": 0.3
+  }
+}Loading user config located at: '/isaac-sim/kit/data/Kit/Isaac-Sim/5.1/user.config.json'
+[Info] [carb] Logging to file: /isaac-sim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261002_075058.log
+2026-10-01T22:50:58Z [160ms] [Warning] [omni.platforminfo.plugin] failed to open the default display.  Can't verify X Server version.
+2026-10-01T22:50:58Z [164ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-10-01T22:50:58Z [405ms] [Warning] [carb] Acquiring non optional plugin interface which is not listed as dependency: [omni::physx::IPhysxBenchmarks v1.0] (plugin: <default plugin>), by client: omni.physics.physx.plugin. Add it to CARB_PLUGIN_IMPL_DEPS() macro of a client.
+2026-10-01T22:50:59Z [522ms] [Warning] [omni.isaac.dynamic_control] omni.isaac.dynamic_control is deprecated as of Isaac Sim 4.5. No action is needed from end-users.
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 580.126.09    | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 5080          | Yes: 0 |     | 16303   MB | 10de      | 0          |
+|     |                                  |        |     |            | 2c02      | e90d2555.. |
+|     |                                  |        |     |            | 1         |            |
+|=============================================================================================|
+| OS: 24.04.2 LTS (Noble Numbat) ubuntu, Version: 24.04.2, Kernel: 6.8.0-136-generic
+| Processor: Intel(R) Core(TM) Ultra 5 250KF Plus
+| Cores: 18 | Logical Cores: 18
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 64006 | Free Memory: 50690
+| Total Page/Swap (MB): 8191 | Free Page/Swap: 0
+|---------------------------------------------------------------------------------------------|
+2026-10-01T22:51:00Z [2,320ms] [Warning] [gpu.foundation.plugin] CPU performance profile is set to powersave. This profile sets the CPU to the lowest frequency reducing performance.
+2026-10-01T22:51:00Z [2,333ms] [Warning] [gpu.foundation.plugin] IOMMU is enabled.
+2026-10-01T22:51:00Z [2,356ms] [Warning] [omni.kvdb.plugin] Disabling key-value database because another kit process is locking it
+2026-10-01T22:51:01Z [2,501ms] [Warning] [isaaclab.envs.manager_based_env] Seed not set for the environment. The environment creation may not be deterministic.
+2026-10-01T22:51:03Z [4,619ms] [Warning] [omni.physx.fabric.plugin] FabricManager::initializePointInstancer mismatched prototypes on point instancer: /Visuals/Command/velocity_goal.
+2026-10-01T22:51:03Z [4,619ms] [Warning] [omni.physx.fabric.plugin] FabricManager::initializePointInstancer mismatched prototypes on point instancer: /Visuals/Command/velocity_current.

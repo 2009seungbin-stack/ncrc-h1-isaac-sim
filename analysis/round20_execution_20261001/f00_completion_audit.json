@@ -1,0 +1,25 @@
+{
+  "audit": "F00_complete",
+  "final_models": [
+    {
+      "path": "/workspace/student_workspace/round20_20261001/preserved/F00/2026-10-01_13-44-14_round20_F00/model_3999.pt",
+      "bytes": 6882293,
+      "sha256": "34827817b188d79ee23943b1f801b8886ffcaa592d619c66c024f5b182e07305",
+      "env_exists": true
+    }
+  ],
+  "exports": [
+    "/workspace/student_workspace/round20_20261001/exports/F00/model_best.pt",
+    "/workspace/student_workspace/round20_20261001/exports/F00/model_best_20261001_185457.pt",
+    "/workspace/student_workspace/round20_20261001/exports/F00/env_20261001_185457.yaml",
+    "/workspace/student_workspace/round20_20261001/exports/F00/report.html",
+    "/workspace/student_workspace/round20_20261001/exports/F00/env.yaml"
+  ],
+  "reward_changes": {
+    "track_ang_vel_z_exp": [
+      0.75,
+      1.5
+    ]
+  },
+  "train_log_tail": "============================================\n[POST] 학습 종료 (exit=0) → best model 선별 → /workspace/training/quadruped\n======================================================================\n[INFO] Run: /workspace/training/quadruped/logs/rsl_rl/quadruped/2026-10-01_13-44-14_round20_F00\n[INFO] 학습 기록(tfevents) 읽는 중... 수십 초 걸릴 수 있습니다 — Ctrl+C 누르지 마세요.\n[INFO] Best by 'Train/mean_reward': step 1595, reward 26.463 → model_1600.pt\n[OK] model_best.pt → /workspace/training/quadruped/exported/model_best.pt  (iter=1595, reward=26.46310043334961)\n[OK] 백업 → model_best_20261001_185457.pt\n[OK] env.yaml → /workspace/training/quadruped/exported/env.yaml\n[OK] 백업 → env_20261001_185457.yaml\n[CLEAN] logs/ 의 intermediate .pt 40개 삭제 (263MB 회수)\n[KEEP] logs/<run>/model_1600.pt 보존 (play.py 호환)\n\n[report] 보상 변화 (기본값 대비):\n  track_lin_vel_xy_exp  +1 → +2  (+1)  속도 추종\n[report] 튜닝 의도: 공격/적극 지향 — 속도↑\n[report] 학습 결과(진단): 최고보상 26.46(iter 1595) · 지형 6.11 · 낙상률 13.2% · std 0.872\n[OK] report.html → /workspace/training/quadruped/exported/report.html  (브라우저로 열어 보기)\n[backup] 학습 결과 자동 백업 중... (6216KB, model_best.pt + env.yaml + report.html)\n          ⚠️ 이것은 **예선 제출이 아닙니다** — 제출은 대회 웹사이트에서 policy.pt 를 직접 업로드하세요.\n[backup] ✅ 백업 완료\n============================================================\n[DONE] 예선 제출 결과물 → /workspace/training/quadruped/exported/\n  ★ model_best.pt    (예선 채점용 RSL-RL checkpoint)\n  ★ env.yaml         (학습 의도/reward 검증)\n\n  본선 매치용 policy.pt 도 같은 폴더에 생길 거:\n    > isaaclab.bat -p play.py --task Quadruped-v0 --num_envs 4\n    → exported/policy.pt 자동 생성\n    ⚠️ 시뮬 창을 '닫아야'(Esc/창 종료) exported/policy.pt 가 복사됨.\n       (policy 는 시작 직후 logs/<run>/exported/ 에 만들어지고,\n        창 종료 시 exported/ 직속으로 복사 — 창 떠 있으면 아직 안 옮겨짐.)\n============================================================\n[notify] skip: No module named 'notify'\n"
+}

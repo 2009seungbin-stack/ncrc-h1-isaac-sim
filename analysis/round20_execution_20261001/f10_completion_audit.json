@@ -1,0 +1,193 @@
+{
+  "audit": "training_complete",
+  "events": [
+    {
+      "stage": "JOB_COMPLETE",
+      "utc": "2026-10-01T15:05:11.809013+00:00",
+      "job": "train_F10",
+      "seconds": 18610.850793600082
+    },
+    {
+      "stage": "RUNNING",
+      "utc": "2026-10-01T15:05:11.815334+00:00",
+      "job": "eval_original_A_flat"
+    },
+    {
+      "stage": "JOB_COMPLETE",
+      "utc": "2026-10-01T15:08:28.856300+00:00",
+      "job": "eval_original_A_flat",
+      "seconds": 197.04060912132263
+    },
+    {
+      "stage": "RUNNING",
+      "utc": "2026-10-01T15:08:28.856790+00:00",
+      "job": "eval_original_A_rough"
+    },
+    {
+      "stage": "JOB_COMPLETE",
+      "utc": "2026-10-01T15:09:40.872395+00:00",
+      "job": "eval_original_A_rough",
+      "seconds": 72.01045727729797
+    },
+    {
+      "stage": "RUNNING",
+      "utc": "2026-10-01T15:09:40.873861+00:00",
+      "job": "eval_original_A_slope"
+    },
+    {
+      "stage": "JOB_COMPLETE",
+      "utc": "2026-10-01T15:11:02.891743+00:00",
+      "job": "eval_original_A_slope",
+      "seconds": 82.01361536979675
+    },
+    {
+      "stage": "RUNNING",
+      "utc": "2026-10-01T15:11:02.892312+00:00",
+      "job": "eval_original_A_stairs"
+    },
+    {
+      "stage": "JOB_COMPLETE",
+      "utc": "2026-10-01T15:12:27.908616+00:00",
+      "job": "eval_original_A_stairs",
+      "seconds": 85.01171374320984
+    },
+    {
+      "stage": "RUNNING",
+      "utc": "2026-10-01T15:12:27.908987+00:00",
+      "job": "eval_original_A_dr"
+    },
+    {
+      "stage": "JOB_COMPLETE",
+      "utc": "2026-10-01T15:13:41.927549+00:00",
+      "job": "eval_original_A_dr",
+      "seconds": 74.0132040977478
+    },
+    {
+      "stage": "RUNNING",
+      "utc": "2026-10-01T15:13:41.932703+00:00",
+      "job": "eval_F00_model_3000_A_flat"
+    },
+    {
+      "stage": "JOB_COMPLETE",
+      "utc": "2026-10-01T15:16:56.958579+00:00",
+      "job": "eval_F00_model_3000_A_flat",
+      "seconds": 195.02464365959167
+    },
+    {
+      "stage": "RUNNING",
+      "utc": "2026-10-01T15:16:56.960535+00:00",
+      "job": "eval_F00_model_3000_A_rough"
+    },
+    {
+      "stage": "JOB_COMPLETE",
+      "utc": "2026-10-01T15:18:09.973488+00:00",
+      "job": "eval_F00_model_3000_A_rough",
+      "seconds": 73.00837898254395
+    },
+    {
+      "stage": "RUNNING",
+      "utc": "2026-10-01T15:18:09.974141+00:00",
+      "job": "eval_F00_model_3000_A_slope"
+    }
+  ],
+  "F10_model": "/workspace/student_workspace/round20_20261001/preserved/F10/2026-10-01_18-55-04_round20_F10/model_3999.pt",
+  "F10_bytes": 6882293,
+  "F10_sha256": "6c9daffc3b6db5193bae7cfe2ec9b68957ddf4554e9af6a2da7ea9d54d5398d1",
+  "F10_env_exists": true,
+  "original_A_sha256": "51ea0e6625b0232806aa5d222d608e5a9a867bae2e25aae79a150eea9e90710e",
+  "original_A_proxy": {
+    "floor": 58.128491365917505,
+    "ratio": 58.07913924860655,
+    "raw": 64.1758444735984,
+    "weighted_survival": 0.9998
+  },
+  "original_A_metrics": {
+    "G1": {
+      "survival": 1,
+      "rmse": {
+        "vx": 0.0479,
+        "vy": 0.0561,
+        "yaw": 0.1016
+      },
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0
+    },
+    "G2": {
+      "survival": 1,
+      "rmse": {
+        "vx": 0.0499,
+        "vy": 0.0664,
+        "yaw": 0.1319
+      },
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0
+    },
+    "G6": {
+      "survival": 1,
+      "rmse": {
+        "vx": 0.0947,
+        "vy": 0.1322,
+        "yaw": 0.1112
+      },
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0
+    },
+    "G3": {
+      "survival": 1,
+      "rmse": {
+        "vx": 0.0515,
+        "vy": 0.0654,
+        "yaw": 0.1112
+      },
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0
+    },
+    "G4": {
+      "survival": 1,
+      "rmse": {
+        "vx": 0.0552,
+        "vy": 0.0616,
+        "yaw": 0.1166
+      },
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0
+    },
+    "G5": {
+      "survival": 1,
+      "rmse": {
+        "vx": 0.0705,
+        "vy": 0.0672,
+        "yaw": 0.1342
+      },
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0
+    },
+    "G7": {
+      "survival": 0.998,
+      "rmse": {
+        "vx": 0.0556,
+        "vy": 0.0657,
+        "yaw": 0.1131
+      },
+      "falls": 1,
+      "nan_actions": 0,
+      "crashes": 0
+    }
+  },
+  "completed_eval_hashes": {
+    "eval/F00_model_3000_A/rough.json": "d8b99cf94fedcfd51bad5e553fbebc02b56018bd8f6ddb4e5e670a31947b7ab9",
+    "eval/F00_model_3000_A/flat.json": "120fe80ded7d49445b55b8eba48efc25157f2d6451104203c4ea4eb97f1e7209",
+    "eval/original_A/rough.json": "b818637fd33503c1971884cb9542f3595d2edd5a93a5924e54bd046d78c97d52",
+    "eval/original_A/flat.json": "105e8ee492186e14305c6eaa7cb4af6275ca3c3e50fa9fc6bbca7dbde9a9a84f",
+    "eval/original_A/merged.json": "51ea0e6625b0232806aa5d222d608e5a9a867bae2e25aae79a150eea9e90710e",
+    "eval/original_A/dr.json": "fc4a16b165a70742480265335faaa0810c0ee19fc9133663b42b47b6227a489a",
+    "eval/original_A/stairs.json": "eb8ad087329f24ab96574e2efee032281fe35460318998b2992b63b0e7e2fd47",
+    "eval/original_A/slope.json": "948e5c2e4f92a397cfa03146ff014f8d1b684510d2c6045c0b18a8201e99fa0e"
+  }
+}

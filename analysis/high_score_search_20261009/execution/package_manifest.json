@@ -1,0 +1,52 @@
+{
+  "built_utc": "2026-10-09T01:57:55.761095+00:00",
+  "remote_root": "/workspace/student_workspace/tracking_screen_20261009",
+  "cpu_tests_passed": 24,
+  "scope": "S1/R1 scratch1500 only;6h allocation",
+  "files": {
+    "runner.py": {
+      "bytes": 32752,
+      "sha256": "14fd91c20b4c9bfb8c76881636e46880de88c3ee02ed54cdced109e4a3a5b6d1"
+    },
+    "tests_runner.py": {
+      "bytes": 15071,
+      "sha256": "cd49de09b0e5b30ff4adcf2b27e0b3bfc02c78ed7cf177d041855bb180576411"
+    },
+    "batch_eval.py": {
+      "bytes": 9182,
+      "sha256": "d8325a93f95bf72b9587dd0829dcf4d9a0220e231abd4a2e928dbaef276f1ed7"
+    },
+    "t_eval.py": {
+      "bytes": 52863,
+      "sha256": "bd95f7e7df231454927c70b2bb2431b05cd504ad38c736f16f91dab3435651d9"
+    },
+    "t_eval_go2_core.py": {
+      "bytes": 7652,
+      "sha256": "baa43b161ec7a02d9ae1dfebfe593976f17d78916354d9029ba22b239f0cff6e"
+    },
+    "source_snapshot.py": {
+      "bytes": 3117,
+      "sha256": "5905c5642ea90ce3f1bdde13d7c9ca96056efef2f58f80c7472a1bc599ac01df"
+    },
+    "previous_source_hashes_20261002.json": {
+      "bytes": 353,
+      "sha256": "8161c241c64ef110650d3aebd1806886361b8dc146b9b1151fca6d952c4ec8f2"
+    },
+    "reference_models.json": {
+      "bytes": 525,
+      "sha256": "07da0126af908a4b2dc0cc64bb432ff91f1a9334884df24dd61b8b0527703712"
+    },
+    "RUNNER_USAGE.txt": {
+      "bytes": 4595,
+      "sha256": "1860ef85a42feb3dd0719ab56170c12d254ca5aa6135043873f360b8f44e97bb"
+    },
+    "references/C0_5500.pt": {
+      "bytes": 6882293,
+      "sha256": "8d553e697ed4c2856ab002431af96d626eb8b0d23e56b7c754d652193026b1d3"
+    },
+    "references/F10_3000.pt": {
+      "bytes": 6882293,
+      "sha256": "4684a58838229b729feb2f2534ab9423a4993377e75179a0d55a95904ecf23d2"
+    }
+  }
+}

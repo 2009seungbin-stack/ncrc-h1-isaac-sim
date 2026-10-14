@@ -1,0 +1,82 @@
+{
+  "observed_epoch": 1791547299.722636,
+  "package_members_verified": true,
+  "provided_sources_match": true,
+  "provided_source_hashes": {
+    "train.py": "c09ac99bcd93bb367f0eec69bdb05f4063cb8d60f0258d4667f07addf509de22",
+    "play.py": "ce703acf54eac40073e3f6d585d6002e3b4a2d9062581b3c0ed45db73ac5f9dc",
+    "go2_task/agent_cfg.py": "a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23",
+    "go2_task/env_cfg.py": "df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1"
+  },
+  "original_reward_matches": true,
+  "original_reward_sha256": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7",
+  "probe_sha256": "d896a94ee0d428425b07dbd6a1748b6c9971e66d7b7b93d7eacc9a44b077328e",
+  "runtime_versions": {
+    "rsl_rl_lib": "5.0.1",
+    "torch": "2.7.0+cu128"
+  },
+  "reference_loader_verified": true,
+  "reference_loader_evidence": {
+    "C0_5500": {
+      "state_key": "actor_state_dict",
+      "layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "iteration": 5500,
+      "normalization_state_keys": [],
+      "output_probe_shape": [
+        2,
+        12
+      ],
+      "activation": "ELU",
+      "actual_checkpoint_sha256": "8d553e697ed4c2856ab002431af96d626eb8b0d23e56b7c754d652193026b1d3"
+    },
+    "F10_3000": {
+      "state_key": "actor_state_dict",
+      "layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "iteration": 3000,
+      "normalization_state_keys": [],
+      "output_probe_shape": [
+        2,
+        12
+      ],
+      "activation": "ELU",
+      "actual_checkpoint_sha256": "4684a58838229b729feb2f2534ab9423a4993377e75179a0d55a95904ecf23d2"
+    }
+  },
+  "gpu_inventory": "NVIDIA GeForce RTX 5080, 16303 MiB",
+  "compute_processes": "73, /isaac-sim/kit/python/bin/python3, 3004 MiB\n73, /isaac-sim/kit/python/bin/python3, 3004 MiB",
+  "no_competing_gpu_jobs_verified": false
+}

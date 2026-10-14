@@ -1,0 +1,144 @@
+- banner:
+  - link "네이버 커넥트재단":
+    - /url: https://connect.or.kr/
+  - link "홈으로 이동":
+    - /url: /
+  - navigation:
+    - list:
+      - link "대회 안내":
+        - /url: /info
+      - link "진행 현황":
+        - /url: /status
+      - link "연구 기록":
+        - /url: /researchlog
+      - link "대회비전":
+        - /url: /promise
+  - link "s-2026-qn-002":
+    - /url: /board
+  - button "로그아웃"
+  - dialog "모바일 메뉴":
+    - button "메뉴 닫기":
+    - link "s-2026-qn-002 운영보드로 이동":
+      - /url: /board
+      - paragraph: s-2026-qn-002
+      - img "운영보드로 이동"
+    - button "로그아웃"
+    - navigation:
+      - list:
+        - link "대회 안내":
+          - /url: /info
+        - link "진행 현황":
+          - /url: /status
+        - link "연구 기록":
+          - /url: /researchlog
+        - link "대회 비전":
+          - /url: /promise
+- main:
+  - heading "Team 마키나, 예선 6라운드 참가 전입니다." [level=1]:
+    - generic: Team 마키나, 예선 6라운드 참가 전입니다.
+  - button "공지사항 기술 개선 리포트 작성 안내":
+    - generic: 공지사항
+    - generic: 기술 개선 리포트 작성 안내
+  - paragraph: 대회 참여에 필요한 모든 정보를 확인해 보세요.
+  - link "Isaac Sim 가이드 북":
+    - /url: https://robotics.connect.or.kr/lecture
+  - link "디스코드 공식 채널":
+    - /url: https://discord.gg/9fC9X5gFx
+  - link "대회 규정":
+    - /url: https://robotics.connect.or.kr/rules/general_regulations.html
+  - link "예선 규정":
+    - /url: https://robotics.connect.or.kr/rules/preliminary_regulations.html
+  - link "본선 규정":
+    - /url: https://robotics.connect.or.kr/rules/finals_regulations.html
+  - img "팀 프로필 이미지"
+  - generic: 마키나
+  - button "팀 정보 수정하기"
+  - button "비밀번호 변경"
+  - generic: Isaac Sim 팀 서버
+  - generic: 사용가능
+  - paragraph: 1. 서버는 동시 접속이 불가합니다. 2. 서버를 사용하지 않을 시 반드시 종료해주세요.
+  - generic: 우리 팀 서버 사용 시간
+  - text: 74시간 33분
+  - generic: / 100시간
+  - button "서버 시작하기"
+  - button "VS Code 열기" [disabled]
+  - button "학습 파일 내역"
+  - heading "Team 마키나 대회 진행 상황" [level=2]
+  - generic: 참가 신청
+  - generic: 예선
+  - generic: 본선
+  - generic: 결과 발표
+  - heading "예선 6라운드 제출물" [level=3]
+  - paragraph: 제출하신 파일은 로봇의 기동성, 안정성 및 학습 전략을 평가하여 예선 순위를 결정하는 공식 평가 자료로 사용됩니다. 팀원 누구나 파일을 수정하거나 삭제할 수 있습니다.
+  - generic: STEP 1. 로봇 선택
+  - paragraph: 선택하신 로봇 유형에 따라 평가 기준 및 시뮬레이션 환경이 다르게 적용되니 정확하게 선택해 주세요.
+  - button "휴머노이드 로봇 휴머노이드 로봇":
+    - img "휴머노이드 로봇"
+    - generic: 휴머노이드 로봇
+  - button "사족보행 로봇 사족보행 로봇":
+    - img "사족보행 로봇"
+    - generic: 사족보행 로봇
+  - generic: STEP 2. 아이작 심 파일 제출
+  - generic: "[ 항목 1 ] 정책 파일 (policy.pt)"
+  - generic: 강화학습으로 학습된 로봇의 정책 파일
+  - generic: policy.pt 파일을 업로드해 주세요.
+  - button ".pt 파일 업로드"
+  - generic: "[ 항목 2 ] 환경 설정 정보 (.yaml) 파일"
+  - generic: 성능을 결정하는 하이퍼파라미터 및 환경 정보
+  - generic: .yaml 파일을 업로드해 주세요.
+  - button ".yaml 파일 업로드"
+  - generic: STEP 3. 기술 개선 리포트
+  - paragraph: 어떤 기술적 도전과 개선을 통해 성능을 끌어올렸는지 서술해 주세요. 해당 내용은 정성 평가의 중요한 근거로 활용됩니다.
+  - textbox "내용을 30자 이상 입력해 주세요. 예) 로봇이 걸을 때 자꾸 넘어지는 문제를 해결하기 위해, 지면과 발 사이의 마찰력을 다시 계산했습니다. (최대 500자)":
+    - /placeholder: "내용을 30자 이상 입력해 주세요.\n예) 로봇이 걸을 때 자꾸 넘어지는 문제를 해결하기 위해, 지면과 발 사이의 마찰력을 다시 계산했습니다. (최대 500자)"
+  - paragraph: 0 / 500
+  - paragraph: 심사가 시작되기 전까지는 자유롭게 수정이 가능합니다.
+  - button "제출하기"
+  - heading "예선 결과 및 종합 피드백" [level=2]
+  - generic: 2026-09-21 09:36 제출본
+  - generic: 88.14 / 100점
+  - generic: 예선 4라운드 제출내역
+  - generic: 로봇
+  - generic: 사족보행
+  - generic: 제출물
+  - link "policy.pt":
+    - /url: https://kr.object.ncloudstorage.com/neotwin/QUADRUPEDALISM/202609/260921093618999155830ce912742058318b38a5d77ef01.pt?response-content-disposition=attachment%3B%20filename%3D%22policy.pt%22%3B%20filename*%3DUTF-8''policy.pt
+  - link "env.yaml":
+    - /url: https://kr.object.ncloudstorage.com/neotwin/QUADRUPEDALISM/202609/26092109361896952009902318341d6b37a84fa466d1532.yaml?response-content-disposition=attachment%3B%20filename%3D%22env.yaml%22%3B%20filename*%3DUTF-8''env.yaml
+  - generic: 기술 개선 리포트
+  - paragraph: 배포 기본값으로 학습한 정책은 전진 명령만 따르지 않았습니다. 고정 명령 시험에서 0.3/0.6/1.0 m/s 명령에 실제 속도가 -0.01/0.01/0.00 m/s였고 후진·회전은 따라갔습니다. 넘어지지 않는 이득이 추종 보상보다 커서 제자리에 서도록 수렴했다고 판단했습니다. 그래서 선속도 추종 보상(track_lin_vel_xy_exp) 하나만 1.0에서 2.0으로 올렸습니다. 1.5도 시험했으나 1.0 m/s 명령에 1.20 m/s로 과속하고 계단에서 32대 중 11대가 넘어져 버렸습니다. 나머지 보상값은 배포값 그대로입니다. 6144 envs, 시드 42로 학습하며 800/2000/4000/5500회 지점을 자체 7개 시나리오로 채점했습니다. 800회에선 밀침 생존율이 0.35였으나 지형 난이도가 오른 2000회에 0.99, 5500회엔 전 시나리오 낙상 0이 됐고 선속도 오차도 0.17→0.06 m/s로 줄어 5500회 체크포인트를 제출합니다.
+  - generic: 세부 결과
+  - generic: 시뮬레이션 점수
+  - button "자세히"
+  - generic: 58.14점
+  - generic: 설계 의도 분석
+  - generic: 20점
+  - generic: 리포트 품질
+  - generic: 10점
+  - generic: 종합 피드백
+  - generic: AI 코멘트
+  - paragraph: 모든 시나리오의 평가 결과가 '보통'으로 고르게 나타났습니다. track_lin_vel_xy_exp를 조정한 이유와 중간 후보(1.5) 시험 결과, 그리고 회차별 선속도 오차 수치(0.17→0.06 m/s)를 체계적으로 기록한 점이 돋보입니다.
+  - button "더보기":
+    - text: 더보기
+- contentinfo:
+  - img "NAVER CONNECT"
+  - list:
+    - link "About":
+      - /url: https://connect.or.kr/about
+    - link "Services":
+      - /url: https://connect.or.kr/services
+    - link "News":
+      - /url: https://connect.or.kr/news
+    - link "Apply":
+      - /url: https://apply.connect.or.kr/connect/apply
+  - paragraph: "(재) 네이버커넥트 사업자번호 : 129-82-12249 주소 : 경기도 성남시 분당구 황새울로 246 도담빌딩 2층 대표자 : 공기중 전화 : 1522-9182 이메일 : connect.info@connect.or.kr"
+  - paragraph: © NAVER Connect Foundation
+  - link "개인정보 처리방침":
+    - /url: /privacy
+  - link "이용약관":
+    - /url: /terms
+  - link "기업윤리센터":
+    - /url: https://audit.navercorp.com/audit/auditCounsel
+  - link "공익제보 (중앙전파관리소)":
+    - /url: https://www.crms.go.kr/
+- alert

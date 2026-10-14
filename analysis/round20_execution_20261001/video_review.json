@@ -1,0 +1,27 @@
+{
+  "reviewed_utc": "2026-10-01T23:41:41.485070+00:00",
+  "duration_s": 19.98,
+  "decoded_frames": 999,
+  "width": 1920,
+  "height": 1080,
+  "fps": 50,
+  "sample_interval_s": 0.2,
+  "samples_reviewed": 100,
+  "visual_review_completed": true,
+  "observation": "Visible robot walks and changes heading; no obvious collapse in sampled frames. Camera follows one visible robot.",
+  "limitation": "Provided play is a qualitative replay, not a controlled GX1/GX5 stair comparison; does not prove all four environments survived or official score.",
+  "video": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\stress_results\\extracted\\go2_stress_20261002\\candidate\\videos\\play\\rl-video-step-0.mp4",
+  "sha256": "7822bae7ee922057a5ca2b9fa7ff5fef2bb0706da21fe2ced9c673f6ed3ac0ef",
+  "policy_equivalence": {
+    "checkpoint_iter": 3000,
+    "random_observations": 4096,
+    "policies": [
+      {
+        "path": "candidate\\exported\\policy.pt",
+        "sha256": "59f8fa159cf44ef1b4a5c431e838f77e68a1891dadfd1390148620f1327f9178",
+        "max_absolute_error": 5.7220458984375e-06
+      }
+    ],
+    "verified": true
+  }
+}

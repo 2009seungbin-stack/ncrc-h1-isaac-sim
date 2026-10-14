@@ -1,0 +1,1347 @@
+{
+  "status": "OFFLINE_BEHAVIOR_REPLAY_UNAVAILABLE",
+  "scope": "local_only_no_server_no_simulation",
+  "python": "C:\\Users\\2009s\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+  "python_version": "3.10.11",
+  "torch_installed_version": "2.14.0+cpu",
+  "modules": {
+    "numpy": "C:\\Users\\2009s\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\numpy\\__init__.py",
+    "torch": "C:\\Users\\2009s\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\__init__.py",
+    "isaaclab": null,
+    "isaacsim": null
+  },
+  "known_install_paths": [
+    {
+      "path": "D:\\IsaacSim",
+      "exists": false
+    },
+    {
+      "path": "C:\\isaacsim",
+      "exists": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\IsaacLab",
+      "exists": false
+    }
+  ],
+  "local_simulation_note": "No isaaclab/isaacsim module in this Python and no checked standard directory; no exhaustive machine-wide search and no runtime installed",
+  "B1_final_checkpoint": {
+    "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_1499.pt",
+    "sha256": "f0c791fc4d400f983b99abb3d4d296da7b69b666617bc7a1b3217b7f37da17af",
+    "bytes": 6882293,
+    "deserialized_by_this_audit": false
+  },
+  "historical_heldout_trace_count": 28,
+  "B1_recorded_trace_count": 0,
+  "usable_recorded_actor_observation_trace_count": 0,
+  "traces": [
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_dr\\traces\\C0_5500_G7_1201.npz",
+      "bytes": 3141947,
+      "sha256": "786e02a26dcdfbdf34525a60f3c4e4942070043f2d9dfd4b47c77e816971ab75",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_dr\\traces\\C0_5500_G7_809.npz",
+      "bytes": 3140311,
+      "sha256": "53a0f2f6ce94d8980e5349f287c73774132e23e5d3dd5606ad21dc20e563524a",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_dr\\traces\\F10_3000_G7_1201.npz",
+      "bytes": 3139076,
+      "sha256": "e8edee6b5544426a7b28f9c5c489861c5ca3dc308d8b2a8fe0c24c07ea411969",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_dr\\traces\\F10_3000_G7_809.npz",
+      "bytes": 3137963,
+      "sha256": "18ff27577047ef9ffa1efadaffcce589697a6d1aa7a99980851ab0add05661c8",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\C0_5500_G1_1201.npz",
+      "bytes": 3142857,
+      "sha256": "e8dfb720a4af072ee822e6b602244cbb01f0fbe07538754328ebb74d19c090f0",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\C0_5500_G1_809.npz",
+      "bytes": 3143238,
+      "sha256": "91af9afbcf2a642b598d56d9f5a0bbb61541ea91dc020d2caa0fdf11d164a77b",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\C0_5500_G2_1201.npz",
+      "bytes": 3138244,
+      "sha256": "fab36cfd6226c4b0d1a23ca82c6fb67c05fd8e3dccf6adc607cccdc9ec8cf2e0",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\C0_5500_G2_809.npz",
+      "bytes": 3137721,
+      "sha256": "9c165b17f5a8b0cf1c9e7942d1494f41a802eced577c05661c848fa9d481fd44",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\C0_5500_G6_1201.npz",
+      "bytes": 3148267,
+      "sha256": "5f3bd5ee42876a67992b2d9e2c478d7a0c84d26809ac4ddd2987b0035a48dab4",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\C0_5500_G6_809.npz",
+      "bytes": 3148579,
+      "sha256": "567caf597fc94f9464f2a6e3022c9743d577e478a4b5f62416339c09eac749cc",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\F10_3000_G1_1201.npz",
+      "bytes": 3141142,
+      "sha256": "28b4933524d19e6d4a12eb3f5a61cc5df097db40ccaf5167aca83e8ea589cf3b",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\F10_3000_G1_809.npz",
+      "bytes": 3141041,
+      "sha256": "1120a79194181c7c41c3575cb11d914f9b3d118b8c5fa7a446ada84956a2421a",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\F10_3000_G2_1201.npz",
+      "bytes": 3136698,
+      "sha256": "ea43228cb5f460ed1fd3b1afcd3be5d5431d1b2fd5d49b6083330ad01a736b0a",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\F10_3000_G2_809.npz",
+      "bytes": 3134839,
+      "sha256": "34c6df67a79504228c4fcb6d681f8a0cda5027ff2cfd152eff8683d1f73c05f4",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\F10_3000_G6_1201.npz",
+      "bytes": 3147854,
+      "sha256": "b0646f4db5bd5d7ef57676a0d644ae476c823cdb93c7874d95b7975e4fa17319",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\F10_3000_G6_809.npz",
+      "bytes": 3147375,
+      "sha256": "34830407bbdf29c0f828e4226a06202fe5c9061506e5abcaf7b7b784b5902f50",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_rough\\traces\\C0_5500_G3_1201.npz",
+      "bytes": 3139907,
+      "sha256": "5366788de9f0bdc5b64d6eccef4ad483c7aa919d50d730281be9b2b175d9b8d8",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_rough\\traces\\C0_5500_G3_809.npz",
+      "bytes": 3137852,
+      "sha256": "a60d07f0129d7dacf8fcd9973d25ebc0037abe3d0555fa838d7915b6e4b9d40f",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_rough\\traces\\F10_3000_G3_1201.npz",
+      "bytes": 3138011,
+      "sha256": "6fd306a0f16bfb30f90a91b5ad0e5511789fab1c7aaa5becce366aedf94eb655",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_rough\\traces\\F10_3000_G3_809.npz",
+      "bytes": 3136154,
+      "sha256": "9ee2289d52325a8282ae6d17faffe74aa6dd379b47627f07fe9b4ce93ed484a5",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_slope\\traces\\C0_5500_G4_1201.npz",
+      "bytes": 3147321,
+      "sha256": "c2702ba99c6667b5cc58f020a713e4ca1f2d9c2c5abbb4a7d733400ff8023b65",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_slope\\traces\\C0_5500_G4_809.npz",
+      "bytes": 3147993,
+      "sha256": "ea8f55c2c2742671bde752788ad45515148b43b8a68ca1e805bb1e0a2daaabda",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_slope\\traces\\F10_3000_G4_1201.npz",
+      "bytes": 3146420,
+      "sha256": "c94a0c53f2b6fd5cb5e8f8058719c75779d48d72f06423bbced2441d46e433a1",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_slope\\traces\\F10_3000_G4_809.npz",
+      "bytes": 3146171,
+      "sha256": "048d2eeefd9136f910acaa9c2cc5dc1e165c2d489713bdd881107f73fc9ab695",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_stairs\\traces\\C0_5500_G5_1201.npz",
+      "bytes": 3155510,
+      "sha256": "df08b2c39f2147b1d703beed8d1d30a7a24a3613495a90b3ecbfcb09332fa7ad",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_stairs\\traces\\C0_5500_G5_809.npz",
+      "bytes": 3155941,
+      "sha256": "a315e7a840df121593e8125983c200deb1a0fee670ac1783f414b46a9f59a167",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_stairs\\traces\\F10_3000_G5_1201.npz",
+      "bytes": 3157995,
+      "sha256": "cac44ab25a56ba319a017a7d1f93abda3770ea9a76630d33ad18d90048b9d731",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_stairs\\traces\\F10_3000_G5_809.npz",
+      "bytes": 3158431,
+      "sha256": "18cbb11ab9d1bff5df7dd6b16cbf151186f714139713536fc01c6e5dadf836e0",
+      "arrays": {
+        "error": {
+          "shape": [
+            1000,
+            128,
+            3
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "valid": {
+          "shape": [
+            1000,
+            128
+          ],
+          "dtype": "bool",
+          "finite": true
+        },
+        "trace_first_envs": {
+          "shape": [
+            1000,
+            8,
+            60
+          ],
+          "dtype": "float32",
+          "finite": true
+        },
+        "dt": {
+          "shape": [],
+          "dtype": "float64",
+          "finite": true
+        },
+        "trace_columns": {
+          "shape": [],
+          "dtype": "<U80",
+          "text": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      },
+      "explicit_observation_keys": [],
+      "arrays_with_last_dimension_235": [],
+      "sufficient_actor_input": false
+    }
+  ],
+  "B1_traces": [],
+  "missing_required_actor_state": [
+    "projected gravity",
+    "joint positions relative to default",
+    "height scan (187 values)",
+    "the actual observation noise draw",
+    "full policy observation order/scales/clipping verification"
+  ],
+  "available_historical_state": "command3, body_lin3, body_ang3, action12, joint_vel12, joint_acc12, torque12, position3 (60 columns)",
+  "strongest_valid_conclusion": "Historical traces can remeasure C0/F10 outcomes and diagnostics only. They cannot identify B1 closed-loop trajectories, falls, tracking errors, Q3 or official score.",
+  "rejected_methods": [
+    "Fill missing height/gravity/joint/noise with arbitrary zeros and call it an evaluation",
+    "Apply B1 actions to recorded reference velocities without stepping dynamics",
+    "Convert parameter distance/action differences into survival or points"
+  ],
+  "performed_actor_inference": false,
+  "B1_closed_loop_evaluation": false,
+  "B1_internal_Q3": null,
+  "B1_predicted_official_score": null,
+  "B1_predicted_gain": null
+}

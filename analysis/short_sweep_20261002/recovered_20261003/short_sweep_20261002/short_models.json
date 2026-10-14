@@ -1,0 +1,22 @@
+[
+  {
+    "name": "control",
+    "checkpoint": "preserved/short_20261002_control/2026-10-02_20-37-44_short_20261002_control/model_799.pt",
+    "sha256": "bbe5192e24aad58db28d91bcb20f710226d9a4e5e096b866ea8654955a399c62"
+  },
+  {
+    "name": "action",
+    "checkpoint": "preserved/short_20261002_action/2026-10-02_21-42-09_short_20261002_action/model_799.pt",
+    "sha256": "ada90e26dc549c448e92b3aee42ee00dba67f953f0605e148eb48e9a01fff797"
+  },
+  {
+    "name": "acc",
+    "checkpoint": "preserved/short_20261002_acc/2026-10-02_22-46-35_short_20261002_acc/model_799.pt",
+    "sha256": "256af12f1ff93f5998670966dbb64cbdcc1a5a00ff2fe11b2be7fc8bb7b631fb"
+  },
+  {
+    "name": "linear",
+    "checkpoint": "preserved/short_20261002_linear/2026-10-02_23-50-45_short_20261002_linear/model_799.pt",
+    "sha256": "c421a9d39bd3555d80c63c6e3b59cd61a3286ed44add2a402b5b8447d5e6bdd4"
+  }
+]

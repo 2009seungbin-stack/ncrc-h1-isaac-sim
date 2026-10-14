@@ -1,0 +1,12 @@
+{
+  "delta_file": "source_snapshot.py",
+  "bytes": 4485,
+  "sha256": "d3bc1705a07392032b1369d6f48fb1b72b676f1b3cd0dd9457882480b781b211",
+  "original_package_sha256_unchanged": "231058aac37e2f0eb046716cd59ed8399550acfe252513f2177a40fa573daaed",
+  "reason": "Browser UI observed official runtime uses models/mlp_model.py and modules/mlp.py instead of legacy modules/actor_critic.py",
+  "changed_scope": "Analysis-only read-only source preflight helper; no runner, provided source, environment, architecture or PPO implementation changed",
+  "protection": "All four provided source hashes must match historical reference; all installed rsl_rl package Python files remain hash protected",
+  "report_recovery": "Prior report renamed to unique timestamp file before creating retry report; existing successful manifests cannot be overwritten",
+  "cpu_tests_passed": 6,
+  "compatibility_limit": "Recognized file layout does not prove supplied training configuration compatibility; actual official runtime config inspection remains required"
+}

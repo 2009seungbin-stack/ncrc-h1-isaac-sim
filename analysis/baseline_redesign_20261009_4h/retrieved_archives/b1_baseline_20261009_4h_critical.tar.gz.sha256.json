@@ -1,0 +1,9 @@
+{
+  "path": "/workspace/student_workspace/b1_baseline_20261009_4h_critical.tar.gz",
+  "bytes": 6403369,
+  "sha256": "7c32a8354b100af92af429d83da256b3124d890ea188d60b371c785587fd2a41",
+  "kind": "critical_partial",
+  "created_epoch": 1791555101.2340164,
+  "contains_complete_validation": false,
+  "local_retrieval_verified": false
+}

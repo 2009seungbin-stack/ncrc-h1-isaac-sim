@@ -1,0 +1,132 @@
+{
+  "status": "LOCAL_TRAINING_DIAGNOSTIC_COMPLETE_B1_POLICY_PERFORMANCE_UNMEASURED",
+  "created_utc": "2026-10-09T14:57:32Z",
+  "scope": "Local training-log/config comparison and CPU checkpoint integrity only",
+  "server_used": false,
+  "simulation_performed": false,
+  "policy_inference_performed": false,
+  "verdict": "B1 currently has low priority for further long training; evidence does not support improvement over historical F10 at 1500 iterations",
+  "verdict_is_research_priority_judgment_not_measured_policy_rank": true,
+  "comparison_window_inclusive": [
+    1400,
+    1499
+  ],
+  "comparison": [
+    {
+      "metric": "선속도 추종 보상 / 가중치",
+      "key": "weight_normalized_episode_reward_xy",
+      "B1": 0.6787833333333334,
+      "F10": 0.7142365,
+      "relative_change_percent": -4.963785338143123,
+      "higher_is_better_for_training_diagnostic": true
+    },
+    {
+      "metric": "회전 추종 보상 / 가중치",
+      "key": "weight_normalized_episode_reward_yaw",
+      "B1": 0.6889786666666667,
+      "F10": 0.7401666666666666,
+      "relative_change_percent": -6.915739698266144,
+      "higher_is_better_for_training_diagnostic": true
+    },
+    {
+      "metric": "로그 XY 오차",
+      "key": "Metrics/base_velocity/error_vel_xy",
+      "B1": 0.687926,
+      "F10": 0.614972,
+      "relative_change_percent": 11.862979127505003,
+      "higher_is_better_for_training_diagnostic": false
+    },
+    {
+      "metric": "로그 yaw 오차",
+      "key": "Metrics/base_velocity/error_vel_yaw",
+      "B1": 0.502177,
+      "F10": 0.442606,
+      "relative_change_percent": 13.459148768882478,
+      "higher_is_better_for_training_diagnostic": false
+    },
+    {
+      "metric": "몸통 접촉 종료 로그",
+      "key": "Episode_Termination/base_contact",
+      "B1": 0.125887,
+      "F10": 0.098374,
+      "relative_change_percent": 27.967755707808962,
+      "higher_is_better_for_training_diagnostic": false
+    },
+    {
+      "metric": "평균 지형 레벨",
+      "key": "Curriculum/terrain_levels",
+      "B1": 5.204448,
+      "F10": 5.7497489999999996,
+      "relative_change_percent": -9.48390964544712,
+      "higher_is_better_for_training_diagnostic": true
+    }
+  ],
+  "checkpoint_training_context_comparison": {
+    "Metrics/base_velocity/error_vel_xy": {
+      "1000_trailing50": 0.722168,
+      "1499_trailing50": 0.686782,
+      "relative_change_percent": -4.899967874511201
+    },
+    "Metrics/base_velocity/error_vel_yaw": {
+      "1000_trailing50": 0.514216,
+      "1499_trailing50": 0.503898,
+      "relative_change_percent": -2.0065497767475238
+    },
+    "Episode_Termination/base_contact": {
+      "1000_trailing50": 0.11682000000000001,
+      "1499_trailing50": 0.129448,
+      "relative_change_percent": 10.809792843691145
+    },
+    "Curriculum/terrain_levels": {
+      "1000_trailing50": 4.93729,
+      "1499_trailing50": 5.210402,
+      "relative_change_percent": 5.531617547277956
+    }
+  },
+  "checkpoint_integrity": {
+    "count": 16,
+    "all_checks_pass": true,
+    "actor_dimensions": [
+      235,
+      512,
+      256,
+      128,
+      12
+    ]
+  },
+  "B1_fixed_scenario_survival": null,
+  "B1_fixed_scenario_RMSE": null,
+  "B1_Q3": null,
+  "B1_predicted_official_score": null,
+  "B1_predicted_score_gain": null,
+  "probability_of_93_points": null,
+  "unmeasured_reason": "No B1 behavior traces; historical records omit real 235D actor observations; local simulator unavailable in checked paths",
+  "comparability_limits": [
+    "F00 is a separate historical scratch run with C0 reward settings, not the official C0_5500 training trajectory.",
+    "Same iteration windows and seed42 do not equate endogenous terrain/command/termination distributions.",
+    "No independent training seeds; successive logged iterations are not independent experiments.",
+    "Historical runtime equality with B1 is not established by log-window matching.",
+    "Weight-normalized reward retains episode-duration/reset/aggregation effects and exploration; it is not deterministic-policy tracking.",
+    "Portal S1/R1 reports expose final terrain/std and rounded last10 training fall rate, but no normalized tracking trace.",
+    "B1 has zero heldout scenario evaluations; existing official calibration cannot accept its training metrics as replacement inputs."
+  ],
+  "source_artifacts": [
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\offline_eval\\training_metrics.json",
+      "sha256": "86257dd0eba0908c263ae2008bdccec0c1ba144d897cc1920b1c773ac67207ca"
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\offline_eval\\historical_comparison.json",
+      "sha256": "5ad7cae207547f6eabcf6f12253d558d8f0d3d352375e701578327c5e442f61b"
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\offline_eval\\checkpoint_inventory.json",
+      "sha256": "b7b77b04189570eb4df9be1e56c5475c53582dbd53b4ff51a85d8a983365a27b"
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\offline_eval\\behavior_feasibility.json",
+      "sha256": "027cb966e4403f5ba919eee5e97f819c8c0cb6ad7458cd933141efa06d9d7d1f"
+    }
+  ],
+  "chart": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\offline_eval\\B1_training_assessment.png"
+}

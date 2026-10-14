@@ -1,0 +1,41 @@
+{
+  "scope": "Portal automatic submissions only; not full tracking archive",
+  "files": [
+    {
+      "arm": "R1_tracking_double",
+      "name": "model_best.pt",
+      "bytes": 6882293,
+      "sha256": "925b3f49111d65a5d4c54ac193d14798f8296501f569729d29df3d8f124cc0df"
+    },
+    {
+      "arm": "R1_tracking_double",
+      "name": "env.yaml",
+      "bytes": 28539,
+      "sha256": "906b8d3c83f2b3412abd238c1ea6e5ba49ae9524bdf18a74ec57dee1de17419b"
+    },
+    {
+      "arm": "R1_tracking_double",
+      "name": "report.html",
+      "bytes": 13356,
+      "sha256": "2e3c601c992c1520dfea2d6074bb5cffcf3d1ff379dea0f949c3bb3815526b24"
+    },
+    {
+      "arm": "S1_tracking_pair",
+      "name": "model_best.pt",
+      "bytes": 6882219,
+      "sha256": "b80fff456f3059f99aba328413bd76d04fc94205eb8a815d180483f8ee6ffde5"
+    },
+    {
+      "arm": "S1_tracking_pair",
+      "name": "env.yaml",
+      "bytes": 28538,
+      "sha256": "3348db24eb823c593de91bcd2f9e024d55caa2a0f0e33461520ad8ea9dc67d0a"
+    },
+    {
+      "arm": "S1_tracking_pair",
+      "name": "report.html",
+      "bytes": 13172,
+      "sha256": "0a68a364245807b76270fcc8147ad1abf92ec1215b4be72ea4e3f18a438474cc"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+B1 로컬 역사 비교 및 점수 보정 감사 — 2026-10-09
+
+판정
+B1의 1500회 학습 로그에서는 역사 F10의 같은 학습 구간보다 좋아졌다는 증거가 없다.
+마지막 100회에서 두 추종 보상의 가중치 정규화 값이 낮고, 기록상 추종 오차와
+base_contact 종료 지표는 높으며, 도달한 평균 terrain level은 낮다.
+이는 B1의 현재 유망성을 낮추는 학습 진단이다. B1 정책의 고정 시나리오 평가 결과나
+공식 점수 예측으로 해석할 수는 없다. B1의 고정 시나리오 평가 입력은 아직 없다.
+
+수행 범위
+회수된 로컬 train 로그와 저장 cfg, 기존 평가 JSON/텍스트만 읽었다.
+정책 실행, 시뮬레이터, 서버, 네트워크, 재학습, 재평가를 사용하지 않았다.
+생성물은 historical_comparison.py / historical_comparison.json / 본 문서다.
+원본 로그 및 cfg 경로와 SHA256은 historical_comparison.json에 기록했다.
+
+실제 비교 가능 자료
+- B1: train_B1.log의 iteration 0~1499, 누락·중복 없는 1500개 기록.
+- 역사 F10: round20 train_F10.log의 iteration 0~3999, 누락·중복 없는 4000개 기록.
+- 역사 F00: round20 train_F00.log의 iteration 0~3999, 누락·중복 없는 4000개 기록.
+- F00는 C0와 보상이 같은 별도 scratch run이다. 공식 C0_5500의 초기 1500회
+  학습 기록으로 바꿔 부르지 않는다. longrun_C0에서 해당 raw 학습 로그는 찾지 못했다.
+- 세 saved cfg는 seed42, 6144 environments, iteration당 24 steps, resume=false다.
+  agent.yaml은 max_iterations(4000/1500)와 run_name만 다르다.
+  env.yaml은 보상 weight와 log_dir만 다르다. 전체 diff를 JSON에 저장했다.
+- 따라서 아래 표는 실제 같은 iteration 창을 비교한다. 다만 정확한 과거 runtime
+  동일성은 입증하지 못했고, 학습 중 정책에 따라 terrain·명령·종료 표본이 달라진다.
+  각 run은 training seed 1개이며 100개의 연속 iteration은 독립 실험 100개가 아니다.
+
+유효 보상
+항목                 B1          역사 F10       역사 F00
+lin tracking         1.5         2.0            2.0
+yaw tracking         0.75        1.5            0.75
+feet air time        0           0.01           0.01
+vertical velocity   -2          -3             -3
+roll/pitch velocity -0.05       -0.08          -0.08
+torque              -0.0001     -0.0002        -0.0002
+action rate         -0.01       -0.01          -0.01
+joint acceleration  -2.5e-7     -2.5e-7        -2.5e-7
+flat orientation     0           0              0
+joint limits         0           0              0
+
+iteration 1400~1499의 산술평균
+지표                             B1           역사 F10      역사 F00
+XY 보상 / XY weight             0.678783      0.714237      0.716942
+yaw 보상 / yaw weight           0.688979      0.740167      0.661181
+기록 error_vel_xy               0.687926      0.614972      0.453791
+기록 error_vel_yaw              0.502177      0.442606      0.483790
+기록 base_contact               12.5887%      9.8374%       17.1497%
+기록 time_out                   87.4184%      90.1725%      82.8503%
+Mean episode length             936.6526      947.7377      897.7817
+Mean action std                 0.7278        0.7348        0.7394
+terrain level                   5.204448      5.749749      5.634928
+
+해석
+- F10 대비 B1의 가중치 정규화 XY/yaw 보상은 각각 4.96%/6.92% 낮고,
+  기록상 XY/yaw 오차는 11.86%/13.46% 높다. base_contact는 2.7513%p 높다.
+  탐색 std는 비슷하고 terrain level은 B1이 낮다. 큰 개선의 학습 신호가 아니다.
+- F00 대비 B1은 yaw 보상 +4.20%, base_contact -4.5610%p이지만,
+  XY 보상 -5.32%, 기록상 XY 오차 +51.60%다. 전반 개선이 아닌 혼합 결과다.
+- 500~599 창에서는 B1이 F10보다 XY 보상·base_contact·terrain에서 유리했다.
+  그러나 900~999, 1000~1099, 1200~1299, 1400~1499 창에서는 두 정규화
+  추종 보상·base_contact·terrain 모두 F10보다 불리하다. 마지막 한 회만 고른
+  결론은 아니다. 이것이 앞으로 더 학습해도 개선되지 않는다는 증거는 아니다.
+- weight로 나누는 것은 보상 계수 차이만 제거한다. episode 길이, reset,
+  aggregation, 탐색 action의 영향까지 제거하지 않는다. 이를 RMSE나 고정 정책의
+  순수 추종 확률로 부르지 않는다. 서로 다른 집계의 mean episode length로
+  추가 나눗셈하여 생존을 보정한 값도 만들지 않았다.
+- base_contact/time_out는 iteration별 로그 지표의 단순 평균이다. 전체 원시
+  episode를 합친 정확한 낙상 분수나 고정 시나리오 survival 측정값은 아니다.
+
+S1/R1 비교 가능 범위
+현재 로컬에는 S1/R1의 normalized tracking 학습 곡선을 담은 raw train 로그가 없다.
+포털 report HTML에도 해당 시계열·embedded chart data가 없었다.
+따라서 B1의 정규화 추종이 S1/R1보다 좋아졌는지 수치로 답할 수 없다.
+포털 마지막 10회 낙상 요약은 S1 7.3%, R1 8.0%; B1 로그 마지막 10회
+base_contact 평균은 11.822%다. 마지막 terrain은 S1 5.41, R1 5.73, B1 5.245다.
+이 제한된 학습 요약도 B1의 우위를 지지하지 않지만, 포털 반올림·집계 및
+각 run의 학습 분포 차이 때문에 동일 고정 평가의 survival 비교로 취급하지 않는다.
+S1 포털 선택 checkpoint400과 기존 시나리오 평가 checkpoint1499는 서로 다르다.
+
+기존 평가/공식 보정과의 연결 한계
+- 기존 실제 heldout 자료는 F10_3000 및 C0_5500에 시나리오별 RMSE/survival이 있다.
+  기존 S1/R1의 1499 고정 평가도 있다. B1에는 같은 입력이 전혀 없다.
+- C0의 공식 88.14(시뮬58.14 + 정성30)가 보정의 Go2 policy anchor 1개다.
+  H1 기록은 독립 Go2 anchor가 아니다.
+- short_sweep predicted_scores.json 자체도
+  UNVALIDATED_CALIBRATION_OUTPUTS_NOT_PRIMARY_PREDICTION이며 primary_prediction=null이다.
+- F10의 88.36/88.63은 각각 고정MSE/품질비율 가정의 출력이다. 다른 임의오차배율
+  가정은 89.10을 냈다. 검증된 공식 예측 범위가 아니며 B1에 이전할 수 없다.
+- 고정MSE 보정식의 약89.721 천장은 보정 가정의 산물이다. 정책 또는 보상 설계의
+  성능 천장이 아니며 93 불가능의 근거가 아니다.
+- 기존 보정은 full-window 시나리오 추종 오차와 survival을 입력으로 받는다.
+  학습 보상/error_vel/종료 지표를 대신 넣을 정당화 자료가 없다. 단일 Go2 공식
+  anchor만으로 학습 로그와 공식 점수 사이의 관계도 식별할 수 없다.
+
+내부 점수 제시 여부
+방어 가능한 B1의 Q3, 공식 예상점수, 점수 범위는 현재 계산할 수 없다.
+계산 가능한 내부 진단은 위의 가중치 정규화 보상과 학습 종료 지표 벡터다.
+이를 하나의 100점 점수로 합치면 임의의 척도가 추가되어 정보보다 오해가 커진다.
+현재 결론은 '학습은 완주했으나, 1500회에서 역사 F10보다 유망하다는 증거 없음'이다.
+정책 고정 평가를 아직 하지 않았으므로 'B1의 실제 점수가 더 낮다'고 확정하지 않는다.

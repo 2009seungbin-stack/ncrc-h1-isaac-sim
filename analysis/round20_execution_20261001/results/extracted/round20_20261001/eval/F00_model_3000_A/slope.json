@@ -1,0 +1,197 @@
+{
+  "run_id": "F00_model_3000_A",
+  "checkpoint": "/workspace/student_workspace/round20_20261001/preserved/F00/2026-10-01_13-44-14_round20_F00/model_3000.pt",
+  "eval_seed_set": "EVAL_SET_A",
+  "scenarios": {
+    "G4": {
+      "w": 0.15,
+      "desc": "경사 +-20도 (오르막/내리막 50:50)",
+      "terrain": "slope",
+      "episodes": 512,
+      "survived": 511,
+      "survival": 0.998,
+      "survival_lcb": 0.989,
+      "tracking": 0.9152,
+      "score": 0.9134,
+      "rmse": {
+        "vx": 0.0556,
+        "vy": 0.0627,
+        "yaw": 0.1287
+      },
+      "rmse_used": 0.0886,
+      "rmse_extra": {
+        "vz": 0.1081,
+        "wx": 0.4516,
+        "wy": 0.3649
+      },
+      "mae": {
+        "vx": 0.0412,
+        "vy": 0.0506,
+        "yaw": 0.1011
+      },
+      "mse_seg": {
+        "vx": [
+          0.00318,
+          0.00309,
+          0.00248,
+          0.00359
+        ],
+        "vy": [
+          0.00409,
+          0.00394,
+          0.00384,
+          0.00385
+        ],
+        "yaw": [
+          0.01543,
+          0.01658,
+          0.01737,
+          0.01684
+        ]
+      },
+      "axis_mode": "all",
+      "axis_weights": {
+        "vx": 1.0,
+        "vy": 1.0,
+        "yaw": 1.0
+      },
+      "segment_cmds": [
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.0
+        ]
+      ],
+      "segment_tracking": [
+        0.9167,
+        0.9151,
+        0.915,
+        0.914
+      ],
+      "segment_mean_actual": [
+        [
+          0.487,
+          0.012,
+          0.009
+        ],
+        [
+          0.489,
+          0.009,
+          0.022
+        ],
+        [
+          0.489,
+          0.015,
+          0.021
+        ],
+        [
+          0.489,
+          0.015,
+          0.016
+        ]
+      ],
+      "segment_falls": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "seg_s": 5.0,
+      "push_mag": null,
+      "push_period_s": null,
+      "falls": 1,
+      "nan_actions": 0,
+      "crashes": 0
+    }
+  },
+  "coverage_weight": 0.15,
+  "sim_score": 9.591,
+  "sim_score_pct": 91.34,
+  "sim_score_by_axis_mode": {
+    "all": 9.59,
+    "scenario": 9.912,
+    "yaw": 9.214
+  },
+  "official_pred": {
+    "all": {
+      "self_q": 0.137,
+      "official_sim": 0.4,
+      "official_total": 30.4,
+      "total_lo": 30.4,
+      "total_hi": 38.79,
+      "band": 8.39,
+      "anchor": "2R R3A_9000 + 1R model_4600 (V1)",
+      "target_total": 91.0,
+      "target_self_sim": 66.15,
+      "borrowed_anchor": true,
+      "ratio": null
+    },
+    "scenario": {
+      "self_q": 0.1416,
+      "official_sim": 0.74,
+      "official_total": 30.74,
+      "total_lo": 30.74,
+      "total_hi": 39.09,
+      "band": 8.34,
+      "anchor": "2R R3A_9000 + 1R model_4600 (V1)",
+      "target_total": 91.0,
+      "target_self_sim": 66.15,
+      "borrowed_anchor": true,
+      "ratio": null
+    },
+    "yaw": {
+      "self_q": 0.1316,
+      "official_sim": -0.01,
+      "official_total": 29.99,
+      "total_lo": 29.99,
+      "total_hi": 38.45,
+      "band": 8.45,
+      "anchor": "2R R3A_9000 + 1R model_4600 (V1)",
+      "target_total": 91.0,
+      "target_self_sim": 66.15,
+      "borrowed_anchor": true,
+      "ratio": null
+    }
+  },
+  "h_survival": 0.998,
+  "h_survival_lcb": 0.989,
+  "official_offset": null,
+  "falls": 1,
+  "nan_actions": 0,
+  "crashes": 0,
+  "stress": null,
+  "config": {
+    "seg_s": 5.0,
+    "transient_s": 0.5,
+    "num_envs": 128,
+    "seeds": "103,280,512,991",
+    "rough_range": [
+      0.04,
+      0.1
+    ],
+    "slope_deg": 20.0,
+    "push_period_s": 2.5,
+    "push_mag": 1.0,
+    "obs_noise": true,
+    "tracking_def": "exp(-RMSE)",
+    "axis_mode": "all",
+    "cmd_scale": 1.0,
+    "stair_height": 0.12,
+    "stair_width": 0.3
+  }
+}

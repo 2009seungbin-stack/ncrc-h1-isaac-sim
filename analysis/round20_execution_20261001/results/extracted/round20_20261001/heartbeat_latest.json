@@ -1,0 +1,40 @@
+{
+  "checked_utc": "2026-10-01T15:43:56.801333+00:00",
+  "state": {
+    "stage": "RUNNING",
+    "utc": "2026-10-01T15:43:15.324459+00:00",
+    "elapsed_hours": 11.193979019323985,
+    "job": "eval_F10_model_3999_A_slope",
+    "command": [
+      "/workspace/IsaacLab/isaaclab.sh",
+      "-p",
+      "/workspace/student_workspace/round20_20261001/t_eval_go2.py",
+      "--task",
+      "Quadruped-v0",
+      "--task_module",
+      "go2_task",
+      "--train_script",
+      "/workspace/training/quadruped/train.py",
+      "--checkpoint",
+      "/workspace/student_workspace/round20_20261001/preserved/F10/2026-10-01_18-55-04_round20_F10/model_3999.pt",
+      "--num_envs",
+      "128",
+      "--seeds",
+      "103,280,512,991",
+      "--scenarios",
+      "G4",
+      "--run_id",
+      "F10_model_3999_A",
+      "--out",
+      "/workspace/student_workspace/round20_20261001/eval/F10_model_3999_A/slope.json",
+      "--headless"
+    ],
+    "timeout_seconds": 720
+  },
+  "elapsed_server_hours": 11.205500372648238,
+  "log_modified_seconds_ago": 38.787978649139404,
+  "recent_error_lines": [],
+  "driver_tail": "0-01T15:38:49.237178+00:00\", \"elapsed_hours\": 11.120065883861647, \"job\": \"eval_F10_model_3999_A_flat\", \"command\": [\"/workspace/IsaacLab/isaaclab.sh\", \"-p\", \"/workspace/student_workspace/round20_20261001/t_eval_go2.py\", \"--task\", \"Quadruped-v0\", \"--task_module\", \"go2_task\", \"--train_script\", \"/workspace/training/quadruped/train.py\", \"--checkpoint\", \"/workspace/student_workspace/round20_20261001/preserved/F10/2026-10-01_18-55-04_round20_F10/model_3999.pt\", \"--num_envs\", \"128\", \"--seeds\", \"103,280,512,991\", \"--scenarios\", \"G1,G2,G6\", \"--run_id\", \"F10_model_3999_A\", \"--out\", \"/workspace/student_workspace/round20_20261001/eval/F10_model_3999_A/flat.json\", \"--headless\"], \"timeout_seconds\": 720}\n{\"stage\": \"JOB_COMPLETE\", \"utc\": \"2026-10-01T15:42:02.272156+00:00\", \"elapsed_hours\": 11.17368672410647, \"job\": \"eval_F10_model_3999_A_flat\", \"seconds\": 193.032208442688}\n{\"stage\": \"RUNNING\", \"utc\": \"2026-10-01T15:42:02.273321+00:00\", \"elapsed_hours\": 11.173687036964628, \"job\": \"eval_F10_model_3999_A_rough\", \"command\": [\"/workspace/IsaacLab/isaaclab.sh\", \"-p\", \"/workspace/student_workspace/round20_20261001/t_eval_go2.py\", \"--task\", \"Quadruped-v0\", \"--task_module\", \"go2_task\", \"--train_script\", \"/workspace/training/quadruped/train.py\", \"--checkpoint\", \"/workspace/student_workspace/round20_20261001/preserved/F10/2026-10-01_18-55-04_round20_F10/model_3999.pt\", \"--num_envs\", \"128\", \"--seeds\", \"103,280,512,991\", \"--scenarios\", \"G3\", \"--run_id\", \"F10_model_3999_A\", \"--out\", \"/workspace/student_workspace/round20_20261001/eval/F10_model_3999_A/rough.json\", \"--headless\"], \"timeout_seconds\": 720}\n{\"stage\": \"JOB_COMPLETE\", \"utc\": \"2026-10-01T15:43:15.323257+00:00\", \"elapsed_hours\": 11.193978697061539, \"job\": \"eval_F10_model_3999_A_rough\", \"seconds\": 73.0131163597107}\n{\"stage\": \"RUNNING\", \"utc\": \"2026-10-01T15:43:15.324459+00:00\", \"elapsed_hours\": 11.193979019323985, \"job\": \"eval_F10_model_3999_A_slope\", \"command\": [\"/workspace/IsaacLab/isaaclab.sh\", \"-p\", \"/workspace/student_workspace/round20_20261001/t_eval_go2.py\", \"--task\", \"Quadruped-v0\", \"--task_module\", \"go2_task\", \"--train_script\", \"/workspace/training/quadruped/train.py\", \"--checkpoint\", \"/workspace/student_workspace/round20_20261001/preserved/F10/2026-10-01_18-55-04_round20_F10/model_3999.pt\", \"--num_envs\", \"128\", \"--seeds\", \"103,280,512,991\", \"--scenarios\", \"G4\", \"--run_id\", \"F10_model_3999_A\", \"--out\", \"/workspace/student_workspace/round20_20261001/eval/F10_model_3999_A/slope.json\", \"--headless\"], \"timeout_seconds\": 720}\n",
+  "gpu": "62 %, 6696 MiB",
+  "nonfinite_metrics": []
+}

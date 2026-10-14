@@ -1,0 +1,729 @@
+{
+  "epoch": 1791768158.2392917,
+  "state": {
+    "schema_version": 1,
+    "stage": "RUNNING_train_S5_torque_half",
+    "allocation_start_epoch": 1791765159.0,
+    "deadlines_epoch": {
+      "setup_end": 1791766359.0,
+      "training_begin_latest": 1791766959.0,
+      "training_end_latest": 1791774759.0,
+      "selection_end_latest": 1791775659.0,
+      "compute_end": 1791776859.0,
+      "dashboard_shutdown_request_latest": 1791778059.0,
+      "shutdown_confirmed_latest": 1791779559.0
+    },
+    "training": {
+      "status": "started",
+      "run_name": "S5_torque_half_4h_1791765159",
+      "expected_weights": {
+        "track_lin_vel_xy_exp": 2.0,
+        "track_ang_vel_z_exp": 1.5,
+        "feet_air_time": 0.01,
+        "lin_vel_z_l2": -3.0,
+        "ang_vel_xy_l2": -0.08,
+        "action_rate_l2": -0.01,
+        "dof_acc_l2": -2.5e-07,
+        "dof_torques_l2": -0.0001,
+        "flat_orientation_l2": 0.0,
+        "dof_pos_limits": 0.0
+      },
+      "pid": 14474,
+      "process_group_id": 14474,
+      "started_epoch": 1791765837.0704703,
+      "command": [
+        "/workspace/IsaacLab/isaaclab.sh",
+        "-p",
+        "train.py",
+        "--task",
+        "Quadruped-v0",
+        "--num_envs",
+        "6144",
+        "--seed",
+        "42",
+        "--max_iterations",
+        "1500",
+        "--run_name",
+        "S5_torque_half_4h_1791765159",
+        "--headless"
+      ],
+      "owned_process_identity": {
+        "leader": {
+          "pid": 14474,
+          "state": "R",
+          "ppid": 14471,
+          "pgid": 14474,
+          "session": 14474,
+          "start_ticks": 674599,
+          "cmdline": "/usr/bin/env bash /workspace/IsaacLab/isaaclab.sh -p train.py --task Quadruped-v0 --num_envs 6144 --seed 42 --max_iterations 1500 --run_name S5_torque_half_4h_1791765159 --headless",
+          "argv": [
+            "/usr/bin/env",
+            "bash",
+            "/workspace/IsaacLab/isaaclab.sh",
+            "-p",
+            "train.py",
+            "--task",
+            "Quadruped-v0",
+            "--num_envs",
+            "6144",
+            "--seed",
+            "42",
+            "--max_iterations",
+            "1500",
+            "--run_name",
+            "S5_torque_half_4h_1791765159",
+            "--headless"
+          ]
+        },
+        "expected_command": [
+          "/workspace/IsaacLab/isaaclab.sh",
+          "-p",
+          "train.py",
+          "--task",
+          "Quadruped-v0",
+          "--num_envs",
+          "6144",
+          "--seed",
+          "42",
+          "--max_iterations",
+          "1500",
+          "--run_name",
+          "S5_torque_half_4h_1791765159",
+          "--headless"
+        ]
+      },
+      "configuration": {
+        "effective_weights": {
+          "track_lin_vel_xy_exp": 2.0,
+          "track_ang_vel_z_exp": 1.5,
+          "lin_vel_z_l2": -3.0,
+          "ang_vel_xy_l2": -0.08,
+          "dof_torques_l2": -0.0001,
+          "dof_acc_l2": -2.5e-07,
+          "action_rate_l2": -0.01,
+          "feet_air_time": 0.01,
+          "flat_orientation_l2": 0.0,
+          "dof_pos_limits": 0.0
+        },
+        "env_sha256": "2ebe1e4f1159174dbc4f8d17284ba68b47cdf1143dee7810b53a3d74e431dfba",
+        "agent_sha256": "66e822252cbc4be763ab2aa05a7b19e4a84105e692b19e76a8b512314d79038e",
+        "actor_observation_normalization": false,
+        "policy_clip_actions": null,
+        "actor_configs": {
+          "actor": {
+            "class_name": "MLPModel",
+            "activation": "elu",
+            "obs_normalization": false,
+            "hidden_dims": [
+              512,
+              256,
+              128
+            ]
+          },
+          "critic": {
+            "class_name": "MLPModel",
+            "activation": "elu",
+            "obs_normalization": false,
+            "hidden_dims": [
+              512,
+              256,
+              128
+            ]
+          }
+        },
+        "control_step_seconds": 0.02
+      },
+      "initial_checkpoint_sha256": "ec9305451009bd8854bfd0cfe1aaa16dba8ecb7c94f9288add6a46d0981ad051",
+      "training_time_profile": {
+        "samples": 402,
+        "completed_iterations": 402,
+        "exact_iteration_coverage": false,
+        "recent_seconds_per_iteration": 4.7982
+      }
+    },
+    "evaluations": {},
+    "screen": {
+      "status": "disabled_by_frozen_design",
+      "executed": false,
+      "reason": "Train-first allocation preserves conservative compute/retrieval/shutdown budget"
+    },
+    "selected": null,
+    "candidate_name": "S5_torque_half",
+    "input_hashes": {
+      "t_eval_go2_core.py": "baa43b161ec7a02d9ae1dfebfe593976f17d78916354d9029ba22b239f0cff6e",
+      "design.json": "0af23aac6818fb44ca1e81b9b2d775c290243110dad1520538fd9ed0548f71c4",
+      "quadruped_rewards_S5_torque_half.py": "2317a023772166596a40922235d087df79d14ab17b25e48e2736104b5a6dd560",
+      "runner.py": "fed0e531ff19cf0970a6cd98c18892f92c3f58559ecb684c2b79394650aaaaf9",
+      "evaluation.py": "c7f34a83698f1a60e2d755a2c22add070d967dbf724f8219ee1116bc3cee2ce3",
+      "source_snapshot.py": "d3bc1705a07392032b1369d6f48fb1b72b676f1b3cd0dd9457882480b781b211",
+      "live_preflight.py": "85ba7682fd648756630e7cddb9ed66fda37bb78a2a4ade6831b753823a4c331f",
+      "protected_runtime_sources.json": "9b4bc93e5e3b7bceb6b0d159956ba49e7d4f6964ffa11afc78b47d81c6acc9cd",
+      "streaming_control_libc.py": "bbf91d082d166d417a0d3dbc4df8a7797804812cc9f7e3c1577c35fb1899b5a1",
+      "reference_models.json": "07da0126af908a4b2dc0cc64bb432ff91f1a9334884df24dd61b8b0527703712",
+      "checkpoint_capture_probe.py": "10f841504ab763b39570384db487ec784da37bcbfc31194b91814db0c13dec00",
+      "fresh_rewards_original.py": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7",
+      "preflight_receipt.py": "43497d11a2ac024f089b7ab93afa22e8307bc7a942738173f3c18b7260072d4a",
+      "t_eval.py": "bd95f7e7df231454927c70b2bb2431b05cd504ad38c736f16f91dab3435651d9",
+      "start_once.py": "49c121c4ec180d3b428dcfe8ffff0bddec443146b2325f81fdb29a88286310fd",
+      "decision_rules.py": "aefe734c93b9ba9f55ebdc1b2be7d7bf4c9b3c78c331a376468f919481abaca7"
+    },
+    "source_hashes": {
+      "train.py": "c09ac99bcd93bb367f0eec69bdb05f4063cb8d60f0258d4667f07addf509de22",
+      "play.py": "ce703acf54eac40073e3f6d585d6002e3b4a2d9062581b3c0ed45db73ac5f9dc",
+      "go2_task/agent_cfg.py": "a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23",
+      "go2_task/env_cfg.py": "df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1"
+    },
+    "preflight": {
+      "actual_allocation_start_epoch": 1791765159,
+      "verified_epoch": 1791765822.5310616,
+      "user_authorized_execution": true,
+      "retrieval_smoke_verified": true,
+      "no_competing_gpu_jobs_verified": true,
+      "runtime_verified": true,
+      "reference_loader_verified": true,
+      "probe_sha256": "ae5257fc10220350e59094c19bfe8891a4112f1f8dff8c4325fd3e0b444f9be1",
+      "probe_local_sha256": "ae5257fc10220350e59094c19bfe8891a4112f1f8dff8c4325fd3e0b444f9be1",
+      "checkpoint_capture_probe_verified": true,
+      "checkpoint_capture_probe": {
+        "bytes": 4300,
+        "cpu_only": true,
+        "hardlink_inode_verified": true,
+        "inotify_new_run_discovery": true,
+        "ok": true,
+        "original_unlink_preservation_verified": true,
+        "scope": "Compatibility probe; exact final policy still requires iteration/hash/finite verification",
+        "sha256": "7a212b2adbd5ae04205a36f08b64b1aaf8362d32d33d5bbc829a3c0ddd55e9e1",
+        "verified_epoch": 1791765600.1893766
+      },
+      "runtime_versions": {
+        "rsl_rl_lib": "5.0.1",
+        "torch": "2.7.0+cu128"
+      },
+      "live_preflight": {
+        "status": "PASS",
+        "observed_epoch": 1791765807.2970893,
+        "service_signals_sent": false,
+        "gpu_context_created": false,
+        "checkpoint_load_device": "cpu",
+        "required_runtime_versions": {
+          "rsl_rl_lib": "5.0.1",
+          "torch": "2.7.0+cu128"
+        },
+        "package_members_verified": true,
+        "runtime_versions": {
+          "rsl_rl_lib": "5.0.1",
+          "torch": "2.7.0+cu128"
+        },
+        "runtime_verified": true,
+        "provided_sources_match": true,
+        "provided_source_hashes": {
+          "train.py": "c09ac99bcd93bb367f0eec69bdb05f4063cb8d60f0258d4667f07addf509de22",
+          "play.py": "ce703acf54eac40073e3f6d585d6002e3b4a2d9062581b3c0ed45db73ac5f9dc",
+          "go2_task/agent_cfg.py": "a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23",
+          "go2_task/env_cfg.py": "df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1"
+        },
+        "original_reward_matches": true,
+        "original_reward_sha256": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7",
+        "runtime_source_verification": {
+          "package_root": "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl",
+          "file_count": 29,
+          "files": {
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/__init__.py": "9b4c420fef3ae39683544833b6d2efbb26aecfc0583ec59be7f4eeb748fecf66",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/algorithms/__init__.py": "e370271e689bada5cdf2b4623e0d16d75e8439864a2ae913b22215f7b2985843",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/algorithms/distillation.py": "c9a326d1c9d0f57a2c14fbea23b8b0f92d3b96bb7a38224e090e07f13e1fb7e0",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/algorithms/ppo.py": "a2d35e7ad7b884c80b7434e7d2ce785a6da1e18d93c96f1179fbd3a208669f8c",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/env/__init__.py": "33bfc9562580377c2ce6388c37b0df2b8e992c22ce46923443681cbbf1960d60",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/env/vec_env.py": "4a72df2fbf9b3e162e0e4b10e0b473511f02ad8c3ebaab0b7993ddfd63a9fa43",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/extensions/__init__.py": "595fd79b13fa6c64cce1f20adb7440660a4c5e5b78749db4794554a782a1ccfe",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/extensions/rnd.py": "e8f25627c04f4cf478cbbf1ec4c362276e80566a1222c75ba55f7b8e0f8471af",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/extensions/symmetry.py": "eb83c3f77e4cc3f3b3b18f7a592429761b7152c8ac1160c32e02562dc0987481",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/__init__.py": "6444fc1df8bc94d40ab1911f0e8e6b3f777459986e7f7944d25b7e5ca9b3e206",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/cnn_model.py": "818422d1d7a93cd8174a3c34fec8c425f2adf9d81c9623f2b335c2934a60276e",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/mlp_model.py": "6219ebb3ed4df036dae7ff1c30d0fbb169eaaa659e44a659dd757a292124476b",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/rnn_model.py": "80c1d6452ef021e4d7b174231ed7abac1ed0db8de9604561f8060148d4333ccc",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/__init__.py": "56df7ca2ff95c53f17451fd98720c48871a1679e9d6e3ab0c0961e4339908054",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/cnn.py": "4f5bab5f192c42180125f32a4af350108dd1c247e1e84c81f6cf4ea560037ccf",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/distribution.py": "4631eae1939dcd6b065d79c3c0128a88ba2c6126d08f46944c8795682a208a1b",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/mlp.py": "bad934b364b26cd47b6d1612e00ace107a425ae4d272c0cd0c82cbfc57bbcdbc",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/normalization.py": "539e1193cebcc472585cd3df100946fb8d788c4aa0f9f5cbcb3387a64d312926",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/rnn.py": "07f0eec06c7f2638edbdbc3ba25f56122a7941cb0543138f4a6b04675b2a97e6",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/runners/__init__.py": "26f4130a403414e13041b62a848d04da3fb0166757603950ea758b151d4b5aaa",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/runners/distillation_runner.py": "7445cbaf3e1fa241d742447ab17d941a659c92b6f8365ef22c5d818923d9e275",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/runners/on_policy_runner.py": "39358a0a60219fdb360df7acddf80f6a382837aa58e2ec0ccf875df4afee4825",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/storage/__init__.py": "7c9d96df3cad10aa27f34e77f7105a29f74e2d7dd10467b2919f99867a69298e",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/storage/rollout_storage.py": "ececf28e7412d24867066829cc443acae811f034f8e63975b90343947779918d",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/__init__.py": "129856dea5f7ccff56aee74c8590b6cd2201183131bc836c666d7d1a4880e5c4",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/logger.py": "d9822d8317724507a7c817e85399db0db9e56a4eae959435138e75cf92e44b8d",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/neptune_utils.py": "a3446faf8d655b75feb215ff4df8598bc91ff5aab446a6349e9ced31bf3cc495",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/utils.py": "4d094c17e54ab09a0d37b14711157f638f0bd929d0f1b49a3f89b4c8fc67caaa",
+            "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/wandb_utils.py": "0fdc97e968bf9c47fed3c1beeacaab7d65769c5342b221f9a20ea2e64b2d407d"
+          }
+        },
+        "process_observation_before_cpu_load": {
+          "classification": "only_exact_official_streamer",
+          "gpu_pids": [
+            70
+          ],
+          "process_inventory_count": 15,
+          "official_streamer_present": true,
+          "launcher": {
+            "pid": 62,
+            "start_ticks": 2422,
+            "ppid": 1,
+            "argv": [
+              "/bin/bash",
+              "/isaac-sim/python.sh",
+              "/streaming/livestream_webrtc.py"
+            ],
+            "state": "S",
+            "pgrp": 1
+          },
+          "streamer": {
+            "pid": 70,
+            "start_ticks": 2423,
+            "ppid": 62,
+            "argv": [
+              "/isaac-sim/kit/python/bin/python3",
+              "/streaming/livestream_webrtc.py"
+            ],
+            "state": "S",
+            "pgrp": 1
+          },
+          "competing_jobs": [],
+          "note": "Expected platform service; not a free-GPU claim. Platform training detection and evaluation handshakes manage it.",
+          "controller_launcher": {
+            "pid": 62,
+            "start_ticks": 2422,
+            "ppid": 1,
+            "argv": [
+              "/bin/bash",
+              "/isaac-sim/python.sh",
+              "/streaming/livestream_webrtc.py"
+            ],
+            "state": "S",
+            "pgrp": 1
+          },
+          "gpu_inventory": [
+            {
+              "name": "NVIDIA GeForce RTX 5080",
+              "total_memory": "16303 MiB"
+            }
+          ],
+          "observed_epoch": 1791765807.991783
+        },
+        "reference_loader_evidence": {
+          "C0_5500": {
+            "state_key": "actor_state_dict",
+            "layers": [
+              [
+                512,
+                235
+              ],
+              [
+                256,
+                512
+              ],
+              [
+                128,
+                256
+              ],
+              [
+                12,
+                128
+              ]
+            ],
+            "iteration": 5500,
+            "normalization_state_keys": [],
+            "output_probe_shape": [
+              2,
+              12
+            ],
+            "activation": "ELU",
+            "actual_checkpoint_sha256": "8d553e697ed4c2856ab002431af96d626eb8b0d23e56b7c754d652193026b1d3"
+          },
+          "F10_3000": {
+            "state_key": "actor_state_dict",
+            "layers": [
+              [
+                512,
+                235
+              ],
+              [
+                256,
+                512
+              ],
+              [
+                128,
+                256
+              ],
+              [
+                12,
+                128
+              ]
+            ],
+            "iteration": 3000,
+            "normalization_state_keys": [],
+            "output_probe_shape": [
+              2,
+              12
+            ],
+            "activation": "ELU",
+            "actual_checkpoint_sha256": "4684a58838229b729feb2f2534ab9423a4993377e75179a0d55a95904ecf23d2"
+          }
+        },
+        "reference_loader_verified": true,
+        "process_observation_after_cpu_load": {
+          "classification": "only_exact_official_streamer",
+          "gpu_pids": [
+            70
+          ],
+          "process_inventory_count": 15,
+          "official_streamer_present": true,
+          "launcher": {
+            "pid": 62,
+            "start_ticks": 2422,
+            "ppid": 1,
+            "argv": [
+              "/bin/bash",
+              "/isaac-sim/python.sh",
+              "/streaming/livestream_webrtc.py"
+            ],
+            "state": "S",
+            "pgrp": 1
+          },
+          "streamer": {
+            "pid": 70,
+            "start_ticks": 2423,
+            "ppid": 62,
+            "argv": [
+              "/isaac-sim/kit/python/bin/python3",
+              "/streaming/livestream_webrtc.py"
+            ],
+            "state": "S",
+            "pgrp": 1
+          },
+          "competing_jobs": [],
+          "note": "Expected platform service; not a free-GPU claim. Platform training detection and evaluation handshakes manage it.",
+          "controller_launcher": {
+            "pid": 62,
+            "start_ticks": 2422,
+            "ppid": 1,
+            "argv": [
+              "/bin/bash",
+              "/isaac-sim/python.sh",
+              "/streaming/livestream_webrtc.py"
+            ],
+            "state": "S",
+            "pgrp": 1
+          },
+          "gpu_inventory": [
+            {
+              "name": "NVIDIA GeForce RTX 5080",
+              "total_memory": "16303 MiB"
+            }
+          ],
+          "observed_epoch": 1791765808.25061
+        },
+        "no_competing_gpu_jobs_verified": true,
+        "official_streamer_present": true,
+        "probe_sha256": "ae5257fc10220350e59094c19bfe8891a4112f1f8dff8c4325fd3e0b444f9be1",
+        "verified_epoch": 1791765808.2506592
+      },
+      "note": "Local hash supplied only after operator normal-UI binary download and actual local SHA verification"
+    },
+    "original_reward_sha256": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7",
+    "runner_identity": {
+      "pid": 14471,
+      "state": "R",
+      "ppid": 14470,
+      "pgid": 14471,
+      "session": 14471,
+      "start_ticks": 674573,
+      "cmdline": "/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3 /workspace/student_workspace/research_execution_20261010_4h/runner.py --root /workspace/student_workspace/research_execution_20261010_4h --train-dir /workspace/training/quadruped --isaac /workspace/IsaacLab/isaaclab.sh --source-hashes /workspace/student_workspace/research_execution_20261010_4h/source_hashes_current.json --preflight /workspace/student_workspace/research_execution_20261010_4h/preflight_receipt.json --server-start-epoch 1791765159 --authorized-execution",
+      "argv": [
+        "/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3",
+        "/workspace/student_workspace/research_execution_20261010_4h/runner.py",
+        "--root",
+        "/workspace/student_workspace/research_execution_20261010_4h",
+        "--train-dir",
+        "/workspace/training/quadruped",
+        "--isaac",
+        "/workspace/IsaacLab/isaaclab.sh",
+        "--source-hashes",
+        "/workspace/student_workspace/research_execution_20261010_4h/source_hashes_current.json",
+        "--preflight",
+        "/workspace/student_workspace/research_execution_20261010_4h/preflight_receipt.json",
+        "--server-start-epoch",
+        "1791765159",
+        "--authorized-execution"
+      ]
+    },
+    "official_score_prediction": null,
+    "allocation_off_confirmed": false,
+    "warnings": [
+      "One training seed; references have unequal training length",
+      "Internal comparison only; no official prediction or automatic follow-up"
+    ],
+    "updated_epoch": 1791767854.7016885,
+    "updated_utc": "2026-10-12T01:17:34.701691+00:00",
+    "streaming_request": {
+      "mode": "release",
+      "token": "train_1_1791765836850332495",
+      "requested_epoch": 1791765836.850331
+    },
+    "streaming_handshakes": [
+      {
+        "compute_deadline_epoch": 1791776859,
+        "controller_pid": 14472,
+        "launcher": null,
+        "mode": "release",
+        "runner_pid": 14471,
+        "runner_start_ticks": 674573,
+        "status": "released",
+        "token": "train_1_1791765836850332495",
+        "verified_epoch": 1791765836.8996706
+      }
+    ]
+  },
+  "profile": {
+    "samples": 467,
+    "completed_iterations": 467,
+    "exact_iteration_coverage": false,
+    "recent_seconds_per_iteration": 4.665999999999998
+  },
+  "identities": {
+    "runner": {
+      "pid": 14471,
+      "state": "S",
+      "ppid": 14470,
+      "pgid": 14471,
+      "session": 14471,
+      "start_ticks": 674573,
+      "cmdline": "/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3 /workspace/student_workspace/research_execution_20261010_4h/runner.py --root /workspace/student_workspace/research_execution_20261010_4h --train-dir /workspace/training/quadruped --isaac /workspace/IsaacLab/isaaclab.sh --source-hashes /workspace/student_workspace/research_execution_20261010_4h/source_hashes_current.json --preflight /workspace/student_workspace/research_execution_20261010_4h/preflight_receipt.json --server-start-epoch 1791765159 --authorized-execution",
+      "argv": [
+        "/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3",
+        "/workspace/student_workspace/research_execution_20261010_4h/runner.py",
+        "--root",
+        "/workspace/student_workspace/research_execution_20261010_4h",
+        "--train-dir",
+        "/workspace/training/quadruped",
+        "--isaac",
+        "/workspace/IsaacLab/isaaclab.sh",
+        "--source-hashes",
+        "/workspace/student_workspace/research_execution_20261010_4h/source_hashes_current.json",
+        "--preflight",
+        "/workspace/student_workspace/research_execution_20261010_4h/preflight_receipt.json",
+        "--server-start-epoch",
+        "1791765159",
+        "--authorized-execution"
+      ]
+    },
+    "helper": {
+      "pid": 14472,
+      "state": "S",
+      "ppid": 14470,
+      "pgid": 14472,
+      "session": 14472,
+      "start_ticks": 674579,
+      "cmdline": "/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3 /workspace/student_workspace/research_execution_20261010_4h/streaming_control_libc.py --root /workspace/student_workspace/research_execution_20261010_4h --runner-pid 14471 --runner-start-ticks 674573 --allocation-start-epoch 1791765159 --deadline-epoch 1791776859 --audit /workspace/student_workspace/research_execution_20261010_4h/streaming_control_audit.jsonl",
+      "argv": [
+        "/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3",
+        "/workspace/student_workspace/research_execution_20261010_4h/streaming_control_libc.py",
+        "--root",
+        "/workspace/student_workspace/research_execution_20261010_4h",
+        "--runner-pid",
+        "14471",
+        "--runner-start-ticks",
+        "674573",
+        "--allocation-start-epoch",
+        "1791765159",
+        "--deadline-epoch",
+        "1791776859",
+        "--audit",
+        "/workspace/student_workspace/research_execution_20261010_4h/streaming_control_audit.jsonl"
+      ]
+    }
+  },
+  "training_group": [
+    {
+      "pid": 14474,
+      "state": "S",
+      "ppid": 14471,
+      "pgid": 14474,
+      "session": 14474,
+      "start_ticks": 674599,
+      "cmdline": "bash /workspace/IsaacLab/isaaclab.sh -p train.py --task Quadruped-v0 --num_envs 6144 --seed 42 --max_iterations 1500 --run_name S5_torque_half_4h_1791765159 --headless",
+      "argv": [
+        "bash",
+        "/workspace/IsaacLab/isaaclab.sh",
+        "-p",
+        "train.py",
+        "--task",
+        "Quadruped-v0",
+        "--num_envs",
+        "6144",
+        "--seed",
+        "42",
+        "--max_iterations",
+        "1500",
+        "--run_name",
+        "S5_torque_half_4h_1791765159",
+        "--headless"
+      ]
+    },
+    {
+      "pid": 14481,
+      "state": "S",
+      "ppid": 14474,
+      "pgid": 14474,
+      "session": 14474,
+      "start_ticks": 674601,
+      "cmdline": "/bin/bash /workspace/IsaacLab/_isaac_sim/python.sh train.py --task Quadruped-v0 --num_envs 6144 --seed 42 --max_iterations 1500 --run_name S5_torque_half_4h_1791765159 --headless",
+      "argv": [
+        "/bin/bash",
+        "/workspace/IsaacLab/_isaac_sim/python.sh",
+        "train.py",
+        "--task",
+        "Quadruped-v0",
+        "--num_envs",
+        "6144",
+        "--seed",
+        "42",
+        "--max_iterations",
+        "1500",
+        "--run_name",
+        "S5_torque_half_4h_1791765159",
+        "--headless"
+      ]
+    },
+    {
+      "pid": 14486,
+      "state": "S",
+      "ppid": 14481,
+      "pgid": 14474,
+      "session": 14474,
+      "start_ticks": 674601,
+      "cmdline": "/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3 train.py --task Quadruped-v0 --num_envs 6144 --seed 42 --max_iterations 1500 --run_name S5_torque_half_4h_1791765159 --headless",
+      "argv": [
+        "/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3",
+        "train.py",
+        "--task",
+        "Quadruped-v0",
+        "--num_envs",
+        "6144",
+        "--seed",
+        "42",
+        "--max_iterations",
+        "1500",
+        "--run_name",
+        "S5_torque_half_4h_1791765159",
+        "--headless"
+      ]
+    },
+    {
+      "pid": 14487,
+      "state": "S",
+      "ppid": 14486,
+      "pgid": 14474,
+      "session": 14474,
+      "start_ticks": 674603,
+      "cmdline": "/bin/bash /isaac-sim/python.sh /workspace/training/quadruped/train.py --_run_isaaclab_child --task Quadruped-v0 --num_envs 6144 --seed 42 --max_iterations 1500 --run_name S5_torque_half_4h_1791765159 --headless",
+      "argv": [
+        "/bin/bash",
+        "/isaac-sim/python.sh",
+        "/workspace/training/quadruped/train.py",
+        "--_run_isaaclab_child",
+        "--task",
+        "Quadruped-v0",
+        "--num_envs",
+        "6144",
+        "--seed",
+        "42",
+        "--max_iterations",
+        "1500",
+        "--run_name",
+        "S5_torque_half_4h_1791765159",
+        "--headless"
+      ]
+    },
+    {
+      "pid": 14492,
+      "state": "S",
+      "ppid": 14487,
+      "pgid": 14474,
+      "session": 14474,
+      "start_ticks": 674604,
+      "cmdline": "/isaac-sim/kit/python/bin/python3 /workspace/training/quadruped/train.py --_run_isaaclab_child --task Quadruped-v0 --num_envs 6144 --seed 42 --max_iterations 1500 --run_name S5_torque_half_4h_1791765159 --headless",
+      "argv": [
+        "/isaac-sim/kit/python/bin/python3",
+        "/workspace/training/quadruped/train.py",
+        "--_run_isaaclab_child",
+        "--task",
+        "Quadruped-v0",
+        "--num_envs",
+        "6144",
+        "--seed",
+        "42",
+        "--max_iterations",
+        "1500",
+        "--run_name",
+        "S5_torque_half_4h_1791765159",
+        "--headless"
+      ]
+    }
+  ],
+  "source_audit": {
+    "ok": true,
+    "provided": {
+      "train.py": "c09ac99bcd93bb367f0eec69bdb05f4063cb8d60f0258d4667f07addf509de22",
+      "play.py": "ce703acf54eac40073e3f6d585d6002e3b4a2d9062581b3c0ed45db73ac5f9dc",
+      "go2_task/agent_cfg.py": "a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23",
+      "go2_task/env_cfg.py": "df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1"
+    },
+    "runtime": {
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/__init__.py": "9b4c420fef3ae39683544833b6d2efbb26aecfc0583ec59be7f4eeb748fecf66",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/algorithms/__init__.py": "e370271e689bada5cdf2b4623e0d16d75e8439864a2ae913b22215f7b2985843",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/algorithms/distillation.py": "c9a326d1c9d0f57a2c14fbea23b8b0f92d3b96bb7a38224e090e07f13e1fb7e0",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/algorithms/ppo.py": "a2d35e7ad7b884c80b7434e7d2ce785a6da1e18d93c96f1179fbd3a208669f8c",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/env/__init__.py": "33bfc9562580377c2ce6388c37b0df2b8e992c22ce46923443681cbbf1960d60",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/env/vec_env.py": "4a72df2fbf9b3e162e0e4b10e0b473511f02ad8c3ebaab0b7993ddfd63a9fa43",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/extensions/__init__.py": "595fd79b13fa6c64cce1f20adb7440660a4c5e5b78749db4794554a782a1ccfe",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/extensions/rnd.py": "e8f25627c04f4cf478cbbf1ec4c362276e80566a1222c75ba55f7b8e0f8471af",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/extensions/symmetry.py": "eb83c3f77e4cc3f3b3b18f7a592429761b7152c8ac1160c32e02562dc0987481",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/__init__.py": "6444fc1df8bc94d40ab1911f0e8e6b3f777459986e7f7944d25b7e5ca9b3e206",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/cnn_model.py": "818422d1d7a93cd8174a3c34fec8c425f2adf9d81c9623f2b335c2934a60276e",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/mlp_model.py": "6219ebb3ed4df036dae7ff1c30d0fbb169eaaa659e44a659dd757a292124476b",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/rnn_model.py": "80c1d6452ef021e4d7b174231ed7abac1ed0db8de9604561f8060148d4333ccc",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/__init__.py": "56df7ca2ff95c53f17451fd98720c48871a1679e9d6e3ab0c0961e4339908054",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/cnn.py": "4f5bab5f192c42180125f32a4af350108dd1c247e1e84c81f6cf4ea560037ccf",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/distribution.py": "4631eae1939dcd6b065d79c3c0128a88ba2c6126d08f46944c8795682a208a1b",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/mlp.py": "bad934b364b26cd47b6d1612e00ace107a425ae4d272c0cd0c82cbfc57bbcdbc",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/normalization.py": "539e1193cebcc472585cd3df100946fb8d788c4aa0f9f5cbcb3387a64d312926",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/rnn.py": "07f0eec06c7f2638edbdbc3ba25f56122a7941cb0543138f4a6b04675b2a97e6",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/runners/__init__.py": "26f4130a403414e13041b62a848d04da3fb0166757603950ea758b151d4b5aaa",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/runners/distillation_runner.py": "7445cbaf3e1fa241d742447ab17d941a659c92b6f8365ef22c5d818923d9e275",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/runners/on_policy_runner.py": "39358a0a60219fdb360df7acddf80f6a382837aa58e2ec0ccf875df4afee4825",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/storage/__init__.py": "7c9d96df3cad10aa27f34e77f7105a29f74e2d7dd10467b2919f99867a69298e",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/storage/rollout_storage.py": "ececf28e7412d24867066829cc443acae811f034f8e63975b90343947779918d",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/__init__.py": "129856dea5f7ccff56aee74c8590b6cd2201183131bc836c666d7d1a4880e5c4",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/logger.py": "d9822d8317724507a7c817e85399db0db9e56a4eae959435138e75cf92e44b8d",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/neptune_utils.py": "a3446faf8d655b75feb215ff4df8598bc91ff5aab446a6349e9ced31bf3cc495",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/utils.py": "4d094c17e54ab09a0d37b14711157f638f0bd929d0f1b49a3f89b4c8fc67caaa",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/wandb_utils.py": "0fdc97e968bf9c47fed3c1beeacaab7d65769c5342b221f9a20ea2e64b2d407d"
+    },
+    "checked_epoch": 1791768158.2392547
+  },
+  "gpu_csv": "14492, /isaac-sim/kit/python/bin/python3, 7983 MiB\n14492, /isaac-sim/kit/python/bin/python3, 7983 MiB\n",
+  "streaming_status": {
+    "compute_deadline_epoch": 1791776859,
+    "controller_pid": 14472,
+    "launcher": null,
+    "mode": "release",
+    "runner_pid": 14471,
+    "runner_start_ticks": 674573,
+    "status": "released",
+    "token": "train_1_1791765836850332495",
+    "verified_epoch": 1791765836.8996706
+  },
+  "runner_console_tail": "{\"stage\": \"PREPARED\", \"epoch\": 1791765836.8460283}\n{\"stage\": \"SCREEN_DISABLED_TRAIN_FIRST\", \"epoch\": 1791765836.8482156}\n{\"stage\": \"STREAMING_HANDSHAKE_train\", \"epoch\": 1791765836.8503342}\n{\"stage\": \"SCREEN_DISABLED_TRAIN_FIRST\", \"epoch\": 1791765837.0526543}\n{\"stage\": \"RUNNING_train_S5_torque_half\", \"epoch\": 1791765837.071035}\n{\"stage\": \"RUNNING_train_S5_torque_half\", \"epoch\": 1791765867.1576917}\n{\"stage\": \"RUNNING_train_S5_torque_half\", \"epoch\": 1791766378.5555649}\n{\"stage\": \"RUNNING_train_S5_torque_half\", \"epoch\": 1791766875.2527986}\n{\"stage\": \"RUNNING_train_S5_torque_half\", \"epoch\": 1791767372.3285644}\n{\"stage\": \"RUNNING_train_S5_torque_half\", \"epoch\": 1791767854.7016885}\n"
+}

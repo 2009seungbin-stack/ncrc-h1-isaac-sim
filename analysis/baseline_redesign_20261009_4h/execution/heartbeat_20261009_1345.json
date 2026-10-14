@@ -1,0 +1,78 @@
+{
+  "observed_epoch": 1791553494.1146286,
+  "stage": "RUNNING_train_B1",
+  "iteration": 1156,
+  "eta": "00:27:22",
+  "training_status": "started",
+  "processes": [
+    {
+      "pid": 16243,
+      "start_ticks": 2313931,
+      "state": "S",
+      "cmdline": [
+        "/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3",
+        "/workspace/student_workspace/b1_baseline_20261009_4h/runner.py",
+        "--root",
+        "/workspace/student_workspace/b1_baseline_20261009_4h",
+        "--train-dir",
+        "/workspace/training/quadruped",
+        "--source-hashes",
+        "/workspace/student_workspace/b1_baseline_20261009_4h/source_hashes_current.json",
+        "--server-start-epoch",
+        "1791547031",
+        "--preflight",
+        "/workspace/student_workspace/b1_baseline_20261009_4h/preflight_receipt.json",
+        "--authorized-execution"
+      ]
+    },
+    {
+      "pid": 16262,
+      "start_ticks": 2313944,
+      "state": "S",
+      "cmdline": [
+        "/isaac-sim/kit/python/bin/python3",
+        "/workspace/training/quadruped/train.py",
+        "--_run_isaaclab_child",
+        "--task",
+        "Quadruped-v0",
+        "--num_envs",
+        "6144",
+        "--seed",
+        "42",
+        "--max_iterations",
+        "1500",
+        "--run_name",
+        "B1_4h_1791547031",
+        "--headless"
+      ]
+    },
+    {
+      "pid": 22397,
+      "start_ticks": 2457296,
+      "state": "S",
+      "cmdline": [
+        "/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3",
+        "/workspace/student_workspace/streaming_control_libc.py",
+        "--root",
+        "/workspace/student_workspace/b1_baseline_20261009_4h",
+        "--runner-pid",
+        "16243",
+        "--runner-start-ticks",
+        "2313931",
+        "--allocation-start-epoch",
+        "1791547031",
+        "--deadline-epoch",
+        "1791558731",
+        "--audit",
+        "/workspace/student_workspace/b1_streaming_control_audit.jsonl"
+      ]
+    }
+  ],
+  "audit_events": [
+    "controller_started"
+  ],
+  "gpu": "16262, /isaac-sim/kit/python/bin/python3, 7983 MiB\n16262, /isaac-sim/kit/python/bin/python3, 7983 MiB\n",
+  "active_reward_sha256": "a856051f81920f603e56bd39ca0e554a69ecafed34961d6c0e70ed2073040381",
+  "console_tail": "\u001b[3g\n\u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH   \n[INFO] Using python from: /workspace/IsaacLab/_isaac_sim/python.sh\n",
+  "log_tail": "         Iteration time: 4.71s\n                           Time elapsed: 01:32:15\n                                    ETA: 00:27:27\n\n################################################################################\n\u001b[1m                          Learning iteration 1156/1500                          \u001b[0m \n\n                               Run name: B1_4h_1791547031\n                            Total steps: 170606592 \n                       Steps per second: 31086 \n                        Collection time: 4.629s \n                          Learning time: 0.114s \n                        Mean value loss: 0.3755\n                    Mean surrogate loss: -0.0017\n                      Mean entropy loss: 12.6121\n                            Mean reward: 16.89\n                    Mean episode length: 940.57\n                        Mean action std: 0.71\n    Episode_Reward/track_lin_vel_xy_exp: 1.0344\n     Episode_Reward/track_ang_vel_z_exp: 0.5256\n            Episode_Reward/lin_vel_z_l2: -0.0669\n           Episode_Reward/ang_vel_xy_l2: -0.1747\n          Episode_Reward/dof_torques_l2: -0.0575\n              Episode_Reward/dof_acc_l2: -0.2558\n          Episode_Reward/action_rate_l2: -0.1605\n           Episode_Reward/feet_air_time: 0.0000\n     Episode_Reward/flat_orientation_l2: 0.0000\n          Episode_Reward/dof_pos_limits: 0.0000\n              Curriculum/terrain_levels: 5.0617\n     Metrics/base_velocity/error_vel_xy: 0.6589\n    Metrics/base_velocity/error_vel_yaw: 0.5041\n           Episode_Termination/time_out: 0.8794\n       Episode_Termination/base_contact: 0.1206\n--------------------------------------------------------------------------------\n                         Iteration time: 4.74s\n                           Time elapsed: 01:32:20\n                                    ETA: 00:27:22\n"
+}

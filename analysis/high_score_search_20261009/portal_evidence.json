@@ -1,0 +1,39 @@
+{
+  "observed_date_kst": "2026-10-09",
+  "method": "Supported mcp__cua_repl browser UI and visible AX page text only",
+  "rules": {
+    "url": "https://robotics.connect.or.kr/rules/preliminary_regulations.html",
+    "version": "v1.1",
+    "revision_date": "2026-09-18",
+    "training_change_scope": "Provided reward weight values",
+    "simulation_points": 70,
+    "intent_points": 20,
+    "report_points": 10,
+    "scenario_weights": [0.15, 0.15, 0.20, 0.15, 0.15, 0.10, 0.10]
+  },
+  "board": {
+    "url": "https://robotics.connect.or.kr/board",
+    "server_stopped": true,
+    "server_usage_minutes": 4015,
+    "server_allowance_minutes": 6000,
+    "remaining_minutes": 1985,
+    "Go2_official_total": 88.14,
+    "Go2_simulation_points": 58.14,
+    "Go2_intent_points": 20,
+    "Go2_report_points": 10,
+    "scenario_points": [8.80, 8.66, 11.69, 8.79, 8.56, 5.79, 5.85]
+  },
+  "public_top32": {
+    "url": "https://robotics.connect.or.kr/status",
+    "page_last_update": "2026-10-08 15:21",
+    "own_rank": 5,
+    "own_combined_points": 176.14,
+    "highest_Go2_in_displayed_top32": 88.93,
+    "highest_Go2_team_in_displayed_top32": "빠지직",
+    "round6_submission_deadline_kst": "2026-10-12 09:00",
+    "not_claimed": "Overall Go2 maximum outside displayed TOP32"
+  },
+  "no_server_started": true,
+  "no_training_launched": true,
+  "no_submission_or_external_message_sent": true
+}

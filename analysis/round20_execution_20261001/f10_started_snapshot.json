@@ -1,0 +1,52 @@
+{
+  "checked_utc": "2026-10-01T10:08:44.199592+00:00",
+  "state": {
+    "stage": "RUNNING",
+    "utc": "2026-10-01T09:55:00.957156+00:00",
+    "elapsed_hours": 5.38998810019758,
+    "job": "train_F10",
+    "command": [
+      "/workspace/IsaacLab/isaaclab.sh",
+      "-p",
+      "train.py",
+      "--task",
+      "Quadruped-v0",
+      "--num_envs",
+      "6144",
+      "--seed",
+      "42",
+      "--max_iterations",
+      "4000",
+      "--run_name",
+      "round20_F10",
+      "--headless"
+    ],
+    "timeout_seconds": 21600
+  },
+  "elapsed_server_hours": 5.618666555550363,
+  "log_modified_seconds_ago": 16.98650813102722,
+  "recent_error_lines": [],
+  "iteration": 156,
+  "iteration_limit": 4000,
+  "seconds_per_iteration": 5.01,
+  "mean_action_std": 0.59,
+  "mean_reward": 25.6,
+  "mean_value_loss": 0.0317,
+  "terrain_level": 0.5953,
+  "eta_display": [
+    "05:22:33"
+  ],
+  "preserved_models": [
+    {
+      "name": "model_0.pt",
+      "bytes": 6881623
+    },
+    {
+      "name": "model_100.pt",
+      "bytes": 6882219
+    }
+  ],
+  "driver_tail": "{\"stage\": \"STARTED\", \"utc\": \"2026-10-01T04:44:10.279313+00:00\", \"elapsed_hours\": 0.2092442559533649, \"mode\": \"scratch_pair\", \"training_seed\": 42, \"reason\": \"Installed PPO.load does not restore learning_rate scalar\", \"server_budget_hours\": 20, \"official_submission\": false}\n{\"stage\": \"RUNNING\", \"utc\": \"2026-10-01T04:44:10.284364+00:00\", \"elapsed_hours\": 0.20924565805329218, \"job\": \"train_F00\", \"command\": [\"/workspace/IsaacLab/isaaclab.sh\", \"-p\", \"train.py\", \"--task\", \"Quadruped-v0\", \"--num_envs\", \"6144\", \"--seed\", \"42\", \"--max_iterations\", \"4000\", \"--run_name\", \"round20_F00\", \"--headless\"], \"timeout_seconds\": 21600}\n{\"stage\": \"JOB_COMPLETE\", \"utc\": \"2026-10-01T09:55:00.952205+00:00\", \"elapsed_hours\": 5.389986726111836, \"job\": \"train_F00\", \"seconds\": 18650.66627049446}\n{\"stage\": \"RUNNING\", \"utc\": \"2026-10-01T09:55:00.957156+00:00\", \"elapsed_hours\": 5.38998810019758, \"job\": \"train_F10\", \"command\": [\"/workspace/IsaacLab/isaaclab.sh\", \"-p\", \"train.py\", \"--task\", \"Quadruped-v0\", \"--num_envs\", \"6144\", \"--seed\", \"42\", \"--max_iterations\", \"4000\", \"--run_name\", \"round20_F10\", \"--headless\"], \"timeout_seconds\": 21600}\n",
+  "gpu": "95 %, 8036 MiB",
+  "nonfinite_metrics": []
+}

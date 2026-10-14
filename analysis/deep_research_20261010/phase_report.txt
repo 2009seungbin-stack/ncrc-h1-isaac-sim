@@ -1,0 +1,68 @@
+Local phase comparison: B1/F10/F00
+
+All raw logs verified: B1 1500 rows; F10/F00 4000 each, complete contiguous iteration coverage and finite metrics.
+Primary comparisons use100..1499. No model rank from total weighted reward.
+
+Shared terrain groups: 0.5-width bins, equal bin weighting, at least30 rows/model/bin.
+This is descriptive overlap, not matching of trajectories or causal adjustment.
+group | model | XY logger | yaw logger | base_contact% | actor_std | terrain_mean
+early | B1 | 0.83977 | 0.47060 | 5.1660 | 0.55545 | 1.98813
+early | F10 | 0.87922 | 0.41963 | 7.9590 | 0.57121 | 1.99148
+early | F00 | 0.84423 | 0.51748 | 7.6931 | 0.60337 | 1.99696
+middle | B1 | 0.71662 | 0.47717 | 7.1199 | 0.57443 | 3.49695
+middle | F10 | 0.68340 | 0.41443 | 9.1636 | 0.57769 | 3.50436
+middle | F00 | 0.68687 | 0.49277 | 12.9150 | 0.61038 | 3.50840
+late | B1 | 0.70720 | 0.50598 | 11.2177 | 0.68878 | 5.00393
+late | F10 | 0.61243 | 0.41583 | 9.2641 | 0.59141 | 5.04649
+late | F00 | 0.58432 | 0.48178 | 17.2691 | 0.64845 | 5.03350
+
+Weight-removed cost proxies (not physical units):
+group | model | vertical | roll_pitch | torque | acceleration | action_change
+early | B1 | 0.039309 | 2.4832 | 501.183 | 797137 | 10.7799
+early | F10 | 0.0215235 | 2.25777 | 482.838 | 882307 | 12.524
+early | F00 | 0.0253592 | 2.49808 | 518.928 | 913339 | 12.831
+middle | B1 | 0.0380988 | 2.71033 | 516.561 | 877423 | 11.6548
+middle | F10 | 0.0287482 | 2.46725 | 515.283 | 997670 | 12.9301
+middle | F00 | 0.0308916 | 2.65573 | 516.069 | 955505 | 13.0697
+late | B1 | 0.0459308 | 3.37015 | 555.959 | 1.01473e+06 | 15.1521
+late | F10 | 0.0291535 | 2.59122 | 537.253 | 1.02501e+06 | 13.5033
+late | F00 | 0.0292742 | 2.7998 | 559.227 | 991276 | 14.2583
+
+Bin-width sensitivity and changing support:
+width0.5: 10 shared bins; B1/F10 XY relative +3.201%, yaw relative +15.404%, base_contact -0.9192 percentage points
+support: [[0.5, 1.0], [1.0, 1.5], [1.5, 2.0], [2.0, 2.5], [2.5, 3.0], [3.0, 3.5], [3.5, 4.0], [4.0, 4.5], [4.5, 5.0], [5.0, 5.5]]
+width0.25: 5 shared bins; B1/F10 XY relative +3.041%, yaw relative +17.391%, base_contact +2.0725 percentage points
+support: [[0.5, 0.75], [0.75, 1.0], [1.0, 1.25], [4.75, 5.0], [5.0, 5.25]]
+width1.0: 6 shared bins; B1/F10 XY relative +3.703%, yaw relative +15.888%, base_contact -0.3052 percentage points
+support: [[0.0, 1.0], [1.0, 2.0], [2.0, 3.0], [3.0, 4.0], [4.0, 5.0], [5.0, 6.0]]
+
+Interpretation:
+The early same-iteration XY advantage over F10 is not a general advantage after terrain matching.
+B1 retains a limited early/middle training base-contact advantage at some shared terrain bins, with worse yaw tracking.
+At terrain4.5-5.5 B1 has worse XY/yaw and base-contact than F10 despite slightly lower aggregate terrain level.
+Against F00 B1 has less base-contact but worse XY in shared support; F00 trades stability for linear tracking.
+B1 torque relaxation does not deliver lower weight-removed torque proxy relative to F10; raw weighted penalty is misleading.
+B1 late vertical and roll/pitch proxies exceed F10; hardening those costs is a plausible research hypothesis, not an isolated effect.
+B1 early then F10 late is untested. Curves from separate fixed-bundle runs cannot be spliced into an effective training schedule.
+
+Limitations:
+One run per bundle, all training seed42; no independent training replicates.
+Iterations are serial, dependent samples; no CI, p-value or significance claims.
+Terrain level is an endogenous aggregate curriculum outcome, not a fixed terrain distribution.
+Similar mean terrain level does not match terrain types, command visitation, episode weights or skill history.
+Actor standard deviation differs by model/phase; no regression was used to remove it.
+Configuration ranges agree, but actual commands and episode sample counts per log row are absent.
+B1 runtime known5.0.1/torch2.7.0+cu128; exact F00/F10 runtime equality has not been proven by recovered version receipts.
+Reward divided by its configured weight is an accumulated training-log proxy, not a physical moment/torque/velocity quantity.
+Training error_vel metrics are not heldout scenario RMSE/MAE or official score.
+A staged reward sequence was never trained; these data do not identify an effective switching time.
+
+Fixed-versus-staged conclusion: fixed F10 remains a more credible mature-phase reference than fixed B1 on these training summaries.
+B1 early/middle advantages justify investigating a phase-dependent hypothesis only. No observed switching policy exists.
+Do not recommend a production staged reward or precise switch iteration from these data alone.
+No official score prediction, CI, p-value, significance, causal claim or automatic new experiment.
+
+B1 versus F10, equal-bin descriptive contrasts (percent; contact uses percentage points):
+early: {"Metrics/base_velocity/error_vel_xy": -4.4863, "Metrics/base_velocity/error_vel_yaw": 12.1466, "vertical_cost_weight_removed_proxy": 82.6327, "roll_pitch_cost_weight_removed_proxy": 9.9847, "torque_cost_weight_removed_proxy": 3.7994, "acceleration_cost_weight_removed_proxy": -9.6532, "action_change_cost_weight_removed_proxy": -13.9266, "base_contact_change_percentage_points": -2.793}
+middle: {"Metrics/base_velocity/error_vel_xy": 4.8604, "Metrics/base_velocity/error_vel_yaw": 15.1396, "vertical_cost_weight_removed_proxy": 32.5258, "roll_pitch_cost_weight_removed_proxy": 9.8522, "torque_cost_weight_removed_proxy": 0.2479, "acceleration_cost_weight_removed_proxy": -12.0528, "action_change_cost_weight_removed_proxy": -9.8626, "base_contact_change_percentage_points": -2.0438}
+late: {"Metrics/base_velocity/error_vel_xy": 15.4746, "Metrics/base_velocity/error_vel_yaw": 21.6798, "vertical_cost_weight_removed_proxy": 57.5485, "roll_pitch_cost_weight_removed_proxy": 30.0603, "torque_cost_weight_removed_proxy": 3.4818, "acceleration_cost_weight_removed_proxy": -1.0027, "action_change_cost_weight_removed_proxy": 12.2106, "base_contact_change_percentage_points": 1.9536}

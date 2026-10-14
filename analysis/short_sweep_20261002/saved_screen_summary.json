@@ -1,0 +1,33 @@
+{
+  "source": "saved_ranking.json read through the visible editor and copied clipboard",
+  "full_archive_retrieved": false,
+  "scenarios": ["G1", "G2", "G6", "G5"],
+  "episodes_per_scenario": 64,
+  "warning": "Internal partial metric, not an official score; no significance claim",
+  "ranking": [
+    {"model":"F10_3000","quality":0.9038551270246922,"falls":0},
+    {"model":"F10_2600","quality":0.8987805774134302,"falls":0},
+    {"model":"C0_5500","quality":0.897535546763708,"falls":1},
+    {"model":"F10_2800","quality":0.8969895908950418,"falls":0},
+    {"model":"F10_2000","quality":0.8965061381673176,"falls":0},
+    {"model":"F10_2200","quality":0.8958717507994907,"falls":0},
+    {"model":"F10_2400","quality":0.8919245881845207,"falls":0}
+  ],
+  "C0_rmse": {
+    "G1":{"vx":0.1170966374818192,"vy":0.056831815129865994,"yaw":0.1031025754653987},
+    "G2":{"vx":0.05393422922547973,"vy":0.11143526645087404,"yaw":0.13424162596884},
+    "G6":{"vx":0.12067732657442706,"vy":0.1635210866555525,"yaw":0.11882993512458283},
+    "G5":{"vx":0.07246642683571804,"vy":0.06687479941858793,"yaw":0.13119752781047117}
+  },
+  "F10_3000_rmse": {
+    "G1":{"vx":0.12471843554269804,"vy":0.04747195571290285,"yaw":0.08990913316387297},
+    "G2":{"vx":0.05018136126292031,"vy":0.11535623742344368,"yaw":0.10390961265720425},
+    "G6":{"vx":0.13323322804875187,"vy":0.1658528030507132,"yaw":0.09528178894264658},
+    "G5":{"vx":0.08340305676391487,"vy":0.07310010451080866,"yaw":0.11984739861487641}
+  },
+  "archive": {
+    "remote_path":"/workspace/student_workspace/short_sweep_20261002_results.tar.gz",
+    "bytes":117454489,
+    "sha256":"a4e9bd3b87c2f3ab87a5db46580cbf20f1eb52c43458c96e4a435628d4f99a04"
+  }
+}

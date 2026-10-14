@@ -34,12 +34,12 @@ cd "$ROBOT_DIR" || exit 1
 RD=logs/rsl_rl/quadruped/$RUN
 mkdir -p "$RD/params"
 cp "$OUT/$MB" "$RD/$CK_NAME"
-[ -f "$EY" ] && cp "$OUT/$EY" "$RD/params/env.yaml"
+[ -f "$EY" ] && cp "$EY" "$RD/params/env.yaml"
 # 서버 play.py 래퍼는 --checkpoint 를 줘도 exported/model_best.pt 가 없으면 "재생할 정책이 없다"며 실행을 거부한다
 # (2026-09-13 실측). 초기화된 워크스페이스에서는 같은 체크포인트를 거기에도 둔다.
 mkdir -p exported
 cp "$OUT/$MB" exported/model_best.pt
-[ -f "$EY" ] && cp "$OUT/$EY" exported/env.yaml
+[ -f "$EY" ] && cp "$EY" exported/env.yaml
 
 # play.py 는 헤드리스에서 export 후에도 안 끝난다. 커맨드라인에 play.py 가 안 보이게 스크립트 파일로 띄우고
 # 이 run 의 프로세스만 죽인다(pkill -f play.py 통째로 쓰면 셸까지 죽는다).

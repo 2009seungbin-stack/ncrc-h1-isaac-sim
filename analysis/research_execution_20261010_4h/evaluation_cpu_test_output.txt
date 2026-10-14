@@ -1,0 +1,49 @@
+test_actor_normalization_state_rejected (__main__.ActorStubTests) ... ok
+test_actor_shape_and_finite_probe (__main__.ActorStubTests) ... ok
+test_actor_wrong_layer_dimensions_rejected (__main__.ActorStubTests) ... ok
+test_empty_normalization_mapping_is_not_active_normalizer (__main__.ActorStubTests) ... ok
+test_legacy_model_state_dict_reference_accepted (__main__.ActorStubTests) ... ok
+test_nonfinite_actor_parameter_rejected (__main__.ActorStubTests) ... ok
+test_wrong_actor_output_rejected (__main__.ActorStubTests) ... ok
+test_concurrent_final_termination_is_still_a_fall (__main__.AuditTests) ... ok
+test_early_timeout_invalidates_immediately (__main__.AuditTests) ... ok
+test_event_shape_mismatch_invalid (__main__.AuditTests) ... ok
+test_exact_segment_counts_include_initial_transition (__main__.AuditTests) ... ok
+test_exact_unrounded_full_window_sums (__main__.AuditTests) ... ok
+test_final_timeout_is_explicit_999_samples (__main__.AuditTests) ... ok
+test_first_terminal_tick_and_reset_trajectory_mask (__main__.AuditTests) ... ok
+test_inf_command_never_sanitized (__main__.AuditTests) ... ok
+test_nan_velocity_never_sanitized (__main__.AuditTests) ... ok
+test_no_valid_samples_invalid (__main__.AuditTests) ... ok
+test_nonfinite_event_flag_is_not_converted_to_fall (__main__.AuditTests) ... ok
+test_per_episode_distribution_reported (__main__.AuditTests) ... ok
+test_shape_mismatch_invalid (__main__.AuditTests) ... ok
+test_short_control_horizon_invalid (__main__.AuditTests) ... ok
+test_timeout_on_already_dead_reset_is_ignored (__main__.AuditTests) ... ok
+test_zero_first_step_fall_has_no_fake_rmse (__main__.AuditTests) ... ok
+test_duplicate_scenario_refused (__main__.ContractTests) ... ok
+test_full_merge_has_no_prediction (__main__.ContractTests) ... ok
+test_json_nonfinite_refused (__main__.ContractTests) ... ok
+test_manifest_real_bytes_hash_no_policy_load (__main__.ContractTests) ... ok
+test_manifest_relative_checkpoint_resolves_against_manifest (__main__.ContractTests) ... ok
+test_merge_rejects_duplicate_scenarios (__main__.ContractTests) ... ok
+test_merge_rejects_incomplete_coverage (__main__.ContractTests) ... ok
+test_mixed_terrain_refused (__main__.ContractTests) ... ok
+test_normalization_manifest_refused (__main__.ContractTests) ... ok
+test_prior_screen_protocol (__main__.ContractTests) ... ok
+test_selection_cannot_add_holdout_scenario (__main__.ContractTests) ... ok
+test_selection_protocol (__main__.ContractTests) ... ok
+test_source_audit_independently_rehashes_provided_and_ppo (__main__.ContractTests) ... ok
+test_validation_protocol_exactly_decision_rules (__main__.ContractTests) ... ok
+test_wrong_fresh_seed_invalid (__main__.ContractTests) ... ok
+test_diagnostic_nan_is_invalid_not_sanitized (__main__.DiagnosticTests) ... ok
+test_diagnostic_terminal_mask_excludes_reset_spike (__main__.DiagnosticTests) ... ok
+test_full_distribution_keeps_signed_errors (__main__.DiagnosticTests) ... ok
+test_repeated_command_is_not_transition_and_push_timing (__main__.DiagnosticTests) ... ok
+test_reversal_positive_raw_error_is_lag_side (__main__.DiagnosticTests) ... ok
+test_full_scenario_stub_preserves_cached_obs_and_saves_trace (__main__.StubScenarioTests) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 0.753s
+
+OK

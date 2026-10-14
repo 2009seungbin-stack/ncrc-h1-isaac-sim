@@ -1,0 +1,118 @@
+{
+  "created_utc": "2026-10-09T11:33:42.291788+00:00",
+  "status": "OFFLINE_STATIC_DESIGN_VALIDATED_NOT_EXECUTED",
+  "server_accessed": false,
+  "simulator_executed": false,
+  "checkpoint_deserialized": false,
+  "protected_runtime_sources_live_verified": false,
+  "protected_provided_source_actual_files_verified_here": false,
+  "protected_hash_manifests_and_existing_artifacts_unchanged": true,
+  "input_sha256": {
+    "analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\fresh_rewards_original.py": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7",
+    "analysis\\high_score_search_20261009\\execution.json": "99627f36336c24310727ca5849861c3ba065f88f463df254b6e654d8b88a143a",
+    "analysis\\high_score_search_20261009\\screen_summary.json": "359c18ea07b410f729d84a93cdd54d2a28ad30b6b9c690ee4e7e9b907a6faad7",
+    "analysis\\high_score_search_20261009\\execution\\previous_source_hashes_20261002.json": "8161c241c64ef110650d3aebd1806886361b8dc146b9b1151fca6d952c4ec8f2",
+    "analysis\\high_score_search_20261009\\execution\\reference_models.json": "07da0126af908a4b2dc0cc64bb432ff91f1a9334884df24dd61b8b0527703712",
+    "analysis\\high_score_search_20261009\\execution\\runner.py": "14fd91c20b4c9bfb8c76881636e46880de88c3ee02ed54cdced109e4a3a5b6d1",
+    "analysis\\high_score_search_20261009\\execution\\t_eval.py": "bd95f7e7df231454927c70b2bb2431b05cd504ad38c736f16f91dab3435651d9",
+    "analysis\\high_score_search_20261009\\execution\\t_eval_go2_core.py": "baa43b161ec7a02d9ae1dfebfe593976f17d78916354d9029ba22b239f0cff6e",
+    "analysis\\score_reverse_20261001\\analysis.json": "b18e8c7255e2c70886ac72fa0ccb4c423a726eae1cce78c14cb801870434b8d5"
+  },
+  "candidate": {
+    "path": "candidates\\B1_selective_cost_rewards.py",
+    "sha256": "a856051f81920f603e56bd39ca0e554a69ecafed34961d6c0e70ed2073040381",
+    "bytes": 5715,
+    "ten_finite_weights_and_signs": true,
+    "syntax_valid": true,
+    "AST_identical_outside_REWARD_WEIGHTS": true,
+    "bytes_identical_before_and_after_dictionary": true,
+    "differs_from_S1_R1_F10_exact_weights": true,
+    "novelty_scope": "new untrained exact combination, not new reward principle or framework"
+  },
+  "budget_calculations": [
+    {
+      "iterations": 1500,
+      "training_seconds": 8069.714061324514,
+      "non_training_seconds": 5700,
+      "total_seconds": 13769.714061324514,
+      "headroom_seconds": 630.2859386754862,
+      "fits": true
+    },
+    {
+      "iterations": 1600,
+      "training_seconds": 8599.694998746147,
+      "non_training_seconds": 5700,
+      "total_seconds": 14299.694998746147,
+      "headroom_seconds": 100.30500125385333,
+      "fits": true
+    },
+    {
+      "iterations": 1800,
+      "training_seconds": 9659.656873589416,
+      "non_training_seconds": 5700,
+      "total_seconds": 15359.656873589416,
+      "headroom_seconds": -959.6568735894161,
+      "fits": false
+    }
+  ],
+  "maximum_1500_training_rate_with_fixed_reservations_seconds": 5.2,
+  "recorded_last_run_iteration_seconds": {
+    "S1": 4.762110665162404,
+    "R1": 4.729250154177348,
+    "combined": 4.745680409669876
+  },
+  "recorded_last_run_evaluation_seconds": 1006.2629425525665,
+  "historical_quality": {
+    "C0_5500": {
+      "Q3": 0.9090643911711052,
+      "falls": 0
+    },
+    "F10_3000": {
+      "Q3": 0.916710606474086,
+      "falls": 0
+    },
+    "S1_tracking_pair": {
+      "Q3": 0.8811117563689871,
+      "falls": 3
+    },
+    "R1_tracking_double": {
+      "Q3": 0.9038446584470878,
+      "falls": 3
+    }
+  },
+  "metric_contract_checks_passed": 20,
+  "metric_contract_check_names": [
+    "10pct_XY_boundary_passes_without_roundoff_rejection",
+    "no_official_forecast_or_automatic_training",
+    "XY_less_than_10pct_gain_does_not_admit",
+    "2pct_yaw_boundary_passes",
+    "yaw_above_2pct_regression_rejects",
+    "one_fall_rejects_even_with_average_gain",
+    "missing_scenario_is_incomplete",
+    "transient_excluded_run_cannot_pass_as_full_window",
+    "nonfinite_error_rejected",
+    "missing_diagnostics_rejected",
+    "missing_nonfinite_audit_rejected",
+    "missing_actual_checkpoint_hash_rejected",
+    "one_sample_per_survivor_cannot_claim_full_window",
+    "shortened_command_horizon_rejected",
+    "explicit_final_timeout_mask_accepted",
+    "unexpected_early_timeout_rejected",
+    "aggregate_sample_sum_disagreement_rejected",
+    "vy_benefit_cannot_hide_VX_regression",
+    "inconsistent_MAE_error_sums_rejected",
+    "unequal_sample_counts_pool_correctly"
+  ],
+  "metric_helper_sha256": "aefe734c93b9ba9f55ebdc1b2be7d7bf4c9b3c78c331a376468f919481abaca7",
+  "design_artifact_sha256": {
+    "design.json": "62f71dd24c946cb7cb41452845291654becead00153b8913ebcc2ff607f2f4d9",
+    "research_design.txt": "421105911388f30c5aac1da8387220af17903012faa4b81ccfa8e6c1625bc83d",
+    "evidence_sources.json": "93e17cd363477177f59aa14957d08ba9134a5b6c5326a79ddbccf48356f26ba5",
+    "RUNNER_REQUIREMENTS.txt": "2490815ccea380c7d0bf8fdce3196013d88b128a2d7fdc7d65e926d027625d66",
+    "build_and_validate.py": "25dba7ed976e2a11e53e9c53406f5bc5e3730c121fc1c5a93cd7b63657b2dcff"
+  },
+  "future_runner_implemented": false,
+  "new_evaluator_diagnostics_implemented": false,
+  "official_score_forecast": null,
+  "scope": "syntax, artifact identity, budget arithmetic and synthetic metric/gate boundaries only"
+}

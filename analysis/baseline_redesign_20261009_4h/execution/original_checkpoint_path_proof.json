@@ -1,0 +1,22 @@
+{
+  "epoch": 1791555989.5882638,
+  "runs": [
+    {
+      "path": "/workspace/training/quadruped/logs/rsl_rl/quadruped/2026-10-09_21-12-00_B1_4h_1791547031",
+      "checkpoints": [
+        {
+          "path": "/workspace/training/quadruped/logs/rsl_rl/quadruped/2026-10-09_21-12-00_B1_4h_1791547031/model_1000.pt",
+          "is_file": false,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": "/workspace/training/quadruped/logs/rsl_rl/quadruped/2026-10-09_21-12-00_B1_4h_1791547031/model_1499.pt",
+          "is_file": false,
+          "bytes": null,
+          "sha256": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "audit": "failure_retrieval",
+  "error_log": [
+    "2026-10-01T15:45:59Z [128ms] [Warning] [carb.crashreporter-breakpad.plugin] [crash]  portableMode = '1'",
+    "2026-10-01T15:45:59Z [130ms] [Warning] [carb.crashreporter-breakpad.plugin] [crash]  runEnvironment = 'Individual'",
+    "2026-10-01T15:45:59Z [131ms] [Warning] [carb.crashreporter-breakpad.plugin] [crash]  runningInContainer = '1'",
+    "2026-10-01T15:45:59Z [133ms] [Warning] [carb.crashreporter-breakpad.plugin] [crash]  telemetrySessionId = '14086783455018331505'",
+    "2026-10-01T15:45:59Z [135ms] [Warning] [carb.crashreporter-breakpad.plugin] [crash]  terminatedByAbort = '0'",
+    "2026-10-01T15:45:59Z [137ms] [Warning] [carb.crashreporter-breakpad.plugin] [crash]  totalRamBareMetalMB = '64006'",
+    "2026-10-01T15:45:59Z [139ms] [Warning] [carb.crashreporter-breakpad.plugin] [crash]  totalRamLimitedMB = '64006'",
+    "2026-10-01T15:45:59Z [141ms] [Warning] [carb.crashreporter-breakpad.plugin] [crash]  totalSwapBareMetalMB = '8191'",
+    "2026-10-01T15:45:59Z [142ms] [Warning] [carb.crashreporter-breakpad.plugin] [crash]  totalSwapLimitedMB = '8191'",
+    "2026-10-01T15:45:59Z [144ms] [Warning] [carb.crashreporter-breakpad.plugin] [crash]  userId = 'default'",
+    "2026-10-01T15:45:59Z [146ms] [Warning] [carb.crashreporter-breakpad.plugin] [crash]  workingDirectory = '/workspace/training/quadruped'",
+    "2026-10-01T15:45:59Z [148ms] [Fatal] [carb.crashreporter-breakpad.plugin] [crash] Thread 163466 backtrace follows:",
+    "2026-10-01T15:45:59Z [162ms] [Fatal] [carb.crashreporter-breakpad.plugin] 000: libc.so.6!__sigaction+0x50 (??:?)",
+    "2026-10-01T15:45:59Z [166ms] [Fatal] [carb.crashreporter-breakpad.plugin] 001: libc.so.6!__nss_database_lookup+0x2bb3 (??:?)",
+    "2026-10-01T15:45:59Z [170ms] [Fatal] [carb.crashreporter-breakpad.plugin] 002: libomni.kit.telemetry.plugin.so!std::__throw_regex_error(std::regex_constants::error_type, char const*)+0x7591 (??:?)",
+    "2026-10-01T15:45:59Z [174ms] [Fatal] [carb.crashreporter-breakpad.plugin] 003: libomni.kit.telemetry.plugin.so!std::__throw_regex_error(std::regex_constants::error_type, char const*)+0xe2f3 (??:?)",
+    "2026-10-01T15:45:59Z [178ms] [Fatal] [carb.crashreporter-breakpad.plugin] 004: libcarb.tasking.plugin.so!std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (carb::tasking::Scheduler::*)(carb::tasking::Fiber*, carb::tasking::Scheduler::TrackedThread*), carb::tasking::Scheduler*, carb::tasking::Fiber*, carb::tasking::Scheduler::TrackedThread*> > >::_M_run()+0xa3a7 (??:?)",
+    "2026-10-01T15:45:59Z [183ms] [Fatal] [carb.crashreporter-breakpad.plugin] 005: libcarb.tasking.plugin.so!void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&)+0xb6dc (??:?)",
+    "2026-10-01T15:45:59Z [188ms] [Fatal] [carb.crashreporter-breakpad.plugin] 006: libcarb.tasking.plugin.so!void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&)+0xb6ff (??:?)",
+    "2026-10-01T15:45:59Z [193ms] [Fatal] [carb.crashreporter-breakpad.plugin] 007: libcarb.tasking.plugin.so!make_fcontext+0x39 (??:?)",
+    "/workspace/IsaacLab/_isaac_sim/python.sh: line 73: 163463 Segmentation fault      (core dumped) $python_exe \"${filtered_args[@]}\" $args",
+    "There was an error running python"
+  ],
+  "archive_bytes": 566387722,
+  "archive_sha256": "b66790910954f7661c5c73a8fb21f4dca8c75ecd9b5a79ae8c7908ea19282d1f",
+  "active_processes": [
+    " 167231    1166 S+         00:00 /bin/bash /workspace/IsaacLab/_isaac_sim/python.sh -c import json,hashlib,subprocess; from pathlib import Path; r=Path(\"/workspace/student_workspac",
+    " 167236  167231 S+         00:00 /workspace/IsaacLab/_isaac_sim/kit/python/bin/python3 -c import json,hashlib,subprocess; from pathlib import Path; r=Path(\"/workspace/student_works"
+  ]
+}

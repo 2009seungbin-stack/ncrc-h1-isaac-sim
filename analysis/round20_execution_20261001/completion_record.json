@@ -1,0 +1,18 @@
+{
+  "completed_utc": "2026-10-01T23:41:41.485070+00:00",
+  "conditions": {
+    "results_retrieved_and_verified": true,
+    "remote_server_shutdown_confirmed": true,
+    "heldout_and_stress_results_reviewed": true,
+    "video_reviewed": true,
+    "final_report_saved": true,
+    "heartbeat_stopped": true
+  },
+  "policy_replacement": false,
+  "official_submission": false,
+  "remote_shutdown_confirmed": true,
+  "local_shutdown_requested": true,
+  "local_power_off_verified": false,
+  "local_shutdown_requested_utc": "2026-10-01T23:42:27.583095+00:00",
+  "local_shutdown_command": "shutdown.exe /s /t 0"
+}

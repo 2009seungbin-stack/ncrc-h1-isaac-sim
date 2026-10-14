@@ -1,0 +1,53 @@
+[3gH    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H   [INFO] Using python from: /workspace/IsaacLab/_isaac_sim/python.sh
+[INFO][AppLauncher]: Using device: cuda:0
+[INFO][AppLauncher]: Loading experience file: /workspace/IsaacLab/apps/isaaclab.python.headless.kit
+[t_eval] ckpt iter=5500 actor layers=[(512, 235), (256, 512), (128, 256), (12, 128)]
+[t_eval] 체크포인트 actor 로드: /workspace/student_workspace/round20_20261001/original_C0_model_5500.pt
+
+[t_eval] === terrain='flat' 환경 생성: G1, G2, G6 ===
+[INFO]: Parsing configuration from: go2_task.env_cfg:QuadrupedRoughEnvCfg
+[Quadruped:student] 6 reward 항목 로드
+  [OK] track_lin_vel_xy_exp.weight = 2.0
+  [OK] feet_air_time.weight = 0.01
+  [OK] lin_vel_z_l2.weight = -3.0
+  [OK] ang_vel_xy_l2.weight = -0.08
+  [OK] action_rate_l2.weight = -0.01
+  [OK] track_ang_vel_z_exp.weight = 0.75
+[Quadruped:student] terrain override - boxes ≤0.15m
+
+[36m======================================================================================[0m
+[36m[1m[INFO][IsaacLab]: Logging to file: /tmp/isaaclab/logs/isaaclab_2026-10-01_13-54-18.log[0m
+[36m======================================================================================[0m
+
+[33m13:54:18 [simulation_context.py] WARNING: The `enable_external_forces_every_iteration` parameter in the PhysxCfg is set to False. If you are experiencing noisy velocities, consider enabling this flag. You may need to slightly increase the number of velocity iterations (setting it to 1 or 2 rather than 0), together with this flag, to improve the accuracy of velocity updates.[0m
+Loading user config located at: '/isaac-sim/kit/data/Kit/Isaac-Sim/5.1/user.config.json'
+[Info] [carb] Logging to file: /isaac-sim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261001_135415.log
+2026-10-01T04:54:15Z [168ms] [Warning] [omni.platforminfo.plugin] failed to open the default display.  Can't verify X Server version.
+2026-10-01T04:54:15Z [173ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-10-01T04:54:16Z [420ms] [Warning] [carb] Acquiring non optional plugin interface which is not listed as dependency: [omni::physx::IPhysxBenchmarks v1.0] (plugin: <default plugin>), by client: omni.physics.physx.plugin. Add it to CARB_PLUGIN_IMPL_DEPS() macro of a client.
+2026-10-01T04:54:16Z [541ms] [Warning] [omni.isaac.dynamic_control] omni.isaac.dynamic_control is deprecated as of Isaac Sim 4.5. No action is needed from end-users.
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 580.126.09    | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 5080          | Yes: 0 |     | 16303   MB | 10de      | 0          |
+|     |                                  |        |     |            | 2c02      | f3f8c870.. |
+|     |                                  |        |     |            | 1         |            |
+|=============================================================================================|
+| OS: 24.04.2 LTS (Noble Numbat) ubuntu, Version: 24.04.2, Kernel: 6.8.0-136-generic
+| Processor: Intel(R) Core(TM) Ultra 5 250KF Plus
+| Cores: 18 | Logical Cores: 18
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 64006 | Free Memory: 54394
+| Total Page/Swap (MB): 8191 | Free Page/Swap: 0
+|---------------------------------------------------------------------------------------------|
+2026-10-01T04:54:18Z [2,560ms] [Warning] [gpu.foundation.plugin] CPU performance profile is set to powersave. This profile sets the CPU to the lowest frequency reducing performance.
+2026-10-01T04:54:18Z [2,573ms] [Warning] [gpu.foundation.plugin] IOMMU is enabled.
+2026-10-01T04:54:18Z [2,676ms] [Warning] [omni.kvdb.plugin] Disabling key-value database because another kit process is locking it
+2026-10-01T04:54:18Z [2,857ms] [Warning] [isaaclab.envs.manager_based_env] Seed not set for the environment. The environment creation may not be deterministic.
+2026-10-01T04:54:21Z [5,292ms] [Warning] [omni.physx.fabric.plugin] FabricManager::initializePointInstancer mismatched prototypes on point instancer: /Visuals/Command/velocity_goal.
+2026-10-01T04:54:21Z [5,292ms] [Warning] [omni.physx.fabric.plugin] FabricManager::initializePointInstancer mismatched prototypes on point instancer: /Visuals/Command/velocity_current.

@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-08",
+  "user_requested_report": true,
+  "report_file": "feedback_report.txt",
+  "submitted": false,
+  "receipt_id": null,
+  "status": "DRAFT_READY_MANUAL_FEEDBACK_SUBMISSION_REQUIRED",
+  "blocker": "No supported feedback submission tool is available and native Codex app UI control is unavailable in this session.",
+  "official_route": "Type /feedback in the app composer and submit the prepared report.",
+  "raw_logs_or_session_uploaded": false
+}

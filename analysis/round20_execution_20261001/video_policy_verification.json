@@ -1,0 +1,12 @@
+{
+  "checkpoint_iter": 3000,
+  "random_observations": 4096,
+  "policies": [
+    {
+      "path": "candidate\\exported\\policy.pt",
+      "sha256": "59f8fa159cf44ef1b4a5c431e838f77e68a1891dadfd1390148620f1327f9178",
+      "max_absolute_error": 5.7220458984375e-06
+    }
+  ],
+  "verified": true
+}

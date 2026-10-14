@@ -1,0 +1,998 @@
+{
+  "server_started": true,
+  "allocation_start_epoch": 1791765159,
+  "effective_shutdown_deadline_epoch": 1791779559,
+  "remote_folder": "/workspace/student_workspace/research_execution_20261010_4h",
+  "tmux_session": "go2_research_4h_20261010",
+  "actual_server": "14.robotics.connect.or.kr",
+  "authorized_total_seconds": 14400,
+  "candidate": "S5_torque_half",
+  "policy_training_started": true,
+  "latest_user_authorization": "2026-10-12 학습 진행하자",
+  "design_sha256": "0af23aac6818fb44ca1e81b9b2d775c290243110dad1520538fd9ed0548f71c4",
+  "official_submission_authorized": false,
+  "local_PC_shutdown_authorized": false,
+  "local_CPU_checks": {
+    "verified_at_utc": "2026-10-10T15:43:02.576776+09:00",
+    "scope": "Windows local CPU contracts and mocks only",
+    "tests": {
+      "runner_tests.py": {
+        "passed": 44,
+        "sha256": "edc8e5515558e4fe7e37fcc30aec19f0d0e3fe7248bb10f9d7d113a8546be85d"
+      },
+      "start_once_tests.py": {
+        "passed": 22,
+        "sha256": "805f5e26420c718a72b155df0c9452454ef96182fa46eba2cee8ea632af1ffe7"
+      },
+      "evaluation_tests.py": {
+        "passed": 44,
+        "sha256": "cc29fb08662189443955bacea1f62ca8113f7f73f82f8384464a7d9767dc61f2"
+      },
+      "streaming_control_libc_tests.py": {
+        "passed": 50,
+        "sha256": "af83d5879436f55789112275c535b8ef8445f65e4c57773c8325f58b7cea885a"
+      },
+      "live_preflight_tests.py": {
+        "passed": 28,
+        "sha256": "8ba976b28e6a0126fe4f0bc5d0a17b278554006f9fad55c0914f4442ea189602"
+      }
+    },
+    "total_tests_passed": 188,
+    "source_hashes": {
+      "runner.py": "fed0e531ff19cf0970a6cd98c18892f92c3f58559ecb684c2b79394650aaaaf9",
+      "start_once.py": "49c121c4ec180d3b428dcfe8ffff0bddec443146b2325f81fdb29a88286310fd",
+      "evaluation.py": "c7f34a83698f1a60e2d755a2c22add070d967dbf724f8219ee1116bc3cee2ce3",
+      "streaming_control_libc.py": "bbf91d082d166d417a0d3dbc4df8a7797804812cc9f7e3c1577c35fb1899b5a1",
+      "live_preflight.py": "85ba7682fd648756630e7cddb9ed66fda37bb78a2a4ade6831b753823a4c331f",
+      "checkpoint_capture_probe.py": "10f841504ab763b39570384db487ec784da37bcbfc31194b91814db0c13dec00",
+      "preflight_receipt.py": "43497d11a2ac024f089b7ab93afa22e8307bc7a942738173f3c18b7260072d4a"
+    },
+    "remote_Linux_ABI_verified": false,
+    "server_started": false,
+    "simulator_or_training_executed": false,
+    "independent_review_file": "integration_review.txt",
+    "independent_review_sha256": "18b1d7b4f41d5c4f8810fc5a8555410f11470ac54ec1d15341a1d90eeb5e48b2"
+  },
+  "package": {
+    "package_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\execution\\research_execution_20261010_4h_package.zip",
+    "bytes": 12830090,
+    "sha256": "e8f6704b5e29af32b6925733d19d67869133ebbcf55bf9681cfc1ebfb56a9906",
+    "member_hashes_verified": true,
+    "checkpoint_deserialization_by_builder": false,
+    "probe": {
+      "bytes": 585,
+      "sha256": "ae5257fc10220350e59094c19bfe8891a4112f1f8dff8c4325fd3e0b444f9be1"
+    },
+    "source_files": {
+      "runner.py": {
+        "bytes": 61323,
+        "sha256": "fed0e531ff19cf0970a6cd98c18892f92c3f58559ecb684c2b79394650aaaaf9"
+      },
+      "evaluation.py": {
+        "bytes": 35488,
+        "sha256": "c7f34a83698f1a60e2d755a2c22add070d967dbf724f8219ee1116bc3cee2ce3"
+      },
+      "streaming_control_libc.py": {
+        "bytes": 30914,
+        "sha256": "bbf91d082d166d417a0d3dbc4df8a7797804812cc9f7e3c1577c35fb1899b5a1"
+      },
+      "checkpoint_capture_probe.py": {
+        "bytes": 3039,
+        "sha256": "10f841504ab763b39570384db487ec784da37bcbfc31194b91814db0c13dec00"
+      },
+      "live_preflight.py": {
+        "bytes": 14772,
+        "sha256": "85ba7682fd648756630e7cddb9ed66fda37bb78a2a4ade6831b753823a4c331f"
+      },
+      "preflight_receipt.py": {
+        "bytes": 2866,
+        "sha256": "43497d11a2ac024f089b7ab93afa22e8307bc7a942738173f3c18b7260072d4a"
+      },
+      "start_once.py": {
+        "bytes": 12377,
+        "sha256": "49c121c4ec180d3b428dcfe8ffff0bddec443146b2325f81fdb29a88286310fd"
+      },
+      "quadruped_rewards_S5_torque_half.py": {
+        "bytes": 5715,
+        "sha256": "2317a023772166596a40922235d087df79d14ab17b25e48e2736104b5a6dd560"
+      },
+      "RUNNER_USAGE.txt": {
+        "bytes": 8961,
+        "sha256": "1c823e753590e68a9336f9b7a844673919e9afdaa98179446b7aa58b724db85b"
+      },
+      "design.json": {
+        "bytes": 10614,
+        "sha256": "0af23aac6818fb44ca1e81b9b2d775c290243110dad1520538fd9ed0548f71c4"
+      },
+      "decision_rules.py": {
+        "bytes": 8349,
+        "sha256": "aefe734c93b9ba9f55ebdc1b2be7d7bf4c9b3c78c331a376468f919481abaca7"
+      },
+      "fresh_rewards_original.py": {
+        "bytes": 9805,
+        "sha256": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7"
+      },
+      "previous_source_hashes_20261002.json": {
+        "bytes": 353,
+        "sha256": "8161c241c64ef110650d3aebd1806886361b8dc146b9b1151fca6d952c4ec8f2"
+      },
+      "reference_models.json": {
+        "bytes": 525,
+        "sha256": "07da0126af908a4b2dc0cc64bb432ff91f1a9334884df24dd61b8b0527703712"
+      },
+      "source_snapshot.py": {
+        "bytes": 4485,
+        "sha256": "d3bc1705a07392032b1369d6f48fb1b72b676f1b3cd0dd9457882480b781b211"
+      },
+      "references/C0_5500.pt": {
+        "bytes": 6882293,
+        "sha256": "8d553e697ed4c2856ab002431af96d626eb8b0d23e56b7c754d652193026b1d3"
+      },
+      "references/F10_3000.pt": {
+        "bytes": 6882293,
+        "sha256": "4684a58838229b729feb2f2534ab9423a4993377e75179a0d55a95904ecf23d2"
+      },
+      "t_eval.py": {
+        "bytes": 52863,
+        "sha256": "bd95f7e7df231454927c70b2bb2431b05cd504ad38c736f16f91dab3435651d9"
+      },
+      "t_eval_go2_core.py": {
+        "bytes": 7652,
+        "sha256": "baa43b161ec7a02d9ae1dfebfe593976f17d78916354d9029ba22b239f0cff6e"
+      },
+      "recovery_probe.zip": {
+        "bytes": 585,
+        "sha256": "ae5257fc10220350e59094c19bfe8891a4112f1f8dff8c4325fd3e0b444f9be1"
+      }
+    }
+  },
+  "local_package_ready": true,
+  "local_package_frozen": true,
+  "latest_local_verification_utc": "2026-10-10T15:43:40.351577+09:00",
+  "compute_deadline_epoch": 1791776859,
+  "dashboard_stop_request_deadline_epoch": 1791778059,
+  "setup_deadline_epoch": 1791766359,
+  "training_latest_epoch": 1791774759,
+  "selection_deadline_epoch": 1791775659,
+  "allocation_clock_basis": "Conservative UTC recorded immediately before first dashboard start click",
+  "dashboard_tab_id": "330037512",
+  "editor_tab_id": "330037518",
+  "training_started_epoch": 1791765837.0704703,
+  "runner_identity": {
+    "pid": 14471,
+    "state": "R",
+    "ppid": 14470,
+    "pgid": 14471,
+    "session": 14471,
+    "start_ticks": 674573,
+    "cmdline": "/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3 /workspace/student_workspace/research_execution_20261010_4h/runner.py --root /workspace/student_workspace/research_execution_20261010_4h --train-dir /workspace/training/quadruped --isaac /workspace/IsaacLab/isaaclab.sh --source-hashes /workspace/student_workspace/research_execution_20261010_4h/source_hashes_current.json --preflight /workspace/student_workspace/research_execution_20261010_4h/preflight_receipt.json --server-start-epoch 1791765159 --authorized-execution",
+    "argv": [
+      "/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3",
+      "/workspace/student_workspace/research_execution_20261010_4h/runner.py",
+      "--root",
+      "/workspace/student_workspace/research_execution_20261010_4h",
+      "--train-dir",
+      "/workspace/training/quadruped",
+      "--isaac",
+      "/workspace/IsaacLab/isaaclab.sh",
+      "--source-hashes",
+      "/workspace/student_workspace/research_execution_20261010_4h/source_hashes_current.json",
+      "--preflight",
+      "/workspace/student_workspace/research_execution_20261010_4h/preflight_receipt.json",
+      "--server-start-epoch",
+      "1791765159",
+      "--authorized-execution"
+    ]
+  },
+  "helper_identity": {
+    "pid": 14472,
+    "state": "R",
+    "ppid": 14470,
+    "pgid": 14472,
+    "session": 14472,
+    "start_ticks": 674579,
+    "cmdline": "/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3 /workspace/student_workspace/research_execution_20261010_4h/streaming_control_libc.py --root /workspace/student_workspace/research_execution_20261010_4h --runner-pid 14471 --runner-start-ticks 674573 --allocation-start-epoch 1791765159 --deadline-epoch 1791776859 --audit /workspace/student_workspace/research_execution_20261010_4h/streaming_control_audit.jsonl",
+    "argv": [
+      "/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3",
+      "/workspace/student_workspace/research_execution_20261010_4h/streaming_control_libc.py",
+      "--root",
+      "/workspace/student_workspace/research_execution_20261010_4h",
+      "--runner-pid",
+      "14471",
+      "--runner-start-ticks",
+      "674573",
+      "--allocation-start-epoch",
+      "1791765159",
+      "--deadline-epoch",
+      "1791776859",
+      "--audit",
+      "/workspace/student_workspace/research_execution_20261010_4h/streaming_control_audit.jsonl"
+    ]
+  },
+  "train_process_identity": {
+    "leader": {
+      "pid": 14474,
+      "state": "R",
+      "ppid": 14471,
+      "pgid": 14474,
+      "session": 14474,
+      "start_ticks": 674599,
+      "cmdline": "/usr/bin/env bash /workspace/IsaacLab/isaaclab.sh -p train.py --task Quadruped-v0 --num_envs 6144 --seed 42 --max_iterations 1500 --run_name S5_torque_half_4h_1791765159 --headless",
+      "argv": [
+        "/usr/bin/env",
+        "bash",
+        "/workspace/IsaacLab/isaaclab.sh",
+        "-p",
+        "train.py",
+        "--task",
+        "Quadruped-v0",
+        "--num_envs",
+        "6144",
+        "--seed",
+        "42",
+        "--max_iterations",
+        "1500",
+        "--run_name",
+        "S5_torque_half_4h_1791765159",
+        "--headless"
+      ]
+    },
+    "expected_command": [
+      "/workspace/IsaacLab/isaaclab.sh",
+      "-p",
+      "train.py",
+      "--task",
+      "Quadruped-v0",
+      "--num_envs",
+      "6144",
+      "--seed",
+      "42",
+      "--max_iterations",
+      "1500",
+      "--run_name",
+      "S5_torque_half_4h_1791765159",
+      "--headless"
+    ]
+  },
+  "GPU_child_identity": {
+    "stat": "14492 (python3) S 14487 14474 14474 0 -1 4194560 1944611 8495 1989 1 9996 1425 10 12 20 0 109 0 674604 78299918336 1900661 18446744073709551615 4194304 4510804 140730952503120 0 0 0 0 19927040 17658 0 0 0 17 4 0 0 0 0 0 6608000 6614656 381726720 140730952507469 140730952507683 140730952507683 140730952515542 0\n",
+    "argv": [
+      "/isaac-sim/kit/python/bin/python3",
+      "/workspace/training/quadruped/train.py",
+      "--_run_isaaclab_child",
+      "--task",
+      "Quadruped-v0",
+      "--num_envs",
+      "6144",
+      "--seed",
+      "42",
+      "--max_iterations",
+      "1500",
+      "--run_name",
+      "S5_torque_half_4h_1791765159",
+      "--headless"
+    ]
+  },
+  "effective_configuration": {
+    "effective_weights": {
+      "track_lin_vel_xy_exp": 2.0,
+      "track_ang_vel_z_exp": 1.5,
+      "lin_vel_z_l2": -3.0,
+      "ang_vel_xy_l2": -0.08,
+      "dof_torques_l2": -0.0001,
+      "dof_acc_l2": -2.5E-07,
+      "action_rate_l2": -0.01,
+      "feet_air_time": 0.01,
+      "flat_orientation_l2": 0.0,
+      "dof_pos_limits": 0.0
+    },
+    "env_sha256": "2ebe1e4f1159174dbc4f8d17284ba68b47cdf1143dee7810b53a3d74e431dfba",
+    "agent_sha256": "66e822252cbc4be763ab2aa05a7b19e4a84105e692b19e76a8b512314d79038e",
+    "actor_observation_normalization": false,
+    "policy_clip_actions": null,
+    "actor_configs": {
+      "actor": {
+        "class_name": "MLPModel",
+        "activation": "elu",
+        "obs_normalization": false,
+        "hidden_dims": [
+          512,
+          256,
+          128
+        ]
+      },
+      "critic": {
+        "class_name": "MLPModel",
+        "activation": "elu",
+        "obs_normalization": false,
+        "hidden_dims": [
+          512,
+          256,
+          128
+        ]
+      }
+    },
+    "control_step_seconds": 0.02
+  },
+  "initial_checkpoint_sha256": "ec9305451009bd8854bfd0cfe1aaa16dba8ecb7c94f9288add6a46d0981ad051",
+  "initial_actor_shapes": {
+    "mlp.0.weight": [
+      512,
+      235
+    ],
+    "mlp.2.weight": [
+      256,
+      512
+    ],
+    "mlp.4.weight": [
+      128,
+      256
+    ],
+    "mlp.6.weight": [
+      12,
+      128
+    ]
+  },
+  "actual_runtime": {
+    "rsl_rl_lib": "5.0.1",
+    "torch": "2.7.0+cu128"
+  },
+  "preflight_PASS_verified": true,
+  "remote_Linux_checkpoint_capture_probe_verified": true,
+  "libc_pidfd_self_signal0_verified": true,
+  "initial_streaming_release_ACK_verified": true,
+  "startup_evidence_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\live_evidence_20261012\\startup_evidence_20261012.json",
+  "download_smoke": {
+    "actual_local_path": "D:\\UserData\\Downloads\\recovery_probe (1).zip",
+    "bytes": 585,
+    "sha256": "ae5257fc10220350e59094c19bfe8891a4112f1f8dff8c4325fd3e0b444f9be1",
+    "verified": true,
+    "scope": "Probe only; final result retrieval pending"
+  },
+  "automation_prompt_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\live_evidence_20261012\\automation_prompt_20261012.txt",
+  "training_proof_screenshot": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\live_evidence_20261012\\training_running_20261012.jpg",
+  "policy_training_completed": true,
+  "latest_verified_iteration": 1499,
+  "latest_verified_completed_iterations": 1500,
+  "latest_measured_training_profile": {
+    "samples": 1500,
+    "completed_iterations": 1500,
+    "exact_iteration_coverage": true,
+    "recent_seconds_per_iteration": 4.656399999999999
+  },
+  "latest_training_group": [],
+  "training_completion_evidence": {
+    "status": "complete_verified_preserved",
+    "returncode": 0,
+    "started_epoch": 1791765837.0704703,
+    "ended_epoch": 1791772971.8150647,
+    "seconds": 7134.9047248363495,
+    "process_group_id": 14474,
+    "process_group_exited": true,
+    "iterations_complete": true,
+    "exact_iteration_coverage": true
+  },
+  "verified_final_checkpoint": {
+    "name": "S5_torque_half_1499",
+    "checkpoint": "preserved/S5_torque_half/2026-10-12_09-44-03_S5_torque_half_4h_1791765159/model_1499.pt",
+    "sha256": "80afa452d63ed968890a0653b32ea34a11e00dc6419ac559c095166cd0d64e59",
+    "bytes": 6882293,
+    "iteration": 1499,
+    "exact_stored_iteration_verified": true,
+    "finite_tensor_count": 68
+  },
+  "checkpoint_1000_metadata": [
+    {
+      "path": "/workspace/student_workspace/research_execution_20261010_4h/preserved/S5_torque_half/2026-10-12_09-44-03_S5_torque_half_4h_1791765159/model_1000.pt",
+      "bytes": 6882293,
+      "sha256": "1bf97b4664bf2b9214a9ecaf1cdfc75a7223085363c28581d9c9e07b97dfbe47"
+    }
+  ],
+  "checkpoint_1499_metadata": [
+    {
+      "path": "/workspace/student_workspace/research_execution_20261010_4h/preserved/S5_torque_half/2026-10-12_09-44-03_S5_torque_half_4h_1791765159/model_1499.pt",
+      "bytes": 6882293,
+      "sha256": "80afa452d63ed968890a0653b32ea34a11e00dc6419ac559c095166cd0d64e59"
+    }
+  ],
+  "selected_checkpoint": {
+    "name": "S5_torque_half_1499",
+    "checkpoint": "preserved/S5_torque_half/2026-10-12_09-44-03_S5_torque_half_4h_1791765159/model_1499.pt",
+    "sha256": "80afa452d63ed968890a0653b32ea34a11e00dc6419ac559c095166cd0d64e59",
+    "bytes": 6882293,
+    "iteration": 1499,
+    "exact_stored_iteration_verified": true,
+    "finite_tensor_count": 68,
+    "selection_fallback": null,
+    "frozen_epoch": 1791773248.7578895,
+    "checkpoint_optimality_claim": true
+  },
+  "selected_checkpoint_claim_scope": "Fixed comparison of exact checkpoints 1000 and 1499 only; no global optimality claim",
+  "selection_complete_receipt_verified": true,
+  "selection_complete_receipt": {
+    "complete": true,
+    "phase": "selection",
+    "merged": true,
+    "models": [
+      "C0_5500",
+      "F10_3000",
+      "S5_torque_half_1000",
+      "S5_torque_half_1499"
+    ],
+    "scenarios": [
+      "G1",
+      "G3",
+      "G5",
+      "G6"
+    ],
+    "seeds": [
+      2029
+    ],
+    "ended_epoch": 1791773248.3013456,
+    "official_score_prediction": null
+  },
+  "selection_rollout_coverage_receipt_count": 16,
+  "actual_streaming_STOP_GPUrelease_verified": true,
+  "current_streaming_launcher": {
+    "pid": 42056,
+    "state": "T",
+    "ppid": 1,
+    "pgid": 1,
+    "session": 1,
+    "start_ticks": 1388294,
+    "cmdline": "/bin/bash /isaac-sim/python.sh /streaming/livestream_webrtc.py",
+    "argv": [
+      "/bin/bash",
+      "/isaac-sim/python.sh",
+      "/streaming/livestream_webrtc.py"
+    ]
+  },
+  "latest_heartbeat_evidence": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\live_evidence_20261012\\heartbeat_evidence_20261012_0249.json",
+  "latest_remote_stage": "COMPUTE_COMPLETE_RETRIEVE_AND_STOP_ALLOCATION",
+  "latest_phase_evidence": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\live_evidence_20261012\\phase_evidence_20261012_0301.json",
+  "latest_runner_identity": null,
+  "latest_helper_identity": null,
+  "actual_streaming_STOP_GPUrelease_CONT_verified": true,
+  "runner_and_owned_groups_exited_verified": true,
+  "validation_complete_receipt_verified": true,
+  "validation_rollout_coverage_receipt_count": 42,
+  "latest_launch_finished_evidence": {
+    "runner_returncode": 0,
+    "helper_returncode": 0,
+    "finished_epoch": 1791774031.3578253,
+    "error": null,
+    "cleanup_errors": [],
+    "controller_recovery_evidence": {
+      "verified": true,
+      "controller_returncode": 0,
+      "started_audit": true,
+      "finished_audit": true,
+      "hold_ack_count": 1,
+      "released_after_each_hold": true,
+      "resumer_reaped_release_count": 1,
+      "errors": [],
+      "allocation_off_confirmed": false
+    },
+    "allocation_off_confirmed": false
+  },
+  "remote_archive_receipts": {
+    "research_execution_20261010_4h_critical.tar.gz.sha256.json": {
+      "path": "/workspace/student_workspace/research_execution_20261010_4h_critical.tar.gz",
+      "bytes": 7714191,
+      "sha256": "f61132933651529918a6da3e5d7563884dccef47c504261feb156d853d4c451f",
+      "kind": "critical_partial",
+      "created_epoch": 1791774025.409327,
+      "contains_complete_validation": true,
+      "local_retrieval_verified": false
+    },
+    "research_execution_20261010_4h_results.tar.gz.sha256.json": {
+      "path": "/workspace/student_workspace/research_execution_20261010_4h_results.tar.gz",
+      "bytes": 302998964,
+      "sha256": "56c87f384ad0fe5cafc1b5e62fb70484e5ea70587b2e61b2b0e1cd1286a82008",
+      "kind": "full",
+      "created_epoch": 1791774031.0168967,
+      "contains_complete_validation": true,
+      "local_retrieval_verified": false
+    }
+  },
+  "decision": {
+    "admit_separate_confirmation_budget": false,
+    "checks": {
+      "complete_data": true,
+      "zero_candidate_falls": false,
+      "XY_practical_gain_10pct": false,
+      "VX_aggregate_no_regression_F10": false,
+      "critical_scenario_VX_tolerance_5pct_F10": false,
+      "yaw_aggregate_tolerance_2pct": false,
+      "Q3_no_regression": false,
+      "rough_stairs_XY_no_regression_C0": false,
+      "other_scenario_XY_tolerance_10pct_C0": false,
+      "scenario_yaw_tolerance_10pct_F10": false,
+      "seed_XY_consistent": false,
+      "scenario_seed_falls_no_regression": false
+    },
+    "metrics": {
+      "C0_5500": {
+        "scenarios": {
+          "G1": {
+            "rmse": {
+              "vx": 0.1276009336690856,
+              "vy": 0.05741837115464246,
+              "yaw": 0.10410196525166529
+            },
+            "mae": {
+              "vx": 0.053125135641663344,
+              "vy": 0.04662740627649182,
+              "yaw": 0.08371005081990403
+            },
+            "xy": 0.09894156765302099,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          },
+          "G2": {
+            "rmse": {
+              "vx": 0.05684573219728646,
+              "vy": 0.1159114293444848,
+              "yaw": 0.13767016997267734
+            },
+            "mae": {
+              "vx": 0.04061963672064389,
+              "vy": 0.07222459261561776,
+              "yaw": 0.10559860673796959
+            },
+            "xy": 0.09128772294708391,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          },
+          "G3": {
+            "rmse": {
+              "vx": 0.06708916621571233,
+              "vy": 0.06497315856552034,
+              "yaw": 0.1126604116586338
+            },
+            "mae": {
+              "vx": 0.04384751222019482,
+              "vy": 0.05382542613487418,
+              "yaw": 0.08991427257403369
+            },
+            "xy": 0.06603963793624147,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          },
+          "G4": {
+            "rmse": {
+              "vx": 0.06377152178368661,
+              "vy": 0.06162067664006694,
+              "yaw": 0.11717137785704794
+            },
+            "mae": {
+              "vx": 0.04584544101968189,
+              "vy": 0.05120848802021361,
+              "yaw": 0.09341051986356631
+            },
+            "xy": 0.06270532186420427,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          },
+          "G5": {
+            "rmse": {
+              "vx": 0.07477420943830745,
+              "vy": 0.06579255966208578,
+              "yaw": 0.1337383854304535
+            },
+            "mae": {
+              "vx": 0.05692825959007607,
+              "vy": 0.05300815005928571,
+              "yaw": 0.10371983889023846
+            },
+            "xy": 0.07042671121106318,
+            "survival": 0.99609375,
+            "falls": 1,
+            "samples": 255604
+          },
+          "G6": {
+            "rmse": {
+              "vx": 0.11747117951384214,
+              "vy": 0.16024680584374348,
+              "yaw": 0.11809401108203654
+            },
+            "mae": {
+              "vx": 0.06092845760943699,
+              "vy": 0.0860642914151377,
+              "yaw": 0.09039355036322266
+            },
+            "xy": 0.14049647112916352,
+            "survival": 0.99609375,
+            "falls": 1,
+            "samples": 255031
+          },
+          "G7": {
+            "rmse": {
+              "vx": 0.06455308648016839,
+              "vy": 0.0649583436480785,
+              "yaw": 0.11453225654265244
+            },
+            "mae": {
+              "vx": 0.04398291590500826,
+              "vy": 0.05388912731842185,
+              "yaw": 0.09105067674916766
+            },
+            "xy": 0.06475603208820765,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          }
+        },
+        "vx": 0.08409853080317574,
+        "xy": 0.08554367975949938,
+        "yaw": 0.12023171110253086,
+        "Q3_internal": 0.9064893452114069,
+        "falls": 2
+      },
+      "F10_3000": {
+        "scenarios": {
+          "G1": {
+            "rmse": {
+              "vx": 0.13326797012546718,
+              "vy": 0.047501716077169916,
+              "yaw": 0.09009654214265353
+            },
+            "mae": {
+              "vx": 0.05003010703595993,
+              "vy": 0.03769094695102193,
+              "yaw": 0.07307889568126104
+            },
+            "xy": 0.10004190344960075,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          },
+          "G2": {
+            "rmse": {
+              "vx": 0.05263413633410475,
+              "vy": 0.11967567860992488,
+              "yaw": 0.11001946951686548
+            },
+            "mae": {
+              "vx": 0.033227984505753747,
+              "vy": 0.07185220499174244,
+              "yaw": 0.08364416136392132
+            },
+            "xy": 0.09244625562558809,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          },
+          "G3": {
+            "rmse": {
+              "vx": 0.06490402648609253,
+              "vy": 0.05021139983244417,
+              "yaw": 0.09574668264166612
+            },
+            "mae": {
+              "vx": 0.03898597731183288,
+              "vy": 0.03975672894172096,
+              "yaw": 0.07640605123259298
+            },
+            "xy": 0.05802463841869666,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          },
+          "G4": {
+            "rmse": {
+              "vx": 0.06023055293023817,
+              "vy": 0.050341521202272164,
+              "yaw": 0.09417655756766886
+            },
+            "mae": {
+              "vx": 0.03899192878083927,
+              "vy": 0.039576790586589236,
+              "yaw": 0.0757025240965065
+            },
+            "xy": 0.055506703483638085,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          },
+          "G5": {
+            "rmse": {
+              "vx": 0.08158582505724633,
+              "vy": 0.0695009427762825,
+              "yaw": 0.11811226075949648
+            },
+            "mae": {
+              "vx": 0.05747468206295687,
+              "vy": 0.0507529238955332,
+              "yaw": 0.0907695854186265
+            },
+            "xy": 0.07578465509937912,
+            "survival": 0.99609375,
+            "falls": 1,
+            "samples": 255074
+          },
+          "G6": {
+            "rmse": {
+              "vx": 0.12967153434040932,
+              "vy": 0.16527490251233637,
+              "yaw": 0.09584927803404963
+            },
+            "mae": {
+              "vx": 0.05883305680619015,
+              "vy": 0.07815004402252822,
+              "yaw": 0.07453487792863424
+            },
+            "xy": 0.1485437649628187,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          },
+          "G7": {
+            "rmse": {
+              "vx": 0.05982310763862352,
+              "vy": 0.05094391107039625,
+              "yaw": 0.09729531221205287
+            },
+            "mae": {
+              "vx": 0.035375765569716694,
+              "vy": 0.04026209831053695,
+              "yaw": 0.07718039119958692
+            },
+            "xy": 0.055561165766616065,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          }
+        },
+        "vx": 0.08662596730904835,
+        "xy": 0.08541341325322403,
+        "yaw": 0.10077222703981192,
+        "Q3_internal": 0.914593190541621,
+        "falls": 1
+      },
+      "candidate": {
+        "scenarios": {
+          "G1": {
+            "rmse": {
+              "vx": 0.14833559409073785,
+              "vy": 0.031871380331436196,
+              "yaw": 0.0922955659474176
+            },
+            "mae": {
+              "vx": 0.07561374945718986,
+              "vy": 0.02461525608012684,
+              "yaw": 0.0748995370086203
+            },
+            "xy": 0.10728288157596066,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          },
+          "G2": {
+            "rmse": {
+              "vx": 0.06943239022476783,
+              "vy": 0.11115213633561877,
+              "yaw": 0.11511136273431583
+            },
+            "mae": {
+              "vx": 0.04817330170210044,
+              "vy": 0.0618322396388394,
+              "yaw": 0.0887195892642995
+            },
+            "xy": 0.09267052990108672,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          },
+          "G3": {
+            "rmse": {
+              "vx": 0.10900828529376076,
+              "vy": 0.046489863337500735,
+              "yaw": 0.11370037359018415
+            },
+            "mae": {
+              "vx": 0.07969981883700532,
+              "vy": 0.03426607075896227,
+              "yaw": 0.08755840570719417
+            },
+            "xy": 0.08379771373917498,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          },
+          "G4": {
+            "rmse": {
+              "vx": 0.09548037420047188,
+              "vy": 0.040630939067212664,
+              "yaw": 0.10477518247111847
+            },
+            "mae": {
+              "vx": 0.0721654712591635,
+              "vy": 0.030579467672756228,
+              "yaw": 0.08266368300035053
+            },
+            "xy": 0.07337361605831379,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          },
+          "G5": {
+            "rmse": {
+              "vx": 0.25979635413409524,
+              "vy": 0.05521435753282581,
+              "yaw": 0.13486646267525182
+            },
+            "mae": {
+              "vx": 0.208319432434106,
+              "vy": 0.03648620438393704,
+              "yaw": 0.09410159197509027
+            },
+            "xy": 0.18780677689999759,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          },
+          "G6": {
+            "rmse": {
+              "vx": 0.16457442121806554,
+              "vy": 0.1673125798404717,
+              "yaw": 0.13774981232221276
+            },
+            "mae": {
+              "vx": 0.09590347602207366,
+              "vy": 0.07066523853312173,
+              "yaw": 0.08662353094690729
+            },
+            "xy": 0.16594914807273867,
+            "survival": 0.96875,
+            "falls": 8,
+            "samples": 252454
+          },
+          "G7": {
+            "rmse": {
+              "vx": 0.11382948288886222,
+              "vy": 0.04891809314667455,
+              "yaw": 0.1159658307659586
+            },
+            "mae": {
+              "vx": 0.08090730652889595,
+              "vy": 0.03520716300715751,
+              "yaw": 0.08891046589440006
+            },
+            "xy": 0.08760745120094666,
+            "survival": 1.0,
+            "falls": 0,
+            "samples": 255744
+          }
+        },
+        "vx": 0.14797294785449444,
+        "xy": 0.11848505140711278,
+        "yaw": 0.11605278239658177,
+        "Q3_internal": 0.8904340160794982,
+        "falls": 8
+      }
+    },
+    "official_score_prediction": null,
+    "automatic_training": false,
+    "rule_type": "practical_exploratory_gate_not_statistical_test"
+  },
+  "current_reward_sha256": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7",
+  "reward_current_original_verified": true,
+  "latest_source_audit_ok": true,
+  "browser_id": "6",
+  "browser_reconnection_basis": "Original browser3 disconnected; fresh inventory identifies same __NIX_ profile and exact existing dashboard/editor tabs on browser6; no profile or permission change",
+  "download_request_pending_recorded_utc": "2026-10-12T03:08:16Z",
+  "download_request_count_for_current_blocker": 1,
+  "latest_verified_epoch": 1791774914.126053,
+  "latest_closure_evidence": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\live_evidence_20261012\\closure_evidence_20261012_0313.json",
+  "latest_source_audit_epoch": 1791774914.0885184,
+  "latest_evaluation_groups": {
+    "selection_flat": [],
+    "selection_rough": [],
+    "selection_stairs": [],
+    "selection_merge": [],
+    "validation_flat": [],
+    "validation_rough": [],
+    "validation_slope": [],
+    "validation_stairs": [],
+    "validation_dr": [],
+    "validation_merge": []
+  },
+  "current_gpu_identities": {
+    "48572": {
+      "pid": 48572,
+      "state": "S",
+      "ppid": 48565,
+      "pgid": 1,
+      "session": 1,
+      "start_ticks": 1493495,
+      "cmdline": "/isaac-sim/kit/python/bin/python3 /streaming/livestream_webrtc.py",
+      "argv": [
+        "/isaac-sim/kit/python/bin/python3",
+        "/streaming/livestream_webrtc.py"
+      ]
+    }
+  },
+  "latest_streaming_status": {
+    "compute_deadline_epoch": 1791776859,
+    "controller_pid": 14472,
+    "launcher": null,
+    "mode": "release",
+    "runner_pid": 14471,
+    "runner_start_ticks": 674573,
+    "status": "released",
+    "token": "cleanup_3_1791774025026316259",
+    "verified_epoch": 1791774025.1467547
+  },
+  "helper_console_full_preserved": true,
+  "helper_console_local_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\live_evidence_20261012\\streaming_control_console.log",
+  "latest_download_folder_check_utc": "2026-10-12T03:16:35Z",
+  "latest_matching_download_count": 0,
+  "analysis_txt_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\results_analysis_20261012.txt",
+  "analysis_json_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\results_analysis_20261012.json",
+  "analysis_txt_sha256": "12e308add7d5d670183e11ca38aad4d85267fa5748e24cb753b4da471799a838",
+  "analysis_json_sha256": "f5e59ee665d09bf2b41ab5b0650e84612d27ec5970f88b3494f2fab67f16373d",
+  "latest_budget_estimate": {
+    "verified_epoch": 1791774914.126053,
+    "compute_complete": true,
+    "remaining_training_seconds_estimate": 0,
+    "downstream_reservation_seconds": 0,
+    "compute_remaining_seconds": 1944.873946905136,
+    "off_remaining_seconds": 4644.873946905136,
+    "scope": "Computation complete; awaiting existing download request. Allocation OFF bound unchanged"
+  },
+  "local_retrieval_verifier": {
+    "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\local_retrieval_verify_20261012.py",
+    "sha256": "e6dcbb3be88d4e21055e184bf2b1138f3e4f12c28adbd7f7ae7f64151d0d17c4",
+    "synthetic_CPU_checks_passed": 19,
+    "actual_archive_main_executed": false,
+    "scope": "Local extraction and existing data verification only; no new rollout or training"
+  },
+  "server_shutdown_deletion_approved": true,
+  "shutdown_approval_scope": "Direct current user approval: delete unretrieved model1000/model1499, NPZ/events/raw artifacts and end current server14 allocation after JSON preservation",
+  "partial_JSON_retrieval_preserved": true,
+  "final_JSON_preservation_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\live_evidence_20261012\\final_json_preservation_20261012_0325.json",
+  "shutdown_deletion_warning_screenshot": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\live_evidence_20261012\\shutdown_deletion_warning_20261012.png",
+  "status": "CLOSED_PARTIAL_RETRIEVAL_SERVER_OFF",
+  "execution_closed": true,
+  "server_off_verified": true,
+  "current_server_on": false,
+  "server_off_observed_epoch": 1791775969,
+  "server_off_observed_utc": "2026-10-12T03:32:49Z",
+  "server_off_observed_kst": "2026-10-12T12:32:49+09:00",
+  "server_off_screenshot": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\live_evidence_20261012\\server14_OFF_20261012.png",
+  "retrieval_complete": false,
+  "existing_go2_automation": "PAUSED",
+  "retrieval_blocker": "Normal Download UI did not open; user could not operate downloads. User explicitly approved deletion of unretrieved originals during server14 termination. JSON summaries/evidence only were preserved.",
+  "blocker": null,
+  "unresolved_retrieval": "Full critical/results archives, exact model1000/model1499, NPZ, raw params/events/logs were not recovered or locally verified",
+  "final_closure": {
+    "status": "OFF_VERIFIED_PARTIAL_RETRIEVAL",
+    "server": "14.robotics.connect.or.kr",
+    "off_observed_epoch": 1791775969,
+    "off_observed_utc": "2026-10-12T03:32:49Z",
+    "off_observed_kst": "2026-10-12T12:32:49+09:00",
+    "dashboard_evidence": "Isaac Sim 팀 서버 사용가능; 서버 시작하기",
+    "screenshot": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\live_evidence_20261012\\server14_OFF_20261012.png",
+    "screenshot_sha256": "6e6b4d7cd9642efb31fa0ad8df1a639671a9cf881f5dead59947c9fe6b774fa3",
+    "deletion_approved_by_current_user": true,
+    "full_archive_local_retrieval_complete": false,
+    "models_NPZ_events_rawlogs_local_retrieval_complete": false,
+    "JSON_preservation_kind": "clipboard_summary_partial",
+    "selection_JSON_rollouts": 16,
+    "validation_JSON_rollouts": 42,
+    "training_curve_stdout_rows": 1500,
+    "automation_status": "PAUSED",
+    "within_absolute_allocation_deadline": true,
+    "deadline_margin_seconds": 3590,
+    "actual_allocation_seconds_upper_bound": 10810,
+    "official_submission_performed": false,
+    "additional_training_evaluation_performed": false,
+    "new_allocation_performed": false
+  },
+  "current_actual_server_minutes": 180.16666666666666
+}

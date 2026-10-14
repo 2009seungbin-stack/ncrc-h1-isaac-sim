@@ -1,0 +1,2883 @@
+{
+  "status": "SAVED_RESPONSE_DIAGNOSTIC_ONLY",
+  "dt": 0.02,
+  "time_definition": "Offset k=0 is the first physical step after setting the new command; its post-step sample is t=.02 s. Prefix .02..0.5 uses offsets0..24 and .02..1 uses offsets0..49.",
+  "sign_definition": "Raw e = actual body vx minus current vx command. Direction d=sign(new-old). d*e<0 is lag-side error; d*e>0 is past-target/overshoot-side error. These labels describe instantaneous target side, not identified delay, causal overshoot, or bandwidth.",
+  "ranking_unchanged": true,
+  "denominator_definition": "Full valid 1000-step denominator remains the ranking definition. Prefix and tail statistics are diagnostic only; all recorded references have 256/256 survival per scenario.",
+  "source_SHA256": {
+    "batch_eval.py": "d8325a93f95bf72b9587dd0829dcf4d9a0220e231abd4a2e928dbaef276f1ed7",
+    "t_eval.py": "bd95f7e7df231454927c70b2bb2431b05cd504ad38c736f16f91dab3435651d9",
+    "t_eval_go2_core.py": "baa43b161ec7a02d9ae1dfebfe593976f17d78916354d9029ba22b239f0cff6e"
+  },
+  "available_data": "Signed errors/valid masks for all128envs per seed; commands/bodyvel/actions/jointvel/acc/torque/position for first8envs. No full235D actor observation, no B1 rollout, no new action inference.",
+  "G1": {
+    "C0_5500": {
+      "episodes": 256,
+      "full_valid_samples": 256000,
+      "evidence": [
+        {
+          "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\C0_5500_G1_809.npz",
+          "sha256": "91af9afbcf2a642b598d56d9f5a0bbb61541ea91dc020d2caa0fdf11d164a77b",
+          "reset_seed": 809,
+          "all_1000x128_samples_valid": true,
+          "signed_error_trace_max_difference": 0.0,
+          "trace_columns": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        },
+        {
+          "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\C0_5500_G1_1201.npz",
+          "sha256": "e8dfb720a4af072ee822e6b602244cbb01f0fbe07538754328ebb74d19c090f0",
+          "reset_seed": 1201,
+          "all_1000x128_samples_valid": true,
+          "signed_error_trace_max_difference": 0.0,
+          "trace_columns": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      ],
+      "transitions": [
+        {
+          "old_vx_command_mps": 0.3,
+          "new_vx_command_mps": 0.6,
+          "command_delta_mps": 0.3,
+          "direction": 1.0,
+          "boundary_zero_based_step": 250,
+          "last_old_command_sample_step": 249,
+          "first_new_command_poststep_sample": 250,
+          "last_old_command_actual_mean_vx_mps": 0.2668282696511596,
+          "windows": {
+            "0.5": {
+              "samples": 6400,
+              "mean_actual_minus_command_mps": -0.05600740246940404,
+              "mean_direction_aligned_error_mps": -0.05600740246940404,
+              "RMSE_mps": 0.10212285920454325,
+              "mean_lag_magnitude_mps": 0.06447635217104107,
+              "mean_past_target_magnitude_mps": 0.00846894970163703,
+              "lag_SSE_fraction": 0.9628049940358481,
+              "past_target_SSE_fraction": 0.03719500596415184,
+              "p99_absolute_error_mps": 0.3105668422579766,
+              "top1pct_error_SSE_fraction": 0.10898743087460902,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            },
+            "1.0": {
+              "samples": 12800,
+              "mean_actual_minus_command_mps": -0.03419270971557126,
+              "mean_direction_aligned_error_mps": -0.03419270971557126,
+              "RMSE_mps": 0.07817926918013023,
+              "mean_lag_magnitude_mps": 0.04377924070460722,
+              "mean_past_target_magnitude_mps": 0.009586530989035964,
+              "lag_SSE_fraction": 0.9293771072050111,
+              "past_target_SSE_fraction": 0.07062289279498862,
+              "p99_absolute_error_mps": 0.2848832234740257,
+              "top1pct_error_SSE_fraction": 0.16483687863113256,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            },
+            "5.0": {
+              "samples": 64000,
+              "mean_actual_minus_command_mps": -0.01448113805288449,
+              "mean_direction_aligned_error_mps": -0.01448113805288449,
+              "RMSE_mps": 0.050157601497386746,
+              "mean_lag_magnitude_mps": 0.02530351482098922,
+              "mean_past_target_magnitude_mps": 0.010822376768104732,
+              "lag_SSE_fraction": 0.8132220791287172,
+              "past_target_SSE_fraction": 0.18677792087128267,
+              "p99_absolute_error_mps": 0.17966437518596665,
+              "top1pct_error_SSE_fraction": 0.24339957675095103,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            }
+          },
+          "mean_response_first_1s": [
+            {
+              "time_after_command_s": 0.02,
+              "actual_mean_vx_mps": 0.3289606623817235,
+              "mean_raw_error_mps": -0.2710393376182765,
+              "mean_direction_aligned_error_mps": -0.2710393376182765,
+              "RMS_error_mps": 0.27548623835814917
+            },
+            {
+              "time_after_command_s": 0.04,
+              "actual_mean_vx_mps": 0.3813879441237076,
+              "mean_raw_error_mps": -0.2186120558762923,
+              "mean_direction_aligned_error_mps": -0.2186120558762923,
+              "RMS_error_mps": 0.22373848151539905
+            },
+            {
+              "time_after_command_s": 0.06,
+              "actual_mean_vx_mps": 0.42495592813938843,
+              "mean_raw_error_mps": -0.17504407186061144,
+              "mean_direction_aligned_error_mps": -0.17504407186061144,
+              "RMS_error_mps": 0.1804414751554364
+            },
+            {
+              "time_after_command_s": 0.08,
+              "actual_mean_vx_mps": 0.4578029635827987,
+              "mean_raw_error_mps": -0.14219703641720116,
+              "mean_direction_aligned_error_mps": -0.14219703641720116,
+              "RMS_error_mps": 0.1481796921116571
+            },
+            {
+              "time_after_command_s": 0.1,
+              "actual_mean_vx_mps": 0.4836110235424711,
+              "mean_raw_error_mps": -0.11638897645752877,
+              "mean_direction_aligned_error_mps": -0.11638897645752877,
+              "RMS_error_mps": 0.12327714663785169
+            },
+            {
+              "time_after_command_s": 0.12,
+              "actual_mean_vx_mps": 0.5000552715733646,
+              "mean_raw_error_mps": -0.09994472842663527,
+              "mean_direction_aligned_error_mps": -0.09994472842663527,
+              "RMS_error_mps": 0.10777695814602475
+            },
+            {
+              "time_after_command_s": 0.14,
+              "actual_mean_vx_mps": 0.5142478759167715,
+              "mean_raw_error_mps": -0.08575212408322841,
+              "mean_direction_aligned_error_mps": -0.08575212408322841,
+              "RMS_error_mps": 0.0944620997230062
+            },
+            {
+              "time_after_command_s": 0.16,
+              "actual_mean_vx_mps": 0.5247199080418794,
+              "mean_raw_error_mps": -0.07528009195812047,
+              "mean_direction_aligned_error_mps": -0.07528009195812047,
+              "RMS_error_mps": 0.08455662605796328
+            },
+            {
+              "time_after_command_s": 0.18,
+              "actual_mean_vx_mps": 0.5324086180422454,
+              "mean_raw_error_mps": -0.06759138195775449,
+              "mean_direction_aligned_error_mps": -0.06759138195775449,
+              "RMS_error_mps": 0.0779562540521816
+            },
+            {
+              "time_after_command_s": 0.2,
+              "actual_mean_vx_mps": 0.5400983517989515,
+              "mean_raw_error_mps": -0.059901648201048374,
+              "mean_direction_aligned_error_mps": -0.059901648201048374,
+              "RMS_error_mps": 0.07073561261096492
+            },
+            {
+              "time_after_command_s": 0.22,
+              "actual_mean_vx_mps": 0.550667400844395,
+              "mean_raw_error_mps": -0.04933259915560484,
+              "mean_direction_aligned_error_mps": -0.04933259915560484,
+              "RMS_error_mps": 0.06027591646908717
+            },
+            {
+              "time_after_command_s": 0.24,
+              "actual_mean_vx_mps": 0.5620543506462126,
+              "mean_raw_error_mps": -0.0379456493537873,
+              "mean_direction_aligned_error_mps": -0.0379456493537873,
+              "RMS_error_mps": 0.05130121042557281
+            },
+            {
+              "time_after_command_s": 0.26,
+              "actual_mean_vx_mps": 0.570352541306056,
+              "mean_raw_error_mps": -0.029647458693943918,
+              "mean_direction_aligned_error_mps": -0.029647458693943918,
+              "RMS_error_mps": 0.044967165506083547
+            },
+            {
+              "time_after_command_s": 0.28,
+              "actual_mean_vx_mps": 0.5790275566047056,
+              "mean_raw_error_mps": -0.02097244339529425,
+              "mean_direction_aligned_error_mps": -0.02097244339529425,
+              "RMS_error_mps": 0.03805707117174631
+            },
+            {
+              "time_after_command_s": 0.3,
+              "actual_mean_vx_mps": 0.5841697416268288,
+              "mean_raw_error_mps": -0.01583025837317109,
+              "mean_direction_aligned_error_mps": -0.01583025837317109,
+              "RMS_error_mps": 0.03771473095405133
+            },
+            {
+              "time_after_command_s": 0.32,
+              "actual_mean_vx_mps": 0.5922543466091155,
+              "mean_raw_error_mps": -0.007745653390884399,
+              "mean_direction_aligned_error_mps": -0.007745653390884399,
+              "RMS_error_mps": 0.03605572723701894
+            },
+            {
+              "time_after_command_s": 0.34,
+              "actual_mean_vx_mps": 0.5990234319120644,
+              "mean_raw_error_mps": -0.0009765680879354477,
+              "mean_direction_aligned_error_mps": -0.0009765680879354477,
+              "RMS_error_mps": 0.03469077574685353
+            },
+            {
+              "time_after_command_s": 0.36,
+              "actual_mean_vx_mps": 0.6057362436782567,
+              "mean_raw_error_mps": 0.005736243678256869,
+              "mean_direction_aligned_error_mps": 0.005736243678256869,
+              "RMS_error_mps": 0.03491094909847985
+            },
+            {
+              "time_after_command_s": 0.38,
+              "actual_mean_vx_mps": 0.6092634483007713,
+              "mean_raw_error_mps": 0.009263448300771415,
+              "mean_direction_aligned_error_mps": 0.009263448300771415,
+              "RMS_error_mps": 0.03887695657466524
+            },
+            {
+              "time_after_command_s": 0.4,
+              "actual_mean_vx_mps": 0.6115864479448645,
+              "mean_raw_error_mps": 0.01158644794486463,
+              "mean_direction_aligned_error_mps": 0.01158644794486463,
+              "RMS_error_mps": 0.04000771628724227
+            },
+            {
+              "time_after_command_s": 0.42,
+              "actual_mean_vx_mps": 0.6132513314019887,
+              "mean_raw_error_mps": 0.013251331401988864,
+              "mean_direction_aligned_error_mps": 0.013251331401988864,
+              "RMS_error_mps": 0.04071523499584828
+            },
+            {
+              "time_after_command_s": 0.44,
+              "actual_mean_vx_mps": 0.6116512064123525,
+              "mean_raw_error_mps": 0.011651206412352622,
+              "mean_direction_aligned_error_mps": 0.011651206412352622,
+              "RMS_error_mps": 0.04245133017053328
+            },
+            {
+              "time_after_command_s": 0.46,
+              "actual_mean_vx_mps": 0.6107856241520493,
+              "mean_raw_error_mps": 0.010785624152049422,
+              "mean_direction_aligned_error_mps": 0.010785624152049422,
+              "RMS_error_mps": 0.042103094356155384
+            },
+            {
+              "time_after_command_s": 0.48,
+              "actual_mean_vx_mps": 0.6080203469842671,
+              "mean_raw_error_mps": 0.008020346984267235,
+              "mean_direction_aligned_error_mps": 0.008020346984267235,
+              "RMS_error_mps": 0.040600323743060836
+            },
+            {
+              "time_after_command_s": 0.5,
+              "actual_mean_vx_mps": 0.6037223726976662,
+              "mean_raw_error_mps": 0.0037223726976662874,
+              "mean_direction_aligned_error_mps": 0.0037223726976662874,
+              "RMS_error_mps": 0.03767396793020581
+            },
+            {
+              "time_after_command_s": 0.52,
+              "actual_mean_vx_mps": 0.6016818810254334,
+              "mean_raw_error_mps": 0.0016818810254335403,
+              "mean_direction_aligned_error_mps": 0.0016818810254335403,
+              "RMS_error_mps": 0.035653804390464824
+            },
+            {
+              "time_after_command_s": 0.54,
+              "actual_mean_vx_mps": 0.5982429831288754,
+              "mean_raw_error_mps": -0.001757016871124506,
+              "mean_direction_aligned_error_mps": -0.001757016871124506,
+              "RMS_error_mps": 0.03428631293889867
+            },
+            {
+              "time_after_command_s": 0.56,
+              "actual_mean_vx_mps": 0.5944731136783956,
+              "mean_raw_error_mps": -0.005526886321604252,
+              "mean_direction_aligned_error_mps": -0.005526886321604252,
+              "RMS_error_mps": 0.034444624000417944
+            },
+            {
+              "time_after_command_s": 0.58,
+              "actual_mean_vx_mps": 0.5914480934385209,
+              "mean_raw_error_mps": -0.008551906561478972,
+              "mean_direction_aligned_error_mps": -0.008551906561478972,
+              "RMS_error_mps": 0.03565894318350945
+            },
+            {
+              "time_after_command_s": 0.6,
+              "actual_mean_vx_mps": 0.5890090991975738,
+              "mean_raw_error_mps": -0.01099090080242604,
+              "mean_direction_aligned_error_mps": -0.01099090080242604,
+              "RMS_error_mps": 0.038551183741569996
+            },
+            {
+              "time_after_command_s": 0.62,
+              "actual_mean_vx_mps": 0.585944675747305,
+              "mean_raw_error_mps": -0.014055324252694845,
+              "mean_direction_aligned_error_mps": -0.014055324252694845,
+              "RMS_error_mps": 0.0396188070658712
+            },
+            {
+              "time_after_command_s": 0.64,
+              "actual_mean_vx_mps": 0.5807690676534547,
+              "mean_raw_error_mps": -0.01923093234654516,
+              "mean_direction_aligned_error_mps": -0.01923093234654516,
+              "RMS_error_mps": 0.042563624893193465
+            },
+            {
+              "time_after_command_s": 0.66,
+              "actual_mean_vx_mps": 0.577700521587394,
+              "mean_raw_error_mps": -0.022299478412605822,
+              "mean_direction_aligned_error_mps": -0.022299478412605822,
+              "RMS_error_mps": 0.04414669384953584
+            },
+            {
+              "time_after_command_s": 0.68,
+              "actual_mean_vx_mps": 0.574863766459748,
+              "mean_raw_error_mps": -0.02513623354025185,
+              "mean_direction_aligned_error_mps": -0.02513623354025185,
+              "RMS_error_mps": 0.045906944925639515
+            },
+            {
+              "time_after_command_s": 0.7000000000000001,
+              "actual_mean_vx_mps": 0.5723931872285901,
+              "mean_raw_error_mps": -0.02760681277140975,
+              "mean_direction_aligned_error_mps": -0.02760681277140975,
+              "RMS_error_mps": 0.04669733083211462
+            },
+            {
+              "time_after_command_s": 0.72,
+              "actual_mean_vx_mps": 0.5725773351965471,
+              "mean_raw_error_mps": -0.02742266480345279,
+              "mean_direction_aligned_error_mps": -0.02742266480345279,
+              "RMS_error_mps": 0.04617724963735763
+            },
+            {
+              "time_after_command_s": 0.74,
+              "actual_mean_vx_mps": 0.5729453872423618,
+              "mean_raw_error_mps": -0.027054612757638097,
+              "mean_direction_aligned_error_mps": -0.027054612757638097,
+              "RMS_error_mps": 0.045467670964306046
+            },
+            {
+              "time_after_command_s": 0.76,
+              "actual_mean_vx_mps": 0.5716770951636134,
+              "mean_raw_error_mps": -0.028322904836386442,
+              "mean_direction_aligned_error_mps": -0.028322904836386442,
+              "RMS_error_mps": 0.04581058751853948
+            },
+            {
+              "time_after_command_s": 0.78,
+              "actual_mean_vx_mps": 0.5743762420257552,
+              "mean_raw_error_mps": -0.025623757974244654,
+              "mean_direction_aligned_error_mps": -0.025623757974244654,
+              "RMS_error_mps": 0.04470110480268167
+            },
+            {
+              "time_after_command_s": 0.8,
+              "actual_mean_vx_mps": 0.5787107665324582,
+              "mean_raw_error_mps": -0.021289233467541635,
+              "mean_direction_aligned_error_mps": -0.021289233467541635,
+              "RMS_error_mps": 0.04337947804241704
+            },
+            {
+              "time_after_command_s": 0.8200000000000001,
+              "actual_mean_vx_mps": 0.5827933512860908,
+              "mean_raw_error_mps": -0.01720664871390909,
+              "mean_direction_aligned_error_mps": -0.01720664871390909,
+              "RMS_error_mps": 0.04462815670646267
+            },
+            {
+              "time_after_command_s": 0.84,
+              "actual_mean_vx_mps": 0.5855177679564803,
+              "mean_raw_error_mps": -0.014482232043519616,
+              "mean_direction_aligned_error_mps": -0.014482232043519616,
+              "RMS_error_mps": 0.04638823223584573
+            },
+            {
+              "time_after_command_s": 0.86,
+              "actual_mean_vx_mps": 0.5888018062338232,
+              "mean_raw_error_mps": -0.0111981937661767,
+              "mean_direction_aligned_error_mps": -0.0111981937661767,
+              "RMS_error_mps": 0.04516076547039011
+            },
+            {
+              "time_after_command_s": 0.88,
+              "actual_mean_vx_mps": 0.5936975955497472,
+              "mean_raw_error_mps": -0.006302404450252652,
+              "mean_direction_aligned_error_mps": -0.006302404450252652,
+              "RMS_error_mps": 0.044902025811141034
+            },
+            {
+              "time_after_command_s": 0.9,
+              "actual_mean_vx_mps": 0.5958170112222432,
+              "mean_raw_error_mps": -0.004182988777756691,
+              "mean_direction_aligned_error_mps": -0.004182988777756691,
+              "RMS_error_mps": 0.04279515770503937
+            },
+            {
+              "time_after_command_s": 0.92,
+              "actual_mean_vx_mps": 0.5972138910088687,
+              "mean_raw_error_mps": -0.0027861089911311865,
+              "mean_direction_aligned_error_mps": -0.0027861089911311865,
+              "RMS_error_mps": 0.04346655260118174
+            },
+            {
+              "time_after_command_s": 0.9400000000000001,
+              "actual_mean_vx_mps": 0.6005822556558995,
+              "mean_raw_error_mps": 0.0005822556558996439,
+              "mean_direction_aligned_error_mps": 0.0005822556558996439,
+              "RMS_error_mps": 0.043132884107729724
+            },
+            {
+              "time_after_command_s": 0.96,
+              "actual_mean_vx_mps": 0.6015117757720871,
+              "mean_raw_error_mps": 0.001511775772087276,
+              "mean_direction_aligned_error_mps": 0.001511775772087276,
+              "RMS_error_mps": 0.0420541729122047
+            },
+            {
+              "time_after_command_s": 0.98,
+              "actual_mean_vx_mps": 0.604311313619837,
+              "mean_raw_error_mps": 0.004311313619837165,
+              "mean_direction_aligned_error_mps": 0.004311313619837165,
+              "RMS_error_mps": 0.03986248886011291
+            },
+            {
+              "time_after_command_s": 1.0,
+              "actual_mean_vx_mps": 0.6034895923454313,
+              "mean_raw_error_mps": 0.003489592345431447,
+              "mean_direction_aligned_error_mps": 0.003489592345431447,
+              "RMS_error_mps": 0.03933762586336058
+            }
+          ]
+        },
+        {
+          "old_vx_command_mps": 0.6,
+          "new_vx_command_mps": 1.0,
+          "command_delta_mps": 0.4,
+          "direction": 1.0,
+          "boundary_zero_based_step": 500,
+          "last_old_command_sample_step": 499,
+          "first_new_command_poststep_sample": 500,
+          "last_old_command_actual_mean_vx_mps": 0.5959355150349437,
+          "windows": {
+            "0.5": {
+              "samples": 6400,
+              "mean_actual_minus_command_mps": -0.08404789557680488,
+              "mean_direction_aligned_error_mps": -0.08404789557680488,
+              "RMSE_mps": 0.1357309107831401,
+              "mean_lag_magnitude_mps": 0.08894288390874863,
+              "mean_past_target_magnitude_mps": 0.0048949883319437506,
+              "lag_SSE_fraction": 0.9899529751300401,
+              "past_target_SSE_fraction": 0.010047024869960066,
+              "p99_absolute_error_mps": 0.36966943383216866,
+              "top1pct_error_SSE_fraction": 0.08403412546159997,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            },
+            "1.0": {
+              "samples": 12800,
+              "mean_actual_minus_command_mps": -0.03965344704221934,
+              "mean_direction_aligned_error_mps": -0.03965344704221934,
+              "RMSE_mps": 0.0988471072974066,
+              "mean_lag_magnitude_mps": 0.04997857412789017,
+              "mean_past_target_magnitude_mps": 0.010325127085670828,
+              "lag_SSE_fraction": 0.9557621978315954,
+              "past_target_SSE_fraction": 0.04423780216840441,
+              "p99_absolute_error_mps": 0.34511067450046545,
+              "top1pct_error_SSE_fraction": 0.14434625512892232,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            },
+            "5.0": {
+              "samples": 64000,
+              "mean_actual_minus_command_mps": -0.002216847376897931,
+              "mean_direction_aligned_error_mps": -0.002216847376897931,
+              "RMSE_mps": 0.05333167287126003,
+              "mean_lag_magnitude_mps": 0.017846196118742226,
+              "mean_past_target_magnitude_mps": 0.015629348741844296,
+              "lag_SSE_fraction": 0.7610421282351436,
+              "past_target_SSE_fraction": 0.23895787176485644,
+              "p99_absolute_error_mps": 0.2572473472356805,
+              "top1pct_error_SSE_fraction": 0.35024280701965493,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            }
+          },
+          "mean_response_first_1s": [
+            {
+              "time_after_command_s": 0.02,
+              "actual_mean_vx_mps": 0.6671428391709924,
+              "mean_raw_error_mps": -0.3328571608290076,
+              "mean_direction_aligned_error_mps": -0.3328571608290076,
+              "RMS_error_mps": 0.33540347261133446
+            },
+            {
+              "time_after_command_s": 0.04,
+              "actual_mean_vx_mps": 0.7184389168396592,
+              "mean_raw_error_mps": -0.2815610831603408,
+              "mean_direction_aligned_error_mps": -0.2815610831603408,
+              "RMS_error_mps": 0.2851087589155234
+            },
+            {
+              "time_after_command_s": 0.06,
+              "actual_mean_vx_mps": 0.7551234818529338,
+              "mean_raw_error_mps": -0.24487651814706624,
+              "mean_direction_aligned_error_mps": -0.24487651814706624,
+              "RMS_error_mps": 0.24964427863984082
+            },
+            {
+              "time_after_command_s": 0.08,
+              "actual_mean_vx_mps": 0.7884387595113367,
+              "mean_raw_error_mps": -0.21156124048866332,
+              "mean_direction_aligned_error_mps": -0.21156124048866332,
+              "RMS_error_mps": 0.21841790686514737
+            },
+            {
+              "time_after_command_s": 0.1,
+              "actual_mean_vx_mps": 0.816437088418752,
+              "mean_raw_error_mps": -0.18356291158124804,
+              "mean_direction_aligned_error_mps": -0.18356291158124804,
+              "RMS_error_mps": 0.19250134621510612
+            },
+            {
+              "time_after_command_s": 0.12,
+              "actual_mean_vx_mps": 0.8388171421829611,
+              "mean_raw_error_mps": -0.1611828578170389,
+              "mean_direction_aligned_error_mps": -0.1611828578170389,
+              "RMS_error_mps": 0.17156001901723214
+            },
+            {
+              "time_after_command_s": 0.14,
+              "actual_mean_vx_mps": 0.8594006313942373,
+              "mean_raw_error_mps": -0.14059936860576272,
+              "mean_direction_aligned_error_mps": -0.14059936860576272,
+              "RMS_error_mps": 0.15271867036706754
+            },
+            {
+              "time_after_command_s": 0.16,
+              "actual_mean_vx_mps": 0.8807438865769655,
+              "mean_raw_error_mps": -0.11925611342303455,
+              "mean_direction_aligned_error_mps": -0.11925611342303455,
+              "RMS_error_mps": 0.1323645156404017
+            },
+            {
+              "time_after_command_s": 0.18,
+              "actual_mean_vx_mps": 0.9016905485186726,
+              "mean_raw_error_mps": -0.09830945148132741,
+              "mean_direction_aligned_error_mps": -0.09830945148132741,
+              "RMS_error_mps": 0.11185895067933704
+            },
+            {
+              "time_after_command_s": 0.2,
+              "actual_mean_vx_mps": 0.918615153292194,
+              "mean_raw_error_mps": -0.08138484670780599,
+              "mean_direction_aligned_error_mps": -0.08138484670780599,
+              "RMS_error_mps": 0.09554384145289456
+            },
+            {
+              "time_after_command_s": 0.22,
+              "actual_mean_vx_mps": 0.9339132781606168,
+              "mean_raw_error_mps": -0.06608672183938324,
+              "mean_direction_aligned_error_mps": -0.06608672183938324,
+              "RMS_error_mps": 0.08078855746581222
+            },
+            {
+              "time_after_command_s": 0.24,
+              "actual_mean_vx_mps": 0.9463055722881109,
+              "mean_raw_error_mps": -0.05369442771188915,
+              "mean_direction_aligned_error_mps": -0.05369442771188915,
+              "RMS_error_mps": 0.06807930119248955
+            },
+            {
+              "time_after_command_s": 0.26,
+              "actual_mean_vx_mps": 0.9580202999059111,
+              "mean_raw_error_mps": -0.04197970009408891,
+              "mean_direction_aligned_error_mps": -0.04197970009408891,
+              "RMS_error_mps": 0.05499676232165171
+            },
+            {
+              "time_after_command_s": 0.28,
+              "actual_mean_vx_mps": 0.9705268437974155,
+              "mean_raw_error_mps": -0.029473156202584505,
+              "mean_direction_aligned_error_mps": -0.029473156202584505,
+              "RMS_error_mps": 0.042991640603957444
+            },
+            {
+              "time_after_command_s": 0.3,
+              "actual_mean_vx_mps": 0.979347210843116,
+              "mean_raw_error_mps": -0.020652789156883955,
+              "mean_direction_aligned_error_mps": -0.020652789156883955,
+              "RMS_error_mps": 0.037908501810726844
+            },
+            {
+              "time_after_command_s": 0.32,
+              "actual_mean_vx_mps": 0.9874788590241224,
+              "mean_raw_error_mps": -0.012521140975877643,
+              "mean_direction_aligned_error_mps": -0.012521140975877643,
+              "RMS_error_mps": 0.03308857911298671
+            },
+            {
+              "time_after_command_s": 0.34,
+              "actual_mean_vx_mps": 0.9890282850246876,
+              "mean_raw_error_mps": -0.010971714975312352,
+              "mean_direction_aligned_error_mps": -0.010971714975312352,
+              "RMS_error_mps": 0.03182619917430703
+            },
+            {
+              "time_after_command_s": 0.36,
+              "actual_mean_vx_mps": 0.9917209330014884,
+              "mean_raw_error_mps": -0.008279066998511553,
+              "mean_direction_aligned_error_mps": -0.008279066998511553,
+              "RMS_error_mps": 0.030596690541406808
+            },
+            {
+              "time_after_command_s": 0.38,
+              "actual_mean_vx_mps": 0.9922774378210306,
+              "mean_raw_error_mps": -0.007722562178969383,
+              "mean_direction_aligned_error_mps": -0.007722562178969383,
+              "RMS_error_mps": 0.031425440786243465
+            },
+            {
+              "time_after_command_s": 0.4,
+              "actual_mean_vx_mps": 0.9970255703665316,
+              "mean_raw_error_mps": -0.0029744296334683895,
+              "mean_direction_aligned_error_mps": -0.0029744296334683895,
+              "RMS_error_mps": 0.03318860873299266
+            },
+            {
+              "time_after_command_s": 0.42,
+              "actual_mean_vx_mps": 0.9995335557032377,
+              "mean_raw_error_mps": -0.0004664442967623472,
+              "mean_direction_aligned_error_mps": -0.0004664442967623472,
+              "RMS_error_mps": 0.03364617718182854
+            },
+            {
+              "time_after_command_s": 0.44,
+              "actual_mean_vx_mps": 1.000470997998491,
+              "mean_raw_error_mps": 0.0004709979984909296,
+              "mean_direction_aligned_error_mps": 0.0004709979984909296,
+              "RMS_error_mps": 0.03254363648085075
+            },
+            {
+              "time_after_command_s": 0.46,
+              "actual_mean_vx_mps": 1.0007887156680226,
+              "mean_raw_error_mps": 0.0007887156680226326,
+              "mean_direction_aligned_error_mps": 0.0007887156680226326,
+              "RMS_error_mps": 0.03174041535801491
+            },
+            {
+              "time_after_command_s": 0.48,
+              "actual_mean_vx_mps": 1.00302717811428,
+              "mean_raw_error_mps": 0.0030271781142801046,
+              "mean_direction_aligned_error_mps": 0.0030271781142801046,
+              "RMS_error_mps": 0.03144287847574043
+            },
+            {
+              "time_after_command_s": 0.5,
+              "actual_mean_vx_mps": 1.0044894251041114,
+              "mean_raw_error_mps": 0.004489425104111433,
+              "mean_direction_aligned_error_mps": 0.004489425104111433,
+              "RMS_error_mps": 0.031544589898857986
+            },
+            {
+              "time_after_command_s": 0.52,
+              "actual_mean_vx_mps": 1.0032686423510313,
+              "mean_raw_error_mps": 0.0032686423510313034,
+              "mean_direction_aligned_error_mps": 0.0032686423510313034,
+              "RMS_error_mps": 0.03248827123717891
+            },
+            {
+              "time_after_command_s": 0.54,
+              "actual_mean_vx_mps": 1.0008931132033467,
+              "mean_raw_error_mps": 0.0008931132033467293,
+              "mean_direction_aligned_error_mps": 0.0008931132033467293,
+              "RMS_error_mps": 0.032993614805171524
+            },
+            {
+              "time_after_command_s": 0.56,
+              "actual_mean_vx_mps": 0.999335092259571,
+              "mean_raw_error_mps": -0.0006649077404290438,
+              "mean_direction_aligned_error_mps": -0.0006649077404290438,
+              "RMS_error_mps": 0.034817447104047536
+            },
+            {
+              "time_after_command_s": 0.58,
+              "actual_mean_vx_mps": 0.9962072235066444,
+              "mean_raw_error_mps": -0.003792776493355632,
+              "mean_direction_aligned_error_mps": -0.003792776493355632,
+              "RMS_error_mps": 0.034462044144269795
+            },
+            {
+              "time_after_command_s": 0.6,
+              "actual_mean_vx_mps": 0.9972900429274887,
+              "mean_raw_error_mps": -0.0027099570725113153,
+              "mean_direction_aligned_error_mps": -0.0027099570725113153,
+              "RMS_error_mps": 0.032711131998754535
+            },
+            {
+              "time_after_command_s": 0.62,
+              "actual_mean_vx_mps": 0.9982374852988869,
+              "mean_raw_error_mps": -0.0017625147011131048,
+              "mean_direction_aligned_error_mps": -0.0017625147011131048,
+              "RMS_error_mps": 0.03265722304878022
+            },
+            {
+              "time_after_command_s": 0.64,
+              "actual_mean_vx_mps": 1.0004666075110435,
+              "mean_raw_error_mps": 0.0004666075110435486,
+              "mean_direction_aligned_error_mps": 0.0004666075110435486,
+              "RMS_error_mps": 0.033858956773437365
+            },
+            {
+              "time_after_command_s": 0.66,
+              "actual_mean_vx_mps": 1.0025829246733338,
+              "mean_raw_error_mps": 0.002582924673333764,
+              "mean_direction_aligned_error_mps": 0.002582924673333764,
+              "RMS_error_mps": 0.03210993400709699
+            },
+            {
+              "time_after_command_s": 0.68,
+              "actual_mean_vx_mps": 1.0030291203875095,
+              "mean_raw_error_mps": 0.0030291203875094652,
+              "mean_direction_aligned_error_mps": 0.0030291203875094652,
+              "RMS_error_mps": 0.03164525161676166
+            },
+            {
+              "time_after_command_s": 0.7000000000000001,
+              "actual_mean_vx_mps": 1.0031568536069244,
+              "mean_raw_error_mps": 0.0031568536069244146,
+              "mean_direction_aligned_error_mps": 0.0031568536069244146,
+              "RMS_error_mps": 0.03162846705284209
+            },
+            {
+              "time_after_command_s": 0.72,
+              "actual_mean_vx_mps": 1.0007842294871807,
+              "mean_raw_error_mps": 0.0007842294871807098,
+              "mean_direction_aligned_error_mps": 0.0007842294871807098,
+              "RMS_error_mps": 0.03217981656251007
+            },
+            {
+              "time_after_command_s": 0.74,
+              "actual_mean_vx_mps": 1.0005807799752802,
+              "mean_raw_error_mps": 0.0005807799752801657,
+              "mean_direction_aligned_error_mps": 0.0005807799752801657,
+              "RMS_error_mps": 0.03182762733798265
+            },
+            {
+              "time_after_command_s": 0.76,
+              "actual_mean_vx_mps": 1.000438288319856,
+              "mean_raw_error_mps": 0.0004382883198559284,
+              "mean_direction_aligned_error_mps": 0.0004382883198559284,
+              "RMS_error_mps": 0.03161752105486054
+            },
+            {
+              "time_after_command_s": 0.78,
+              "actual_mean_vx_mps": 1.0005949654150754,
+              "mean_raw_error_mps": 0.0005949654150754213,
+              "mean_direction_aligned_error_mps": 0.0005949654150754213,
+              "RMS_error_mps": 0.03112279338412648
+            },
+            {
+              "time_after_command_s": 0.8,
+              "actual_mean_vx_mps": 1.00126171996817,
+              "mean_raw_error_mps": 0.0012617199681699276,
+              "mean_direction_aligned_error_mps": 0.0012617199681699276,
+              "RMS_error_mps": 0.031788363758762636
+            },
+            {
+              "time_after_command_s": 0.8200000000000001,
+              "actual_mean_vx_mps": 1.0040609978605062,
+              "mean_raw_error_mps": 0.004060997860506177,
+              "mean_direction_aligned_error_mps": 0.004060997860506177,
+              "RMS_error_mps": 0.03390226837428182
+            },
+            {
+              "time_after_command_s": 0.84,
+              "actual_mean_vx_mps": 1.0068844782654196,
+              "mean_raw_error_mps": 0.006884478265419602,
+              "mean_direction_aligned_error_mps": 0.006884478265419602,
+              "RMS_error_mps": 0.03361125512276947
+            },
+            {
+              "time_after_command_s": 0.86,
+              "actual_mean_vx_mps": 1.0102254240773618,
+              "mean_raw_error_mps": 0.010225424077361822,
+              "mean_direction_aligned_error_mps": 0.010225424077361822,
+              "RMS_error_mps": 0.03423649393174389
+            },
+            {
+              "time_after_command_s": 0.88,
+              "actual_mean_vx_mps": 1.0127094711642712,
+              "mean_raw_error_mps": 0.012709471164271235,
+              "mean_direction_aligned_error_mps": 0.012709471164271235,
+              "RMS_error_mps": 0.0346598776845102
+            },
+            {
+              "time_after_command_s": 0.9,
+              "actual_mean_vx_mps": 1.0139864867087454,
+              "mean_raw_error_mps": 0.01398648670874536,
+              "mean_direction_aligned_error_mps": 0.01398648670874536,
+              "RMS_error_mps": 0.034842224425568384
+            },
+            {
+              "time_after_command_s": 0.92,
+              "actual_mean_vx_mps": 1.0157274261582643,
+              "mean_raw_error_mps": 0.01572742615826428,
+              "mean_direction_aligned_error_mps": 0.01572742615826428,
+              "RMS_error_mps": 0.03573311881326934
+            },
+            {
+              "time_after_command_s": 0.9400000000000001,
+              "actual_mean_vx_mps": 1.0159001441206783,
+              "mean_raw_error_mps": 0.015900144120678306,
+              "mean_direction_aligned_error_mps": 0.015900144120678306,
+              "RMS_error_mps": 0.03606830923931692
+            },
+            {
+              "time_after_command_s": 0.96,
+              "actual_mean_vx_mps": 1.013649022905156,
+              "mean_raw_error_mps": 0.013649022905156016,
+              "mean_direction_aligned_error_mps": 0.013649022905156016,
+              "RMS_error_mps": 0.03544922882876485
+            },
+            {
+              "time_after_command_s": 0.98,
+              "actual_mean_vx_mps": 1.0102234615478665,
+              "mean_raw_error_mps": 0.010223461547866464,
+              "mean_direction_aligned_error_mps": 0.010223461547866464,
+              "RMS_error_mps": 0.0342846046419461
+            },
+            {
+              "time_after_command_s": 1.0,
+              "actual_mean_vx_mps": 1.0070310356095433,
+              "mean_raw_error_mps": 0.0070310356095433235,
+              "mean_direction_aligned_error_mps": 0.0070310356095433235,
+              "RMS_error_mps": 0.03467134758750477
+            }
+          ]
+        },
+        {
+          "old_vx_command_mps": 1.0,
+          "new_vx_command_mps": -0.5,
+          "command_delta_mps": -1.5,
+          "direction": -1.0,
+          "boundary_zero_based_step": 750,
+          "last_old_command_sample_step": 749,
+          "first_new_command_poststep_sample": 750,
+          "last_old_command_actual_mean_vx_mps": 1.0061405203305185,
+          "windows": {
+            "0.5": {
+              "samples": 6400,
+              "mean_actual_minus_command_mps": 0.49126065768301486,
+              "mean_direction_aligned_error_mps": -0.49126065768301486,
+              "RMSE_mps": 0.6561933393273518,
+              "mean_lag_magnitude_mps": 0.4914544085413218,
+              "mean_past_target_magnitude_mps": 0.00019375085830688476,
+              "lag_SSE_fraction": 0.9999883128396924,
+              "past_target_SSE_fraction": 1.1687160307524752e-05,
+              "p99_absolute_error_mps": 1.4517383790016176,
+              "top1pct_error_SSE_fraction": 0.05085665482573801,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            },
+            "1.0": {
+              "samples": 12800,
+              "mean_actual_minus_command_mps": 0.26223562597529965,
+              "mean_direction_aligned_error_mps": -0.26223562597529965,
+              "RMSE_mps": 0.4653548024247916,
+              "mean_lag_magnitude_mps": 0.26410479710204526,
+              "mean_past_target_magnitude_mps": 0.0018691711267456413,
+              "lag_SSE_fraction": 0.9996967817815627,
+              "past_target_SSE_fraction": 0.00030321821843726026,
+              "p99_absolute_error_mps": 1.4142227947711945,
+              "top1pct_error_SSE_fraction": 0.09791954920233881,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            },
+            "5.0": {
+              "samples": 64000,
+              "mean_actual_minus_command_mps": 0.07648566244542598,
+              "mean_direction_aligned_error_mps": -0.07648566244542598,
+              "RMSE_mps": 0.21198669906614315,
+              "mean_lag_magnitude_mps": 0.07966123118903488,
+              "mean_past_target_magnitude_mps": 0.003175568743608892,
+              "lag_SSE_fraction": 0.9977223288883811,
+              "past_target_SSE_fraction": 0.0022776711116189933,
+              "p99_absolute_error_mps": 1.2101503312587742,
+              "top1pct_error_SSE_fraction": 0.403573554289729,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            }
+          },
+          "mean_response_first_1s": [
+            {
+              "time_after_command_s": 0.02,
+              "actual_mean_vx_mps": 0.9059160272590816,
+              "mean_raw_error_mps": 1.4059160272590816,
+              "mean_direction_aligned_error_mps": -1.4059160272590816,
+              "RMS_error_mps": 1.4068134183560594
+            },
+            {
+              "time_after_command_s": 0.04,
+              "actual_mean_vx_mps": 0.8164783255197108,
+              "mean_raw_error_mps": 1.3164783255197108,
+              "mean_direction_aligned_error_mps": -1.3164783255197108,
+              "RMS_error_mps": 1.318148492996183
+            },
+            {
+              "time_after_command_s": 0.06,
+              "actual_mean_vx_mps": 0.7080296739004552,
+              "mean_raw_error_mps": 1.2080296739004552,
+              "mean_direction_aligned_error_mps": -1.2080296739004552,
+              "RMS_error_mps": 1.2105917451997452
+            },
+            {
+              "time_after_command_s": 0.08,
+              "actual_mean_vx_mps": 0.5957452468574047,
+              "mean_raw_error_mps": 1.0957452468574047,
+              "mean_direction_aligned_error_mps": -1.0957452468574047,
+              "RMS_error_mps": 1.0985592799684554
+            },
+            {
+              "time_after_command_s": 0.1,
+              "actual_mean_vx_mps": 0.48926447588019073,
+              "mean_raw_error_mps": 0.9892644758801907,
+              "mean_direction_aligned_error_mps": -0.9892644758801907,
+              "RMS_error_mps": 0.9927609784730513
+            },
+            {
+              "time_after_command_s": 0.12,
+              "actual_mean_vx_mps": 0.3839983067009598,
+              "mean_raw_error_mps": 0.8839983067009598,
+              "mean_direction_aligned_error_mps": -0.8839983067009598,
+              "RMS_error_mps": 0.8878922317816248
+            },
+            {
+              "time_after_command_s": 0.14,
+              "actual_mean_vx_mps": 0.2892104391939938,
+              "mean_raw_error_mps": 0.7892104391939938,
+              "mean_direction_aligned_error_mps": -0.7892104391939938,
+              "RMS_error_mps": 0.7935363430416417
+            },
+            {
+              "time_after_command_s": 0.16,
+              "actual_mean_vx_mps": 0.20024967507924885,
+              "mean_raw_error_mps": 0.7002496750792488,
+              "mean_direction_aligned_error_mps": -0.7002496750792488,
+              "RMS_error_mps": 0.7047632942570111
+            },
+            {
+              "time_after_command_s": 0.18,
+              "actual_mean_vx_mps": 0.11638246523216367,
+              "mean_raw_error_mps": 0.6163824652321637,
+              "mean_direction_aligned_error_mps": -0.6163824652321637,
+              "RMS_error_mps": 0.6212883145865707
+            },
+            {
+              "time_after_command_s": 0.2,
+              "actual_mean_vx_mps": 0.037380551104433835,
+              "mean_raw_error_mps": 0.5373805511044338,
+              "mean_direction_aligned_error_mps": -0.5373805511044338,
+              "RMS_error_mps": 0.5426236147006567
+            },
+            {
+              "time_after_command_s": 0.22,
+              "actual_mean_vx_mps": -0.03751371649559587,
+              "mean_raw_error_mps": 0.4624862835044041,
+              "mean_direction_aligned_error_mps": -0.4624862835044041,
+              "RMS_error_mps": 0.4684276888282563
+            },
+            {
+              "time_after_command_s": 0.24,
+              "actual_mean_vx_mps": -0.10556149308104068,
+              "mean_raw_error_mps": 0.3944385069189593,
+              "mean_direction_aligned_error_mps": -0.3944385069189593,
+              "RMS_error_mps": 0.4007820856369752
+            },
+            {
+              "time_after_command_s": 0.26,
+              "actual_mean_vx_mps": -0.16635182779282331,
+              "mean_raw_error_mps": 0.3336481722071767,
+              "mean_direction_aligned_error_mps": -0.3336481722071767,
+              "RMS_error_mps": 0.34073885811966514
+            },
+            {
+              "time_after_command_s": 0.28,
+              "actual_mean_vx_mps": -0.22057198290713131,
+              "mean_raw_error_mps": 0.2794280170928687,
+              "mean_direction_aligned_error_mps": -0.2794280170928687,
+              "RMS_error_mps": 0.28733878182954053
+            },
+            {
+              "time_after_command_s": 0.3,
+              "actual_mean_vx_mps": -0.2709948776755482,
+              "mean_raw_error_mps": 0.2290051223244518,
+              "mean_direction_aligned_error_mps": -0.2290051223244518,
+              "RMS_error_mps": 0.23911125987581172
+            },
+            {
+              "time_after_command_s": 0.32,
+              "actual_mean_vx_mps": -0.3110275820363313,
+              "mean_raw_error_mps": 0.1889724179636687,
+              "mean_direction_aligned_error_mps": -0.1889724179636687,
+              "RMS_error_mps": 0.2004630370911826
+            },
+            {
+              "time_after_command_s": 0.34,
+              "actual_mean_vx_mps": -0.34261288039851934,
+              "mean_raw_error_mps": 0.15738711960148066,
+              "mean_direction_aligned_error_mps": -0.15738711960148066,
+              "RMS_error_mps": 0.1701729869508282
+            },
+            {
+              "time_after_command_s": 0.36,
+              "actual_mean_vx_mps": -0.3651482011191547,
+              "mean_raw_error_mps": 0.1348517988808453,
+              "mean_direction_aligned_error_mps": -0.1348517988808453,
+              "RMS_error_mps": 0.1487269890734567
+            },
+            {
+              "time_after_command_s": 0.38,
+              "actual_mean_vx_mps": -0.38305170461535454,
+              "mean_raw_error_mps": 0.11694829538464546,
+              "mean_direction_aligned_error_mps": -0.11694829538464546,
+              "RMS_error_mps": 0.13211213779214376
+            },
+            {
+              "time_after_command_s": 0.4,
+              "actual_mean_vx_mps": -0.398872668039985,
+              "mean_raw_error_mps": 0.101127331960015,
+              "mean_direction_aligned_error_mps": -0.101127331960015,
+              "RMS_error_mps": 0.11702282681353567
+            },
+            {
+              "time_after_command_s": 0.42,
+              "actual_mean_vx_mps": -0.41384828521404415,
+              "mean_raw_error_mps": 0.08615171478595585,
+              "mean_direction_aligned_error_mps": -0.08615171478595585,
+              "RMS_error_mps": 0.10259357285928154
+            },
+            {
+              "time_after_command_s": 0.44,
+              "actual_mean_vx_mps": -0.42351991683244705,
+              "mean_raw_error_mps": 0.07648008316755295,
+              "mean_direction_aligned_error_mps": -0.07648008316755295,
+              "RMS_error_mps": 0.09175681784869272
+            },
+            {
+              "time_after_command_s": 0.46,
+              "actual_mean_vx_mps": -0.43357081443537027,
+              "mean_raw_error_mps": 0.06642918556462973,
+              "mean_direction_aligned_error_mps": -0.06642918556462973,
+              "RMS_error_mps": 0.08208678624732026
+            },
+            {
+              "time_after_command_s": 0.48,
+              "actual_mean_vx_mps": -0.44048438244499266,
+              "mean_raw_error_mps": 0.05951561755500734,
+              "mean_direction_aligned_error_mps": -0.05951561755500734,
+              "RMS_error_mps": 0.07766713618090179
+            },
+            {
+              "time_after_command_s": 0.5,
+              "actual_mean_vx_mps": -0.4480084115639329,
+              "mean_raw_error_mps": 0.051991588436067104,
+              "mean_direction_aligned_error_mps": -0.051991588436067104,
+              "RMS_error_mps": 0.07043965200267067
+            },
+            {
+              "time_after_command_s": 0.52,
+              "actual_mean_vx_mps": -0.45539659925270826,
+              "mean_raw_error_mps": 0.044603400747291744,
+              "mean_direction_aligned_error_mps": -0.044603400747291744,
+              "RMS_error_mps": 0.06290217093345804
+            },
+            {
+              "time_after_command_s": 0.54,
+              "actual_mean_vx_mps": -0.4590948289260268,
+              "mean_raw_error_mps": 0.04090517107397318,
+              "mean_direction_aligned_error_mps": -0.04090517107397318,
+              "RMS_error_mps": 0.05807274276645676
+            },
+            {
+              "time_after_command_s": 0.56,
+              "actual_mean_vx_mps": -0.4621073406888172,
+              "mean_raw_error_mps": 0.0378926593111828,
+              "mean_direction_aligned_error_mps": -0.0378926593111828,
+              "RMS_error_mps": 0.05557968598519941
+            },
+            {
+              "time_after_command_s": 0.58,
+              "actual_mean_vx_mps": -0.4636415351415053,
+              "mean_raw_error_mps": 0.0363584648584947,
+              "mean_direction_aligned_error_mps": -0.0363584648584947,
+              "RMS_error_mps": 0.054148226481369764
+            },
+            {
+              "time_after_command_s": 0.6,
+              "actual_mean_vx_mps": -0.4636544936802238,
+              "mean_raw_error_mps": 0.03634550631977618,
+              "mean_direction_aligned_error_mps": -0.03634550631977618,
+              "RMS_error_mps": 0.05357048724763227
+            },
+            {
+              "time_after_command_s": 0.62,
+              "actual_mean_vx_mps": -0.4643425189424306,
+              "mean_raw_error_mps": 0.035657481057569385,
+              "mean_direction_aligned_error_mps": -0.035657481057569385,
+              "RMS_error_mps": 0.050737492784912956
+            },
+            {
+              "time_after_command_s": 0.64,
+              "actual_mean_vx_mps": -0.46357004321180284,
+              "mean_raw_error_mps": 0.03642995678819716,
+              "mean_direction_aligned_error_mps": -0.03642995678819716,
+              "RMS_error_mps": 0.05012425019298817
+            },
+            {
+              "time_after_command_s": 0.66,
+              "actual_mean_vx_mps": -0.4637157958932221,
+              "mean_raw_error_mps": 0.036284204106777906,
+              "mean_direction_aligned_error_mps": -0.036284204106777906,
+              "RMS_error_mps": 0.050504545323248905
+            },
+            {
+              "time_after_command_s": 0.68,
+              "actual_mean_vx_mps": -0.46472579101100564,
+              "mean_raw_error_mps": 0.03527420898899436,
+              "mean_direction_aligned_error_mps": -0.03527420898899436,
+              "RMS_error_mps": 0.05038210644420772
+            },
+            {
+              "time_after_command_s": 0.7000000000000001,
+              "actual_mean_vx_mps": -0.4668142475420609,
+              "mean_raw_error_mps": 0.03318575245793909,
+              "mean_direction_aligned_error_mps": -0.03318575245793909,
+              "RMS_error_mps": 0.04935879814822867
+            },
+            {
+              "time_after_command_s": 0.72,
+              "actual_mean_vx_mps": -0.470103656174615,
+              "mean_raw_error_mps": 0.029896343825384974,
+              "mean_direction_aligned_error_mps": -0.029896343825384974,
+              "RMS_error_mps": 0.04942861026024173
+            },
+            {
+              "time_after_command_s": 0.74,
+              "actual_mean_vx_mps": -0.47016047255601734,
+              "mean_raw_error_mps": 0.02983952744398266,
+              "mean_direction_aligned_error_mps": -0.02983952744398266,
+              "RMS_error_mps": 0.04918290723888821
+            },
+            {
+              "time_after_command_s": 0.76,
+              "actual_mean_vx_mps": -0.4716249975608662,
+              "mean_raw_error_mps": 0.028375002439133823,
+              "mean_direction_aligned_error_mps": -0.028375002439133823,
+              "RMS_error_mps": 0.049621056620922324
+            },
+            {
+              "time_after_command_s": 0.78,
+              "actual_mean_vx_mps": -0.47108576679602265,
+              "mean_raw_error_mps": 0.028914233203977346,
+              "mean_direction_aligned_error_mps": -0.028914233203977346,
+              "RMS_error_mps": 0.048473228631666886
+            },
+            {
+              "time_after_command_s": 0.8,
+              "actual_mean_vx_mps": -0.47156670002732426,
+              "mean_raw_error_mps": 0.02843329997267574,
+              "mean_direction_aligned_error_mps": -0.02843329997267574,
+              "RMS_error_mps": 0.0476059909964658
+            },
+            {
+              "time_after_command_s": 0.8200000000000001,
+              "actual_mean_vx_mps": -0.4690413571661338,
+              "mean_raw_error_mps": 0.03095864283386618,
+              "mean_direction_aligned_error_mps": -0.03095864283386618,
+              "RMS_error_mps": 0.0478888608144349
+            },
+            {
+              "time_after_command_s": 0.84,
+              "actual_mean_vx_mps": -0.4696172405965626,
+              "mean_raw_error_mps": 0.030382759403437376,
+              "mean_direction_aligned_error_mps": -0.030382759403437376,
+              "RMS_error_mps": 0.04818073785986502
+            },
+            {
+              "time_after_command_s": 0.86,
+              "actual_mean_vx_mps": -0.47003014956135303,
+              "mean_raw_error_mps": 0.029969850438646972,
+              "mean_direction_aligned_error_mps": -0.029969850438646972,
+              "RMS_error_mps": 0.04705306033499048
+            },
+            {
+              "time_after_command_s": 0.88,
+              "actual_mean_vx_mps": -0.4728817178402096,
+              "mean_raw_error_mps": 0.027118282159790397,
+              "mean_direction_aligned_error_mps": -0.027118282159790397,
+              "RMS_error_mps": 0.043894927488892226
+            },
+            {
+              "time_after_command_s": 0.9,
+              "actual_mean_vx_mps": -0.471339549170807,
+              "mean_raw_error_mps": 0.028660450829192996,
+              "mean_direction_aligned_error_mps": -0.028660450829192996,
+              "RMS_error_mps": 0.045066470682226537
+            },
+            {
+              "time_after_command_s": 0.92,
+              "actual_mean_vx_mps": -0.4697297982638702,
+              "mean_raw_error_mps": 0.03027020173612982,
+              "mean_direction_aligned_error_mps": -0.03027020173612982,
+              "RMS_error_mps": 0.04660224007313677
+            },
+            {
+              "time_after_command_s": 0.9400000000000001,
+              "actual_mean_vx_mps": -0.46631460823118687,
+              "mean_raw_error_mps": 0.03368539176881313,
+              "mean_direction_aligned_error_mps": -0.03368539176881313,
+              "RMS_error_mps": 0.04903630403409708
+            },
+            {
+              "time_after_command_s": 0.96,
+              "actual_mean_vx_mps": -0.46660335536580533,
+              "mean_raw_error_mps": 0.03339664463419467,
+              "mean_direction_aligned_error_mps": -0.03339664463419467,
+              "RMS_error_mps": 0.04794678147665908
+            },
+            {
+              "time_after_command_s": 0.98,
+              "actual_mean_vx_mps": -0.46507466514594853,
+              "mean_raw_error_mps": 0.03492533485405147,
+              "mean_direction_aligned_error_mps": -0.03492533485405147,
+              "RMS_error_mps": 0.048823713618954566
+            },
+            {
+              "time_after_command_s": 1.0,
+              "actual_mean_vx_mps": -0.46749791456386447,
+              "mean_raw_error_mps": 0.03250208543613553,
+              "mean_direction_aligned_error_mps": -0.03250208543613553,
+              "RMS_error_mps": 0.0468419901613143
+            }
+          ]
+        }
+      ]
+    },
+    "F10_3000": {
+      "episodes": 256,
+      "full_valid_samples": 256000,
+      "evidence": [
+        {
+          "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\F10_3000_G1_809.npz",
+          "sha256": "1120a79194181c7c41c3575cb11d914f9b3d118b8c5fa7a446ada84956a2421a",
+          "reset_seed": 809,
+          "all_1000x128_samples_valid": true,
+          "signed_error_trace_max_difference": 0.0,
+          "trace_columns": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        },
+        {
+          "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\F10_3000_G1_1201.npz",
+          "sha256": "28b4933524d19e6d4a12eb3f5a61cc5df097db40ccaf5167aca83e8ea589cf3b",
+          "reset_seed": 1201,
+          "all_1000x128_samples_valid": true,
+          "signed_error_trace_max_difference": 0.0,
+          "trace_columns": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      ],
+      "transitions": [
+        {
+          "old_vx_command_mps": 0.3,
+          "new_vx_command_mps": 0.6,
+          "command_delta_mps": 0.3,
+          "direction": 1.0,
+          "boundary_zero_based_step": 250,
+          "last_old_command_sample_step": 249,
+          "first_new_command_poststep_sample": 250,
+          "last_old_command_actual_mean_vx_mps": 0.30701091485098,
+          "windows": {
+            "0.5": {
+              "samples": 6400,
+              "mean_actual_minus_command_mps": -0.058976219799369574,
+              "mean_direction_aligned_error_mps": -0.058976219799369574,
+              "RMSE_mps": 0.09770361804886946,
+              "mean_lag_magnitude_mps": 0.06480759590864181,
+              "mean_past_target_magnitude_mps": 0.0058313761092722415,
+              "lag_SSE_fraction": 0.9750588236899284,
+              "past_target_SSE_fraction": 0.02494117631007142,
+              "p99_absolute_error_mps": 0.26936959743499767,
+              "top1pct_error_SSE_fraction": 0.0898700347152648,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            },
+            "1.0": {
+              "samples": 12800,
+              "mean_actual_minus_command_mps": -0.025996290848124774,
+              "mean_direction_aligned_error_mps": -0.025996290848124774,
+              "RMSE_mps": 0.07314321751642684,
+              "mean_lag_magnitude_mps": 0.03751225494546816,
+              "mean_past_target_magnitude_mps": 0.011515964097343385,
+              "lag_SSE_fraction": 0.9104774001117218,
+              "past_target_SSE_fraction": 0.08952259988827826,
+              "p99_absolute_error_mps": 0.25521762073040016,
+              "top1pct_error_SSE_fraction": 0.14467097656631675,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            },
+            "5.0": {
+              "samples": 64000,
+              "mean_actual_minus_command_mps": 0.0005660688681527972,
+              "mean_direction_aligned_error_mps": 0.0005660688681527972,
+              "RMSE_mps": 0.04428130783767133,
+              "mean_lag_magnitude_mps": 0.015428951841779052,
+              "mean_past_target_magnitude_mps": 0.01599502070993185,
+              "lag_SSE_fraction": 0.6601704048308208,
+              "past_target_SSE_fraction": 0.3398295951691792,
+              "p99_absolute_error_mps": 0.17793195575475712,
+              "top1pct_error_SSE_fraction": 0.2660088432821098,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            }
+          },
+          "mean_response_first_1s": [
+            {
+              "time_after_command_s": 0.02,
+              "actual_mean_vx_mps": 0.356350815645419,
+              "mean_raw_error_mps": -0.24364918435458094,
+              "mean_direction_aligned_error_mps": -0.24364918435458094,
+              "RMS_error_mps": 0.24634403868115978
+            },
+            {
+              "time_after_command_s": 0.04,
+              "actual_mean_vx_mps": 0.3967844476224853,
+              "mean_raw_error_mps": -0.20321555237751454,
+              "mean_direction_aligned_error_mps": -0.20321555237751454,
+              "RMS_error_mps": 0.2072834120757391
+            },
+            {
+              "time_after_command_s": 0.06,
+              "actual_mean_vx_mps": 0.42911618542857455,
+              "mean_raw_error_mps": -0.17088381457142532,
+              "mean_direction_aligned_error_mps": -0.17088381457142532,
+              "RMS_error_mps": 0.17580747855877057
+            },
+            {
+              "time_after_command_s": 0.08,
+              "actual_mean_vx_mps": 0.4550138606224208,
+              "mean_raw_error_mps": -0.1449861393775791,
+              "mean_direction_aligned_error_mps": -0.1449861393775791,
+              "RMS_error_mps": 0.151164385531846
+            },
+            {
+              "time_after_command_s": 0.1,
+              "actual_mean_vx_mps": 0.4759549212409182,
+              "mean_raw_error_mps": -0.12404507875908166,
+              "mean_direction_aligned_error_mps": -0.12404507875908166,
+              "RMS_error_mps": 0.1315500895500992
+            },
+            {
+              "time_after_command_s": 0.12,
+              "actual_mean_vx_mps": 0.4953900011256336,
+              "mean_raw_error_mps": -0.10460999887436628,
+              "mean_direction_aligned_error_mps": -0.10460999887436628,
+              "RMS_error_mps": 0.11310020277038405
+            },
+            {
+              "time_after_command_s": 0.14,
+              "actual_mean_vx_mps": 0.5126236613374202,
+              "mean_raw_error_mps": -0.08737633866257966,
+              "mean_direction_aligned_error_mps": -0.08737633866257966,
+              "RMS_error_mps": 0.09652143860940832
+            },
+            {
+              "time_after_command_s": 0.16,
+              "actual_mean_vx_mps": 0.528589759278111,
+              "mean_raw_error_mps": -0.07141024072188884,
+              "mean_direction_aligned_error_mps": -0.07141024072188884,
+              "RMS_error_mps": 0.08238784612408163
+            },
+            {
+              "time_after_command_s": 0.18,
+              "actual_mean_vx_mps": 0.5426677261944859,
+              "mean_raw_error_mps": -0.05733227380551398,
+              "mean_direction_aligned_error_mps": -0.05733227380551398,
+              "RMS_error_mps": 0.06939472892648459
+            },
+            {
+              "time_after_command_s": 0.2,
+              "actual_mean_vx_mps": 0.55470339350868,
+              "mean_raw_error_mps": -0.045296606491319835,
+              "mean_direction_aligned_error_mps": -0.045296606491319835,
+              "RMS_error_mps": 0.05900449515660607
+            },
+            {
+              "time_after_command_s": 0.22,
+              "actual_mean_vx_mps": 0.5642669315217061,
+              "mean_raw_error_mps": -0.03573306847829372,
+              "mean_direction_aligned_error_mps": -0.03573306847829372,
+              "RMS_error_mps": 0.05323482358868837
+            },
+            {
+              "time_after_command_s": 0.24,
+              "actual_mean_vx_mps": 0.5709933836711569,
+              "mean_raw_error_mps": -0.029006616328842938,
+              "mean_direction_aligned_error_mps": -0.029006616328842938,
+              "RMS_error_mps": 0.049212758913688995
+            },
+            {
+              "time_after_command_s": 0.26,
+              "actual_mean_vx_mps": 0.5736415802035479,
+              "mean_raw_error_mps": -0.026358419796451926,
+              "mean_direction_aligned_error_mps": -0.026358419796451926,
+              "RMS_error_mps": 0.05030498784643971
+            },
+            {
+              "time_after_command_s": 0.28,
+              "actual_mean_vx_mps": 0.574096371559426,
+              "mean_raw_error_mps": -0.02590362844057381,
+              "mean_direction_aligned_error_mps": -0.02590362844057381,
+              "RMS_error_mps": 0.05108370660186085
+            },
+            {
+              "time_after_command_s": 0.3,
+              "actual_mean_vx_mps": 0.5717075540684162,
+              "mean_raw_error_mps": -0.028292445931583643,
+              "mean_direction_aligned_error_mps": -0.028292445931583643,
+              "RMS_error_mps": 0.05199646529028975
+            },
+            {
+              "time_after_command_s": 0.32,
+              "actual_mean_vx_mps": 0.574088231450878,
+              "mean_raw_error_mps": -0.025911768549121916,
+              "mean_direction_aligned_error_mps": -0.025911768549121916,
+              "RMS_error_mps": 0.04924535161517025
+            },
+            {
+              "time_after_command_s": 0.34,
+              "actual_mean_vx_mps": 0.5772750627016647,
+              "mean_raw_error_mps": -0.022724937298335135,
+              "mean_direction_aligned_error_mps": -0.022724937298335135,
+              "RMS_error_mps": 0.04412833731253375
+            },
+            {
+              "time_after_command_s": 0.36,
+              "actual_mean_vx_mps": 0.5805119455559178,
+              "mean_raw_error_mps": -0.01948805444408208,
+              "mean_direction_aligned_error_mps": -0.01948805444408208,
+              "RMS_error_mps": 0.03964873910740925
+            },
+            {
+              "time_after_command_s": 0.38,
+              "actual_mean_vx_mps": 0.5847785355523227,
+              "mean_raw_error_mps": -0.015221464447677135,
+              "mean_direction_aligned_error_mps": -0.015221464447677135,
+              "RMS_error_mps": 0.03494520987554558
+            },
+            {
+              "time_after_command_s": 0.4,
+              "actual_mean_vx_mps": 0.5887023840565233,
+              "mean_raw_error_mps": -0.011297615943476558,
+              "mean_direction_aligned_error_mps": -0.011297615943476558,
+              "RMS_error_mps": 0.03257564468218221
+            },
+            {
+              "time_after_command_s": 0.42,
+              "actual_mean_vx_mps": 0.5944265144877134,
+              "mean_raw_error_mps": -0.005573485512286425,
+              "mean_direction_aligned_error_mps": -0.005573485512286425,
+              "RMS_error_mps": 0.031748135269060576
+            },
+            {
+              "time_after_command_s": 0.44,
+              "actual_mean_vx_mps": 0.600327993184328,
+              "mean_raw_error_mps": 0.0003279931843280792,
+              "mean_direction_aligned_error_mps": 0.0003279931843280792,
+              "RMS_error_mps": 0.031776740516355206
+            },
+            {
+              "time_after_command_s": 0.46,
+              "actual_mean_vx_mps": 0.6054250492248683,
+              "mean_raw_error_mps": 0.005425049224868417,
+              "mean_direction_aligned_error_mps": 0.005425049224868417,
+              "RMS_error_mps": 0.03286546890698943
+            },
+            {
+              "time_after_command_s": 0.48,
+              "actual_mean_vx_mps": 0.6081728126388042,
+              "mean_raw_error_mps": 0.008172812638804317,
+              "mean_direction_aligned_error_mps": 0.008172812638804317,
+              "RMS_error_mps": 0.03368484701534708
+            },
+            {
+              "time_after_command_s": 0.5,
+              "actual_mean_vx_mps": 0.6099853831343351,
+              "mean_raw_error_mps": 0.00998538313433528,
+              "mean_direction_aligned_error_mps": 0.00998538313433528,
+              "RMS_error_mps": 0.03437872635125118
+            },
+            {
+              "time_after_command_s": 0.52,
+              "actual_mean_vx_mps": 0.6107799804536624,
+              "mean_raw_error_mps": 0.010779980453662574,
+              "mean_direction_aligned_error_mps": 0.010779980453662574,
+              "RMS_error_mps": 0.03442000023077125
+            },
+            {
+              "time_after_command_s": 0.54,
+              "actual_mean_vx_mps": 0.6123684054706244,
+              "mean_raw_error_mps": 0.012368405470624566,
+              "mean_direction_aligned_error_mps": 0.012368405470624566,
+              "RMS_error_mps": 0.033084971471112
+            },
+            {
+              "time_after_command_s": 0.56,
+              "actual_mean_vx_mps": 0.6114326616749166,
+              "mean_raw_error_mps": 0.011432661674916744,
+              "mean_direction_aligned_error_mps": 0.011432661674916744,
+              "RMS_error_mps": 0.03358979876285335
+            },
+            {
+              "time_after_command_s": 0.58,
+              "actual_mean_vx_mps": 0.6120669009629636,
+              "mean_raw_error_mps": 0.0120669009629637,
+              "mean_direction_aligned_error_mps": 0.0120669009629637,
+              "RMS_error_mps": 0.033876484526457064
+            },
+            {
+              "time_after_command_s": 0.6,
+              "actual_mean_vx_mps": 0.6118739772588013,
+              "mean_raw_error_mps": 0.01187397725880146,
+              "mean_direction_aligned_error_mps": 0.01187397725880146,
+              "RMS_error_mps": 0.034458826828698205
+            },
+            {
+              "time_after_command_s": 0.62,
+              "actual_mean_vx_mps": 0.6117667779559268,
+              "mean_raw_error_mps": 0.011766777955926955,
+              "mean_direction_aligned_error_mps": 0.011766777955926955,
+              "RMS_error_mps": 0.03522568417621975
+            },
+            {
+              "time_after_command_s": 0.64,
+              "actual_mean_vx_mps": 0.6140648428350686,
+              "mean_raw_error_mps": 0.014064842835068703,
+              "mean_direction_aligned_error_mps": 0.014064842835068703,
+              "RMS_error_mps": 0.03492982623238162
+            },
+            {
+              "time_after_command_s": 0.66,
+              "actual_mean_vx_mps": 0.6122265615500508,
+              "mean_raw_error_mps": 0.012226561550050974,
+              "mean_direction_aligned_error_mps": 0.012226561550050974,
+              "RMS_error_mps": 0.03210817850159705
+            },
+            {
+              "time_after_command_s": 0.68,
+              "actual_mean_vx_mps": 0.6126265701837836,
+              "mean_raw_error_mps": 0.01262657018378377,
+              "mean_direction_aligned_error_mps": 0.01262657018378377,
+              "RMS_error_mps": 0.03192238454956733
+            },
+            {
+              "time_after_command_s": 0.7000000000000001,
+              "actual_mean_vx_mps": 0.6097961481660603,
+              "mean_raw_error_mps": 0.009796148166060448,
+              "mean_direction_aligned_error_mps": 0.009796148166060448,
+              "RMS_error_mps": 0.03124214063853968
+            },
+            {
+              "time_after_command_s": 0.72,
+              "actual_mean_vx_mps": 0.6065330725628881,
+              "mean_raw_error_mps": 0.006533072562888265,
+              "mean_direction_aligned_error_mps": 0.006533072562888265,
+              "RMS_error_mps": 0.03028112912132876
+            },
+            {
+              "time_after_command_s": 0.74,
+              "actual_mean_vx_mps": 0.605714118015021,
+              "mean_raw_error_mps": 0.005714118015021086,
+              "mean_direction_aligned_error_mps": 0.005714118015021086,
+              "RMS_error_mps": 0.03147449555124935
+            },
+            {
+              "time_after_command_s": 0.76,
+              "actual_mean_vx_mps": 0.6022844413761048,
+              "mean_raw_error_mps": 0.002284441376104951,
+              "mean_direction_aligned_error_mps": 0.002284441376104951,
+              "RMS_error_mps": 0.03227258810116303
+            },
+            {
+              "time_after_command_s": 0.78,
+              "actual_mean_vx_mps": 0.5995936177438124,
+              "mean_raw_error_mps": -0.00040638225618749857,
+              "mean_direction_aligned_error_mps": -0.00040638225618749857,
+              "RMS_error_mps": 0.035163630239024045
+            },
+            {
+              "time_after_command_s": 0.8,
+              "actual_mean_vx_mps": 0.5990635686554013,
+              "mean_raw_error_mps": -0.0009364313445985317,
+              "mean_direction_aligned_error_mps": -0.0009364313445985317,
+              "RMS_error_mps": 0.03503174569855691
+            },
+            {
+              "time_after_command_s": 0.8200000000000001,
+              "actual_mean_vx_mps": 0.5984184560598804,
+              "mean_raw_error_mps": -0.0015815439401194453,
+              "mean_direction_aligned_error_mps": -0.0015815439401194453,
+              "RMS_error_mps": 0.03405777873904776
+            },
+            {
+              "time_after_command_s": 0.84,
+              "actual_mean_vx_mps": 0.597840528259985,
+              "mean_raw_error_mps": -0.002159471740014851,
+              "mean_direction_aligned_error_mps": -0.002159471740014851,
+              "RMS_error_mps": 0.03530078151034233
+            },
+            {
+              "time_after_command_s": 0.86,
+              "actual_mean_vx_mps": 0.5976754281669854,
+              "mean_raw_error_mps": -0.0023245718330144882,
+              "mean_direction_aligned_error_mps": -0.0023245718330144882,
+              "RMS_error_mps": 0.034698361448962343
+            },
+            {
+              "time_after_command_s": 0.88,
+              "actual_mean_vx_mps": 0.5989372135605662,
+              "mean_raw_error_mps": -0.0010627864394336939,
+              "mean_direction_aligned_error_mps": -0.0010627864394336939,
+              "RMS_error_mps": 0.03486457934389712
+            },
+            {
+              "time_after_command_s": 0.9,
+              "actual_mean_vx_mps": 0.6019221974071114,
+              "mean_raw_error_mps": 0.0019221974071115255,
+              "mean_direction_aligned_error_mps": 0.0019221974071115255,
+              "RMS_error_mps": 0.03506470718150574
+            },
+            {
+              "time_after_command_s": 0.92,
+              "actual_mean_vx_mps": 0.6034570388961582,
+              "mean_raw_error_mps": 0.0034570388961583376,
+              "mean_direction_aligned_error_mps": 0.0034570388961583376,
+              "RMS_error_mps": 0.03510466639891914
+            },
+            {
+              "time_after_command_s": 0.9400000000000001,
+              "actual_mean_vx_mps": 0.6071181051898746,
+              "mean_raw_error_mps": 0.007118105189874768,
+              "mean_direction_aligned_error_mps": 0.007118105189874768,
+              "RMS_error_mps": 0.03520261164711138
+            },
+            {
+              "time_after_command_s": 0.96,
+              "actual_mean_vx_mps": 0.609900978533551,
+              "mean_raw_error_mps": 0.009900978533551097,
+              "mean_direction_aligned_error_mps": 0.009900978533551097,
+              "RMS_error_mps": 0.03573366190296507
+            },
+            {
+              "time_after_command_s": 0.98,
+              "actual_mean_vx_mps": 0.6125421071425079,
+              "mean_raw_error_mps": 0.01254210714250803,
+              "mean_direction_aligned_error_mps": 0.01254210714250803,
+              "RMS_error_mps": 0.03543528152710366
+            },
+            {
+              "time_after_command_s": 1.0,
+              "actual_mean_vx_mps": 0.6145872544962911,
+              "mean_raw_error_mps": 0.01458725449629128,
+              "mean_direction_aligned_error_mps": 0.01458725449629128,
+              "RMS_error_mps": 0.033836262840533086
+            }
+          ]
+        },
+        {
+          "old_vx_command_mps": 0.6,
+          "new_vx_command_mps": 1.0,
+          "command_delta_mps": 0.4,
+          "direction": 1.0,
+          "boundary_zero_based_step": 500,
+          "last_old_command_sample_step": 499,
+          "first_new_command_poststep_sample": 500,
+          "last_old_command_actual_mean_vx_mps": 0.608937217062339,
+          "windows": {
+            "0.5": {
+              "samples": 6400,
+              "mean_actual_minus_command_mps": -0.11200688563287259,
+              "mean_direction_aligned_error_mps": -0.11200688563287259,
+              "RMSE_mps": 0.1559539054330654,
+              "mean_lag_magnitude_mps": 0.11538845028728247,
+              "mean_past_target_magnitude_mps": 0.0033815646544098853,
+              "lag_SSE_fraction": 0.9948014544265952,
+              "past_target_SSE_fraction": 0.005198545573405025,
+              "p99_absolute_error_mps": 0.36184409141540547,
+              "top1pct_error_SSE_fraction": 0.05977438891484497,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            },
+            "1.0": {
+              "samples": 12800,
+              "mean_actual_minus_command_mps": -0.056991977063007654,
+              "mean_direction_aligned_error_mps": -0.056991977063007654,
+              "RMSE_mps": 0.11414806899147376,
+              "mean_lag_magnitude_mps": 0.06653976646717638,
+              "mean_past_target_magnitude_mps": 0.009547789404168725,
+              "lag_SSE_fraction": 0.96881154720097,
+              "past_target_SSE_fraction": 0.031188452799030073,
+              "p99_absolute_error_mps": 0.3443226075172425,
+              "top1pct_error_SSE_fraction": 0.10375832759120031,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            },
+            "5.0": {
+              "samples": 64000,
+              "mean_actual_minus_command_mps": -0.012803936644457281,
+              "mean_direction_aligned_error_mps": -0.012803936644457281,
+              "RMSE_mps": 0.06342425987389477,
+              "mean_lag_magnitude_mps": 0.02758141263294965,
+              "mean_past_target_magnitude_mps": 0.01477747598849237,
+              "lag_SSE_fraction": 0.8413411259046207,
+              "past_target_SSE_fraction": 0.1586588740953793,
+              "p99_absolute_error_mps": 0.2761928427219391,
+              "top1pct_error_SSE_fraction": 0.2553413311643798,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            }
+          },
+          "mean_response_first_1s": [
+            {
+              "time_after_command_s": 0.02,
+              "actual_mean_vx_mps": 0.6675944125745445,
+              "mean_raw_error_mps": -0.33240558742545545,
+              "mean_direction_aligned_error_mps": -0.33240558742545545,
+              "RMS_error_mps": 0.3341102059981722
+            },
+            {
+              "time_after_command_s": 0.04,
+              "actual_mean_vx_mps": 0.7061496477108449,
+              "mean_raw_error_mps": -0.2938503522891551,
+              "mean_direction_aligned_error_mps": -0.2938503522891551,
+              "RMS_error_mps": 0.29632350123905415
+            },
+            {
+              "time_after_command_s": 0.06,
+              "actual_mean_vx_mps": 0.7324165855534375,
+              "mean_raw_error_mps": -0.26758341444656253,
+              "mean_direction_aligned_error_mps": -0.26758341444656253,
+              "RMS_error_mps": 0.2708318195993129
+            },
+            {
+              "time_after_command_s": 0.08,
+              "actual_mean_vx_mps": 0.7541823852807283,
+              "mean_raw_error_mps": -0.24581761471927166,
+              "mean_direction_aligned_error_mps": -0.24581761471927166,
+              "RMS_error_mps": 0.2499442814666857
+            },
+            {
+              "time_after_command_s": 0.1,
+              "actual_mean_vx_mps": 0.7753613111563027,
+              "mean_raw_error_mps": -0.2246386888436973,
+              "mean_direction_aligned_error_mps": -0.2246386888436973,
+              "RMS_error_mps": 0.22964303751084428
+            },
+            {
+              "time_after_command_s": 0.12,
+              "actual_mean_vx_mps": 0.7951432522386312,
+              "mean_raw_error_mps": -0.20485674776136875,
+              "mean_direction_aligned_error_mps": -0.20485674776136875,
+              "RMS_error_mps": 0.21012486516344958
+            },
+            {
+              "time_after_command_s": 0.14,
+              "actual_mean_vx_mps": 0.8142193828243762,
+              "mean_raw_error_mps": -0.18578061717562377,
+              "mean_direction_aligned_error_mps": -0.18578061717562377,
+              "RMS_error_mps": 0.19156194809142357
+            },
+            {
+              "time_after_command_s": 0.16,
+              "actual_mean_vx_mps": 0.8343250362668186,
+              "mean_raw_error_mps": -0.16567496373318136,
+              "mean_direction_aligned_error_mps": -0.16567496373318136,
+              "RMS_error_mps": 0.17220622598410537
+            },
+            {
+              "time_after_command_s": 0.18,
+              "actual_mean_vx_mps": 0.8570775038097054,
+              "mean_raw_error_mps": -0.14292249619029462,
+              "mean_direction_aligned_error_mps": -0.14292249619029462,
+              "RMS_error_mps": 0.15029318291546853
+            },
+            {
+              "time_after_command_s": 0.2,
+              "actual_mean_vx_mps": 0.8777062222361565,
+              "mean_raw_error_mps": -0.12229377776384354,
+              "mean_direction_aligned_error_mps": -0.12229377776384354,
+              "RMS_error_mps": 0.13151889556906152
+            },
+            {
+              "time_after_command_s": 0.22,
+              "actual_mean_vx_mps": 0.8951228444930166,
+              "mean_raw_error_mps": -0.1048771555069834,
+              "mean_direction_aligned_error_mps": -0.1048771555069834,
+              "RMS_error_mps": 0.11652002148785807
+            },
+            {
+              "time_after_command_s": 0.24,
+              "actual_mean_vx_mps": 0.9083439959213138,
+              "mean_raw_error_mps": -0.09165600407868624,
+              "mean_direction_aligned_error_mps": -0.09165600407868624,
+              "RMS_error_mps": 0.10558311999619542
+            },
+            {
+              "time_after_command_s": 0.26,
+              "actual_mean_vx_mps": 0.9204962195362896,
+              "mean_raw_error_mps": -0.07950378046371043,
+              "mean_direction_aligned_error_mps": -0.07950378046371043,
+              "RMS_error_mps": 0.09497707872632308
+            },
+            {
+              "time_after_command_s": 0.28,
+              "actual_mean_vx_mps": 0.9322431220207363,
+              "mean_raw_error_mps": -0.06775687797926366,
+              "mean_direction_aligned_error_mps": -0.06775687797926366,
+              "RMS_error_mps": 0.08524127288744102
+            },
+            {
+              "time_after_command_s": 0.3,
+              "actual_mean_vx_mps": 0.9429119774140418,
+              "mean_raw_error_mps": -0.05708802258595824,
+              "mean_direction_aligned_error_mps": -0.05708802258595824,
+              "RMS_error_mps": 0.07552853838381057
+            },
+            {
+              "time_after_command_s": 0.32,
+              "actual_mean_vx_mps": 0.9528043856844306,
+              "mean_raw_error_mps": -0.0471956143155694,
+              "mean_direction_aligned_error_mps": -0.0471956143155694,
+              "RMS_error_mps": 0.06422160169292335
+            },
+            {
+              "time_after_command_s": 0.34,
+              "actual_mean_vx_mps": 0.9603728458750993,
+              "mean_raw_error_mps": -0.0396271541249007,
+              "mean_direction_aligned_error_mps": -0.0396271541249007,
+              "RMS_error_mps": 0.05819169509971295
+            },
+            {
+              "time_after_command_s": 0.36,
+              "actual_mean_vx_mps": 0.9691355740651488,
+              "mean_raw_error_mps": -0.03086442593485117,
+              "mean_direction_aligned_error_mps": -0.03086442593485117,
+              "RMS_error_mps": 0.05135030409185616
+            },
+            {
+              "time_after_command_s": 0.38,
+              "actual_mean_vx_mps": 0.9777883267961442,
+              "mean_raw_error_mps": -0.022211673203855753,
+              "mean_direction_aligned_error_mps": -0.022211673203855753,
+              "RMS_error_mps": 0.046834577463842196
+            },
+            {
+              "time_after_command_s": 0.4,
+              "actual_mean_vx_mps": 0.9848453437443823,
+              "mean_raw_error_mps": -0.015154656255617738,
+              "mean_direction_aligned_error_mps": -0.015154656255617738,
+              "RMS_error_mps": 0.04394424261187761
+            },
+            {
+              "time_after_command_s": 0.42,
+              "actual_mean_vx_mps": 0.9895443981513381,
+              "mean_raw_error_mps": -0.0104556018486619,
+              "mean_direction_aligned_error_mps": -0.0104556018486619,
+              "RMS_error_mps": 0.0424868246174781
+            },
+            {
+              "time_after_command_s": 0.44,
+              "actual_mean_vx_mps": 0.9905087815131992,
+              "mean_raw_error_mps": -0.00949121848680079,
+              "mean_direction_aligned_error_mps": -0.00949121848680079,
+              "RMS_error_mps": 0.040807436427827116
+            },
+            {
+              "time_after_command_s": 0.46,
+              "actual_mean_vx_mps": 0.9870453695766628,
+              "mean_raw_error_mps": -0.012954630423337221,
+              "mean_direction_aligned_error_mps": -0.012954630423337221,
+              "RMS_error_mps": 0.04160682371334335
+            },
+            {
+              "time_after_command_s": 0.48,
+              "actual_mean_vx_mps": 0.9868241115473211,
+              "mean_raw_error_mps": -0.013175888452678919,
+              "mean_direction_aligned_error_mps": -0.013175888452678919,
+              "RMS_error_mps": 0.04197209394366047
+            },
+            {
+              "time_after_command_s": 0.5,
+              "actual_mean_vx_mps": 0.9876648231875151,
+              "mean_raw_error_mps": -0.01233517681248486,
+              "mean_direction_aligned_error_mps": -0.01233517681248486,
+              "RMS_error_mps": 0.041296170202116754
+            },
+            {
+              "time_after_command_s": 0.52,
+              "actual_mean_vx_mps": 0.9908453386742622,
+              "mean_raw_error_mps": -0.009154661325737834,
+              "mean_direction_aligned_error_mps": -0.009154661325737834,
+              "RMS_error_mps": 0.03929269924072729
+            },
+            {
+              "time_after_command_s": 0.54,
+              "actual_mean_vx_mps": 0.9962312751449645,
+              "mean_raw_error_mps": -0.0037687248550355434,
+              "mean_direction_aligned_error_mps": -0.0037687248550355434,
+              "RMS_error_mps": 0.038104236481205596
+            },
+            {
+              "time_after_command_s": 0.56,
+              "actual_mean_vx_mps": 1.0008711004629731,
+              "mean_raw_error_mps": 0.0008711004629731178,
+              "mean_direction_aligned_error_mps": 0.0008711004629731178,
+              "RMS_error_mps": 0.03815105318245824
+            },
+            {
+              "time_after_command_s": 0.58,
+              "actual_mean_vx_mps": 0.9994173320010304,
+              "mean_raw_error_mps": -0.0005826679989695549,
+              "mean_direction_aligned_error_mps": -0.0005826679989695549,
+              "RMS_error_mps": 0.03730006870547903
+            },
+            {
+              "time_after_command_s": 0.6,
+              "actual_mean_vx_mps": 0.9977174478117377,
+              "mean_raw_error_mps": -0.0022825521882623434,
+              "mean_direction_aligned_error_mps": -0.0022825521882623434,
+              "RMS_error_mps": 0.039522593055584566
+            },
+            {
+              "time_after_command_s": 0.62,
+              "actual_mean_vx_mps": 0.9966307929717004,
+              "mean_raw_error_mps": -0.00336920702829957,
+              "mean_direction_aligned_error_mps": -0.00336920702829957,
+              "RMS_error_mps": 0.043126196386504154
+            },
+            {
+              "time_after_command_s": 0.64,
+              "actual_mean_vx_mps": 0.9952255606185645,
+              "mean_raw_error_mps": -0.0047744393814355135,
+              "mean_direction_aligned_error_mps": -0.0047744393814355135,
+              "RMS_error_mps": 0.04425044900160014
+            },
+            {
+              "time_after_command_s": 0.66,
+              "actual_mean_vx_mps": 0.9945880929008126,
+              "mean_raw_error_mps": -0.005411907099187374,
+              "mean_direction_aligned_error_mps": -0.005411907099187374,
+              "RMS_error_mps": 0.043008699599330374
+            },
+            {
+              "time_after_command_s": 0.68,
+              "actual_mean_vx_mps": 0.9969143548514694,
+              "mean_raw_error_mps": -0.0030856451485306025,
+              "mean_direction_aligned_error_mps": -0.0030856451485306025,
+              "RMS_error_mps": 0.04180623083950494
+            },
+            {
+              "time_after_command_s": 0.7000000000000001,
+              "actual_mean_vx_mps": 0.9982552586589009,
+              "mean_raw_error_mps": -0.001744741341099143,
+              "mean_direction_aligned_error_mps": -0.001744741341099143,
+              "RMS_error_mps": 0.0394587261279147
+            },
+            {
+              "time_after_command_s": 0.72,
+              "actual_mean_vx_mps": 1.0004694578237832,
+              "mean_raw_error_mps": 0.00046945782378315926,
+              "mean_direction_aligned_error_mps": 0.00046945782378315926,
+              "RMS_error_mps": 0.039414872170829514
+            },
+            {
+              "time_after_command_s": 0.74,
+              "actual_mean_vx_mps": 1.0000357823446393,
+              "mean_raw_error_mps": 3.57823446393013e-05,
+              "mean_direction_aligned_error_mps": 3.57823446393013e-05,
+              "RMS_error_mps": 0.039201268846783544
+            },
+            {
+              "time_after_command_s": 0.76,
+              "actual_mean_vx_mps": 1.0029142296407372,
+              "mean_raw_error_mps": 0.002914229640737176,
+              "mean_direction_aligned_error_mps": 0.002914229640737176,
+              "RMS_error_mps": 0.04179149501725373
+            },
+            {
+              "time_after_command_s": 0.78,
+              "actual_mean_vx_mps": 1.0045990960206836,
+              "mean_raw_error_mps": 0.004599096020683646,
+              "mean_direction_aligned_error_mps": 0.004599096020683646,
+              "RMS_error_mps": 0.0420229011033001
+            },
+            {
+              "time_after_command_s": 0.8,
+              "actual_mean_vx_mps": 1.003480650484562,
+              "mean_raw_error_mps": 0.00348065048456192,
+              "mean_direction_aligned_error_mps": 0.00348065048456192,
+              "RMS_error_mps": 0.041947018231216854
+            },
+            {
+              "time_after_command_s": 0.8200000000000001,
+              "actual_mean_vx_mps": 1.0009022920858115,
+              "mean_raw_error_mps": 0.0009022920858114958,
+              "mean_direction_aligned_error_mps": 0.0009022920858114958,
+              "RMS_error_mps": 0.043274864907168455
+            },
+            {
+              "time_after_command_s": 0.84,
+              "actual_mean_vx_mps": 0.9984058158006519,
+              "mean_raw_error_mps": -0.001594184199348092,
+              "mean_direction_aligned_error_mps": -0.001594184199348092,
+              "RMS_error_mps": 0.04326597249716402
+            },
+            {
+              "time_after_command_s": 0.86,
+              "actual_mean_vx_mps": 0.9956532239448279,
+              "mean_raw_error_mps": -0.004346776055172086,
+              "mean_direction_aligned_error_mps": -0.004346776055172086,
+              "RMS_error_mps": 0.04089206644344188
+            },
+            {
+              "time_after_command_s": 0.88,
+              "actual_mean_vx_mps": 0.9946772023104131,
+              "mean_raw_error_mps": -0.005322797689586878,
+              "mean_direction_aligned_error_mps": -0.005322797689586878,
+              "RMS_error_mps": 0.043454078622532574
+            },
+            {
+              "time_after_command_s": 0.9,
+              "actual_mean_vx_mps": 0.9971989684272557,
+              "mean_raw_error_mps": -0.0028010315727442503,
+              "mean_direction_aligned_error_mps": -0.0028010315727442503,
+              "RMS_error_mps": 0.04412908655862996
+            },
+            {
+              "time_after_command_s": 0.92,
+              "actual_mean_vx_mps": 0.9985571755096316,
+              "mean_raw_error_mps": -0.0014428244903683662,
+              "mean_direction_aligned_error_mps": -0.0014428244903683662,
+              "RMS_error_mps": 0.04336476794620467
+            },
+            {
+              "time_after_command_s": 0.9400000000000001,
+              "actual_mean_vx_mps": 1.0000878991559148,
+              "mean_raw_error_mps": 8.789915591478348e-05,
+              "mean_direction_aligned_error_mps": 8.789915591478348e-05,
+              "RMS_error_mps": 0.04357832495542391
+            },
+            {
+              "time_after_command_s": 0.96,
+              "actual_mean_vx_mps": 0.997325760545209,
+              "mean_raw_error_mps": -0.00267423945479095,
+              "mean_direction_aligned_error_mps": -0.00267423945479095,
+              "RMS_error_mps": 0.04445641783813337
+            },
+            {
+              "time_after_command_s": 0.98,
+              "actual_mean_vx_mps": 0.9959959546104074,
+              "mean_raw_error_mps": -0.0040040453895926476,
+              "mean_direction_aligned_error_mps": -0.0040040453895926476,
+              "RMS_error_mps": 0.04309745493579201
+            },
+            {
+              "time_after_command_s": 1.0,
+              "actual_mean_vx_mps": 0.993573224870488,
+              "mean_raw_error_mps": -0.006426775129511952,
+              "mean_direction_aligned_error_mps": -0.006426775129511952,
+              "RMS_error_mps": 0.0429342106520444
+            }
+          ]
+        },
+        {
+          "old_vx_command_mps": 1.0,
+          "new_vx_command_mps": -0.5,
+          "command_delta_mps": -1.5,
+          "direction": -1.0,
+          "boundary_zero_based_step": 750,
+          "last_old_command_sample_step": 749,
+          "first_new_command_poststep_sample": 750,
+          "last_old_command_actual_mean_vx_mps": 1.000497738365084,
+          "windows": {
+            "0.5": {
+              "samples": 6400,
+              "mean_actual_minus_command_mps": 0.5703445677924901,
+              "mean_direction_aligned_error_mps": -0.5703445677924901,
+              "RMSE_mps": 0.7135113754088146,
+              "mean_lag_magnitude_mps": 0.5707049100380391,
+              "mean_past_target_magnitude_mps": 0.00036034224554896353,
+              "lag_SSE_fraction": 0.9999749126813422,
+              "past_target_SSE_fraction": 2.5087318657803712e-05,
+              "p99_absolute_error_mps": 1.4085392260551453,
+              "top1pct_error_SSE_fraction": 0.04006950876664827,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            },
+            "1.0": {
+              "samples": 12800,
+              "mean_actual_minus_command_mps": 0.2949590476346202,
+              "mean_direction_aligned_error_mps": -0.2949590476346202,
+              "RMSE_mps": 0.5063185638379257,
+              "mean_lag_magnitude_mps": 0.29939152525970714,
+              "mean_past_target_magnitude_mps": 0.004432477625086904,
+              "lag_SSE_fraction": 0.9993583462402313,
+              "past_target_SSE_fraction": 0.0006416537597687164,
+              "p99_absolute_error_mps": 1.3929428362846374,
+              "top1pct_error_SSE_fraction": 0.07807858146574932,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            },
+            "5.0": {
+              "samples": 64000,
+              "mean_actual_minus_command_mps": 0.06807797079207376,
+              "mean_direction_aligned_error_mps": -0.06807797079207376,
+              "RMSE_mps": 0.22833291883667292,
+              "mean_lag_magnitude_mps": 0.07488027701666579,
+              "mean_past_target_magnitude_mps": 0.00680230622459203,
+              "lag_SSE_fraction": 0.9955398379231402,
+              "past_target_SSE_fraction": 0.004460162076859665,
+              "p99_absolute_error_mps": 1.246434102058411,
+              "top1pct_error_SSE_fraction": 0.3439328125402945,
+              "lag_fraction_of_top1pct_SSE": 1.0,
+              "past_target_fraction_of_top1pct_SSE": 0.0
+            }
+          },
+          "mean_response_first_1s": [
+            {
+              "time_after_command_s": 0.02,
+              "actual_mean_vx_mps": 0.8870002287440002,
+              "mean_raw_error_mps": 1.3870002287440002,
+              "mean_direction_aligned_error_mps": -1.3870002287440002,
+              "RMS_error_mps": 1.387399421459937
+            },
+            {
+              "time_after_command_s": 0.04,
+              "actual_mean_vx_mps": 0.809126921929419,
+              "mean_raw_error_mps": 1.309126921929419,
+              "mean_direction_aligned_error_mps": -1.309126921929419,
+              "RMS_error_mps": 1.3100414577209694
+            },
+            {
+              "time_after_command_s": 0.06,
+              "actual_mean_vx_mps": 0.7383751962333918,
+              "mean_raw_error_mps": 1.2383751962333918,
+              "mean_direction_aligned_error_mps": -1.2383751962333918,
+              "RMS_error_mps": 1.239850954869048
+            },
+            {
+              "time_after_command_s": 0.08,
+              "actual_mean_vx_mps": 0.6584796374663711,
+              "mean_raw_error_mps": 1.158479637466371,
+              "mean_direction_aligned_error_mps": -1.158479637466371,
+              "RMS_error_mps": 1.1607602810242688
+            },
+            {
+              "time_after_command_s": 0.1,
+              "actual_mean_vx_mps": 0.5669139609672129,
+              "mean_raw_error_mps": 1.066913960967213,
+              "mean_direction_aligned_error_mps": -1.066913960967213,
+              "RMS_error_mps": 1.070168070418298
+            },
+            {
+              "time_after_command_s": 0.12,
+              "actual_mean_vx_mps": 0.47423024429008365,
+              "mean_raw_error_mps": 0.9742302442900836,
+              "mean_direction_aligned_error_mps": -0.9742302442900836,
+              "RMS_error_mps": 0.9787886885405677
+            },
+            {
+              "time_after_command_s": 0.14,
+              "actual_mean_vx_mps": 0.3865383598022163,
+              "mean_raw_error_mps": 0.8865383598022163,
+              "mean_direction_aligned_error_mps": -0.8865383598022163,
+              "RMS_error_mps": 0.891808071520669
+            },
+            {
+              "time_after_command_s": 0.16,
+              "actual_mean_vx_mps": 0.3036196008324623,
+              "mean_raw_error_mps": 0.8036196008324623,
+              "mean_direction_aligned_error_mps": -0.8036196008324623,
+              "RMS_error_mps": 0.8097136861403417
+            },
+            {
+              "time_after_command_s": 0.18,
+              "actual_mean_vx_mps": 0.22345295012928545,
+              "mean_raw_error_mps": 0.7234529501292855,
+              "mean_direction_aligned_error_mps": -0.7234529501292855,
+              "RMS_error_mps": 0.7302171616170825
+            },
+            {
+              "time_after_command_s": 0.2,
+              "actual_mean_vx_mps": 0.14790192060172558,
+              "mean_raw_error_mps": 0.6479019206017256,
+              "mean_direction_aligned_error_mps": -0.6479019206017256,
+              "RMS_error_mps": 0.6558527539096625
+            },
+            {
+              "time_after_command_s": 0.22,
+              "actual_mean_vx_mps": 0.07761229365132749,
+              "mean_raw_error_mps": 0.5776122936513275,
+              "mean_direction_aligned_error_mps": -0.5776122936513275,
+              "RMS_error_mps": 0.5876084938265934
+            },
+            {
+              "time_after_command_s": 0.24,
+              "actual_mean_vx_mps": 0.013927891617640853,
+              "mean_raw_error_mps": 0.5139278916176409,
+              "mean_direction_aligned_error_mps": -0.5139278916176409,
+              "RMS_error_mps": 0.5262870083337937
+            },
+            {
+              "time_after_command_s": 0.26,
+              "actual_mean_vx_mps": -0.04270049708429724,
+              "mean_raw_error_mps": 0.45729950291570276,
+              "mean_direction_aligned_error_mps": -0.45729950291570276,
+              "RMS_error_mps": 0.4732387229898003
+            },
+            {
+              "time_after_command_s": 0.28,
+              "actual_mean_vx_mps": -0.09504424571059644,
+              "mean_raw_error_mps": 0.40495575428940356,
+              "mean_direction_aligned_error_mps": -0.40495575428940356,
+              "RMS_error_mps": 0.42433709023717464
+            },
+            {
+              "time_after_command_s": 0.3,
+              "actual_mean_vx_mps": -0.14268478681333363,
+              "mean_raw_error_mps": 0.35731521318666637,
+              "mean_direction_aligned_error_mps": -0.35731521318666637,
+              "RMS_error_mps": 0.38006692990122287
+            },
+            {
+              "time_after_command_s": 0.32,
+              "actual_mean_vx_mps": -0.18491568113677204,
+              "mean_raw_error_mps": 0.31508431886322796,
+              "mean_direction_aligned_error_mps": -0.31508431886322796,
+              "RMS_error_mps": 0.3414740791956329
+            },
+            {
+              "time_after_command_s": 0.34,
+              "actual_mean_vx_mps": -0.2239211677806452,
+              "mean_raw_error_mps": 0.2760788322193548,
+              "mean_direction_aligned_error_mps": -0.2760788322193548,
+              "RMS_error_mps": 0.306547953554325
+            },
+            {
+              "time_after_command_s": 0.36,
+              "actual_mean_vx_mps": -0.259631498134695,
+              "mean_raw_error_mps": 0.240368501865305,
+              "mean_direction_aligned_error_mps": -0.240368501865305,
+              "RMS_error_mps": 0.274873383900013
+            },
+            {
+              "time_after_command_s": 0.38,
+              "actual_mean_vx_mps": -0.29123325785622,
+              "mean_raw_error_mps": 0.20876674214378,
+              "mean_direction_aligned_error_mps": -0.20876674214378,
+              "RMS_error_mps": 0.2448910814458877
+            },
+            {
+              "time_after_command_s": 0.4,
+              "actual_mean_vx_mps": -0.3237345698289573,
+              "mean_raw_error_mps": 0.17626543017104268,
+              "mean_direction_aligned_error_mps": -0.17626543017104268,
+              "RMS_error_mps": 0.21486145472898088
+            },
+            {
+              "time_after_command_s": 0.42,
+              "actual_mean_vx_mps": -0.35262894770130515,
+              "mean_raw_error_mps": 0.14737105229869485,
+              "mean_direction_aligned_error_mps": -0.14737105229869485,
+              "RMS_error_mps": 0.18885948144516346
+            },
+            {
+              "time_after_command_s": 0.44,
+              "actual_mean_vx_mps": -0.37767819955479354,
+              "mean_raw_error_mps": 0.12232180044520646,
+              "mean_direction_aligned_error_mps": -0.12232180044520646,
+              "RMS_error_mps": 0.16812779007261633
+            },
+            {
+              "time_after_command_s": 0.46,
+              "actual_mean_vx_mps": -0.39811782096512616,
+              "mean_raw_error_mps": 0.10188217903487384,
+              "mean_direction_aligned_error_mps": -0.10188217903487384,
+              "RMS_error_mps": 0.1508152718519878
+            },
+            {
+              "time_after_command_s": 0.48,
+              "actual_mean_vx_mps": -0.41173353767953813,
+              "mean_raw_error_mps": 0.08826646232046187,
+              "mean_direction_aligned_error_mps": -0.08826646232046187,
+              "RMS_error_mps": 0.1376776208627355
+            },
+            {
+              "time_after_command_s": 0.5,
+              "actual_mean_vx_mps": -0.42454080120660365,
+              "mean_raw_error_mps": 0.07545919879339635,
+              "mean_direction_aligned_error_mps": -0.07545919879339635,
+              "RMS_error_mps": 0.12467268602329777
+            },
+            {
+              "time_after_command_s": 0.52,
+              "actual_mean_vx_mps": -0.43620405183173716,
+              "mean_raw_error_mps": 0.06379594816826284,
+              "mean_direction_aligned_error_mps": -0.06379594816826284,
+              "RMS_error_mps": 0.11233084892431647
+            },
+            {
+              "time_after_command_s": 0.54,
+              "actual_mean_vx_mps": -0.4462829789845273,
+              "mean_raw_error_mps": 0.05371702101547271,
+              "mean_direction_aligned_error_mps": -0.05371702101547271,
+              "RMS_error_mps": 0.09955944800691541
+            },
+            {
+              "time_after_command_s": 0.56,
+              "actual_mean_vx_mps": -0.45613082021009177,
+              "mean_raw_error_mps": 0.04386917978990823,
+              "mean_direction_aligned_error_mps": -0.04386917978990823,
+              "RMS_error_mps": 0.09023095214201866
+            },
+            {
+              "time_after_command_s": 0.58,
+              "actual_mean_vx_mps": -0.46222969063092023,
+              "mean_raw_error_mps": 0.03777030936907977,
+              "mean_direction_aligned_error_mps": -0.03777030936907977,
+              "RMS_error_mps": 0.08431582586011571
+            },
+            {
+              "time_after_command_s": 0.6,
+              "actual_mean_vx_mps": -0.4677402231609449,
+              "mean_raw_error_mps": 0.03225977683905512,
+              "mean_direction_aligned_error_mps": -0.03225977683905512,
+              "RMS_error_mps": 0.07632217008748046
+            },
+            {
+              "time_after_command_s": 0.62,
+              "actual_mean_vx_mps": -0.47378140734508634,
+              "mean_raw_error_mps": 0.026218592654913664,
+              "mean_direction_aligned_error_mps": -0.026218592654913664,
+              "RMS_error_mps": 0.06946305797067888
+            },
+            {
+              "time_after_command_s": 0.64,
+              "actual_mean_vx_mps": -0.47519806819036603,
+              "mean_raw_error_mps": 0.02480193180963397,
+              "mean_direction_aligned_error_mps": -0.02480193180963397,
+              "RMS_error_mps": 0.06777184240363772
+            },
+            {
+              "time_after_command_s": 0.66,
+              "actual_mean_vx_mps": -0.47801482246723026,
+              "mean_raw_error_mps": 0.02198517753276974,
+              "mean_direction_aligned_error_mps": -0.02198517753276974,
+              "RMS_error_mps": 0.06383996205226883
+            },
+            {
+              "time_after_command_s": 0.68,
+              "actual_mean_vx_mps": -0.48089079407509416,
+              "mean_raw_error_mps": 0.019109205924905837,
+              "mean_direction_aligned_error_mps": -0.019109205924905837,
+              "RMS_error_mps": 0.059251683220654335
+            },
+            {
+              "time_after_command_s": 0.7000000000000001,
+              "actual_mean_vx_mps": -0.48422072478570044,
+              "mean_raw_error_mps": 0.01577927521429956,
+              "mean_direction_aligned_error_mps": -0.01577927521429956,
+              "RMS_error_mps": 0.05603871377564704
+            },
+            {
+              "time_after_command_s": 0.72,
+              "actual_mean_vx_mps": -0.48790067550726235,
+              "mean_raw_error_mps": 0.012099324492737651,
+              "mean_direction_aligned_error_mps": -0.012099324492737651,
+              "RMS_error_mps": 0.05250671756274018
+            },
+            {
+              "time_after_command_s": 0.74,
+              "actual_mean_vx_mps": -0.4889267198741436,
+              "mean_raw_error_mps": 0.0110732801258564,
+              "mean_direction_aligned_error_mps": -0.0110732801258564,
+              "RMS_error_mps": 0.0508088385101404
+            },
+            {
+              "time_after_command_s": 0.76,
+              "actual_mean_vx_mps": -0.4902080608299002,
+              "mean_raw_error_mps": 0.009791939170099795,
+              "mean_direction_aligned_error_mps": -0.009791939170099795,
+              "RMS_error_mps": 0.04822898758807111
+            },
+            {
+              "time_after_command_s": 0.78,
+              "actual_mean_vx_mps": -0.4906887187389657,
+              "mean_raw_error_mps": 0.00931128126103431,
+              "mean_direction_aligned_error_mps": -0.00931128126103431,
+              "RMS_error_mps": 0.04741717470182805
+            },
+            {
+              "time_after_command_s": 0.8,
+              "actual_mean_vx_mps": -0.49104994686786085,
+              "mean_raw_error_mps": 0.008950053132139146,
+              "mean_direction_aligned_error_mps": -0.008950053132139146,
+              "RMS_error_mps": 0.04583785830333456
+            },
+            {
+              "time_after_command_s": 0.8200000000000001,
+              "actual_mean_vx_mps": -0.4888486235868186,
+              "mean_raw_error_mps": 0.011151376413181424,
+              "mean_direction_aligned_error_mps": -0.011151376413181424,
+              "RMS_error_mps": 0.04410775295183104
+            },
+            {
+              "time_after_command_s": 0.84,
+              "actual_mean_vx_mps": -0.4891732388641685,
+              "mean_raw_error_mps": 0.010826761135831475,
+              "mean_direction_aligned_error_mps": -0.010826761135831475,
+              "RMS_error_mps": 0.04313294348744424
+            },
+            {
+              "time_after_command_s": 0.86,
+              "actual_mean_vx_mps": -0.4893191291484982,
+              "mean_raw_error_mps": 0.010680870851501822,
+              "mean_direction_aligned_error_mps": -0.010680870851501822,
+              "RMS_error_mps": 0.04022854293013441
+            },
+            {
+              "time_after_command_s": 0.88,
+              "actual_mean_vx_mps": -0.49217939260415733,
+              "mean_raw_error_mps": 0.007820607395842671,
+              "mean_direction_aligned_error_mps": -0.007820607395842671,
+              "RMS_error_mps": 0.038727046657292256
+            },
+            {
+              "time_after_command_s": 0.9,
+              "actual_mean_vx_mps": -0.49130498443264514,
+              "mean_raw_error_mps": 0.008695015567354858,
+              "mean_direction_aligned_error_mps": -0.008695015567354858,
+              "RMS_error_mps": 0.03933052558047471
+            },
+            {
+              "time_after_command_s": 0.92,
+              "actual_mean_vx_mps": -0.49077627272345126,
+              "mean_raw_error_mps": 0.009223727276548743,
+              "mean_direction_aligned_error_mps": -0.009223727276548743,
+              "RMS_error_mps": 0.03746694187630824
+            },
+            {
+              "time_after_command_s": 0.9400000000000001,
+              "actual_mean_vx_mps": -0.4891544571146369,
+              "mean_raw_error_mps": 0.010845542885363102,
+              "mean_direction_aligned_error_mps": -0.010845542885363102,
+              "RMS_error_mps": 0.037082261429438025
+            },
+            {
+              "time_after_command_s": 0.96,
+              "actual_mean_vx_mps": -0.4905672101303935,
+              "mean_raw_error_mps": 0.009432789869606495,
+              "mean_direction_aligned_error_mps": -0.009432789869606495,
+              "RMS_error_mps": 0.035153794251653256
+            },
+            {
+              "time_after_command_s": 0.98,
+              "actual_mean_vx_mps": -0.4892198764719069,
+              "mean_raw_error_mps": 0.0107801235280931,
+              "mean_direction_aligned_error_mps": -0.0107801235280931,
+              "RMS_error_mps": 0.03446959056193113
+            },
+            {
+              "time_after_command_s": 1.0,
+              "actual_mean_vx_mps": -0.4906509245047346,
+              "mean_raw_error_mps": 0.009349075495265424,
+              "mean_direction_aligned_error_mps": -0.009349075495265424,
+              "RMS_error_mps": 0.0319938291652269
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "G6": {
+    "C0_5500": {
+      "episodes": 256,
+      "full_valid_samples": 256000,
+      "evidence": [
+        {
+          "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\C0_5500_G6_809.npz",
+          "sha256": "567caf597fc94f9464f2a6e3022c9743d577e478a4b5f62416339c09eac749cc",
+          "reset_seed": 809,
+          "all_1000x128_samples_valid": true,
+          "signed_error_trace_max_difference": 0.0,
+          "trace_columns": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        },
+        {
+          "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\C0_5500_G6_1201.npz",
+          "sha256": "5f3bd5ee42876a67992b2d9e2c478d7a0c84d26809ac4ddd2987b0035a48dab4",
+          "reset_seed": 1201,
+          "all_1000x128_samples_valid": true,
+          "signed_error_trace_max_difference": 0.0,
+          "trace_columns": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      ],
+      "post_push_windows": {
+        "0.5": {
+          "per_push": [
+            {
+              "push_written_after_step_index": 125,
+              "first_affected_step_index": 126,
+              "samples": 6400,
+              "RMS_by_axis": {
+                "vx": 0.2554929524441308,
+                "vy": 0.36020815250692356,
+                "yaw": 0.1587307714982827
+              }
+            },
+            {
+              "push_written_after_step_index": 250,
+              "first_affected_step_index": 251,
+              "samples": 6400,
+              "RMS_by_axis": {
+                "vx": 0.24531620636095874,
+                "vy": 0.3627107566783363,
+                "yaw": 0.16221476538716603
+              }
+            },
+            {
+              "push_written_after_step_index": 375,
+              "first_affected_step_index": 376,
+              "samples": 6400,
+              "RMS_by_axis": {
+                "vx": 0.253704350456204,
+                "vy": 0.3480022519209213,
+                "yaw": 0.15354121672014912
+              }
+            },
+            {
+              "push_written_after_step_index": 500,
+              "first_affected_step_index": 501,
+              "samples": 6400,
+              "RMS_by_axis": {
+                "vx": 0.24483853622511476,
+                "vy": 0.3691622494050753,
+                "yaw": 0.1639481695296731
+              }
+            },
+            {
+              "push_written_after_step_index": 625,
+              "first_affected_step_index": 626,
+              "samples": 6400,
+              "RMS_by_axis": {
+                "vx": 0.24155075219180377,
+                "vy": 0.37525261780424507,
+                "yaw": 0.16163315992173044
+              }
+            },
+            {
+              "push_written_after_step_index": 750,
+              "first_affected_step_index": 751,
+              "samples": 6400,
+              "RMS_by_axis": {
+                "vx": 0.24645767913200417,
+                "vy": 0.3291723439986051,
+                "yaw": 0.14764151878223983
+              }
+            },
+            {
+              "push_written_after_step_index": 875,
+              "first_affected_step_index": 876,
+              "samples": 6400,
+              "RMS_by_axis": {
+                "vx": 0.24142884679555318,
+                "vy": 0.3487039722930014,
+                "yaw": 0.16315998981239432
+              }
+            }
+          ],
+          "pooled_samples": 44800,
+          "RMS_by_axis": {
+            "vx": 0.24702357830371557,
+            "vy": 0.356462532470277,
+            "yaw": 0.15879343013770092
+          },
+          "mean_sign_not_interpreted": true
+        },
+        "1.0": {
+          "per_push": [
+            {
+              "push_written_after_step_index": 125,
+              "first_affected_step_index": 126,
+              "samples": 12800,
+              "RMS_by_axis": {
+                "vx": 0.1842220886539079,
+                "vy": 0.2583754063453663,
+                "yaw": 0.1347898252069702
+              }
+            },
+            {
+              "push_written_after_step_index": 250,
+              "first_affected_step_index": 251,
+              "samples": 12800,
+              "RMS_by_axis": {
+                "vx": 0.17702865081748723,
+                "vy": 0.26002815841839017,
+                "yaw": 0.13794233156639363
+              }
+            },
+            {
+              "push_written_after_step_index": 375,
+              "first_affected_step_index": 376,
+              "samples": 12800,
+              "RMS_by_axis": {
+                "vx": 0.18267188127818762,
+                "vy": 0.25005872727106865,
+                "yaw": 0.13198442890531048
+              }
+            },
+            {
+              "push_written_after_step_index": 500,
+              "first_affected_step_index": 501,
+              "samples": 12800,
+              "RMS_by_axis": {
+                "vx": 0.17665068587308225,
+                "vy": 0.2643319947889475,
+                "yaw": 0.13870367210398843
+              }
+            },
+            {
+              "push_written_after_step_index": 625,
+              "first_affected_step_index": 626,
+              "samples": 12800,
+              "RMS_by_axis": {
+                "vx": 0.17428568491881527,
+                "vy": 0.26900812212242814,
+                "yaw": 0.13647442646313107
+              }
+            },
+            {
+              "push_written_after_step_index": 750,
+              "first_affected_step_index": 751,
+              "samples": 12800,
+              "RMS_by_axis": {
+                "vx": 0.17747958470212696,
+                "vy": 0.2365614591654309,
+                "yaw": 0.12881592814002535
+              }
+            },
+            {
+              "push_written_after_step_index": 875,
+              "first_affected_step_index": 876,
+              "samples": 12800,
+              "RMS_by_axis": {
+                "vx": 0.17423411398426925,
+                "vy": 0.2508265212247106,
+                "yaw": 0.13887290719733303
+              }
+            }
+          ],
+          "pooled_samples": 89600,
+          "RMS_by_axis": {
+            "vx": 0.17811851256033928,
+            "vy": 0.2557939745208259,
+            "yaw": 0.13541443198057163
+          },
+          "mean_sign_not_interpreted": true
+        }
+      },
+      "push_timing": "Legacy writes push after zero-based control indices125,250,...875; response begins index126,251,...876. No actual command changes in G6."
+    },
+    "F10_3000": {
+      "episodes": 256,
+      "full_valid_samples": 256000,
+      "evidence": [
+        {
+          "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\F10_3000_G6_809.npz",
+          "sha256": "34830407bbdf29c0f828e4226a06202fe5c9061506e5abcaf7b7b784b5902f50",
+          "reset_seed": 809,
+          "all_1000x128_samples_valid": true,
+          "signed_error_trace_max_difference": 0.0,
+          "trace_columns": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        },
+        {
+          "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\F10_3000_G6_1201.npz",
+          "sha256": "b0646f4db5bd5d7ef57676a0d644ae476c823cdb93c7874d95b7975e4fa17319",
+          "reset_seed": 1201,
+          "all_1000x128_samples_valid": true,
+          "signed_error_trace_max_difference": 0.0,
+          "trace_columns": "command3,body_lin3,body_ang3,action12,joint_vel12,joint_acc12,torque12,position3"
+        }
+      ],
+      "post_push_windows": {
+        "0.5": {
+          "per_push": [
+            {
+              "push_written_after_step_index": 125,
+              "first_affected_step_index": 126,
+              "samples": 6400,
+              "RMS_by_axis": {
+                "vx": 0.30437939612570075,
+                "vy": 0.39575992298021395,
+                "yaw": 0.16189512535118591
+              }
+            },
+            {
+              "push_written_after_step_index": 250,
+              "first_affected_step_index": 251,
+              "samples": 6400,
+              "RMS_by_axis": {
+                "vx": 0.2882541157561731,
+                "vy": 0.37709355759385477,
+                "yaw": 0.13539459726630151
+              }
+            },
+            {
+              "push_written_after_step_index": 375,
+              "first_affected_step_index": 376,
+              "samples": 6400,
+              "RMS_by_axis": {
+                "vx": 0.29161293018222767,
+                "vy": 0.38753679494281756,
+                "yaw": 0.14148268250236146
+              }
+            },
+            {
+              "push_written_after_step_index": 500,
+              "first_affected_step_index": 501,
+              "samples": 6400,
+              "RMS_by_axis": {
+                "vx": 0.279834494043903,
+                "vy": 0.38838855757245805,
+                "yaw": 0.12895145542726247
+              }
+            },
+            {
+              "push_written_after_step_index": 625,
+              "first_affected_step_index": 626,
+              "samples": 6400,
+              "RMS_by_axis": {
+                "vx": 0.2791444221074512,
+                "vy": 0.3918555529193551,
+                "yaw": 0.13951783986907515
+              }
+            },
+            {
+              "push_written_after_step_index": 750,
+              "first_affected_step_index": 751,
+              "samples": 6400,
+              "RMS_by_axis": {
+                "vx": 0.28891109175769586,
+                "vy": 0.3514014005336701,
+                "yaw": 0.12938640534134763
+              }
+            },
+            {
+              "push_written_after_step_index": 875,
+              "first_affected_step_index": 876,
+              "samples": 6400,
+              "RMS_by_axis": {
+                "vx": 0.2848628973204615,
+                "vy": 0.38086432867889536,
+                "yaw": 0.13797391584189866
+              }
+            }
+          ],
+          "pooled_samples": 44800,
+          "RMS_by_axis": {
+            "vx": 0.28825107972703884,
+            "vy": 0.38208960475160136,
+            "yaw": 0.1396068085056278
+          },
+          "mean_sign_not_interpreted": true
+        },
+        "1.0": {
+          "per_push": [
+            {
+              "push_written_after_step_index": 125,
+              "first_affected_step_index": 126,
+              "samples": 12800,
+              "RMS_by_axis": {
+                "vx": 0.21732451917799647,
+                "vy": 0.2848850198508876,
+                "yaw": 0.13130549975056346
+              }
+            },
+            {
+              "push_written_after_step_index": 250,
+              "first_affected_step_index": 251,
+              "samples": 12800,
+              "RMS_by_axis": {
+                "vx": 0.20552573419990428,
+                "vy": 0.26968406005064427,
+                "yaw": 0.11455716956232351
+              }
+            },
+            {
+              "push_written_after_step_index": 375,
+              "first_affected_step_index": 376,
+              "samples": 12800,
+              "RMS_by_axis": {
+                "vx": 0.20791374322470424,
+                "vy": 0.27890680091394615,
+                "yaw": 0.11938499013438635
+              }
+            },
+            {
+              "push_written_after_step_index": 500,
+              "first_affected_step_index": 501,
+              "samples": 12800,
+              "RMS_by_axis": {
+                "vx": 0.19955941074562075,
+                "vy": 0.27813766466322143,
+                "yaw": 0.10980026606928349
+              }
+            },
+            {
+              "push_written_after_step_index": 625,
+              "first_affected_step_index": 626,
+              "samples": 12800,
+              "RMS_by_axis": {
+                "vx": 0.19921092182436012,
+                "vy": 0.28092148573221326,
+                "yaw": 0.11727157881938896
+              }
+            },
+            {
+              "push_written_after_step_index": 750,
+              "first_affected_step_index": 751,
+              "samples": 12800,
+              "RMS_by_axis": {
+                "vx": 0.20589542433082886,
+                "vy": 0.25212381635005876,
+                "yaw": 0.11038985517861523
+              }
+            },
+            {
+              "push_written_after_step_index": 875,
+              "first_affected_step_index": 876,
+              "samples": 12800,
+              "RMS_by_axis": {
+                "vx": 0.20322354057648165,
+                "vy": 0.2737011670836388,
+                "yaw": 0.11610675431683028
+              }
+            }
+          ],
+          "pooled_samples": 89600,
+          "RMS_by_axis": {
+            "vx": 0.20560036884073674,
+            "vy": 0.274235081547894,
+            "yaw": 0.11716452131467939
+          },
+          "mean_sign_not_interpreted": true
+        }
+      },
+      "push_timing": "Legacy writes push after zero-based control indices125,250,...875; response begins index126,251,...876. No actual command changes in G6."
+    }
+  },
+  "five_line_summary": [
+    "G1의 큰 전환 오차는 새 목표를 지나친 초과보다 지연 쪽이다: 세 전환 첫0.5초 상위1% SSE는 C0/F10 모두100% 지연 쪽이다.",
+    "0.3→0.6 첫0.5초 RMSE는 F10 0.097704/C0 0.102123으로 개선되지만, 0.6→1.0은0.155954/0.135731로 악화된다.",
+    "1.0→−0.5 첫0.5초 평균 actual-command는 F10 +0.570345/C0 +0.491261이고 RMSE는0.713511/0.656193이다: 후진 목표 도달 전 오차가 커진다.",
+    "G6 밀침 첫0.5초 vx RMS는 F10 0.288251/C0 0.247024, vy는0.382090/0.356463으로 악화되지만 yaw는0.139607/0.158793으로 개선된다.",
+    "경계250/500/750의 새 명령과 post-step 오차 부호를 원본 trace에서 검증했다. 이는 저장 응답 진단이며 B1 추론·새 점수·동역학적 지연 식별이 아니다."
+  ]
+}

@@ -1,0 +1,499 @@
+{
+  "aggregates": {
+    "C0_5500": {
+      "weighted_Q3": 0.9090643911711054,
+      "weighted_axis_RMSE": {
+        "vx": 0.08089514370018261,
+        "vy": 0.08547394009358689,
+        "yaw": 0.11875185397373074
+      },
+      "weighted_three_axis_RMSE": 0.09652602676928392,
+      "mixed_unit_axis_MSE_share": {
+        "vx": 0.2341179900163779,
+        "vy": 0.2613709602740718,
+        "yaw": 0.5045110497095503
+      },
+      "weighted_phases": {
+        "initial": {
+          "weighted_sample_share": 0.025,
+          "weighted_MSE_contribution": {
+            "vx": 0.0009349371111630507,
+            "vy": 0.00029234083252434193,
+            "yaw": 0.0004220072169472073
+          },
+          "axis_MSE_fraction": {
+            "vx": 0.14286883299602196,
+            "vy": 0.04001492720886512,
+            "yaw": 0.029925339135723088
+          },
+          "three_axis_MSE_fraction": 0.05900456822717033
+        },
+        "true_command_transition": {
+          "weighted_sample_share": 0.045,
+          "weighted_MSE_contribution": {
+            "vx": 0.0020069967310833684,
+            "vy": 0.0011450031251680594,
+            "yaw": 0.0007909824463265843
+          },
+          "axis_MSE_fraction": {
+            "vx": 0.3066915168657857,
+            "vy": 0.15672534114339973,
+            "yaw": 0.05609007857249054
+          },
+          "three_axis_MSE_fraction": 0.14106351881652207
+        },
+        "post_push": {
+          "weighted_sample_share": 0.017499999999999998,
+          "weighted_MSE_contribution": {
+            "vx": 0.0010678613441645931,
+            "vy": 0.002223646898464781,
+            "yaw": 0.00044126868546071594
+          },
+          "axis_MSE_fraction": {
+            "vx": 0.16318114044330836,
+            "vy": 0.304367569907902,
+            "yaw": 0.03129120671895664
+          },
+          "three_axis_MSE_fraction": 0.133543244180741
+        },
+        "ordinary": {
+          "weighted_sample_share": 0.9125,
+          "weighted_MSE_contribution": {
+            "vx": 0.0025342290878628266,
+            "vy": 0.0036448035789658256,
+            "yaw": 0.012447744473465912
+          },
+          "axis_MSE_fraction": {
+            "vx": 0.38725850969498254,
+            "vy": 0.4988921617399601,
+            "yaw": 0.8826933755729823
+          },
+          "three_axis_MSE_fraction": 0.6663886687756999
+        }
+      },
+      "falls": 0,
+      "episodes": 1792,
+      "weighted_proxy_loss_by_scenario": {
+        "G1": 0.013767744539237459,
+        "G2": 0.014959906325990334,
+        "G3": 0.01604080661692242,
+        "G4": 0.012096783692063616,
+        "G5": 0.01366370655060114,
+        "G6": 0.01236092205912761,
+        "G7": 0.008045739044952106
+      },
+      "large_error_diagnostics": {
+        "XY_error_norm_mps": {
+          "0.5": {
+            "weighted_valid_sample_fraction": 0.008961718750000002,
+            "weighted_axis_MSE_fraction": {
+              "vx": 0.438088807318825,
+              "vy": 0.3409088523919805,
+              "yaw": 0.027977595838338715
+            },
+            "weighted_three_axis_MSE_fraction": 0.20578315137852912
+          },
+          "1.0": {
+            "weighted_valid_sample_fraction": 0.0011783203125,
+            "weighted_axis_MSE_fraction": {
+              "vx": 0.18701153913071225,
+              "vy": 0.06220736354490693,
+              "yaw": 0.004068860994098113
+            },
+            "weighted_three_axis_MSE_fraction": 0.06209474932825685
+          },
+          "1.5": {
+            "weighted_valid_sample_fraction": 7.03125e-06,
+            "weighted_axis_MSE_fraction": {
+              "vx": 0.0024591934438801715,
+              "vy": 8.425154518764215e-06,
+              "yaw": 1.9506033666178883e-05
+            },
+            "weighted_three_axis_MSE_fraction": 0.0005877845263903005
+          }
+        },
+        "absolute_yaw_error_radps": {
+          "0.5": {
+            "weighted_valid_sample_fraction": 0.000833984375,
+            "weighted_axis_MSE_fraction": {
+              "vx": 0.005932929773250852,
+              "vy": 0.01965277024789851,
+              "yaw": 0.024973441591170844
+            },
+            "weighted_three_axis_MSE_fraction": 0.019125046257182504
+          },
+          "1.0": {
+            "weighted_valid_sample_fraction": 3.61328125e-05,
+            "weighted_axis_MSE_fraction": {
+              "vx": 0.0005579384917338509,
+              "vy": 0.001731919405998143,
+              "yaw": 0.004736300325655845
+            },
+            "weighted_three_axis_MSE_fraction": 0.0029728127255368485
+          },
+          "1.5": {
+            "weighted_valid_sample_fraction": 6.2499999999999995e-06,
+            "weighted_axis_MSE_fraction": {
+              "vx": 0.00013279333254903364,
+              "vy": 0.00039025337049985195,
+              "yaw": 0.001902609925984885
+            },
+            "weighted_three_axis_MSE_fraction": 0.0010929779372481397
+          }
+        }
+      }
+    },
+    "F10_3000": {
+      "weighted_Q3": 0.9167106064740862,
+      "weighted_axis_RMSE": {
+        "vx": 0.08361526615591487,
+        "vy": 0.08332135915217445,
+        "yaw": 0.09941100535960573
+      },
+      "weighted_three_axis_RMSE": 0.08910014891850199,
+      "mixed_unit_axis_MSE_share": {
+        "vx": 0.2935574040132156,
+        "vy": 0.29149732702635406,
+        "yaw": 0.4149452689604302
+      },
+      "weighted_phases": {
+        "initial": {
+          "weighted_sample_share": 0.025,
+          "weighted_MSE_contribution": {
+            "vx": 0.0010966213200375484,
+            "vy": 0.00028394593623329957,
+            "yaw": 0.0003693266517072193
+          },
+          "axis_MSE_fraction": {
+            "vx": 0.15685036439306485,
+            "vy": 0.040899967820116664,
+            "yaw": 0.037371602162490504
+          },
+          "three_axis_MSE_fraction": 0.07347398659557974
+        },
+        "true_command_transition": {
+          "weighted_sample_share": 0.045,
+          "weighted_MSE_contribution": {
+            "vx": 0.002382287802765525,
+            "vy": 0.001262782928059618,
+            "yaw": 0.0006013646743176675
+          },
+          "axis_MSE_fraction": {
+            "vx": 0.34073996476753904,
+            "vy": 0.18189301036164685,
+            "yaw": 0.06085117675447802
+          },
+          "three_axis_MSE_fraction": 0.17829797373085585
+        },
+        "post_push": {
+          "weighted_sample_share": 0.017499999999999998,
+          "weighted_MSE_contribution": {
+            "vx": 0.0014540519868666611,
+            "vy": 0.0025548681560367617,
+            "yaw": 0.000341076067169735
+          },
+          "axis_MSE_fraction": {
+            "vx": 0.20797387376955853,
+            "vy": 0.36800676478316824,
+            "yaw": 0.03451296848059305
+          },
+          "three_axis_MSE_fraction": 0.18264625173707608
+        },
+        "ordinary": {
+          "weighted_sample_share": 0.9125,
+          "weighted_MSE_contribution": {
+            "vx": 0.002058551624654883,
+            "vy": 0.002840851870636832,
+            "yaw": 0.008570780593414689
+          },
+          "axis_MSE_fraction": {
+            "vx": 0.2944357970698568,
+            "vy": 0.40920025703519286,
+            "yaw": 0.8672642526026156
+          },
+          "three_axis_MSE_fraction": 0.5655817879366036
+        }
+      },
+      "falls": 0,
+      "episodes": 1792,
+      "weighted_proxy_loss_by_scenario": {
+        "G1": 0.013242147527390573,
+        "G2": 0.01347922633544361,
+        "G3": 0.013849291762516081,
+        "G4": 0.010075506633021125,
+        "G5": 0.013147298812448015,
+        "G6": 0.012508535490532947,
+        "G7": 0.006987386964561549
+      },
+      "large_error_diagnostics": {
+        "XY_error_norm_mps": {
+          "0.5": {
+            "weighted_valid_sample_fraction": 0.010746093750000001,
+            "weighted_axis_MSE_fraction": {
+              "vx": 0.5083968297772387,
+              "vy": 0.4228693258332371,
+              "yaw": 0.036167614487633226
+            },
+            "weighted_three_axis_MSE_fraction": 0.287516512241008
+          },
+          "1.0": {
+            "weighted_valid_sample_fraction": 0.001466796875,
+            "weighted_axis_MSE_fraction": {
+              "vx": 0.2115844789545563,
+              "vy": 0.08195737787764136,
+              "yaw": 0.005853644925166374
+            },
+            "weighted_three_axis_MSE_fraction": 0.0884314892206817
+          },
+          "1.5": {
+            "weighted_valid_sample_fraction": 1.5625e-06,
+            "weighted_axis_MSE_fraction": {
+              "vx": 7.33531133657258e-05,
+              "vy": 0.0005027535710223914,
+              "yaw": 5.1113604930062595e-05
+            },
+            "weighted_three_axis_MSE_fraction": 0.0001892940201871529
+          }
+        },
+        "absolute_yaw_error_radps": {
+          "0.5": {
+            "weighted_valid_sample_fraction": 0.000566015625,
+            "weighted_axis_MSE_fraction": {
+              "vx": 0.005469429337371668,
+              "vy": 0.016326110004682228,
+              "yaw": 0.025760671999023693
+            },
+            "weighted_three_axis_MSE_fraction": 0.017053877876051945
+          },
+          "1.0": {
+            "weighted_valid_sample_fraction": 2.109375e-05,
+            "weighted_axis_MSE_fraction": {
+              "vx": 0.00033207050667178847,
+              "vy": 0.0013218078232222887,
+              "yaw": 0.004373786662486119
+            },
+            "weighted_three_axis_MSE_fraction": 0.002297667286240589
+          },
+          "1.5": {
+            "weighted_valid_sample_fraction": 5.6640625e-06,
+            "weighted_axis_MSE_fraction": {
+              "vx": 8.310751215284532e-05,
+              "vy": 0.0003006617874901225,
+              "yaw": 0.002407175845903954
+            },
+            "weighted_three_axis_MSE_fraction": 0.00111088516172759
+          }
+        }
+      }
+    }
+  },
+  "F10_vs_C0": {
+    "G1": {
+      "vx": {
+        "C0_RMSE": 0.11687442877696702,
+        "F10_RMSE": 0.12383804715810359,
+        "F10_RMSE_change_percent": 5.958205275531525,
+        "C0_abs_error_p99": 0.49930924296379275,
+        "F10_abs_error_p99": 0.6283684033155451
+      },
+      "vy": {
+        "C0_RMSE": 0.05740536315443141,
+        "F10_RMSE": 0.04717690809162959,
+        "F10_RMSE_change_percent": -17.817943308337448,
+        "C0_abs_error_p99": 0.13932652056217198,
+        "F10_abs_error_p99": 0.12584095418453223
+      },
+      "yaw": {
+        "C0_RMSE": 0.10416862094128264,
+        "F10_RMSE": 0.08980395289331553,
+        "F10_RMSE_change_percent": -13.789822614685598,
+        "C0_abs_error_p99": 0.2583419728279114,
+        "F10_abs_error_p99": 0.22312922894954682
+      }
+    },
+    "G2": {
+      "vx": {
+        "C0_RMSE": 0.05447478751781872,
+        "F10_RMSE": 0.04992820198021764,
+        "F10_RMSE_change_percent": -8.346219865683535,
+        "C0_abs_error_p99": 0.1603361478447915,
+        "F10_abs_error_p99": 0.20581435054540734
+      },
+      "vy": {
+        "C0_RMSE": 0.11014838532105069,
+        "F10_RMSE": 0.11519738475301707,
+        "F10_RMSE_change_percent": 4.583816110649286,
+        "C0_abs_error_p99": 0.47275841683149394,
+        "F10_abs_error_p99": 0.4893076571822167
+      },
+      "yaw": {
+        "C0_RMSE": 0.1342195652288015,
+        "F10_RMSE": 0.1040875029613671,
+        "F10_RMSE_change_percent": -22.449828544794382,
+        "C0_abs_error_p99": 0.3846722021698955,
+        "F10_abs_error_p99": 0.2721825748682023
+      }
+    },
+    "G3": {
+      "vx": {
+        "C0_RMSE": 0.06545116119946721,
+        "F10_RMSE": 0.06290144591036688,
+        "F10_RMSE_change_percent": -3.8955997760374173,
+        "C0_abs_error_p99": 0.22181164085865102,
+        "F10_abs_error_p99": 0.2504533004760749
+      },
+      "vy": {
+        "C0_RMSE": 0.06474524145365462,
+        "F10_RMSE": 0.05058317920415887,
+        "F10_RMSE_change_percent": -21.873518318150253,
+        "C0_abs_error_p99": 0.14869359940290452,
+        "F10_abs_error_p99": 0.13317536234855656
+      },
+      "yaw": {
+        "C0_RMSE": 0.11177114568968526,
+        "F10_RMSE": 0.0945175686846959,
+        "F10_RMSE_change_percent": -15.43652156245331,
+        "C0_abs_error_p99": 0.28198832303285604,
+        "F10_abs_error_p99": 0.24278485700488106
+      }
+    },
+    "G4": {
+      "vx": {
+        "C0_RMSE": 0.06262430620828778,
+        "F10_RMSE": 0.05818300016545082,
+        "F10_RMSE_change_percent": -7.091984425448528,
+        "C0_abs_error_p99": 0.14824531465768837,
+        "F10_abs_error_p99": 0.19038186043500904
+      },
+      "vy": {
+        "C0_RMSE": 0.06128441470678688,
+        "F10_RMSE": 0.04960523181185878,
+        "F10_RMSE_change_percent": -19.05734590239091,
+        "C0_abs_error_p99": 0.13966654628515252,
+        "F10_abs_error_p99": 0.1354714158177377
+      },
+      "yaw": {
+        "C0_RMSE": 0.116328686635932,
+        "F10_RMSE": 0.09305000047500005,
+        "F10_RMSE_change_percent": -20.01113124726155,
+        "C0_abs_error_p99": 0.3004904249310495,
+        "F10_abs_error_p99": 0.23839021340012564
+      }
+    },
+    "G5": {
+      "vx": {
+        "C0_RMSE": 0.07457936069325795,
+        "F10_RMSE": 0.08040638607970117,
+        "F10_RMSE_change_percent": 7.813187632982754,
+        "C0_abs_error_p99": 0.19924098312854782,
+        "F10_abs_error_p99": 0.2651628962159163
+      },
+      "vy": {
+        "C0_RMSE": 0.06569836128328968,
+        "F10_RMSE": 0.06972339784696581,
+        "F10_RMSE_change_percent": 6.12654027445263,
+        "C0_abs_error_p99": 0.1704873403906823,
+        "F10_abs_error_p99": 0.22822664767503775
+      },
+      "yaw": {
+        "C0_RMSE": 0.13224422143061434,
+        "F10_RMSE": 0.11796908869995575,
+        "F10_RMSE_change_percent": -10.7945228730833,
+        "C0_abs_error_p99": 0.3593441954255107,
+        "F10_abs_error_p99": 0.3365326720476155
+      }
+    },
+    "G6": {
+      "vx": {
+        "C0_RMSE": 0.11669282329508242,
+        "F10_RMSE": 0.1295522916093136,
+        "F10_RMSE_change_percent": 11.01993074733767,
+        "C0_abs_error_p99": 0.5602631491422654,
+        "F10_abs_error_p99": 0.6379276585578939
+      },
+      "vy": {
+        "C0_RMSE": 0.1587017813781503,
+        "F10_RMSE": 0.16545610659040896,
+        "F10_RMSE_change_percent": 4.255985757440639,
+        "C0_abs_error_p99": 0.7693391811847702,
+        "F10_abs_error_p99": 0.7998730081319827
+      },
+      "yaw": {
+        "C0_RMSE": 0.11586003436352062,
+        "F10_RMSE": 0.09700807200636284,
+        "F10_RMSE_change_percent": -16.271324672671994,
+        "C0_abs_error_p99": 0.31040055394172766,
+        "F10_abs_error_p99": 0.2690384185314185
+      }
+    },
+    "G7": {
+      "vx": {
+        "C0_RMSE": 0.06394364479469301,
+        "F10_RMSE": 0.06082305258246436,
+        "F10_RMSE_change_percent": -4.880222612032981,
+        "C0_abs_error_p99": 0.16397862553596526,
+        "F10_abs_error_p99": 0.23936389923095822
+      },
+      "vy": {
+        "C0_RMSE": 0.06509724535918297,
+        "F10_RMSE": 0.05200245814013726,
+        "F10_RMSE_change_percent": -20.115731697698468,
+        "C0_abs_error_p99": 0.14797174602746968,
+        "F10_abs_error_p99": 0.13574836730957035
+      },
+      "yaw": {
+        "C0_RMSE": 0.11305116792331589,
+        "F10_RMSE": 0.09662723318977964,
+        "F10_RMSE_change_percent": -14.527877097808329,
+        "C0_abs_error_p99": 0.28405909746885327,
+        "F10_abs_error_p99": 0.24722304403781903
+      }
+    }
+  },
+  "tracking_vs_falls": {
+    "C0_5500": {
+      "Q3": 0.9090643911711052,
+      "no_fall_counterfactual_Q3": 0.9090643911711052,
+      "falls": 0,
+      "gap_to_F10": 0.007646215302980819,
+      "fall_component": 0.0,
+      "tracking_component": 0.007646215302980819,
+      "fall_fraction_of_gap": 0.0,
+      "tail_information_available": true,
+      "no_fall_counterfactual_definition": "Only change survival multiplier; recorded tracking held fixed, not a new policy result"
+    },
+    "F10_3000": {
+      "Q3": 0.916710606474086,
+      "no_fall_counterfactual_Q3": 0.916710606474086,
+      "falls": 0,
+      "gap_to_F10": 0.0,
+      "fall_component": 0.0,
+      "tracking_component": 0.0,
+      "fall_fraction_of_gap": null,
+      "tail_information_available": true,
+      "no_fall_counterfactual_definition": "Only change survival multiplier; recorded tracking held fixed, not a new policy result"
+    },
+    "S1_tracking_pair": {
+      "Q3": 0.8811117563689871,
+      "no_fall_counterfactual_Q3": 0.882617498349605,
+      "falls": 3,
+      "gap_to_F10": 0.03559885010509889,
+      "fall_component": 0.001505741980617925,
+      "tracking_component": 0.034093108124480964,
+      "fall_fraction_of_gap": 0.04229748927767346,
+      "tail_information_available": false,
+      "no_fall_counterfactual_definition": "Only change survival multiplier; recorded tracking held fixed, not a new policy result"
+    },
+    "R1_tracking_double": {
+      "Q3": 0.9038446584470877,
+      "no_fall_counterfactual_Q3": 0.9054168937617019,
+      "falls": 3,
+      "gap_to_F10": 0.012865948026998253,
+      "fall_component": 0.0015722353146141455,
+      "tracking_component": 0.011293712712384107,
+      "fall_fraction_of_gap": 0.12220127979025909,
+      "tail_information_available": false,
+      "no_fall_counterfactual_definition": "Only change survival multiplier; recorded tracking held fixed, not a new policy result"
+    }
+  }
+}

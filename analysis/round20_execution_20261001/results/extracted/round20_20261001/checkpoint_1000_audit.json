@@ -1,0 +1,8 @@
+{
+  "checkpoint": "model_1000.pt",
+  "iteration": 1000,
+  "all_model_tensors_finite": true,
+  "sha256": "a92382738e57908da86ab53216495a6990253103f5941bdff795084b34f91c7b",
+  "f10_log_exists": false,
+  "evaluation_jsons": []
+}

@@ -1,0 +1,63 @@
+Go2 짧은 모델 비교 분석 — 2026-10-02 16:13 UTC
+
+판단
+800회 scratch 비교에서 추가 장기 학습을 정당화할 명확한 개선 후보는 발견하지 못했다.
+control이 부분 품질 지표와 평지 추종에서 가장 좋았다. action은 낙상 1회로 control 2회보다 적지만 전진 추종 오차가 늘었다.
+이는 800회 학습 속도/실패 양상에 관한 결과이며 충분히 학습한 최종 성능 순위가 아니다.
+회수 장애도 계속되므로 3000회 추가 학습은 실행하지 않는다.
+기존 계획대로 C0_5500과 저장 모델 중 가장 좋았던 F10_3000의 별도 7개 시나리오 평가를 시작했다.
+
+동일 조건
+4개 모두 scratch, training seed 42, 6144 environments, 800 iterations.
+평가는 32 environments x reset seeds 211/607 x 4 scenarios = 모델당 256 episodes.
+20초, 첫 낙상 이후 표본 제외, 명령 전환 0.5초를 제외한 steady 결과도 확인.
+여러 reset seed는 독립적인 training seed 반복이 아니다. 학습 seed 반복은 없다.
+총 보상은 보상 가중치가 달라 직접 비교하지 않았다.
+
+모델            낙상/256    생존율       부분 품질(0~1)
+control         2          99.21875%    0.8727016734
+action          1          99.609375%   0.8591808235
+linear          17         93.359375%   0.8294773899
+acc             19         92.578125%   0.8131652233
+부분 품질은 4개 시나리오 가중치 합 0.55로 정규화한 내부 지표이며 공식 점수/전체 점수가 아니다.
+
+시나리오별 관찰
+G1 전후진: 전진 RMSE control 0.12666, action 0.17062(+34.71%), acc 0.14915(+17.76%), linear 0.13139(+3.74%).
+G2 전방위: 전진 RMSE control 0.06614, action 0.14054(+112.51%), acc 0.09401(+42.14%), linear 0.07035(+6.38%).
+G6 밀침 생존: control 62/64, action 63/64, acc 54/64, linear 47/64.
+G5 계단 생존: control/action/linear 64/64, acc 55/64.
+Linear는 계단 전진 RMSE를 7.75% 낮췄으나 yaw RMSE는 10.99% 증가하고 밀침 낙상이 크게 늘었다.
+Action은 계단 vy/yaw RMSE를 낮췄으나 전진 RMSE는 8.88% 증가했다.
+한두 번 낙상 차이를 통계적으로 확정적인 개선으로 해석하지 않는다.
+
+MAE와 전환 이후 오차
+Action G1 전진 MAE 0.11255 vs control 0.06634; G2 0.10314 vs 0.04546.
+구간 첫 0.5초 제외 전진 RMSE도 action G1 0.11838 vs control 0.05839, G2 0.13141 vs 0.05225.
+따라서 action의 전진 악화는 전환 직후 큰 오차만으로 설명되지 않는다.
+Control G1 전진 제곱오차 중 각 reset별 상위 5% 표본의 기여가 합쳐 약79.5%다. 전환 응답도 개선 여지가 있지만 steady 결과를 함께 봐야 한다.
+G6 오차는 낙상 이후를 제외하므로 낮은 RMSE가 낮은 생존을 상쇄한다고 볼 수 없다.
+
+학습 곡선
+각 로그 800 iteration을 확인해 100회 구간 평균을 비교했다.
+마지막 700~799 구간: 전진/횡방향 학습 오차 control 0.631782, action 0.738057, acc 0.695989, linear 0.633785.
+같은 구간 yaw 학습 오차 control 0.413573, action 0.425621, acc 0.397072, linear 0.552783.
+몸통 접촉 종료 비율 control 0.100226, action 0.085658, acc 0.148173, linear 0.140091.
+Linear의 xy 오차는 중간에 빠르게 낮아졌지만 마지막에는 control과 비슷하며 yaw/접촉 종료가 더 나빴다.
+Acc는 후반 접촉 종료 비율 증가와 별도 평가 낙상 증가가 함께 관찰됐다.
+이 학습 지표는 평가 RMSE/생존율과 정의 및 조건이 다르므로 서로 대체하지 않는다.
+
+후속 실행
+2026-10-02 16:08:02 UTC부터 tmux short_sweep_heldout에서 실행.
+finalist_runner.py --arm none --saved_model F10_3000 --deadline 1790974800
+2개 저장 모델, 128 environments, reset seeds 809/1201, startup seed 303, terrain seed 9049.
+G1~G7을 평지/거친 지형/경사/계단/도메인 랜덤화로 순차 평가.
+추가 학습과 공식 제출은 없다. 공식 90점 이상을 보장할 근거는 아직 없다.
+
+보존 및 한계
+4개 model_799.pt는 각 6,882,219 bytes로 원격 보존했고 해시가 manifest와 일치한다.
+short runner 종료 후 보상 원본과 backup 해시 일치를 확인했다.
+제공 학습 소스 보호 검사는 short runner 종료 및 heldout runner 시작을 통과했다.
+짧은 비교 archive: 415,664,784 bytes, SHA256 3fce5beaff533454f4788563ad3d22b9bdb5e47f725f087def5ccb9645a8c987.
+이 archive는 아직 로컬에 회수되지 않았다. heldout 종료 때 갱신되므로 최종 크기/해시를 다시 확인해야 한다.
+로컬 short_screen_summary.json 및 short_diagnostics_summary.json은 편집기/clipboard로 읽은 요약 자료이며 전체 archive 회수 완료가 아니다.
+최종 계산 마감 21:00 UTC, 할당 서버 종료 한도 21:13 UTC. 회수 실패 여부와 관계없이 이 종료 한도를 지킨다.

@@ -1,0 +1,107 @@
+Future runner contract — DESIGN ONLY, no runnable server-start command
+
+The old execution/runner.py schedules two1500 arms and a6h allocation. Do not
+launch it unchanged. No future four-hour runner has been implemented or tested
+here. This specification and the reward literal require a separate execution
+instruction before any server start.
+
+One B1 scratch1500 policy,6144env,seed42. No warm start, continuation, second arm,
+1600/1800 auto-extension, new training seed, retry of interrupted training, or
+official submission. Full ten-weight effective values must equal design.json.
+Only the literal REWARD_WEIGHTS dictionary in quadruped_rewards.py may change.
+Train/play/agent_cfg/env_cfg/PPO, architecture, action scale, curriculum, task
+registration and physical parameters stay protected. Evaluation helpers are
+separate student-workspace files, never edits to the protected provided sources.
+
+Before training, within15min setup cap:
+1. Record actual allocation start, actual quota and four-hour hard deadline.
+2. Through supported browser UI, recover a tiny probe and verify local SHA256.
+   If upload/recovery/source checks are not ready within setup cap, stop the
+   allocation without training. Never rely on a prior download completion event.
+3. Compare four provided hashes with historical manifest; snapshot and protect
+   all current rsl_rl Python sources. Verify current runtime, environment config
+   and existing-policy loader (actor_state_dict/model_state_dict). New training
+   effective config and model_0 do not exist yet; verify them immediately after
+   training starts within the planned120sec boot phase. If boot is slower, use
+   actual elapsed time in admission and never extend a deadline.
+4. Confirm reward original SHA09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7.
+   Back up atomically, validate candidate literal, refuse unknown external edits.
+5. Check no competing GPU jobs, use a lock and one tmux session. A zero-budget
+   static verification is not a substitute for this real runtime check.
+
+Deadlines relative to actual allocation start (not runner start):
+setup_end900s; training_end_latest9600s; selection_end10500s;
+compute_end11700s; dashboard stop request by13800s;
+actual allocation OFF confirmed by14400s. effective_now=max(time.time(),
+runner_boot_wall+monotonic_elapsed_since_runner_boot). Deadlines stay anchored
+to actual allocation start, including setup time before runner boot.
+
+Planning: 4.818008522sec/iteration,10%margin and120sec training boot.
+Admission uses ACTUAL remaining time and protects15min selection+20min final
+validation+45min recovery/shutdown. Update estimate after100iterations and at
+each subsequent100 using max(planning rate,recent50 iteration mean). If the
+remaining training estimate cannot fit before training_end_latest, signal the
+CURRENT confirmed runner/child process group for clean stop. Preserve partial
+checkpoint/evidence. No automatic training restart, continuation or extension.
+NaN/Inf, PhysX overflow, source/hash/config mismatch stop immediately; low raw
+weighted reward by itself is not an early-stop condition across reward families.
+
+After training exits, no overlapping GPU evaluation. Select between1000/1499
+only on selection conditions in design.json. Exact tie prefers lateriteration.
+No substitution of a missing checkpoint by a portal auto model_best file.
+If selection is incomplete by10500s, stop its owned processgroup and verify
+exit before freezing1499 and entering validation; record no selection claim.
+If final1499 does not exist, only preserve partial run; do not label complete.
+
+Validation: frozen selectedmodel+C0+F10, G1-G7,env128, reset2039/2063,
+startup409,terrain11003. Observation noiseON, cmd_scale1, transient_s0.
+Selection conditions: G1/G3/G5/G6,env64,reset2029,startup404,terrain10037.
+Use five terrain processes sequentially, fixed existing commands/geometries.
+Four5sec command segments,control step0.02sec,1000steps/seed/scenario. Confirm
+protected effective timing agrees; do not modify provided physics if it differs.
+Use meshflat,rough0.04-0.10m,slope20deg,stairs0.12m/0.30m,
+DRfriction0.4-1.2,massdelta-1to3kg,push1.0m/s every2.5s as frozen legacy defaults.
+Match ALL conditions between candidate and references. Do not reuse historical
+0.5s-transient summaries as same-condition comparators. New seeds do not make
+this a new scenario distribution or an independent training seed repetition.
+
+Extend only the separate evaluation helper for unrounded squared/absolute-error
+sums, counts perseed andscenario, per-episode aggregates and the predeclared
+diagnostics. Legacy t_eval lacks some required fields and silently nan_to_num's
+NaN actions; the future helper must invalidate/stop on nonfinite rather than
+turn that into a valid score. This extension is NOT yet implemented. Disable
+legacy official prediction/calibration output in this experiment's reporting.
+Full-window errors include initialization and all command transitions. Record
+termination masks: firsttermination/timeouttick and postreset trajectory excluded; falls
+reported independently, not concealed by fewer valid samples. Detailed traces
+only first4env×2resetseeds; no result-dependent sampling. Verify loaded selected
+checkpoint SHA and actor outputs before interpreting model results.
+Legacy ignores timeout masking, so this explicitly audited endpoint mask is a
+new shared evaluation detail. Require scheduled/completed1000 controlsteps,
+128per-episode validcounts and firsttermination/timeoutindices; reconcile their
+sum with raw error sample count and survival. No-fall episodes must include all
+1000steps except an explicitly logged final-step timeout (999valid). Any earlier
+timeout/shortened command horizon invalidates completion. A positive sample
+count or a boolean completion flag alone cannot establish full-window coverage.
+
+On every phase boundary, hash provided/PPO sources and confirm no conflicting
+processgroup. At training entry verify B1 active values. On training exit before
+evaluation, and on abort/finalcleanup, restore reward original, verify the CURRENT
+reward file equals backup and record rollback failures. Verify owned process
+groups truly exited before each next GPU phase. An old reward_restored.json does not
+prove current restoration. Preserve params, all created checkpoints, events,
+logs, exact settings, raw aggregates/traces, selections and failures.
+
+By compute cutoff stop GPU jobs and build a critical recovery bundle first:
+actual selected model+SHA+params+summary+protected hashes+cleanup status.
+Then full archive with raw/events/all checkpoints. Through supported portal UI
+recover, verify local sizes/SHA256, safely extract under a new child folder;
+confirm selected exact checkpoint, logs/events and3policies×7scenarios×2seeds.
+Mark partial retrieval explicitly if full archive is absent. No hidden APIs,
+rawCDP,fetch,page globals,private runbooks,chrome://downloads bypass or added
+permissions. Recovery trouble never extends4h. Request dashboard stop by3h50m
+even if recovery is partial, then verify allocationOFF, not just process exit.
+
+Only a complete result may be fed into decision_rules.py. Passing recommends
+a separately approved confirmation budget; it never launches another job.
+0falls/1792 and two reset seeds do not guarantee robustness or official93.

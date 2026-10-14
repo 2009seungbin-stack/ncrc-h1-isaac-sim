@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "status": "AUTHORIZED_READY_PENDING_LOGIN",
+  "execution_authorized": true,
+  "server_started": false,
+  "simulator_executed": false,
+  "user_budget_seconds": 14400,
+  "budget_includes": [
+    "setup",
+    "training",
+    "checkpoint_selection",
+    "validation",
+    "retrieval",
+    "hash_verification",
+    "allocation_shutdown_confirmation"
+  ],
+  "objective": "Measure whether torque-cost relaxation improves full-window tracking without losing yaw or survival, within four actual allocation hours",
+  "primary_candidate": "S5_torque_half",
+  "candidate_selection_basis": "Single torque-cost relaxation preserving the other nine F10 weights; hypothesis not a demonstrated score improvement",
+  "candidates": {
+    "S5_torque_half": {
+      "role": "only_scheduled_new_policy",
+      "trained": false,
+      "weights": {
+        "track_lin_vel_xy_exp": 2.0,
+        "track_ang_vel_z_exp": 1.5,
+        "feet_air_time": 0.01,
+        "lin_vel_z_l2": -3.0,
+        "ang_vel_xy_l2": -0.08,
+        "action_rate_l2": -0.01,
+        "dof_acc_l2": -2.5e-07,
+        "dof_torques_l2": -0.0001,
+        "flat_orientation_l2": 0.0,
+        "dof_pos_limits": 0.0
+      }
+    }
+  },
+  "training": {
+    "policies": 1,
+    "initialization": "scratch",
+    "resume": false,
+    "iterations": 1500,
+    "num_envs": 6144,
+    "seed": 42,
+    "protected_training_and_PPO_unchanged": true,
+    "second_candidate": false,
+    "automatic_extension": false,
+    "independent_training_seed_repeat": false,
+    "runtime_reference": {
+      "rsl_rl_lib": "5.0.1",
+      "torch": "2.7.0+cu128",
+      "basis": "last run, must verify next allocation"
+    }
+  },
+  "budget": {
+    "setup_seconds": 900,
+    "selection_seconds": 900,
+    "validation_seconds": 1650,
+    "retrieval_shutdown_seconds": 2700,
+    "planning_iteration_seconds": 4.818008522014856,
+    "planning_multiplier": 1.05,
+    "training_boot_seconds": 120,
+    "deadlines_relative_to_actual_allocation_start": {
+      "setup_end": 1200,
+      "training_end_latest": 9600,
+      "selection_end_latest": 10500,
+      "compute_end": 11700,
+      "dashboard_shutdown_request_latest": 12900,
+      "shutdown_confirmed_latest": 14400,
+      "training_begin_latest": 1800
+    },
+    "deadline_clock": "Deadlines are actual_allocation_start_epoch plus fixed offsets; effective_now=max(time.time(), runner_boot_wall+monotonic_elapsed_since_runner_boot)",
+    "no_hard_deadline_extension_for_retrieval_failure": true,
+    "computation_margin_seconds": 300,
+    "training_start_latest_seconds": 1800,
+    "allocation_minutes": 240,
+    "stop_when_remaining_seconds": 1500,
+    "conservative_evaluation_planning_seconds": 2450,
+    "basis": "Previous same-runtime training and older evaluation timings; diagnostic buffer and boot allowance are planning assumptions, not a guarantee",
+    "setup_target_seconds": 900,
+    "setup_hard_backstop_seconds": 1200
+  },
+  "evaluation": {
+    "axis_mode": "all",
+    "transient_seconds": 0.0,
+    "command_scale": 1.0,
+    "observation_noise": "provided_default_ON",
+    "segment_seconds": 5.0,
+    "segments_per_scenario": 4,
+    "required_control_step_seconds": 0.02,
+    "expected_control_steps_per_scenario_seed": 1000,
+    "terrain_and_disturbance": {
+      "flat_mode": "mesh",
+      "rough_min_m": 0.04,
+      "rough_max_m": 0.1,
+      "slope_deg": 20.0,
+      "stair_height_m": 0.12,
+      "stair_width_m": 0.3,
+      "dr_friction": [
+        0.4,
+        1.2
+      ],
+      "dr_mass_delta_kg": [
+        -1.0,
+        3.0
+      ],
+      "push_magnitude_mps": 1.0,
+      "push_period_seconds": 2.5
+    },
+    "scenario_weights": {
+      "G1": 0.15,
+      "G2": 0.15,
+      "G3": 0.2,
+      "G4": 0.15,
+      "G5": 0.15,
+      "G6": 0.1,
+      "G7": 0.1
+    },
+    "selection": {
+      "candidates": [
+        "model_1000.pt",
+        "model_1499.pt"
+      ],
+      "scenarios": [
+        "G1",
+        "G3",
+        "G5",
+        "G6"
+      ],
+      "num_envs": 64,
+      "reset_seeds": [
+        2029
+      ],
+      "startup_seed": 404,
+      "terrain_seed": 10037,
+      "comparators": [
+        "C0_5500",
+        "F10_3000"
+      ],
+      "rank_order": [
+        "fewer_falls",
+        "higher_unrounded_internal_Q3",
+        "lower_XY_RMSE",
+        "later_iteration_on_exact_tie"
+      ],
+      "if_incomplete": "select model_1499.pt without claiming checkpoint optimality; preserve completed selection data"
+    },
+    "validation": {
+      "scenarios": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7"
+      ],
+      "num_envs": 128,
+      "reset_seeds": [
+        2039,
+        2063
+      ],
+      "startup_seed": 409,
+      "terrain_seed": 11003,
+      "comparators": [
+        "C0_5500",
+        "F10_3000"
+      ],
+      "freeze_checkpoint_before_validation": true,
+      "reuse_validation_for_selection": false,
+      "episodes_per_policy": 1792,
+      "fresh_within_this_run_not_new_scenario_distribution": true
+    },
+    "metrics": {
+      "VX_RMSE": "sqrt(sum_s w_s * RMSE_vx_s^2)",
+      "XY_RMSE": "sqrt(sum_s w_s * (RMSE_vx_s^2 + RMSE_vy_s^2)/2)",
+      "yaw_RMSE": "sqrt(sum_s w_s * RMSE_yaw_s^2)",
+      "Q3_internal": "sum_s w_s * survival_s * exp(-sqrt((RMSE_vx_s^2+RMSE_vy_s^2+RMSE_yaw_s^2)/3))",
+      "primary": [
+        "falls_and_survival_per_scenario_and_seed",
+        "full_window_RMSE_and_MAE_per_axis",
+        "VX_RMSE",
+        "XY_RMSE",
+        "yaw_RMSE"
+      ],
+      "secondary": [
+        "Q3_internal",
+        "per_episode_error_distribution",
+        "early_transition_error",
+        "learning_curves"
+      ],
+      "mask": "all initial and transition steps; exclude first termination or timeout tick and later reset trajectory; unlike legacy, audit timeout explicitly. Log planned/completed steps, first event indices and per-episode valid sample counts",
+      "raw_total_training_reward_for_cross_candidate_ranking": false,
+      "mixed_units_in_Q3": "Q3 mixes m/s and rad/s empirically; not a physical norm or official formula"
+    },
+    "required_new_diagnostics": [
+      "projected_gravity",
+      "body_quaternion",
+      "foot_contact",
+      "joint_position",
+      "joint_velocity",
+      "applied_torque",
+      "body_velocity",
+      "world_velocity",
+      "raw_and_clipped_action",
+      "full_env_raw_velocity_error_and_validity_masks",
+      "full_env_p99_absolute_error",
+      "signed_transition_error",
+      "ordinary_window_yaw_error"
+    ],
+    "diagnostic_capture": "8 predetermined episodes per scenario: first4 environments for each of2 reset seeds at control rate; full per-episode aggregates for all episodes",
+    "diagnostic_implementation_status": "IMPLEMENTED_CPU_TESTED_REQUIRES_REMOTE_RUNTIME_VERIFICATION",
+    "screen": {
+      "enabled": false,
+      "reason": "Concentrate the four-hour allocation on one fresh training and complete reference-matched validation; old B1 checkpoints remain preserved locally"
+    },
+    "observation_command_boundary": "Retain the inherited cached observation after command injection for all current policies equally. The first actor input at a boundary may hold the previous command for one control step. Historical October 2 Q3 used a refreshed command observation and is not directly comparable."
+  },
+  "next_budget_gate": {
+    "kind": "practical_exploratory_admission_rule_NOT_statistical_significance_or_official_prediction",
+    "all_required": [
+      "complete_data_including_sample_coverage",
+      "zero_candidate_falls",
+      "no_more_falls_than_either_reference_in_any_scenario_seed",
+      "weighted_XY_RMSE_at_most_0.90_of_F10",
+      "weighted_VX_RMSE_at_most_F10",
+      "G1_G3_G5_G6_VX_RMSE_at_most_1.05_of_F10",
+      "weighted_yaw_RMSE_at_most_1.02_of_F10",
+      "Q3_at_least_F10",
+      "each_reset_seed_XY_RMSE_at_most_F10",
+      "G3_and_G5_XY_RMSE_at_most_C0",
+      "every_other_scenario_XY_RMSE_at_most_1.10_of_C0",
+      "every_scenario_yaw_RMSE_at_most_1.10_of_F10",
+      "all_MAE_and_per_episode_distributions_reported"
+    ],
+    "passing_action": "recommend a separately budgeted confirmation; do not launch it automatically",
+    "failing_action": "no additional GPU time in this allocation; preserve result, do not claim converged failure",
+    "thresholds_chosen_before_future_results": true
+  },
+  "official_target": {
+    "historical_anchor_total": 88.14,
+    "historical_anchor_simulation": 58.14,
+    "assumed_design_report_points_if_unchanged": 30,
+    "target": 93,
+    "required_simulation_points_if_30_unchanged": 63,
+    "required_gain": 4.86,
+    "candidate_predicted_official_score": null,
+    "candidate_predicted_score_gain": null,
+    "probability_of_93": null,
+    "reason": "Local error/Q3 has no validated official-score mapping; one independent training seed; archived C0/F10 have different training lengths and historical runtimes"
+  },
+  "execution_readiness": {
+    "candidate_literal_ready_for_review": true,
+    "future_runner_ready": true,
+    "old_six_hour_two_arm_runner_must_not_be_used_unchanged": true,
+    "requires_future_separate_training_instruction": false,
+    "requires_local_CPU_contract_checks_and_remote_effective_config_check": true,
+    "retrieval_smoke_test_before_training": true,
+    "user_training_authorization_received": true,
+    "local_CPU_contract_checks_passed": true,
+    "actual_remote_preflight_verified": false,
+    "separate_final_receipts_to_retrieve": [
+      "launch_finished.json",
+      "streaming_control_audit.jsonl",
+      "streaming_control_console.log"
+    ]
+  },
+  "forbidden_in_current_task": [
+    "second_new_policy",
+    "training_retry",
+    "resume_training",
+    "extra_evaluation",
+    "budget_extension",
+    "official_submission",
+    "local_PC_shutdown"
+  ],
+  "candidate_name": "S5_torque_half",
+  "candidate_reward_file": "quadruped_rewards_S5_torque_half.py",
+  "scope": {
+    "allowed": "Existing ten static REWARD_WEIGHTS values only",
+    "protected": "Provided train/play/agent_cfg/env_cfg, PPO, observations, actions, reward kernels and task sources unchanged",
+    "candidate_changes": {
+      "dof_torques_l2": {
+        "F10": -0.0002,
+        "S5_torque_half": -0.0001
+      }
+    },
+    "no_score_forecast": true
+  },
+  "candidate_reward_sha256": "2317a023772166596a40922235d087df79d14ab17b25e48e2736104b5a6dd560"
+}

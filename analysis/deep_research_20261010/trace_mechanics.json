@@ -1,0 +1,1351 @@
+{
+  "status": "RECORDED_FIRST8ENV_MECHANICAL_DIAGNOSTIC",
+  "no_simulator": true,
+  "no_policy_inference": true,
+  "sample_limit": "Exactly environment indices0..7 per reset809/1201;16 combined episodes per model/scenario. They are not assumed to represent all256 episodes or tail environments.",
+  "sampling_limit": "50Hz control-step snapshots of applied torque/joint acceleration. These are not all200Hz physics samples or guaranteed physical peak values.",
+  "saturation_status": "Deferred: historical F10 params contains effort_limit23.5/velocity_limit30 with *_sim null, but evaluated runtime resolved per-joint limits and actual clipping logic were not recorded. No actual saturation rate inferred.",
+  "historical_limit_reference": {
+    "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\preserved\\F10\\2026-10-01_18-55-04_round20_F10\\params\\env.yaml",
+    "sha256": "77eab5e85aca1d09747e05628466eddc7e438a4c24df3f474f8b0251caac1adc",
+    "matching_yaml_lines": [
+      {
+        "line": 173,
+        "text": "effort_limit: 23.5"
+      },
+      {
+        "line": 174,
+        "text": "velocity_limit: 30.0"
+      },
+      {
+        "line": 175,
+        "text": "effort_limit_sim: null"
+      },
+      {
+        "line": 176,
+        "text": "velocity_limit_sim: null"
+      }
+    ],
+    "verified_as_evaluation_runtime_clipping": false
+  },
+  "ranking_definition_unchanged": "Full1000-step valid-error and survival definition unchanged. Listed response-window values are diagnostics only.",
+  "columns": {
+    "action": [
+      9,
+      21
+    ],
+    "joint_velocity": [
+      21,
+      33
+    ],
+    "joint_acceleration": [
+      33,
+      45
+    ],
+    "applied_torque": [
+      45,
+      57
+    ]
+  },
+  "models": {
+    "C0_5500": {
+      "G1": {
+        "evidence": [
+          {
+            "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\C0_5500_G1_809.npz",
+            "sha256": "91af9afbcf2a642b598d56d9f5a0bbb61541ea91dc020d2caa0fdf11d164a77b",
+            "reset_seed": 809,
+            "trace_environment_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          {
+            "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\C0_5500_G1_1201.npz",
+            "sha256": "e8dfb720a4af072ee822e6b602244cbb01f0fbe07538754328ebb74d19c090f0",
+            "reset_seed": 1201,
+            "trace_environment_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          }
+        ],
+        "windows": {
+          "250_first0.5s": {
+            "boundary_step_index": 250,
+            "old_command": [
+              0.30000001192092896,
+              0.0,
+              0.0
+            ],
+            "new_command": [
+              0.6000000238418579,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 400,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.09556363744017453,
+                "vy": 0.05509985282333285,
+                "yaw": 0.10672410403538397
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.10212285920454325,
+                "vy": 0.06309125890789218,
+                "yaw": 0.10049393534637935
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 0.9357712679074999,
+                "vy": 0.8733357643691008,
+                "yaw": 1.0619954693537543
+              },
+              "applied_torque": {
+                "RMS_Nm": 7.4137810965317055,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  2.1115375161436734,
+                  1.7972759518116064,
+                  3.07857059023137,
+                  2.6149722587447712,
+                  5.343114326872888,
+                  4.375571296758131,
+                  7.962723580604699,
+                  5.193129825814101,
+                  7.386272120191835,
+                  6.117139457389241,
+                  15.81501793162006,
+                  12.466197142727342
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.7891742365683974,
+                "recorded_abs_peak": 5.865114688873291
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.5851838056553451,
+                "RMS_per_second": 29.259190282767257,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 228.4964088873935,
+                "recorded_abs_peak_rad_s2": 4941.1298828125
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 3.031391699617659,
+                "recorded_abs_peak_rad_s": 15.697307586669922
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          },
+          "250_first1.0s": {
+            "boundary_step_index": 250,
+            "old_command": [
+              0.30000001192092896,
+              0.0,
+              0.0
+            ],
+            "new_command": [
+              0.6000000238418579,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 800,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.07445565394570504,
+                "vy": 0.057149225098184014,
+                "yaw": 0.10185025458490327
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.07817926918013023,
+                "vy": 0.06283709522877803,
+                "yaw": 0.09850222437593777
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 0.9523708104018506,
+                "vy": 0.9094822873354417,
+                "yaw": 1.0339893868405206
+              },
+              "applied_torque": {
+                "RMS_Nm": 7.21169420336504,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  2.179168393684492,
+                  1.9943760731858862,
+                  3.204893952443497,
+                  2.8648194417284425,
+                  5.290099831537978,
+                  4.348926435934476,
+                  7.271739328034918,
+                  5.073262552988057,
+                  6.92887244924801,
+                  6.843603026479796,
+                  15.444836428504685,
+                  11.747165685399924
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.7569906273394515,
+                "recorded_abs_peak": 6.314387321472168
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.5756856503388027,
+                "RMS_per_second": 28.784282516940134,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 233.2111046731099,
+                "recorded_abs_peak_rad_s2": 4941.1298828125
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 2.9721802479717403,
+                "recorded_abs_peak_rad_s": 15.697307586669922
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          },
+          "500_first0.5s": {
+            "boundary_step_index": 500,
+            "old_command": [
+              0.6000000238418579,
+              0.0,
+              0.0
+            ],
+            "new_command": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 400,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.13402016577566048,
+                "vy": 0.0684991218743586,
+                "yaw": 0.12066705005551757
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.1357309107831401,
+                "vy": 0.06944288584754847,
+                "yaw": 0.11907593880122386
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 0.9873960544609259,
+                "vy": 0.9864094937635257,
+                "yaw": 1.0133621558671881
+              },
+              "applied_torque": {
+                "RMS_Nm": 8.487948927013989,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  2.1420195944607467,
+                  2.342165593716274,
+                  4.082731489619553,
+                  3.600316435880491,
+                  5.046274701402389,
+                  4.379403306974069,
+                  7.70037683706437,
+                  6.917622406230656,
+                  8.332871307017111,
+                  8.465395390578422,
+                  16.35336749106706,
+                  16.2638465583568
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.9723976164177288,
+                "recorded_abs_peak": 7.133544445037842
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.738909476792241,
+                "RMS_per_second": 36.94547383961205,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 271.7586939006113,
+                "recorded_abs_peak_rad_s2": 5191.6845703125
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 4.5844632710201125,
+                "recorded_abs_peak_rad_s": 18.56439971923828
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          },
+          "500_first1.0s": {
+            "boundary_step_index": 500,
+            "old_command": [
+              0.6000000238418579,
+              0.0,
+              0.0
+            ],
+            "new_command": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 800,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.09761261135842313,
+                "vy": 0.06644668049555537,
+                "yaw": 0.11307963010778521
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.0988471072974066,
+                "vy": 0.06785682526376549,
+                "yaw": 0.1109010012963419
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 0.9875110564918285,
+                "vy": 0.9792188219426894,
+                "yaw": 1.0196448074045945
+              },
+              "applied_torque": {
+                "RMS_Nm": 7.941701897561086,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  2.152820091133731,
+                  2.558110786373242,
+                  3.961659461881253,
+                  3.5068677126219616,
+                  4.811555850122358,
+                  4.023827127267768,
+                  6.371691957258805,
+                  6.372353089275684,
+                  8.000997871737805,
+                  9.093614669175027,
+                  15.32245950262968,
+                  14.684718578322045
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.897347165307469,
+                "recorded_abs_peak": 7.133544445037842
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.700690764435069,
+                "RMS_per_second": 35.03453822175345,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 270.4418720023569,
+                "recorded_abs_peak_rad_s2": 5191.6845703125
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 4.435625295622456,
+                "recorded_abs_peak_rad_s": 18.56439971923828
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          },
+          "750_first0.5s": {
+            "boundary_step_index": 750,
+            "old_command": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "new_command": [
+              -0.5,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 400,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.6475089591230977,
+                "vy": 0.07858842957653746,
+                "yaw": 0.13319750832779367
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.6561933393273518,
+                "vy": 0.07993214010138013,
+                "yaw": 0.14257643439286277
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 0.9867655160700712,
+                "vy": 0.9831893588344013,
+                "yaw": 0.9342182591042647
+              },
+              "applied_torque": {
+                "RMS_Nm": 6.289784881070364,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  3.4307038488752704,
+                  2.5771414283976433,
+                  1.7047449474454324,
+                  2.3088744147456723,
+                  9.85588161340985,
+                  9.21607319292426,
+                  2.316912550249795,
+                  3.1242571124569136,
+                  10.832962899256446,
+                  8.016843368743729,
+                  5.4185578076833485,
+                  6.316737902284962
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.6647529246917407,
+                "recorded_abs_peak": 4.732646465301514
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.6248224996014343,
+                "RMS_per_second": 31.241124980071717,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 236.97423113601454,
+                "recorded_abs_peak_rad_s2": 4946.2197265625
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 2.952452775686098,
+                "recorded_abs_peak_rad_s": 16.209871292114258
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          },
+          "750_first1.0s": {
+            "boundary_step_index": 750,
+            "old_command": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "new_command": [
+              -0.5,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 800,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.458969221861826,
+                "vy": 0.061759090384587025,
+                "yaw": 0.12092742409400013
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.4653548024247916,
+                "vy": 0.0671318487320077,
+                "yaw": 0.13112504543391473
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 0.9862780387573251,
+                "vy": 0.9199670730226888,
+                "yaw": 0.9222297974718029
+              },
+              "applied_torque": {
+                "RMS_Nm": 5.977853592013026,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  2.7771978239605053,
+                  2.2899988794115207,
+                  1.6752548951091046,
+                  2.1727940348605137,
+                  7.56680348174269,
+                  7.433055619046981,
+                  2.3342127390399314,
+                  3.4173870645309226,
+                  10.028649201943642,
+                  6.964613103103948,
+                  7.015266703831485,
+                  8.96687491065583
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.5704295591424096,
+                "recorded_abs_peak": 4.732646465301514
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.5515847837362077,
+                "RMS_per_second": 27.57923918681038,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 190.77656343704726,
+                "recorded_abs_peak_rad_s2": 4946.2197265625
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 2.499986631228338,
+                "recorded_abs_peak_rad_s": 16.209871292114258
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          }
+        }
+      },
+      "G6": {
+        "evidence": [
+          {
+            "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\C0_5500_G6_809.npz",
+            "sha256": "567caf597fc94f9464f2a6e3022c9743d577e478a4b5f62416339c09eac749cc",
+            "reset_seed": 809,
+            "trace_environment_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          {
+            "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\C0_5500_G6_1201.npz",
+            "sha256": "5f3bd5ee42876a67992b2d9e2c478d7a0c84d26809ac4ddd2987b0035a48dab4",
+            "reset_seed": 1201,
+            "trace_environment_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          }
+        ],
+        "windows": {
+          "post_push_first0.5s": {
+            "push_response_start_indices": [
+              126,
+              251,
+              376,
+              501,
+              626,
+              751,
+              876
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 2800,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.24802821329765207,
+                "vy": 0.3456897086860257,
+                "yaw": 0.16064634197262395
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.24702357830371557,
+                "vy": 0.356462532470277,
+                "yaw": 0.15879343013770092
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 1.0040669599268022,
+                "vy": 0.9697785242404136,
+                "yaw": 1.0116686933037233
+              },
+              "applied_torque": {
+                "RMS_Nm": 7.534136923636179,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  3.1955027231322433,
+                  2.7800331236880287,
+                  3.1713023199084907,
+                  3.0109863153062135,
+                  7.77205756661603,
+                  5.969905761290495,
+                  6.453552416884804,
+                  4.485884437122542,
+                  9.621809763244421,
+                  9.267192427584083,
+                  12.931891737533737,
+                  11.856878057574843
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.9002925619025588,
+                "recorded_abs_peak": 8.342690467834473
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.6954290479572005,
+                "RMS_per_second": 34.771452397860024,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 256.1981609368011,
+                "recorded_abs_peak_rad_s2": 5076.34375
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 3.5803156660703985,
+                "recorded_abs_peak_rad_s": 17.00701904296875
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          },
+          "post_push_first1.0s": {
+            "push_response_start_indices": [
+              126,
+              251,
+              376,
+              501,
+              626,
+              751,
+              876
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 5600,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.1785260392460761,
+                "vy": 0.24846494520461082,
+                "yaw": 0.13646755564365048
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.17811851256033928,
+                "vy": 0.2557939745208259,
+                "yaw": 0.13541443198057163
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 1.0022879524417698,
+                "vy": 0.971347920411556,
+                "yaw": 1.0077770415433265
+              },
+              "applied_torque": {
+                "RMS_Nm": 7.1362311352454775,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  2.69097763598736,
+                  2.410461859027231,
+                  2.9315138897899367,
+                  2.906671599553572,
+                  7.049885324629038,
+                  5.443485935103128,
+                  6.567145916933222,
+                  4.403349811025827,
+                  8.052773303553455,
+                  8.384477433330314,
+                  13.41140986860941,
+                  11.142418304028672
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.7981134264859708,
+                "recorded_abs_peak": 8.342690467834473
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.6214384846578475,
+                "RMS_per_second": 31.07192423289237,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 230.53580768585343,
+                "recorded_abs_peak_rad_s2": 5076.34375
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 3.130942116022609,
+                "recorded_abs_peak_rad_s": 17.00701904296875
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          }
+        }
+      }
+    },
+    "F10_3000": {
+      "G1": {
+        "evidence": [
+          {
+            "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\F10_3000_G1_809.npz",
+            "sha256": "1120a79194181c7c41c3575cb11d914f9b3d118b8c5fa7a446ada84956a2421a",
+            "reset_seed": 809,
+            "trace_environment_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          {
+            "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\F10_3000_G1_1201.npz",
+            "sha256": "28b4933524d19e6d4a12eb3f5a61cc5df097db40ccaf5167aca83e8ea589cf3b",
+            "reset_seed": 1201,
+            "trace_environment_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          }
+        ],
+        "windows": {
+          "250_first0.5s": {
+            "boundary_step_index": 250,
+            "old_command": [
+              0.30000001192092896,
+              0.0,
+              0.0
+            ],
+            "new_command": [
+              0.6000000238418579,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 400,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.09364653294722874,
+                "vy": 0.049588937759728405,
+                "yaw": 0.08536868329880787
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.09770361804886946,
+                "vy": 0.04855651792846853,
+                "yaw": 0.085898263189484
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 0.9584755899253246,
+                "vy": 1.0212622295688663,
+                "yaw": 0.9938348009492587
+              },
+              "applied_torque": {
+                "RMS_Nm": 6.562931809655188,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  1.7210259005043502,
+                  2.512225220369058,
+                  2.478297679822404,
+                  1.815233017856342,
+                  5.957363116670949,
+                  6.242219981639405,
+                  6.415000129308919,
+                  4.268925819802862,
+                  6.942013460641072,
+                  5.071418352793456,
+                  11.223181415579472,
+                  12.823906395883004
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.6237355631516222,
+                "recorded_abs_peak": 5.127878189086914
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.5620233894181332,
+                "RMS_per_second": 28.101169470906665,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 212.80511349484715,
+                "recorded_abs_peak_rad_s2": 4813.234375
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 3.092027922573357,
+                "recorded_abs_peak_rad_s": 15.698098182678223
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          },
+          "250_first1.0s": {
+            "boundary_step_index": 250,
+            "old_command": [
+              0.30000001192092896,
+              0.0,
+              0.0
+            ],
+            "new_command": [
+              0.6000000238418579,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 800,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.0710489999130438,
+                "vy": 0.04675333761026091,
+                "yaw": 0.08153395867976401
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.07314321751642684,
+                "vy": 0.045046487171262944,
+                "yaw": 0.08288317005860853
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 0.9713682597718275,
+                "vy": 1.0378908666620033,
+                "yaw": 0.9837215278096813
+              },
+              "applied_torque": {
+                "RMS_Nm": 6.288645263381918,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  1.906861757226957,
+                  2.938325155256126,
+                  2.4470378416615874,
+                  1.7469372466875404,
+                  6.214135204692755,
+                  6.320488678503981,
+                  6.107973912084732,
+                  4.20325682197572,
+                  6.6291051953244935,
+                  5.484584344991162,
+                  10.52477772486846,
+                  11.615491232699389
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.601231468919384,
+                "recorded_abs_peak": 5.127878189086914
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.551655788465134,
+                "RMS_per_second": 27.5827894232567,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 220.21882079202518,
+                "recorded_abs_peak_rad_s2": 4813.234375
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 3.0208455320067946,
+                "recorded_abs_peak_rad_s": 15.701791763305664
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          },
+          "500_first0.5s": {
+            "boundary_step_index": 500,
+            "old_command": [
+              0.6000000238418579,
+              0.0,
+              0.0
+            ],
+            "new_command": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 400,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.15668952319288296,
+                "vy": 0.04573159591779028,
+                "yaw": 0.087435981973806
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.1559539054330654,
+                "vy": 0.04527031631020748,
+                "yaw": 0.09050457172067826
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 1.0047168921982097,
+                "vy": 1.0101894496257096,
+                "yaw": 0.9660946437452601
+              },
+              "applied_torque": {
+                "RMS_Nm": 7.688285030566812,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  2.0962892643547426,
+                  3.3310875970630547,
+                  3.075184108381826,
+                  1.8187284881357213,
+                  5.825172709359466,
+                  4.680295428301994,
+                  8.076127522589763,
+                  5.512529855079793,
+                  7.9810205067024,
+                  6.246950608532006,
+                  14.094514161522202,
+                  15.107467803181772
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.8114829158251833,
+                "recorded_abs_peak": 6.035040855407715
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.6885931656895736,
+                "RMS_per_second": 34.429658284478684,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 285.2995862437428,
+                "recorded_abs_peak_rad_s2": 5225.07373046875
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 4.333099820964483,
+                "recorded_abs_peak_rad_s": 18.497222900390625
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          },
+          "500_first1.0s": {
+            "boundary_step_index": 500,
+            "old_command": [
+              0.6000000238418579,
+              0.0,
+              0.0
+            ],
+            "new_command": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 800,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.1143727022516672,
+                "vy": 0.04149468974766127,
+                "yaw": 0.08500207879616353
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.11414806899147376,
+                "vy": 0.044711453639845106,
+                "yaw": 0.08973020623273474
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 1.0019679111716748,
+                "vy": 0.9280550366781817,
+                "yaw": 0.9473072933287617
+              },
+              "applied_torque": {
+                "RMS_Nm": 7.165936891679352,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  2.168142870643358,
+                  3.412525320731824,
+                  3.007368572639185,
+                  1.8369040637473446,
+                  6.153186382128807,
+                  4.573897822084213,
+                  7.218308946240302,
+                  5.313604773042253,
+                  7.7306297323956334,
+                  6.317245081394984,
+                  13.191875974141752,
+                  13.214640620183621
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.7947075541018258,
+                "recorded_abs_peak": 6.035040855407715
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.6690542792784784,
+                "RMS_per_second": 33.45271396392393,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 264.43118946512465,
+                "recorded_abs_peak_rad_s2": 5225.07373046875
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 4.274795864087369,
+                "recorded_abs_peak_rad_s": 18.497222900390625
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          },
+          "750_first0.5s": {
+            "boundary_step_index": 750,
+            "old_command": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "new_command": [
+              -0.5,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 400,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.7079084653312221,
+                "vy": 0.0997914790014294,
+                "yaw": 0.10600498178982938
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.7135113754088146,
+                "vy": 0.09343970336607525,
+                "yaw": 0.10989830858326355
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 0.9921474131027241,
+                "vy": 1.0679772666921827,
+                "yaw": 0.9645733692936282
+              },
+              "applied_torque": {
+                "RMS_Nm": 6.306104145071991,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  3.158813258495734,
+                  3.683215987092167,
+                  1.3157351776629473,
+                  1.8518290986350208,
+                  12.725668862889883,
+                  10.690045081989194,
+                  2.084084505773817,
+                  3.1722434539808546,
+                  7.436413940204001,
+                  6.712654980819818,
+                  3.574357925554959,
+                  6.688535729218908
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.797207194022488,
+                "recorded_abs_peak": 5.362536430358887
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.6028258484835994,
+                "RMS_per_second": 30.14129242417997,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 198.38445235190844,
+                "recorded_abs_peak_rad_s2": 5201.65380859375
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 2.5438658982146287,
+                "recorded_abs_peak_rad_s": 15.698854446411133
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          },
+          "750_first1.0s": {
+            "boundary_step_index": 750,
+            "old_command": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "new_command": [
+              -0.5,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 800,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.5020784319826818,
+                "vy": 0.0852696554947161,
+                "yaw": 0.09876273747857708
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.5063185638379257,
+                "vy": 0.07992451116808333,
+                "yaw": 0.1010812398543616
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 0.9916255650926493,
+                "vy": 1.0668774103027268,
+                "yaw": 0.9770629804390506
+              },
+              "applied_torque": {
+                "RMS_Nm": 5.843226827941074,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  2.723180084649372,
+                  3.1041760374319995,
+                  1.4611786481834312,
+                  2.1113491644365263,
+                  9.703294903707956,
+                  8.382340048038111,
+                  2.1560942571441375,
+                  3.906360700423595,
+                  7.203205525693577,
+                  6.265704654759998,
+                  5.839251517146709,
+                  8.74683395229585
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.6078311020920357,
+                "recorded_abs_peak": 5.6905741691589355
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.5472264346697882,
+                "RMS_per_second": 27.36132173348941,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 162.50932299680065,
+                "recorded_abs_peak_rad_s2": 5201.65380859375
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 2.293543399044153,
+                "recorded_abs_peak_rad_s": 15.698854446411133
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          }
+        }
+      },
+      "G6": {
+        "evidence": [
+          {
+            "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\F10_3000_G6_809.npz",
+            "sha256": "34830407bbdf29c0f828e4226a06202fe5c9061506e5abcaf7b7b784b5902f50",
+            "reset_seed": 809,
+            "trace_environment_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          {
+            "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\traces\\F10_3000_G6_1201.npz",
+            "sha256": "b0646f4db5bd5d7ef57676a0d644ae476c823cdb93c7874d95b7975e4fa17319",
+            "reset_seed": 1201,
+            "trace_environment_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          }
+        ],
+        "windows": {
+          "post_push_first0.5s": {
+            "push_response_start_indices": [
+              126,
+              251,
+              376,
+              501,
+              626,
+              751,
+              876
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 2800,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.29978290554012177,
+                "vy": 0.3820800579538405,
+                "yaw": 0.14124208999588053
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.28825107972703884,
+                "vy": 0.38208960475160136,
+                "yaw": 0.1396068085056278
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 1.0400061842751918,
+                "vy": 0.9999750142436691,
+                "yaw": 1.0117134795054556
+              },
+              "applied_torque": {
+                "RMS_Nm": 7.210077933052427,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  3.0908851711187246,
+                  3.36025388004586,
+                  3.2797328128553946,
+                  2.9399593436952607,
+                  8.998417845444195,
+                  7.074166777527689,
+                  6.192038515034142,
+                  4.0847209559838555,
+                  9.490401085606393,
+                  7.923054578006396,
+                  10.84543977046653,
+                  11.272536717997438
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.8130681937586537,
+                "recorded_abs_peak": 9.240433692932129
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.6919632719470241,
+                "RMS_per_second": 34.5981635973512,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 269.70711770154816,
+                "recorded_abs_peak_rad_s2": 6181.25390625
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 3.761623507341539,
+                "recorded_abs_peak_rad_s": 20.92535400390625
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          },
+          "post_push_first1.0s": {
+            "push_response_start_indices": [
+              126,
+              251,
+              376,
+              501,
+              626,
+              751,
+              876
+            ],
+            "metrics": {
+              "recorded_samples_control_steps_times_environments": 5600,
+              "recorded_environments_per_reset": 8,
+              "combined_recorded_environments": 16,
+              "full_environments_per_reset": 128,
+              "combined_full_environments": 256,
+              "first8_subset_speed_error_RMS": {
+                "vx": 0.21362411967371012,
+                "vy": 0.2736724146630002,
+                "yaw": 0.11726407552185035
+              },
+              "full128_speed_error_RMS": {
+                "vx": 0.20560036884073674,
+                "vy": 0.274235081547894,
+                "yaw": 0.11716452131467939
+              },
+              "subset_to_full_speed_error_RMS_ratio": {
+                "vx": 1.039025955440716,
+                "vy": 0.9979482315620675,
+                "yaw": 1.00084969584695
+              },
+              "applied_torque": {
+                "RMS_Nm": 6.571143270437364,
+                "recorded_abs_peak_Nm": 23.5,
+                "per_joint_RMS_Nm": [
+                  2.553108468244624,
+                  3.04906569737549,
+                  2.806551546205653,
+                  2.4653141086436325,
+                  7.82593991955131,
+                  6.914196931335279,
+                  5.826166953069079,
+                  3.952717196549953,
+                  7.890757621000618,
+                  7.13579173851271,
+                  10.13835417922292,
+                  10.667706519736655
+                ]
+              },
+              "raw_actor_action": {
+                "RMS": 1.686211696138806,
+                "recorded_abs_peak": 9.240433692932129
+              },
+              "raw_action_difference": {
+                "RMS_per_control_step": 0.6055781332752166,
+                "RMS_per_second": 30.27890666376083,
+                "definition": "Current raw actor action minus previous control-step raw actor action. Per-second version divides by dt=.02; this is not the reward summed-squared action-rate value."
+              },
+              "joint_acceleration": {
+                "RMS_rad_s2": 229.58547273701424,
+                "recorded_abs_peak_rad_s2": 6181.25390625
+              },
+              "joint_velocity": {
+                "RMS_rad_s": 3.236945697511892,
+                "recorded_abs_peak_rad_s": 20.92535400390625
+              },
+              "actual_effort_saturation_fraction": null,
+              "actual_velocity_saturation_fraction": null
+            }
+          }
+        }
+      }
+    }
+  },
+  "change_cause_or_optimal_coefficient_conclusion": null,
+  "subset_representation_diagnostic": {
+    "min_RMS_ratio": 0.8733357643691008,
+    "max_RMS_ratio": 1.0679772666921827,
+    "interpretation": "These windows show subset/full RMS ratios only. Matching RMS is not proof that first8envs represent the full distribution, worst tails, effort or saturation."
+  },
+  "recorded_torque_ceiling_note": "Every listed window has a recorded abs peak23.5Nm, equal to the historical parameter reference. This observation is not a verified runtime saturation fraction."
+}

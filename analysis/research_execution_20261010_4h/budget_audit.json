@@ -1,0 +1,370 @@
+{
+  "status": "LOCAL_PREALLOCATION_BUDGET_AND_EVALUATOR_AUDIT",
+  "no_gpu": true,
+  "no_remote": true,
+  "no_browser": true,
+  "no_training": true,
+  "measured_training": {
+    "B1_process_seconds": 7189.556985139847,
+    "B1_process_minutes": 119.82594975233079,
+    "S1_process_seconds": 7143.165997743607,
+    "R1_process_seconds": 7093.875231266022,
+    "B1_iteration_samples": 1500,
+    "B1_iteration_mean_seconds": 4.768686666666667,
+    "B1_iteration_median_seconds": 4.71,
+    "B1_iteration_p90_seconds": 4.95,
+    "B1_recent50_mean_seconds": 4.7078,
+    "B1_training_log_sha256": "a28885fee84d938b384cd01e5896f73cf231629001ffb5f55a9416ec546f8bbe",
+    "B1_state_sha256": "2411db805ba165de1086ce04beccf6d7ad373b8c84ca1a595e4c5cb13bef20ad"
+  },
+  "measured_evaluation": {
+    "recent_common56_rollout_seconds": 1006.2629425525665,
+    "recent_common56_minutes": 16.771049042542774,
+    "common56_definition": "4policies x7scenarios x2resetseeds,env128,5terrainprocesses; older batch evaluator",
+    "recent_per_terrain_seconds": {
+      "common_flat": 394.0827374458313,
+      "common_rough": 142.0474226474762,
+      "common_slope": 156.0453336238861,
+      "common_stairs": 172.04691672325134,
+      "common_dr": 142.04053211212158
+    },
+    "latest_timing_evidence_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\high_score_search_20261009\\execution.json",
+    "latest_timing_evidence_sha256": "99627f36336c24310727ca5849861c3ba065f88f463df254b6e654d8b88a143a",
+    "old_raw_log_per_rollout_max_seconds": 20.4,
+    "old_raw_log_per_rollout_median_seconds": 16.825000000000003,
+    "old_timing_sources": [
+      {
+        "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\logs\\heldout_flat.log",
+        "sha256": "fdcad8f84ecd12499dbd59987bf406e221bc183e4257a6c5350a7605ad479fe8",
+        "timings": [
+          {
+            "model": "C0_5500",
+            "scenario": "G1",
+            "two_reset_seconds": 32.7,
+            "seconds_per_reset_rollout": 16.35
+          },
+          {
+            "model": "C0_5500",
+            "scenario": "G2",
+            "two_reset_seconds": 32.099999999999994,
+            "seconds_per_reset_rollout": 16.049999999999997
+          },
+          {
+            "model": "C0_5500",
+            "scenario": "G6",
+            "two_reset_seconds": 32.2,
+            "seconds_per_reset_rollout": 16.1
+          },
+          {
+            "model": "F10_3000",
+            "scenario": "G1",
+            "two_reset_seconds": 32.3,
+            "seconds_per_reset_rollout": 16.15
+          },
+          {
+            "model": "F10_3000",
+            "scenario": "G2",
+            "two_reset_seconds": 32.3,
+            "seconds_per_reset_rollout": 16.15
+          },
+          {
+            "model": "F10_3000",
+            "scenario": "G6",
+            "two_reset_seconds": 32.2,
+            "seconds_per_reset_rollout": 16.1
+          }
+        ]
+      },
+      {
+        "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\logs\\heldout_rough.log",
+        "sha256": "65b8b9b9b8d7b56b2c536cef269dea087b97e0b10c63fb06b1870b9b17ecda5e",
+        "timings": [
+          {
+            "model": "C0_5500",
+            "scenario": "G3",
+            "two_reset_seconds": 34.3,
+            "seconds_per_reset_rollout": 17.15
+          },
+          {
+            "model": "F10_3000",
+            "scenario": "G3",
+            "two_reset_seconds": 33.6,
+            "seconds_per_reset_rollout": 16.8
+          }
+        ]
+      },
+      {
+        "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\logs\\heldout_slope.log",
+        "sha256": "0fc8054921234863ef3b379a3a0605842abe9ab85c184b2009362e0f2674e168",
+        "timings": [
+          {
+            "model": "C0_5500",
+            "scenario": "G4",
+            "two_reset_seconds": 39.4,
+            "seconds_per_reset_rollout": 19.7
+          },
+          {
+            "model": "F10_3000",
+            "scenario": "G4",
+            "two_reset_seconds": 37.4,
+            "seconds_per_reset_rollout": 18.7
+          }
+        ]
+      },
+      {
+        "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\logs\\heldout_stairs.log",
+        "sha256": "0225a5e52b096db719f2bd1f66e9e15f3c51049087f8d1921a8af075f3e3af78",
+        "timings": [
+          {
+            "model": "C0_5500",
+            "scenario": "G5",
+            "two_reset_seconds": 40.8,
+            "seconds_per_reset_rollout": 20.4
+          },
+          {
+            "model": "F10_3000",
+            "scenario": "G5",
+            "two_reset_seconds": 39.9,
+            "seconds_per_reset_rollout": 19.95
+          }
+        ]
+      },
+      {
+        "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\logs\\heldout_dr.log",
+        "sha256": "a9b8b3ffd7f8a1279a89d93f1c0229a1652407fdd7e3dbe14547b6bb07a5d571",
+        "timings": [
+          {
+            "model": "C0_5500",
+            "scenario": "G7",
+            "two_reset_seconds": 34.5,
+            "seconds_per_reset_rollout": 17.25
+          },
+          {
+            "model": "F10_3000",
+            "scenario": "G7",
+            "two_reset_seconds": 33.7,
+            "seconds_per_reset_rollout": 16.85
+          }
+        ]
+      }
+    ],
+    "new_evaluator_runtime_measured": false,
+    "warning": "Old evaluator timing includes different diagnostics; env64 is not assumed to be twice as fast."
+  },
+  "rollout_count": {
+    "prior_screen": 20,
+    "new_screen_new_policies_only": 8,
+    "total_deduplicated_screen": 28,
+    "with_repeated_refs": 36,
+    "two_reset_screen": 56,
+    "final_validation": 42,
+    "screen_seed2029_only": true
+  },
+  "caps_elapsed_minutes": {
+    "training_start_latest": 30,
+    "training_complete_latest": 160,
+    "selection_complete_latest": 175,
+    "compute_stop": 195,
+    "confirmed_server_off": 240,
+    "archive_retrieval_stop_and_shutdown_request_latest": 215
+  },
+  "initial_plan_conservative_cases": {
+    "deduplicated_refs_one_reset": {
+      "screen_rollouts": 28,
+      "validation_rollouts": 42,
+      "total_rollouts": 70,
+      "terrain_processes": 11,
+      "setup_minutes": 15,
+      "training_planning_minutes": 130,
+      "seconds_per_rollout_planning": 30.599999999999998,
+      "seconds_per_terrain_start_planning": 75,
+      "evaluation_planning_minutes": 49.45,
+      "compute_finish_elapsed_minutes": 194.45,
+      "margin_before_compute195_minutes": 0.5500000000000114,
+      "fits195_arithmetically": true,
+      "has5min_compute_margin": false,
+      "assumption_status": "Conservative planning assumptions, not measured new-evaluator or new-server timings"
+    },
+    "references_repeated_between_stages": {
+      "screen_rollouts": 36,
+      "validation_rollouts": 42,
+      "total_rollouts": 78,
+      "terrain_processes": 11,
+      "setup_minutes": 15,
+      "training_planning_minutes": 130,
+      "seconds_per_rollout_planning": 30.599999999999998,
+      "seconds_per_terrain_start_planning": 75,
+      "evaluation_planning_minutes": 53.529999999999994,
+      "compute_finish_elapsed_minutes": 198.53,
+      "margin_before_compute195_minutes": -3.530000000000001,
+      "fits195_arithmetically": false,
+      "has5min_compute_margin": false,
+      "assumption_status": "Conservative planning assumptions, not measured new-evaluator or new-server timings"
+    },
+    "two_reset_screen_not_current_scope": {
+      "screen_rollouts": 56,
+      "validation_rollouts": 42,
+      "total_rollouts": 98,
+      "terrain_processes": 11,
+      "setup_minutes": 15,
+      "training_planning_minutes": 130,
+      "seconds_per_rollout_planning": 30.599999999999998,
+      "seconds_per_terrain_start_planning": 75,
+      "evaluation_planning_minutes": 63.73,
+      "compute_finish_elapsed_minutes": 208.73,
+      "margin_before_compute195_minutes": -13.72999999999999,
+      "fits195_arithmetically": false,
+      "has5min_compute_margin": false,
+      "assumption_status": "Conservative planning assumptions, not measured new-evaluator or new-server timings"
+    }
+  },
+  "initial_plan_deduplicated_phase_arithmetic": {
+    "setup15": 15,
+    "prior_screen20_rollouts_minutes": 13.95,
+    "latest_planned_training_start_minute": 28.95,
+    "training130": 130,
+    "planned_training_finish_minute": 158.95,
+    "new_screen8_rollouts_minutes": 7.829999999999999,
+    "planned_selection_finish_minute": 166.78,
+    "validation42_rollouts_minutes": 27.669999999999998,
+    "planned_compute_finish_minute": 194.45
+  },
+  "final_pipeline": {
+    "candidate": "S5_torque_half",
+    "scratch_iterations": 1500,
+    "num_training_envs": 6144,
+    "training_seed": 42,
+    "prior_B1_screen_enabled": false,
+    "prior_B1_screen_rollouts": 0,
+    "selection_policies": [
+      "S5_model_1000",
+      "S5_model_1499",
+      "C0_5500",
+      "F10_3000"
+    ],
+    "selection_rollouts": 16,
+    "validation_policies": [
+      "candidate",
+      "C0_5500",
+      "F10_3000"
+    ],
+    "validation_rollouts": 42,
+    "total_eval_rollouts": 58,
+    "selection_terrain_processes": 3,
+    "validation_terrain_processes": 5,
+    "reference_reuse_dependency": false,
+    "final_case_arithmetic": {
+      "boots8_oldmax_factor1.0": {
+        "selection_rollouts": 16,
+        "validation_rollouts": 42,
+        "total_rollouts": 58,
+        "actual_selection_terrain_processes": 3,
+        "actual_validation_terrain_processes": 5,
+        "planned_boot_allowance": 8,
+        "seconds_per_rollout_planning": 20.4,
+        "diagnostic_buffer_factor": 1.0,
+        "evaluation_planning_minutes": 29.719999999999995,
+        "compute_finish_elapsed_minutes": 174.72,
+        "margin_before_compute195_minutes": 20.28,
+        "has5min_compute_margin": true,
+        "max_training_start_for_full130min_case_and5min_margin": 30.28,
+        "assumption_status": "Factor1 uses old observedmax only; factor1.5 retains explicit extra diagnosticbuffer. Boots9 adds one extra75s pad beyond8evaluationterrainstarts."
+      },
+      "boots8_oldmax_factor1.5": {
+        "selection_rollouts": 16,
+        "validation_rollouts": 42,
+        "total_rollouts": 58,
+        "actual_selection_terrain_processes": 3,
+        "actual_validation_terrain_processes": 5,
+        "planned_boot_allowance": 8,
+        "seconds_per_rollout_planning": 30.599999999999998,
+        "diagnostic_buffer_factor": 1.5,
+        "evaluation_planning_minutes": 39.58,
+        "compute_finish_elapsed_minutes": 184.57999999999998,
+        "margin_before_compute195_minutes": 10.420000000000016,
+        "has5min_compute_margin": true,
+        "max_training_start_for_full130min_case_and5min_margin": 20.42,
+        "assumption_status": "Factor1 uses old observedmax only; factor1.5 retains explicit extra diagnosticbuffer. Boots9 adds one extra75s pad beyond8evaluationterrainstarts."
+      },
+      "boots9_oldmax_factor1.0": {
+        "selection_rollouts": 16,
+        "validation_rollouts": 42,
+        "total_rollouts": 58,
+        "actual_selection_terrain_processes": 3,
+        "actual_validation_terrain_processes": 5,
+        "planned_boot_allowance": 9,
+        "seconds_per_rollout_planning": 20.4,
+        "diagnostic_buffer_factor": 1.0,
+        "evaluation_planning_minutes": 30.969999999999995,
+        "compute_finish_elapsed_minutes": 175.97,
+        "margin_before_compute195_minutes": 19.03,
+        "has5min_compute_margin": true,
+        "max_training_start_for_full130min_case_and5min_margin": 29.03,
+        "assumption_status": "Factor1 uses old observedmax only; factor1.5 retains explicit extra diagnosticbuffer. Boots9 adds one extra75s pad beyond8evaluationterrainstarts."
+      },
+      "boots9_oldmax_factor1.5": {
+        "selection_rollouts": 16,
+        "validation_rollouts": 42,
+        "total_rollouts": 58,
+        "actual_selection_terrain_processes": 3,
+        "actual_validation_terrain_processes": 5,
+        "planned_boot_allowance": 9,
+        "seconds_per_rollout_planning": 30.599999999999998,
+        "diagnostic_buffer_factor": 1.5,
+        "evaluation_planning_minutes": 40.83,
+        "compute_finish_elapsed_minutes": 185.82999999999998,
+        "margin_before_compute195_minutes": 9.170000000000016,
+        "has5min_compute_margin": true,
+        "max_training_start_for_full130min_case_and5min_margin": 19.17,
+        "assumption_status": "Factor1 uses old observedmax only; factor1.5 retains explicit extra diagnosticbuffer. Boots9 adds one extra75s pad beyond8evaluationterrainstarts."
+      }
+    }
+  },
+  "measured_training_plus_conservative_eval_finish_minutes": 184.2759497523308,
+  "assessment": "Final no-prescreen58rollout pipeline is conditionally feasible: same conservative130mintraining/1.5diagnosticbuffer/9bootpad planning reaches185.83min and leaves9.17min before195, exceeding5min compute margin. Actual new-runtime speeds remain unmeasured; live timing/admission remains mandatory. The withdrawn initial28screen plan left only33sec, justifying disabling oldB1screen.",
+  "live_admission_rules": [
+    "Do not start training after elapsed30min. Require observed1500-iteration ETA to fit elapsed160min with preservation margin.",
+    "Elapsed30min is an outer cap, not sufficient admission by itself: the conservative130mintraining+1.5diagnosticbuffer plan needs training start by elapsed19.17min with9bootpad (20.42min with8actualevaluationboots) to preserve5min margin.",
+    "Reserve full42 validation rollouts and all5terrainstarts before admitting remaining selection work. Require projected compute finish plus5min <=195.",
+    "After compute cutoff195min, archive/retrieval/verification may use only the first20min (195 to215). At215min or whenever remaining allocation time is<=25min, stop retrieval and immediately request dashboard shutdown; the final25min are reserved for actual OFF confirmation by240. Retrieval failure never extends these bounds.",
+    "If a stage is incomplete at its bound, preserve partial metrics/checkpoints, stop process group/restore sources, do not silently retry or continue training."
+  ],
+  "evaluator_audit": {
+    "cpu_test_count": 44,
+    "cpu_test_returncode": 0,
+    "cpu_test_all_passed": true,
+    "test_output": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_execution_20261010_4h\\evaluation_cpu_test_output.txt",
+    "old_evaluation_sha256": "f5ba443c4a095287686aa61210b0e3b196cb60de6c95102ca092d8077b9a0ec1",
+    "new_evaluation_sha256": "c7f34a83698f1a60e2d755a2c22add070d967dbf724f8219ee1116bc3cee2ce3",
+    "frozen_legacy_copies_unchanged": {
+      "t_eval.py": true,
+      "t_eval_go2_core.py": true
+    },
+    "new_diagnostics": "Full-env exact error/mask recording and arithmetic samplep99/signedlag/ordinaryyaw only; no observation recompute/environment/score change",
+    "actual_rsl5_loader_previous_live_success": true,
+    "previous_runtime": {
+      "rsl_rl_lib": "5.0.1",
+      "torch": "2.7.0+cu128"
+    },
+    "new_runtime_not_yet_verified": true,
+    "dimensions": [
+      235,
+      512,
+      256,
+      128,
+      12
+    ],
+    "normalization": "Unsupported normalization is rejected in both checkpoint and manifest; effective actor config must be reverified live",
+    "source_audit": "Immutable per-job receipt plus independent provided/PPO hash checks before/after evaluation required"
+  },
+  "comparison_cautions": [
+    "Reset2029screen and2039/2063validation are different reset/terrain/startup conditions, but they are not independent training seeds.",
+    "Validation seeds2039/2063 were predeclared in the previous B1 design; no previous B1 validation actually ran, but they should not be advertised as newly generated hidden holdout conditions.",
+    "B1 intermediate checkpoints share one seed42 training trajectory; selecting600/1000/1499 is correlated checkpoint selection, not3trainingreplicates.",
+    "All3baseline durations differ: C0_5500,F10_3000,new1500. A favorable fresh shared-protocol comparison does not identify a reward-only causal effect.",
+    "HistoricalOct2diagnostics synchronized command observations; the reused evaluator preserves legacy cached observation and may have one old-command step. Compare fresh references only, not mix historicalquality rows.",
+    "First4 mechanical traces do not represent full-env effort/tails; new full-error arrays allow full-env speederror diagnostics.",
+    "Zero falls in limited reset samples is evidence within this protocol, not a guarantee of official survival or93points."
+  ],
+  "official_prediction": null
+}

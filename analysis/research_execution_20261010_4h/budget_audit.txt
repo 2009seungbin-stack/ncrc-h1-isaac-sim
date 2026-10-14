@@ -1,0 +1,52 @@
+4시간 실행 예산 독립 점검 — 서버 시작 전 로컬 검증
+
+실측 B1 1500회 프로세스 119.826분. 실측 기존56rollout 평가 16.771분.
+이전 원시 로그의1reset rollout 최대 20.400초. 새 evaluator 런타임은 실측되지 않았다.
+최종 확정: 초기B1screen enabled=false. S5_torque_half 하나만scratch1500회,6144환경,seed42 학습.
+최종selection16 = 새1000/1499 + C0/F10, 각4시나리오×reset2029한개.
+최종검증42 = 후보+C0/F10 ×7시나리오×reset2039/2063. 전체58rollout, 실제eval지형부팅8회(3+5).
+철회된초기안: screen28 = 기존B1세 checkpoint + 새후보두 checkpoint + C0/F10, 각4시나리오×reset2029한개.
+기준 모델을 두 단계에서 재평가하면36개다. 56개는 두reset을 사용해야 하므로 현재 명세와 다르다.
+최종검증42 = 후보+C0/F10 ×7시나리오×reset2039/2063.
+
+보수적 가정: setup15분 + 학습130분 + old최대rollout시간×1.5 + 지형프로세스당75초. 새runtime실측값이 아니다.
+최종안 | 계산종료 추정분 | 195분까지여유 | 5분여유확보
+boots8_oldmax_factor1.0 | 174.720 | +20.280 | True
+boots8_oldmax_factor1.5 | 184.580 | +10.420 | True
+boots9_oldmax_factor1.0 | 175.970 | +19.030 | True
+boots9_oldmax_factor1.5 | 185.830 | +9.170 | True
+
+철회된초기안(포함screen20+추가screen8)의 비용:
+deduplicated_refs_one_reset | 194.450 | +0.550 | False
+references_repeated_between_stages | 198.530 | -3.530 | False
+two_reset_screen_not_current_scope | 208.730 | -13.730 | False
+
+중복기준회수 없는28screen일 때 단계별 보수적 추정:
+setup15: 15.000분
+prior_screen20_rollouts_minutes: 13.950분
+latest_planned_training_start_minute: 28.950분
+training130: 130.000분
+planned_training_finish_minute: 158.950분
+new_screen8_rollouts_minutes: 7.830분
+planned_selection_finish_minute: 166.780분
+validation42_rollouts_minutes: 27.670분
+planned_compute_finish_minute: 194.450분
+
+Final no-prescreen58rollout pipeline is conditionally feasible: same conservative130mintraining/1.5diagnosticbuffer/9bootpad planning reaches185.83min and leaves9.17min before195, exceeding5min compute margin. Actual new-runtime speeds remain unmeasured; live timing/admission remains mandatory. The withdrawn initial28screen plan left only33sec, justifying disabling oldB1screen.
+
+라이브 입장 조건:
+Do not start training after elapsed30min. Require observed1500-iteration ETA to fit elapsed160min with preservation margin.
+Elapsed30min is an outer cap, not sufficient admission by itself: the conservative130mintraining+1.5diagnosticbuffer plan needs training start by elapsed19.17min with9bootpad (20.42min with8actualevaluationboots) to preserve5min margin.
+Reserve full42 validation rollouts and all5terrainstarts before admitting remaining selection work. Require projected compute finish plus5min <=195.
+After compute cutoff195min, archive/retrieval/verification may use only the first20min (195 to215). At215min or whenever remaining allocation time is<=25min, stop retrieval and immediately request dashboard shutdown; the final25min are reserved for actual OFF confirmation by240. Retrieval failure never extends these bounds.
+If a stage is incomplete at its bound, preserve partial metrics/checkpoints, stop process group/restore sources, do not silently retry or continue training.
+
+CPUtests 44개; exit0. t_eval/core 원본 copy hash동일: True
+기존참고와 seed의 의미:
+Reset2029screen and2039/2063validation are different reset/terrain/startup conditions, but they are not independent training seeds.
+Validation seeds2039/2063 were predeclared in the previous B1 design; no previous B1 validation actually ran, but they should not be advertised as newly generated hidden holdout conditions.
+B1 intermediate checkpoints share one seed42 training trajectory; selecting600/1000/1499 is correlated checkpoint selection, not3trainingreplicates.
+All3baseline durations differ: C0_5500,F10_3000,new1500. A favorable fresh shared-protocol comparison does not identify a reward-only causal effect.
+HistoricalOct2diagnostics synchronized command observations; the reused evaluator preserves legacy cached observation and may have one old-command step. Compare fresh references only, not mix historicalquality rows.
+First4 mechanical traces do not represent full-env effort/tails; new full-error arrays allow full-env speederror diagnostics.
+Zero falls in limited reset samples is evidence within this protocol, not a guarantee of official survival or93points.

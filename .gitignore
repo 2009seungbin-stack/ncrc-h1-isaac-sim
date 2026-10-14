@@ -19,3 +19,21 @@ __pycache__/
 /G3_pack/
 /S1_pack/
 /eval_results/tr/
+
+# Vendored plotting packages / caches (reinstallable)
+**/_plotdeps/
+**/.plot_packages/
+**/.plot_cache/
+
+# Unrelated local tool rollback (contains a 900MB installer)
+/analysis/codex_rollback_20261008/
+
+# Large result archives and chunked transfers (extracted contents are tracked)
+*.tar.gz
+**/chunks/*.bin
+/tools/go2/*.bak.tgz
+
+# Bulk checkpoints / rollout traces inside analysis (kept on server backups)
+/analysis/**/*.pt
+/analysis/**/traces/
+/longrun_D1/ckpt/

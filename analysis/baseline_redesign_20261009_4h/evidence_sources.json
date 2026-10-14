@@ -1,0 +1,26 @@
+{
+  "local_evidence": [
+    {"path": "analysis/high_score_search_20261009/execution.json", "supports": "S1/R1 scratch settings, durations, five evaluation times, prior server OFF and automation PAUSED records", "limits": "Historical record; next-allocation runtime/quota not verified"},
+    {"path": "analysis/high_score_search_20261009/screen_summary.json", "supports": "Exact preserved four-model seven-scenario internal results", "limits": "Clipboard summary, not complete archive; earlier evaluation used0.5s transient exclusion"},
+    {"path": "analysis/high_score_search_20261009/prospect_assessment_20261009.json", "supports": "Offline recomputation and rejection of official point forecasting", "limits": "Conditional mapping outputs are not forecasts or confidence intervals"},
+    {"path": "analysis/short_sweep_20261002/heldout_detailed_analysis.json", "supports": "Saved transition/effort diagnostics motivating effort-balance hypothesis", "limits": "No saved gravity/contact/joint-position traces; control-rate effort sampling is not dynamic motor saturation"},
+    {"path": "analysis/training_efficiency_20261001/analysis.json", "supports": "GF00/GF03 hypothesis_not_result provenance", "limits": "Proposals must not be labeled executed failures"},
+    {"path": "S1_pack/SCREEN_RESULT.md", "supports": "Old upstream-like partial199-iteration run with PhysX overflow", "limits": "8192 environments and overflow confound comparison; not clean complete baseline test"},
+    {"path": "analysis/score_reverse_20261001/analysis.json", "supports": "Historical official88.14, simulation58.14/70 and seven scenario weights", "limits": "No verified mapping from local metrics to new official score"},
+    {"path": "analysis/short_sweep_20261002/recovered_20261003/short_sweep_20261002/fresh_rewards_original.py", "supports": "Permitted literal reward edit boundary and immutable source copy", "sha256": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7"}
+  ],
+  "primary_public_sources": [
+    {"url": "https://raw.githubusercontent.com/isaac-sim/IsaacLab/v2.3.2/source/isaaclab_tasks/isaaclab_tasks/manager_based/locomotion/velocity/config/go2/rough_env_cfg.py", "supports": "Go2 rough lin1.5/yaw0.75/air0.01/tau-0.0002/acc-2.5e-7", "limits": "Pinned upstream reference, not proof of competition superiority"},
+    {"url": "https://raw.githubusercontent.com/isaac-sim/IsaacLab/v2.3.2/source/isaaclab_tasks/isaaclab_tasks/manager_based/locomotion/velocity/velocity_env_cfg.py", "supports": "Parent z-2/angular-0.05/action-0.01/orientation0/limits0", "limits": "Do not replace provided environment"},
+    {"url": "https://raw.githubusercontent.com/isaac-sim/IsaacLab/v2.3.2/source/isaaclab/isaaclab/envs/mdp/rewards.py", "supports": "Body-frame velocity costs, gravity-projection orientation cost, applied-torque square and action-difference costs", "limits": "Coefficient ratio is not measured gradient or gait effect"},
+    {"url": "https://raw.githubusercontent.com/isaac-sim/IsaacLab/v2.3.2/source/isaaclab_tasks/isaaclab_tasks/manager_based/locomotion/velocity/mdp/rewards.py", "supports": "Air-time first-contact and XY-command gate", "limits": "Not direct foot height, trot or contact-force controller"},
+    {"url": "https://raw.githubusercontent.com/isaac-sim/IsaacLab/v2.3.2/source/isaaclab_tasks/isaaclab_tasks/manager_based/locomotion/velocity/config/go2/flat_env_cfg.py", "supports": "Posture/air coefficients change with different flat environment", "limits": "Flat coefficients cannot be copied as rough-terrain improvement evidence"},
+    {"url": "https://arxiv.org/html/2403.20001v2", "supports": "Effort regularization and tracking tradeoff motivates selective-cost hypothesis", "limits": "Go1, adaptive and differently structured reward/training; no transferable numeric gain"},
+    {"url": "https://arxiv.org/html/2606.15896v1", "supports": "Energy/gait/body control considered jointly in quadruped locomotion", "limits": "2026 preprint, CaT/new mechanisms outside current ten-weight scope; not direct B1 proof"},
+    {"url": "https://arxiv.org/pdf/2306.07419", "supports": "Different locomotion designs can alter viability", "limits": "CPG/IK and different platform/task; conceptual background only"},
+    {"url": "https://proceedings.mlr.press/v202/eimer23a.html", "supports": "RL tuning needs attention to seed and generalization", "limits": "Does not establish B1 optimality or a score forecast"}
+  ],
+  "external_policy_or_training_source_copied": false,
+  "candidate_weight_optimality_evidence": null,
+  "official_score_gain_evidence_for_B1": null
+}

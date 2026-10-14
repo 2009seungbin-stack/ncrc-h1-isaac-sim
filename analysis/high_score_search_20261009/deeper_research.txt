@@ -1,0 +1,73 @@
+Go2 공식 93점 목표 — 추가 연구와 두 후보의 우선순위 수정
+2026-10-09 KST
+
+결론
+
+제한된 탐색에서는 S1(선속도3, yaw2.25)과 R1(선속도4, yaw3)을 각1500회 비교하는 것이 현재 가장 일관된 제안이다. 추종 두 항의 비율4:3을 유지하고, 목표 추종의 강도만1.5배/2배로 비교한다. 몸체 운동·토크·가속도·raw action 변화·체공시간의 계수는 기존 F10 그대로다. 이는 미학습 후보의 우선순위이며 어느 쪽도 93점 달성이나 개선이 입증되지 않았다.
+
+기존 S1/S4 두 슬롯 제안을 수정했다. S4와 토크 완화 R2는 예비로 보존하고 실험을 추가하지 않는다. 탐색6시간, 후보 하나 본 학습 할당10시간, 저장본 선택을 포함한 최종 검증·회수3시간 상한을 유지한다. 직전 확인의 잔여33시간5분에서14시간5분을 미배정으로 남긴다. 기존 승인 causal_sweep 패키지는 수정하거나 실행하지 않았다.
+
+1. 가장 강한 무료 개선: 마지막 체크포인트 대신 성능으로 저장본 선택
+
+같은 F10 학습 run의3000/3999회 저장본을 동일 평가A의 G1~G6에서 다시 비교했다. 각 시나리오512 episodes, 총18개 추종축 중17개의 RMSE가3999회에서 악화했다. 시나리오 배점을 적용한 MSE 변화는 전진 +12.26%, 횡방향 +20.83%, yaw +28.92%다. G7은3999회에 미측정이므로 전체7개 결과나 공식 점수로 표현하지 않는다. 이전 평가A의 조건은 나중 heldout 조건과도 다르다.
+
+따라서5000~6000회는 학습 길이의 목표/한도이며 최종 모델 선택 규칙이 아니다. 기본 짧은 평가 후보는2500·3000·4000·마지막 저장본으로 제한한다. 출발·반전·계단·밀침을 포함한 작은 선택 세트에서 줄인 다음, 최종 하나를 새7개 조건으로 검증한다. 이 평가를 위해 추가3시간을 더 배정하지 않고 기존 검증 예산에 넣는다. 신규 정책도3000회 이후 반드시 나빠진다는 주장은 아니다.
+
+원자료:
+analysis/round20_execution_20261001/results/extracted/round20_20261001/eval/F10_model_3000_A/{flat,rough,slope,stairs}.json
+analysis/round20_execution_20261001/results/extracted/round20_20261001/eval/F10_model_3999_A/{flat,rough,slope,stairs}.json
+
+2. 점수 향상 후보는 전진 전환 응답과 회전 추종을 함께 겨냥
+
+회수된 heldout의 full/steady 제곱오차 합으로 각5초 구간 시작0.5초의 기여를 다시 계산했다. 이10% 표본이 F10의 배점 가중 전진 MSE에서 약59.97%, 횡방향38.62%, yaw13.81%를 차지한다. 이 수치는 오차의 집중 위치이지 공식 감점의 비중이 아니다. 초기 안정화와 명령이 반복된 구간도 포함한다. 전부 제어로 제거할 수 있는 오차나 순수 밀침 회복 오차라고 해석하지 않는다.
+
+F10은 회전 품질은 좋지만 전진의 큰 전환 오차까지 개선한 정책은 아니었다. S1/R1에서는 선속도와 yaw의 보상을 함께 올려 이 두 목적을 유지하고, 최종 선택에서는 정상상태 추종만 좋은 정책을 피한다. 가중치 증가가 전환 응답을 개선하는지는 실제 측정이 필요하다.
+
+원자료:
+analysis/short_sweep_20261002/recovered_20261003/short_sweep_20261002/results/heldout_*/*.json
+측정 정의: 같은 폴더 batch_eval.py:95, ticks % seg_steps < transient_steps
+
+3. S4의 기존 기계적 설명과 수치 해석을 수정
+
+lin_vel_z_l2는 root_lin_vel_b[:,2]를 사용한다. 몸체가 경사를 따라 기울고 앞쪽으로 올라가면 월드 수직 이동은 커져도 body z는 작을 수 있다. 이 벌점 완화를 '오르막 상승을 쉽게 허용'한다고 설명한 근거는 약하다. 몸체 법선 방향의 반동·착지·이동방향 어긋남을 더 허용하는 조작이다.
+
+F10의2000~2799회 항별 로그 중앙값의 합은 추종2.6702, 음수 비용1.00415다. 체공시간은-0.0013으로 음수 항 합의0.1295%, body z는-0.0767으로7.64%다. 같은 궤적을 재가중하면 S1은 추종 +1.3351, S4는 여기에 체공 삭제 +0.0013와 z 절반 +0.03835, 합계 +0.03965를 더한다. S1 증가량의2.97%다. 항별 중앙값 합은 순간 총보상·정책 기울기·새 정책의 성능이 아니므로 작다는 이유만으로 무효라고 단정하지 않는다.
+
+체공시간0은 짧은 보폭을 직접 보상하는 설정도 아니다. 착지 순간의 air_time−0.5초 값을 제거하며 양수/음수 선호를 모두 지운다. 실제 발 높이·접촉·체공시간 분포는 저장되지 않았다.
+
+원자료:
+analysis/score_breakthrough_20261002/third/sources/rewards.py:77,304
+analysis/score_breakthrough_20261002/third/analysis.json -> training_terms.F10[0].medians
+https://raw.githubusercontent.com/isaac-sim/IsaacLab/v2.3.2/source/isaaclab_tasks/isaaclab_tasks/manager_based/locomotion/velocity/mdp/rewards.py
+
+4. 현재 보상 안에서 가능한 핵심 방향: 목적/비용 비율
+
+추종 강화를 상대 비용으로 정리하면 S1의 비용/추종 비율은 기준의2/3, R1은1/2다. 다른 계수를 직접 풀지 않아도 추종을 더 우선하는 조작이다. S4는 body z만 기준1/3, R2는 토크만 기준1/3까지 낮춘다. R1과 R2 모두 안정성을 해칠 수 있다. 보상식을 공통 상수로 나눈 비율 비교는 PPO 학습이 동일하다는 뜻이 아니다.
+
+Solo12의 원논문은 power 비용의 강화에 따라 추종 오차가 증가하는 교환을 보고했다. Go2 LoComposition preprint도 에너지 비용이 없는 LP가 비용이 있는 LEP보다 추종 RMSE가 작고 지형 진행 수준이 높은 비교를 포함한다. 그러나 두 연구의 power 비용은 우리 토크 제곱 비용과 다르며, 전자는 다른 로봇이고 후자는 CaT 제약/에너지 스케줄 등도 다르다. 이들은 목적/비용 비율을 조사할 근거이며,1.5배/2배 최적값이나 공식93점의 근거가 아니다.
+
+https://www.nature.com/articles/s41598-023-38259-7 — Energy consumption, Power vs. torque penalty
+https://arxiv.org/html/2606.15896v1 — Table2, AppendixB, 2026-06 preprint
+
+토크 추가 완화 R2는 서로 다른 조작을 비교한다는 장점이 있다. 하지만 기존 상세 자료에서 F10의 토크RMS는 C0보다6.7~12.1% 낮았고, 공통 병목이 모터 토크 부족이라는 증거가 없다. 시나리오별16 episodes의 마지막 물리 substep 자료라 actuator 포화를 정확히 증명할 수도 없다. 따라서 이번에는 특정 토크 비용만 추가로 절반 내리기보다 추종 강도를 두 단계로 비교한다. R2는 예비다.
+
+원자료: analysis/research_directions_20261003/direction_audit.json -> data_contract, changes_percent_F10_vs_C0
+
+5. 추가 문헌이 낮춘 후보의 확신
+
+Go2 SQUID preprint는 수직속도 비용 제거 후 불안정한 hopping이 증가했다고 정성적으로 보고한다. 터널/teacher-student 환경이며 절반 완화의 실패를 증명하지는 않는다. 다만 body z를 더 풀면 지형 성능이 좋아진다는 단정은 지지하지 않는다.
+https://arxiv.org/html/2605.13665v1 — IV-C4, 2026-05 preprint
+
+ICRA2024 EIPO 연구는 추종을 주목적으로 두고 에너지 비용을 보조 목적으로 분리한다. 우리의 허용 범위에서 EIPO·새 함수·학습 스케줄로 바꾸는 구현을 제안하지 않는다. 고정 가중치의 균형이 중요하다는 관점만 참고한다.
+https://srinathm1359.github.io/eipo-locomotion/
+
+6. 체공시간 예시의 dt 누락을 정정
+
+앞선 builder의 reward_rate_before_other_terms는 착지 횟수×(체공시간−0.5)×weight만 계산한 dt 적용 전 값이었다. 역사적env의 physics dt0.005×decimation4로 step_dt는0.02초다. upstream IsaacLab v2.3.2 RewardManager.compute는 항에 weight×dt를 곱한다. 따라서4착지/초·체공0.25초·weight0.01의 누적 보상/초 예시는-0.01이 아니라-0.0002다. 착지당 한 control step에서 발생하고 명령 gate가 활성화돼 있다는 가정이다.
+
+현재 audit에서는 dt 적용 전 합과 dt 적용 후 누적 보상/초를 별도 이름으로 저장한다. 설치 manager 소스를 로컬에 보존하지 않아 upstream 버전과 실제env를 결합한 계산이라는 제한도 남겼다. 이 정정은 과거 실제 로그의-0.0013이나 정책 결과를 바꾸지 않는다.
+https://raw.githubusercontent.com/isaac-sim/IsaacLab/v2.3.2/source/isaaclab/isaaclab/managers/reward_manager.py — compute:137, reset:109
+
+실행/검증 상태
+
+새 학습, 시뮬레이션 평가, 서버 가동, 공식 제출은 없었다. 추가 연구는 CPU 재계산·원문 확인·제안 수정이다. build_research.py가 후보와 예산을, build_deeper_review.py가 기존 raw JSON의 비교와 그림을 재현한다. 그림에는 프로젝트 하위.plot_packages에 설치한 matplotlib와 호스트Python3.10을 사용했다. deeper_audit.json에 입력hash와 조건·누락G7·비예측 상태를 기록했다. 독립 training seed 반복도 아직 없다.

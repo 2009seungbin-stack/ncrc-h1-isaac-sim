@@ -1,0 +1,28 @@
+Go2 B1_selective_cost 실행 분석 — 2026-10-09
+
+현재 결론: B1 학습과 결과 회수는 완료. 체크포인트 선택 및 비교 검증은 미실행이므로 성능 개선 여부와 점수 상승폭은 판단할 수 없다. 14:29UTC에 dashboard의 사용가능/서버 시작하기/VS Code 비활성으로 서버02 실제 OFF를 확인했다. 4시간 한도 안에 조기 종료했으며 go2 자동화는 PAUSED이다.
+
+학습: scratch1500회,6144환경,seed42. 12:11:51UTC 시작,14:11:40UTC 정상 종료(returncode0),약1시간59분50초. 최종 로그1499/1500, 마지막 주기적 profile도1500 samples/1500 completed. 보상10종,ELU512-256-128,관측 정규화false,control_dt0.02. runtime rsl-rl-lib5.0.1/torch2.7.0+cu128.
+
+평가 중단 원인: 제공 train.py가 종료 정리 단계에서 원래 학습 로그 폴더의 intermediate .pt15개를 삭제하고 model_600.pt만 남겼다. 이 동작은 train_B1.log의 종료 후처리 기록에 명시되어 있다. 실행기 runner.py는 checkpoint를 preserved에 복사한 뒤에도 원래 학습 폴더의 model_1499.pt 존재를 조건으로 확인하여 중단됐다. 이는 실행기의 경로 가정 오류다. PPO 학습 실패나 체크포인트 소실이 아니다. 종료 후 원래1000/1499경로의 is_file=false를 UI 터미널로 확인하고 증거를 저장했다.
+
+평가 coverage: selection0건,validation0건,state.evaluations={},selected=null. model_1499를 최적 모델이라고 주장할 수 없으며, 총보상이나 학습 로그만으로 C0/F10보다 낫다고 비교할 수 없다. B1 자체 생존율·전체구간RMSE/MAE·내부품질·공식점수 예측은 모두 미측정이다. 독립 training seed 반복은 없고 기존 C0/F10의5500/3000회와 B1의1500회는 학습 길이도 다르다. 93점 또는 특정 상승폭을 뒷받침할 근거가 없다.
+
+회수: 전체 아카이브115670853bytes,SHA25653aa132fedc6e7515bfee883c50de16af3b2d3bbb04a38f3e65be668b085ae51. 정상 Download 메뉴로6개 조각을 받고 합쳐 최종 원격 크기/해시와 일치시켰다. 새 하위폴더에 안전한 경로 검사를 거쳐48개 파일을 추출했다. B1 checkpoint16개(model_0~1400 및1499),params/events/train_B1.log,실행상태/소스 감사,기준 모델2종을 보존했다. 전체 파일 회수 완료와 비교 실험 완료는 구분한다.
+
+model_1000.pt:6882293bytes,SHA256d073b8f33ac1b8d68b9272abd68a93978ef7cbef5522c75e7017a69332a4317d.
+model_1499.pt:6882293bytes,SHA256f0c791fc4d400f983b99abb3d4d296da7b69b666617bc7a1b3217b7f37da17af.
+
+로컬 내용 검증: exact runner의 training_profile 함수만 AST로 추출하여 재파싱한 결과1500 samples/1500 completed이며 학습 헤더0..1499가 연속이다. weights_only로 읽은 두 checkpoint의 저장 iter1000/1499가 맞고 각68개 floating tensor 모두 유한값이다. 로그24개 수치 지표도 유한값이다. 이벤트 파일2576788bytes를 보존하고 해시를 확인했으나 TensorBoard 라이브러리가 없어 이벤트 내부 scalar는 직접 디코딩하지 않았다.
+
+학습 로그에서 final mean episode length957.34,terrain level5.245,time_out0.8837/base_contact0.1163이 기록되었다. 이는 변화하는 학습 명령·지형 분포에서의 훈련 지표이며 별도 고정조건 검증 생존율로 바꾸어 쓰지 않는다. final mean reward15.63이나 자동 train 후처리가 선택한 model_600의 보상값은 서로 다른 가중치 정책 순위와 공식점수 예측 근거가 아니다.
+
+정리 검증: runner/train/helper 및 자식 그룹 종료 확인. 현재 reward와 fresh original의SHA25609630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7 일치. provided train/play/agent_cfg/env_cfg와 PPO/전체 rsl_rl 소스 해시 유지. helper는 평가가 시작되지 않아 서비스 신호 없이 종료했고 공식 livestream launcher/renderer 정상 동작을 확인했다. 새로운 학습·재학습·이어학습·추가평가·공식제출은 하지 않았다.
+
+증거: execution/final_remote_receipt.json,heartbeat_20261009_1415_phase.json,original_checkpoint_path_proof.json,full_local_verification.json,critical_local_verification.json,b1_streaming_control_audit.jsonl,local_training_diagnostic.json/.txt,dashboard_off_20261009_1429.png/.txt. 최종 종료/자동화 상태는 execution.json 및 종료 화면 증거를 참고한다.
+
+[LOCAL_OFFLINE_INTERNAL_ASSESSMENT] 2026-10-09T14:57:32Z
+사용자 승인 범위: 내부 평가,서버 사용 금지. 로컬 로그/설정/CPU tensor만 분석. 전체1500회 및16개 체크포인트 검사 완료.
+1400~1499 F10 대비 정규화 XY/yaw 보상-4.9638%/-6.9157%,로그 XY/yaw 오차+11.8630%/+13.4591%,접촉 종료12.5887%vs9.8374%,지형5.204448vs5.749749.
+판단:B1 추가 장기 학습 우선순위 낮음. 고정 시나리오 B1 성능/Q3/공식점수/상승폭 미측정. 서버OFF/자동화PAUSED 및 selection0/validation0 유지.
+보고서 offline_eval/internal_assessment.txt/.json,학습곡선 B1_training_assessment.png/.svg 보존.

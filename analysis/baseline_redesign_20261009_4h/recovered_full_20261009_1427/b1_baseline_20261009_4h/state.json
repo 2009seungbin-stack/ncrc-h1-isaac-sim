@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "stage": "STOPPED_PARTIAL_RETRIEVE_AND_STOP_ALLOCATION",
+  "allocation_start_epoch": 1791547031.0,
+  "deadlines_epoch": {
+    "setup_end": 1791547931.0,
+    "training_end_latest": 1791556631.0,
+    "selection_end_latest": 1791557531.0,
+    "compute_end": 1791558731.0,
+    "dashboard_shutdown_request_latest": 1791560831.0,
+    "shutdown_confirmed_latest": 1791561431.0
+  },
+  "training": {
+    "status": "complete",
+    "run_name": "B1_4h_1791547031",
+    "expected_weights": {
+      "track_lin_vel_xy_exp": 1.5,
+      "track_ang_vel_z_exp": 0.75,
+      "feet_air_time": 0.0,
+      "lin_vel_z_l2": -2.0,
+      "ang_vel_xy_l2": -0.05,
+      "action_rate_l2": -0.01,
+      "dof_acc_l2": -2.5e-07,
+      "dof_torques_l2": -0.0001,
+      "flat_orientation_l2": 0.0,
+      "dof_pos_limits": 0.0
+    },
+    "pid": 16244,
+    "process_group_id": 16244,
+    "started_epoch": 1791547911.4679155,
+    "command": [
+      "/workspace/IsaacLab/isaaclab.sh",
+      "-p",
+      "train.py",
+      "--task",
+      "Quadruped-v0",
+      "--num_envs",
+      "6144",
+      "--seed",
+      "42",
+      "--max_iterations",
+      "1500",
+      "--run_name",
+      "B1_4h_1791547031",
+      "--headless"
+    ],
+    "configuration": {
+      "effective_weights": {
+        "track_lin_vel_xy_exp": 1.5,
+        "track_ang_vel_z_exp": 0.75,
+        "lin_vel_z_l2": -2.0,
+        "ang_vel_xy_l2": -0.05,
+        "dof_torques_l2": -0.0001,
+        "dof_acc_l2": -2.5e-07,
+        "action_rate_l2": -0.01,
+        "feet_air_time": 0.0,
+        "flat_orientation_l2": 0.0,
+        "dof_pos_limits": 0.0
+      },
+      "env_sha256": "1cca0dc7b6045fb3b9c1130a3835df873b3e4eb213e25a3e38a5873114c3f552",
+      "agent_sha256": "4f4424ae57303080b2a7ab49c8e00a67c6497ec6f64220d6054395d4b990f36d",
+      "actor_observation_normalization": false,
+      "policy_clip_actions": null,
+      "actor_configs": {
+        "actor": {
+          "class_name": "MLPModel",
+          "activation": "elu",
+          "obs_normalization": false,
+          "hidden_dims": [
+            512,
+            256,
+            128
+          ]
+        },
+        "critic": {
+          "class_name": "MLPModel",
+          "activation": "elu",
+          "obs_normalization": false,
+          "hidden_dims": [
+            512,
+            256,
+            128
+          ]
+        }
+      },
+      "control_step_seconds": 0.02
+    },
+    "initial_checkpoint_sha256": "2e1bc8c4bbc9a1643152b0d026fee44629f4c6a4911f3c12de21704469bd4a0b",
+    "training_time_profile": {
+      "samples": 1500,
+      "completed_iterations": 1500,
+      "recent_seconds_per_iteration": 4.7078
+    },
+    "process_group_exited": true,
+    "returncode": 0,
+    "ended_epoch": 1791555100.8381581,
+    "seconds": 7189.556985139847
+  },
+  "evaluations": {},
+  "selected": null,
+  "input_hashes": {
+    "protected_runtime_sources.json": "7dff36a4ad3209d0ca6714df2beaba75ad0fbee6305e4ba4dfcfede5a23ca997",
+    "design.json": "62f71dd24c946cb7cb41452845291654becead00153b8913ebcc2ff607f2f4d9",
+    "reference_models.json": "07da0126af908a4b2dc0cc64bb432ff91f1a9334884df24dd61b8b0527703712",
+    "t_eval.py": "bd95f7e7df231454927c70b2bb2431b05cd504ad38c736f16f91dab3435651d9",
+    "runner.py": "a7a318148c5a9605ebee59962f78bf62873c6d3ad38bf76f489e721a5f9662c8",
+    "source_snapshot.py": "d3bc1705a07392032b1369d6f48fb1b72b676f1b3cd0dd9457882480b781b211",
+    "t_eval_go2_core.py": "baa43b161ec7a02d9ae1dfebfe593976f17d78916354d9029ba22b239f0cff6e",
+    "live_preflight.py": "681dffe4f0c81a75c3c4c258faff5d063896363cbead33bfbfaecc8a88a6c376",
+    "evaluation.py": "f5ba443c4a095287686aa61210b0e3b196cb60de6c95102ca092d8077b9a0ec1",
+    "fresh_rewards_original.py": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7",
+    "decision_rules.py": "aefe734c93b9ba9f55ebdc1b2be7d7bf4c9b3c78c331a376468f919481abaca7",
+    "candidates/B1_selective_cost_rewards.py": "a856051f81920f603e56bd39ca0e554a69ecafed34961d6c0e70ed2073040381"
+  },
+  "source_hashes": {
+    "train.py": "c09ac99bcd93bb367f0eec69bdb05f4063cb8d60f0258d4667f07addf509de22",
+    "play.py": "ce703acf54eac40073e3f6d585d6002e3b4a2d9062581b3c0ed45db73ac5f9dc",
+    "go2_task/agent_cfg.py": "a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23",
+    "go2_task/env_cfg.py": "df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1"
+  },
+  "preflight": {
+    "actual_allocation_start_epoch": 1791547031,
+    "verified_epoch": 1791547895.2478666,
+    "user_authorized_execution": true,
+    "retrieval_smoke_verified": true,
+    "no_competing_gpu_jobs_verified": true,
+    "runtime_verified": true,
+    "reference_loader_verified": true,
+    "probe_sha256": "d896a94ee0d428425b07dbd6a1748b6c9971e66d7b7b93d7eacc9a44b077328e",
+    "probe_local_sha256": "d896a94ee0d428425b07dbd6a1748b6c9971e66d7b7b93d7eacc9a44b077328e",
+    "runtime_versions": {
+      "rsl_rl_lib": "5.0.1",
+      "torch": "2.7.0+cu128"
+    },
+    "initial_observation_preserved": true,
+    "gpu_default_service": [
+      {
+        "pid": 13216,
+        "args": [
+          "/isaac-sim/kit/python/bin/python3",
+          "/streaming/livestream_webrtc.py"
+        ],
+        "nvidia_row": "13216, /isaac-sim/kit/python/bin/python3, 2597 MiB"
+      },
+      {
+        "pid": 13216,
+        "args": [
+          "/isaac-sim/kit/python/bin/python3",
+          "/streaming/livestream_webrtc.py"
+        ],
+        "nvidia_row": "13216, /isaac-sim/kit/python/bin/python3, 2597 MiB"
+      }
+    ],
+    "competing_training_or_evaluation": [],
+    "gpu_classification": "Only official default livestream; platform supervisor stops it when train.py --task starts. Post-launch handoff must be verified.",
+    "supervisor_sha256": "90c24436b23531c994af760060a5b4ed885b953482944f5883e859bd0126f70a"
+  },
+  "original_reward_sha256": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7",
+  "official_score_prediction": null,
+  "allocation_off_confirmed": false,
+  "warnings": [
+    "One training seed; references have unequal training length",
+    "Internal comparison only; no official prediction or automatic follow-up"
+  ],
+  "updated_epoch": 1791555101.0776012,
+  "updated_utc": "2026-10-09T14:11:41.077602+00:00",
+  "error": "RuntimeError('Training did not confirm1500 iterations and exact final checkpoint')",
+  "cleanup": {
+    "complete": true,
+    "process_and_restore_complete": true,
+    "errors": [],
+    "checked_epoch": 1791555101.0775988
+  }
+}

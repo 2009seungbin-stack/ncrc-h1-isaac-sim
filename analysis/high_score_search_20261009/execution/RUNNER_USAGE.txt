@@ -1,0 +1,71 @@
+Approved execution: tracking strength screen only
+================================================
+Train S1_tracking_pair (linear3, yaw2.25) and R1_tracking_double (linear4, yaw3),
+each scratch1500, 6144 environments, seed42, sequentially. All other10-weight
+BASE settings stay identical to the previous F10 reward setup. No continuation,
+new seeds, third arm, long main training or official submission is authorized.
+
+Remote package directory:
+  /workspace/student_workspace/tracking_screen_20261009
+Default provided training directory:
+  /workspace/training/quadruped
+
+After normal browser-UI upload/extraction, run read-only preflight:
+  cd /workspace/student_workspace/tracking_screen_20261009
+  /workspace/IsaacLab/isaaclab.sh -p source_snapshot.py --reference previous_source_hashes_20261002.json
+This refuses to continue unless all four protected provided files match the
+historical reference. It locates installed rsl_rl without importing training
+modules, requires PPO/runner/actor source files, and hashes all package .py files.
+It creates source_hashes_current.json, protected_runtime_sources.json and the
+snapshot report. Existing manifests are never overwritten. Any mismatch is an
+error requiring source inspection, not permission to accept different hashes.
+
+Start runner in one tmux session, supplying the actual allocation start:
+  /workspace/IsaacLab/isaaclab.sh -p runner.py --source-hashes source_hashes_current.json --server-start-epoch SERVER_START_UNIX --compute-deadline COMPUTE_DEADLINE_UNIX
+COMPUTE_DEADLINE_UNIX = actual SERVER_START_UNIX +18900 (5h15m).
+Hard server shutdown limit = actual SERVER_START_UNIX +21600 (6h).
+The final45minutes are reserved for archive recovery, size/SHA verification and
+server shutdown. The operator must stop the portal server; runner process exit
+does not end the portal allocation. No quota extension is allowed.
+
+Training admission starts from measured4.818008522sec/iteration. Both trains
+take an estimated14454.026sec total. Evaluation reserve is2400sec for all four
+policies (both fixed references plus both new final1499 checkpoints), leaving
+roughly2046sec for setup when the entire6h allocation is available. This is an
+estimate, not a guaranteed runtime. The observed recent50iteration mean updates
+the next-arm estimate with10%margin and120secboot allowance. If remaining time
+is insufficient, no additional arm starts. If the current job cannot finish
+before evaluation reserve, it stops and preserves evidence. Per-train9000sec
+caps never override the absolute compute deadline.
+
+Four models share G1-G7, env128, reset809/1201, startup303, terrain9049, transient
+0.5sec. Five terrain processes run sequentially: flat G1/G2/G6, rough G3, slope
+G4, stairs G5, dr G7. Existing C0_5500/F10_3000 are fixed evaluation comparators,
+not fresh matched-duration causal controls. Do not interpret a short new model
+as a converged failure or use these internal scores as official points.
+
+The current reward file is validated and backed up, then only its literal
+REWARD_WEIGHTS value is replaced. Original rewards are restored after each arm
+and final cleanup. Protected train/play/agent/env and installedPPO source hashes
+are checked at job boundaries and cleanup. Provided training/environment/PPO
+implementation files are never modified.
+
+Resume using exactly the same timestamps/command plus --resume. Completed arms
+are hash-checked and skipped. Interrupted arms/evaluations are never retrained,
+continued or overwritten automatically. Prior running process groups block
+recovery. A recognized applied reward file is restored even after compute
+expiry. Unknown external reward edits are preserved and stop execution.
+
+SIGINT/SIGTERM cleanup checks Linux process-group liveness, including descendants
+after an isaaclab.sh wrapper exits; escalatingINT/TERM/KILL avoids orphan GPU
+training. SIGKILL of the runner itself/power loss cannot runfinally cleanup, so
+resume is needed for restoration. The runner lock prevents duplicate launches.
+
+Outputs: state.json, reward_restored.json, preserved/<arm>/<run>/checkpoints,
+params/events, logs, four-model evaluation JSON/raw traces, summary.json and
+SHA/size manifest. Atomic bundle is regenerated after each completed training
+arm/evaluation terrain and on exit. Retrieve:
+  /workspace/student_workspace/tracking_screen_20261009_results.tar.gz
+  /workspace/student_workspace/tracking_screen_20261009_results.tar.gz.sha256.json
+LocalCPU: python -B tests_runner.py (24contract tests). Only a realLinuxGPU run
+can verify runtime effective configs, elapsed time and scenario completeness.

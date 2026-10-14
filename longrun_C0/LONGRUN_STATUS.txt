@@ -1,0 +1,48 @@
+09-20 22:11:28 === LONGRUN C0 6000 iter @ 6144 envs ===
+09-21 05:21:40 run=2026-09-20_22-11-32 마지막 ckpt=model_5500.pt
+09-21 05:21:40 !! 마지막 ckpt 가 목표(6000)에 못 미친다 — 학습이 중간에 죽었을 수 있다
+09-21 05:31:43 !! export 실패 — export_play.log 끝:
+Critic Model: MLPModel(
+  (obs_normalizer): Identity()
+  (mlp): MLP(
+    (0): Linear(in_features=235, out_features=512, bias=True)
+    (1): ELU(alpha=1.0)
+    (2): Linear(in_features=512, out_features=256, bias=True)
+    (3): ELU(alpha=1.0)
+    (4): Linear(in_features=256, out_features=128, bias=True)
+    (5): ELU(alpha=1.0)
+    (6): Linear(in_features=128, out_features=1, bias=True)
+  )
+)
+09-21 05:31:43 채점:  C0_800 C0_2000 C0_4000 C0_5500
+05:31:43 === C0_800  ckpt=model_800.pt  md5 a2c381b2 ===
+05:31:43   C0_800/flat
+05:35:03   C0_800/rough
+05:36:17   C0_800/slope
+05:37:31   C0_800/stairs
+05:39:05   C0_800/dr
+05:40:19 C0_800 merged 15497 bytes
+05:40:19 === C0_2000  ckpt=model_2000.pt  md5 940c8d29 ===
+05:40:19   C0_2000/flat
+05:43:34   C0_2000/rough
+05:44:46   C0_2000/slope
+05:46:03   C0_2000/stairs
+05:47:29   C0_2000/dr
+05:48:41 C0_2000 merged 15495 bytes
+05:48:41 === C0_4000  ckpt=model_4000.pt  md5 073999fa ===
+05:48:41   C0_4000/flat
+05:51:54   C0_4000/rough
+05:53:06   C0_4000/slope
+05:54:25   C0_4000/stairs
+05:55:50   C0_4000/dr
+05:57:02 C0_4000 merged 15436 bytes
+05:57:02 === C0_5500  ckpt=model_5500.pt  md5 6e976a87 ===
+05:57:02   C0_5500/flat
+06:00:14   C0_5500/rough
+06:01:26   C0_5500/slope
+06:02:48   C0_5500/stairs
+06:04:12   C0_5500/dr
+06:05:25 C0_5500 merged 15468 bytes
+06:05:27 영상 축소 완료 (imageio-ffmpeg)
+06:05:27 BUNDLE /workspace/r4_out.tgz 401241 bytes
+06:05:27 ALL DONE — 이 tgz 하나를 그 오리진의 **첫 다운로드**로 받을 것

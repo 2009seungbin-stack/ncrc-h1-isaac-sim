@@ -1,0 +1,227 @@
+{
+  "date": "2026-10-02",
+  "scope": "Offline analysis of existing measurements only",
+  "limitations": [
+    "Both score families are empirical proxies, not official evaluator implementations.",
+    "Counterfactual RMSE reductions hold all other quantities fixed; not forecasts of reward changes.",
+    "Reset seeds are not independent training seeds; terrain seed is fixed in these evaluations.",
+    "A and B have both been inspected and must not serve as untouched final holdouts in new research.",
+    "Last recorded official scores and usage were not refreshed from the account dashboard."
+  ],
+  "official_rules_checked_in_browser": {
+    "url": "https://robotics.connect.or.kr/rules/preliminary_regulations.html",
+    "version": "v1.1",
+    "article_2": "Change reward weights only; training on the provided cloud environment.",
+    "article_10": "One robot per round; sum each robot's historical maximum score."
+  },
+  "measurements": {
+    "C0_A": {
+      "proxy": {
+        "mse_offset": 58.128491365917505,
+        "ratio": 58.07913924860655
+      },
+      "falls": 1,
+      "axis_share_of_weighted_mse": {
+        "vx": 0.15926875823710182,
+        "vy": 0.23584434784083916,
+        "yaw": 0.6048868939220591
+      }
+    },
+    "F10_A": {
+      "proxy": {
+        "mse_offset": 58.41930693025822,
+        "ratio": 58.75294047446739
+      },
+      "falls": 0,
+      "axis_share_of_weighted_mse": {
+        "vx": 0.1927410038570712,
+        "vy": 0.2656206427956324,
+        "yaw": 0.5416383533472963
+      }
+    },
+    "C0_B": {
+      "proxy": {
+        "mse_offset": 58.12659801787603,
+        "ratio": 58.081803867416795
+      },
+      "falls": 1,
+      "axis_share_of_weighted_mse": {
+        "vx": 0.15953512994354058,
+        "vy": 0.23570677200669668,
+        "yaw": 0.6047580980497627
+      }
+    },
+    "F10_B": {
+      "proxy": {
+        "mse_offset": 58.40598275784186,
+        "ratio": 58.74027963751008
+      },
+      "falls": 1,
+      "axis_share_of_weighted_mse": {
+        "vx": 0.19615426614707865,
+        "vy": 0.2637981924347257,
+        "yaw": 0.5400475414181957
+      }
+    }
+  },
+  "B_scenario_proxy_deltas": {
+    "G1": {
+      "mse_offset": 0.03444553759070779,
+      "ratio": 0.09142155801802687
+    },
+    "G2": {
+      "mse_offset": 0.0655687629282582,
+      "ratio": 0.14786005316458883
+    },
+    "G3": {
+      "mse_offset": 0.06615838890099113,
+      "ratio": 0.16373786354840547
+    },
+    "G4": {
+      "mse_offset": 0.057436075531247965,
+      "ratio": 0.1389622447610357
+    },
+    "G5": {
+      "mse_offset": 0.03279630393862476,
+      "ratio": 0.04820511985242071
+    },
+    "G6": {
+      "mse_offset": -0.006242396472212697,
+      "ratio": -0.002231343053802348
+    },
+    "G7": {
+      "mse_offset": 0.029222067548212216,
+      "ratio": 0.07052027380261539
+    }
+  },
+  "counterfactuals_from_F10_B": [
+    {
+      "axes": [
+        "vx",
+        "vy"
+      ],
+      "rmse_multiplier": 0.75,
+      "proxy_delta": {
+        "mse_offset": 0.1888425314444646,
+        "ratio": 0.4400001795719888
+      }
+    },
+    {
+      "axes": [
+        "vx",
+        "vy"
+      ],
+      "rmse_multiplier": 0.5,
+      "proxy_delta": {
+        "mse_offset": 0.3279715183919478,
+        "ratio": 0.7979554552857309
+      }
+    },
+    {
+      "axes": [
+        "vx",
+        "vy"
+      ],
+      "rmse_multiplier": 0,
+      "proxy_delta": {
+        "mse_offset": 0.44211611194158706,
+        "ratio": 1.1280745952695383
+      }
+    },
+    {
+      "axes": [
+        "yaw"
+      ],
+      "rmse_multiplier": 0.75,
+      "proxy_delta": {
+        "mse_offset": 0.2287045572925308,
+        "ratio": 0.5997793573619816
+      }
+    },
+    {
+      "axes": [
+        "yaw"
+      ],
+      "rmse_multiplier": 0.5,
+      "proxy_delta": {
+        "mse_offset": 0.3958953173798463,
+        "ratio": 1.1051218298991543
+      }
+    },
+    {
+      "axes": [
+        "yaw"
+      ],
+      "rmse_multiplier": 0,
+      "proxy_delta": {
+        "mse_offset": 0.5320778227118623,
+        "ratio": 1.585671584076998
+      }
+    },
+    {
+      "axes": [
+        "vx",
+        "vy",
+        "yaw"
+      ],
+      "rmse_multiplier": 0.75,
+      "proxy_delta": {
+        "mse_offset": 0.4225101751996121,
+        "ratio": 1.1156951404842275
+      }
+    },
+    {
+      "axes": [
+        "vx",
+        "vy",
+        "yaw"
+      ],
+      "rmse_multiplier": 0.5,
+      "proxy_delta": {
+        "mse_offset": 0.7393330642182931,
+        "ratio": 2.253461891013899
+      }
+    },
+    {
+      "axes": [
+        "vx",
+        "vy",
+        "yaw"
+      ],
+      "rmse_multiplier": 0,
+      "proxy_delta": {
+        "mse_offset": 1.0031097610735955,
+        "ratio": 4.597050362489917
+      }
+    }
+  ],
+  "one_G6_fall_in_512": {
+    "arithmetic_score_cost_upper_bound_if_tracking_fixed": 0.013671875,
+    "warning": "Not a bound on true population risk; only the contribution of one observed failure in the sample."
+  },
+  "mse_offset_model_ceiling_if_all_errors_zero_and_survival_one": 89.4209767142583,
+  "ceiling_warning": "This is a ceiling of the fitted formula, not a ceiling of the competition.",
+  "preserved_checkpoint_counts": {
+    "F00": 41,
+    "F10": 41
+  },
+  "proposed_unevaluated_F10_screen": [
+    1200,
+    1800,
+    2200,
+    2600,
+    2800,
+    3200
+  ],
+  "planning_hours": {
+    "six_checkpoint_suites_at_8_5_minutes_each_excludes_overhead": 0.85,
+    "one_3000_iteration_run_at_previous_F10_average_excludes_overhead": 3.8775,
+    "last_recorded_round_budget_unused_not_new_authorization": 7.3
+  },
+  "input_sha256": {
+    "analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\eval\\original_A\\merged.json": "51ea0e6625b0232806aa5d222d608e5a9a867bae2e25aae79a150eea9e90710e",
+    "analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\eval\\F10_model_3000_A\\merged.json": "953c625c81cb2e5eed9e05695c9d497e8d7c43f90c56f8510bab2330df734e3c",
+    "analysis\\round20_execution_20261001\\validation_results\\extracted\\go2_validation_20261002\\eval\\original_B\\merged.json": "77ac492a67de641b7a719f4ad89c7b87e2ca1bcd9614879193c586ef40c1fe51",
+    "analysis\\round20_execution_20261001\\validation_results\\extracted\\go2_validation_20261002\\eval\\selected_B\\merged.json": "473a8143417538d98e1a9167fc8727ee96bc7370d63b2400d6d4e6602c68a550"
+  }
+}

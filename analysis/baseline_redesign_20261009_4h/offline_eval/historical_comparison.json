@@ -1,0 +1,2509 @@
+{
+  "status": "LOCAL_HISTORICAL_TRAINING_DIAGNOSTIC_NOT_POLICY_EVALUATION",
+  "no_policy_loaded": true,
+  "no_simulation_or_server": true,
+  "iteration_windows_inclusive": [
+    [
+      500,
+      599
+    ],
+    [
+      700,
+      799
+    ],
+    [
+      900,
+      999
+    ],
+    [
+      1000,
+      1099
+    ],
+    [
+      1200,
+      1299
+    ],
+    [
+      1400,
+      1499
+    ],
+    [
+      1490,
+      1499
+    ]
+  ],
+  "models": {
+    "B1": {
+      "log_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\logs\\train_B1.log",
+      "log_sha256": "a28885fee84d938b384cd01e5896f73cf231629001ffb5f55a9416ec546f8bbe",
+      "env_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\params\\env.yaml",
+      "env_sha256": "1cca0dc7b6045fb3b9c1130a3835df873b3e4eb213e25a3e38a5873114c3f552",
+      "effective_weights": {
+        "track_lin_vel_xy_exp": 1.5,
+        "track_ang_vel_z_exp": 0.75,
+        "lin_vel_z_l2": -2.0,
+        "ang_vel_xy_l2": -0.05,
+        "dof_torques_l2": -0.0001,
+        "dof_acc_l2": -2.5e-07,
+        "action_rate_l2": -0.01,
+        "feet_air_time": 0.0,
+        "flat_orientation_l2": 0.0,
+        "dof_pos_limits": 0.0
+      },
+      "iterations": 1500,
+      "windows": {
+        "500-599": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.038539,
+            "median": 1.0353500000000002,
+            "first": 1.0354,
+            "last": 1.0622,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 0.552769,
+            "median": 0.5542,
+            "first": 0.5583,
+            "last": 0.5541,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.733686,
+            "median": 0.7304999999999999,
+            "first": 0.749,
+            "last": 0.6876,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.475803,
+            "median": 0.4756,
+            "first": 0.4902,
+            "last": 0.4659,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.065885,
+            "median": 0.066,
+            "first": 0.0656,
+            "last": 0.0617,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.934141,
+            "median": 0.9341,
+            "first": 0.9346,
+            "last": 0.9383,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 968.8693,
+            "median": 971.575,
+            "first": 973.25,
+            "last": 980.43,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.5693,
+            "median": 0.57,
+            "first": 0.56,
+            "last": 0.58,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 2.980398,
+            "median": 2.9781000000000004,
+            "first": 2.3709,
+            "last": 3.5851,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.051581,
+            "median": -0.0516,
+            "first": -0.0529,
+            "last": -0.0498,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.2169,
+            "median": -0.21675,
+            "first": -0.2177,
+            "last": -0.2101,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.114219,
+            "median": -0.11424999999999999,
+            "first": -0.113,
+            "last": -0.1147,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.086539,
+            "median": -0.06855,
+            "first": -0.0709,
+            "last": -0.0653,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.6923593333333334,
+            "median": 0.6902333333333335,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.7370253333333333,
+            "median": 0.7389333333333333,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "700-799": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.009546,
+            "median": 1.01315,
+            "first": 0.9308,
+            "last": 1.0215,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 0.532173,
+            "median": 0.5341,
+            "first": 0.5028,
+            "last": 0.522,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.710693,
+            "median": 0.70915,
+            "first": 0.7404,
+            "last": 0.6715,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.482404,
+            "median": 0.48285,
+            "first": 0.4648,
+            "last": 0.4883,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.099923,
+            "median": 0.097,
+            "first": 0.0891,
+            "last": 0.1107,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.900082,
+            "median": 0.903,
+            "first": 0.9109,
+            "last": 0.8895,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 944.1797,
+            "median": 946.0450000000001,
+            "first": 898.45,
+            "last": 928.82,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.5966,
+            "median": 0.6,
+            "first": 0.57,
+            "last": 0.61,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 4.726502,
+            "median": 4.7517499999999995,
+            "first": 4.5167,
+            "last": 4.8636,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.050795,
+            "median": -0.050949999999999995,
+            "first": -0.049,
+            "last": -0.0519,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.225018,
+            "median": -0.22425,
+            "first": -0.2177,
+            "last": -0.2319,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.121665,
+            "median": -0.121,
+            "first": -0.1125,
+            "last": -0.1282,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.095789,
+            "median": -0.06725,
+            "first": -0.0667,
+            "last": -0.1523,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.6730306666666667,
+            "median": 0.6754333333333333,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.709564,
+            "median": 0.7121333333333334,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "900-999": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 0.998155,
+            "median": 0.99865,
+            "first": 1.0249,
+            "last": 1.0388,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 0.511586,
+            "median": 0.51245,
+            "first": 0.5273,
+            "last": 0.5147,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.7083119999999999,
+            "median": 0.70485,
+            "first": 0.7114,
+            "last": 0.6699,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.509031,
+            "median": 0.50635,
+            "first": 0.4952,
+            "last": 0.5296,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.112018,
+            "median": 0.1109,
+            "first": 0.1027,
+            "last": 0.1229,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.887982,
+            "median": 0.8891,
+            "first": 0.8973,
+            "last": 0.8771,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 934.6479,
+            "median": 938.49,
+            "first": 959.23,
+            "last": 946.91,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.6903,
+            "median": 0.68,
+            "first": 0.66,
+            "last": 0.71,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 4.939161,
+            "median": 4.93595,
+            "first": 4.9463,
+            "last": 4.9393,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.0537,
+            "median": -0.05355,
+            "first": -0.0532,
+            "last": -0.0585,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.251878,
+            "median": -0.25125,
+            "first": -0.242,
+            "last": -0.2784,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.146189,
+            "median": -0.14485,
+            "first": -0.1392,
+            "last": -0.1644,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.118126,
+            "median": -0.07214999999999999,
+            "first": -0.0684,
+            "last": -0.0837,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.6654366666666667,
+            "median": 0.6657666666666667,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.6821146666666666,
+            "median": 0.6832666666666666,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "1000-1099": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 0.997947,
+            "median": 1.0063,
+            "first": 0.9115,
+            "last": 0.943,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 0.509204,
+            "median": 0.50925,
+            "first": 0.5012,
+            "last": 0.498,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.729569,
+            "median": 0.7296,
+            "first": 0.881,
+            "last": 0.7776,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.526011,
+            "median": 0.5252,
+            "first": 0.5445,
+            "last": 0.5287,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.11094,
+            "median": 0.11135,
+            "first": 0.1237,
+            "last": 0.1128,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.889192,
+            "median": 0.88895,
+            "first": 0.8763,
+            "last": 0.8875,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 941.4462,
+            "median": 942.76,
+            "first": 955.66,
+            "last": 959.53,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.7275,
+            "median": 0.73,
+            "first": 0.71,
+            "last": 0.72,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 5.010245,
+            "median": 5.02125,
+            "first": 4.9403,
+            "last": 5.0684,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.057122,
+            "median": -0.05695,
+            "first": -0.0556,
+            "last": -0.0578,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.272729,
+            "median": -0.27255,
+            "first": -0.2695,
+            "last": -0.2713,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.165085,
+            "median": -0.1655,
+            "first": -0.1606,
+            "last": -0.1653,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.085486,
+            "median": -0.07275000000000001,
+            "first": -0.0793,
+            "last": -0.0734,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.6652980000000001,
+            "median": 0.6708666666666666,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.6789386666666667,
+            "median": 0.6789999999999999,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "1200-1299": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.005914,
+            "median": 1.0068,
+            "first": 0.9735,
+            "last": 1.005,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 0.5055,
+            "median": 0.50665,
+            "first": 0.4968,
+            "last": 0.5117,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.693435,
+            "median": 0.6943,
+            "first": 0.7209,
+            "last": 0.6887,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.523929,
+            "median": 0.5246,
+            "first": 0.5152,
+            "last": 0.5035,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.124389,
+            "median": 0.12485,
+            "first": 0.1214,
+            "last": 0.1042,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.875685,
+            "median": 0.8753,
+            "first": 0.8786,
+            "last": 0.896,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 936.1418,
+            "median": 937.4100000000001,
+            "first": 918.99,
+            "last": 920.89,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.7424999999999999,
+            "median": 0.75,
+            "first": 0.75,
+            "last": 0.71,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 5.153345,
+            "median": 5.14245,
+            "first": 5.1335,
+            "last": 5.1962,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.059269,
+            "median": -0.0592,
+            "first": -0.0578,
+            "last": -0.0589,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.272115,
+            "median": -0.2721,
+            "first": -0.2658,
+            "last": -0.2601,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.171943,
+            "median": -0.17245,
+            "first": -0.1639,
+            "last": -0.1676,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.088656,
+            "median": -0.0669,
+            "first": -0.07,
+            "last": -0.0624,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.6706093333333333,
+            "median": 0.6711999999999999,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.6739999999999999,
+            "median": 0.6755333333333334,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "1400-1499": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.018175,
+            "median": 1.0140500000000001,
+            "first": 1.0331,
+            "last": 0.9968,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 0.516734,
+            "median": 0.51715,
+            "first": 0.516,
+            "last": 0.532,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.687926,
+            "median": 0.69285,
+            "first": 0.6757,
+            "last": 0.8496,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.502177,
+            "median": 0.5023,
+            "first": 0.5147,
+            "last": 0.5153,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.125887,
+            "median": 0.12669999999999998,
+            "first": 0.1292,
+            "last": 0.1163,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.874184,
+            "median": 0.8734,
+            "first": 0.8708,
+            "last": 0.8837,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 936.6526,
+            "median": 939.2650000000001,
+            "first": 939.2,
+            "last": 957.34,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.7278,
+            "median": 0.725,
+            "first": 0.72,
+            "last": 0.73,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 5.204448,
+            "median": 5.1995000000000005,
+            "first": 5.2046,
+            "last": 5.245,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.05949,
+            "median": -0.0595,
+            "first": -0.0602,
+            "last": -0.0607,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.264968,
+            "median": -0.26475,
+            "first": -0.2697,
+            "last": -0.2642,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.1689,
+            "median": -0.1689,
+            "first": -0.1753,
+            "last": -0.1672,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.077986,
+            "median": -0.06,
+            "first": -0.0598,
+            "last": -0.0592,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.6787833333333334,
+            "median": 0.6760333333333334,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.6889786666666667,
+            "median": 0.6895333333333333,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "1490-1499": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.03674,
+            "median": 1.02115,
+            "first": 1.0868,
+            "last": 0.9968,
+            "count": 10
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 0.52475,
+            "median": 0.52885,
+            "first": 0.5282,
+            "last": 0.532,
+            "count": 10
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.69814,
+            "median": 0.71075,
+            "first": 0.5823,
+            "last": 0.8496,
+            "count": 10
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.50626,
+            "median": 0.50875,
+            "first": 0.4885,
+            "last": 0.5153,
+            "count": 10
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.11822,
+            "median": 0.11760000000000001,
+            "first": 0.1225,
+            "last": 0.1163,
+            "count": 10
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.88178,
+            "median": 0.8824000000000001,
+            "first": 0.8775,
+            "last": 0.8837,
+            "count": 10
+          },
+          "Mean episode length": {
+            "mean": 949.242,
+            "median": 954.76,
+            "first": 968.07,
+            "last": 957.34,
+            "count": 10
+          },
+          "Mean action std": {
+            "mean": 0.727,
+            "median": 0.73,
+            "first": 0.72,
+            "last": 0.73,
+            "count": 10
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 5.241,
+            "median": 5.24395,
+            "first": 5.2315,
+            "last": 5.245,
+            "count": 10
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.06039,
+            "median": -0.06075,
+            "first": -0.0585,
+            "last": -0.0607,
+            "count": 10
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.2667,
+            "median": -0.26890000000000003,
+            "first": -0.2559,
+            "last": -0.2642,
+            "count": 10
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.1677,
+            "median": -0.16795,
+            "first": -0.1643,
+            "last": -0.1672,
+            "count": 10
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.09419,
+            "median": -0.06365,
+            "first": -0.06,
+            "last": -0.0592,
+            "count": 10
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.69116,
+            "median": 0.6807666666666666,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.6996666666666668,
+            "median": 0.7051333333333334,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        }
+      }
+    },
+    "F10_historical_training": {
+      "log_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\logs\\train_F10.log",
+      "log_sha256": "09c312266ad5e6b77a03cef83ae3af962546faf3eb9440ce54a97ab180e3b1e0",
+      "env_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\preserved\\F10\\2026-10-01_18-55-04_round20_F10\\params\\env.yaml",
+      "env_sha256": "77eab5e85aca1d09747e05628466eddc7e438a4c24df3f474f8b0251caac1adc",
+      "effective_weights": {
+        "track_lin_vel_xy_exp": 2.0,
+        "track_ang_vel_z_exp": 1.5,
+        "lin_vel_z_l2": -3.0,
+        "ang_vel_xy_l2": -0.08,
+        "dof_torques_l2": -0.0002,
+        "dof_acc_l2": -2.5e-07,
+        "action_rate_l2": -0.01,
+        "feet_air_time": 0.01,
+        "flat_orientation_l2": 0.0,
+        "dof_pos_limits": 0.0
+      },
+      "iterations": 4000,
+      "windows": {
+        "500-599": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.291546,
+            "median": 1.2815500000000002,
+            "first": 1.2618,
+            "last": 1.502,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 1.141252,
+            "median": 1.1437499999999998,
+            "first": 1.1316,
+            "last": 1.1756,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.835466,
+            "median": 0.823,
+            "first": 0.843,
+            "last": 0.6027,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.418624,
+            "median": 0.4191,
+            "first": 0.4217,
+            "last": 0.4118,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.081029,
+            "median": 0.08224999999999999,
+            "first": 0.0738,
+            "last": 0.0844,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.918971,
+            "median": 0.91775,
+            "first": 0.9262,
+            "last": 0.9156,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 958.7643,
+            "median": 960.125,
+            "first": 954.44,
+            "last": 970.08,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.5719,
+            "median": 0.57,
+            "first": 0.58,
+            "last": 0.58,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 2.170688,
+            "median": 2.1507,
+            "first": 1.627,
+            "last": 2.7586,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.098002,
+            "median": -0.09765,
+            "first": -0.0923,
+            "last": -0.1056,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.226943,
+            "median": -0.22399999999999998,
+            "first": -0.2162,
+            "last": -0.2544,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.126179,
+            "median": -0.12575,
+            "first": -0.1239,
+            "last": -0.1331,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.068264,
+            "median": -0.065,
+            "first": -0.0612,
+            "last": -0.075,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.645773,
+            "median": 0.6407750000000001,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.7608346666666667,
+            "median": 0.7624999999999998,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "700-799": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.420038,
+            "median": 1.4249,
+            "first": 1.3506,
+            "last": 1.4194,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 1.139053,
+            "median": 1.1417,
+            "first": 1.1297,
+            "last": 1.1573,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.631782,
+            "median": 0.63925,
+            "first": 0.7032,
+            "last": 0.6659,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.413573,
+            "median": 0.41335,
+            "first": 0.4056,
+            "last": 0.4134,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.100226,
+            "median": 0.10225000000000001,
+            "first": 0.0992,
+            "last": 0.0845,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.899775,
+            "median": 0.89775,
+            "first": 0.9008,
+            "last": 0.9155,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 950.6036,
+            "median": 952.815,
+            "first": 932.89,
+            "last": 959.29,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.5822999999999999,
+            "median": 0.58,
+            "first": 0.57,
+            "last": 0.58,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 4.458742,
+            "median": 4.483700000000001,
+            "first": 3.9583,
+            "last": 4.8793,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.105329,
+            "median": -0.10544999999999999,
+            "first": -0.1007,
+            "last": -0.11,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.25631,
+            "median": -0.2568,
+            "first": -0.2434,
+            "last": -0.2632,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.131986,
+            "median": -0.1319,
+            "first": -0.1277,
+            "last": -0.1362,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.086408,
+            "median": -0.0774,
+            "first": -0.0709,
+            "last": -0.077,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.710019,
+            "median": 0.71245,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.7593686666666667,
+            "median": 0.7611333333333333,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "900-999": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.447399,
+            "median": 1.4459,
+            "first": 1.4781,
+            "last": 1.4049,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 1.140607,
+            "median": 1.14445,
+            "first": 1.156,
+            "last": 1.1143,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.592472,
+            "median": 0.5862,
+            "first": 0.5922,
+            "last": 0.5918,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.411789,
+            "median": 0.41205,
+            "first": 0.4194,
+            "last": 0.4049,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.095536,
+            "median": 0.0949,
+            "first": 0.0932,
+            "last": 0.1007,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.90464,
+            "median": 0.90535,
+            "first": 0.907,
+            "last": 0.8994,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 951.3662,
+            "median": 952.995,
+            "first": 963.47,
+            "last": 935.34,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.5925,
+            "median": 0.59,
+            "first": 0.6,
+            "last": 0.59,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 5.318468,
+            "median": 5.32835,
+            "first": 5.2244,
+            "last": 5.4028,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.108601,
+            "median": -0.10825,
+            "first": -0.1083,
+            "last": -0.1115,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.254975,
+            "median": -0.25470000000000004,
+            "first": -0.2638,
+            "last": -0.2506,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.135067,
+            "median": -0.13505,
+            "first": -0.1373,
+            "last": -0.134,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.08051900000000001,
+            "median": -0.0759,
+            "first": -0.0781,
+            "last": -0.0752,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.7236995,
+            "median": 0.72295,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.7604046666666666,
+            "median": 0.7629666666666667,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "1000-1099": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.4398,
+            "median": 1.4371999999999998,
+            "first": 1.4679,
+            "last": 1.5062,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 1.135367,
+            "median": 1.138,
+            "first": 1.1518,
+            "last": 1.1538,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.5926,
+            "median": 0.5904,
+            "first": 0.5748,
+            "last": 0.5298,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.416329,
+            "median": 0.4147,
+            "first": 0.41,
+            "last": 0.4108,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.099981,
+            "median": 0.0987,
+            "first": 0.1007,
+            "last": 0.1134,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.900053,
+            "median": 0.9013,
+            "first": 0.8995,
+            "last": 0.8868,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 947.2472,
+            "median": 947.47,
+            "first": 941.39,
+            "last": 958.3,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.6073,
+            "median": 0.6,
+            "first": 0.59,
+            "last": 0.64,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 5.44124,
+            "median": 5.4353,
+            "first": 5.4061,
+            "last": 5.4894,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.108415,
+            "median": -0.1082,
+            "first": -0.1065,
+            "last": -0.1095,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.25439,
+            "median": -0.25425,
+            "first": -0.2484,
+            "last": -0.2521,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.137189,
+            "median": -0.137,
+            "first": -0.1345,
+            "last": -0.1436,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.09613,
+            "median": -0.0755,
+            "first": -0.0749,
+            "last": -0.0742,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.7199,
+            "median": 0.7185999999999999,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.7569113333333334,
+            "median": 0.7586666666666666,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "1200-1299": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.427735,
+            "median": 1.4226,
+            "first": 1.4196,
+            "last": 1.4423,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 1.128846,
+            "median": 1.1329500000000001,
+            "first": 1.1066,
+            "last": 1.1463,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.619984,
+            "median": 0.6205,
+            "first": 0.5603,
+            "last": 0.6357,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.425143,
+            "median": 0.4255,
+            "first": 0.4206,
+            "last": 0.4245,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.10287,
+            "median": 0.10405,
+            "first": 0.0933,
+            "last": 0.0873,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.897204,
+            "median": 0.89605,
+            "first": 0.9067,
+            "last": 0.913,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 950.0979,
+            "median": 954.25,
+            "first": 931.55,
+            "last": 955.71,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.6585,
+            "median": 0.65,
+            "first": 0.63,
+            "last": 0.68,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 5.674119,
+            "median": 5.673,
+            "first": 5.6986,
+            "last": 5.6958,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.115479,
+            "median": -0.1154,
+            "first": -0.1126,
+            "last": -0.1213,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.262084,
+            "median": -0.26144999999999996,
+            "first": -0.26,
+            "last": -0.2767,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.152584,
+            "median": -0.152,
+            "first": -0.1423,
+            "last": -0.1646,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.121244,
+            "median": -0.07425000000000001,
+            "first": -0.0754,
+            "last": -0.0784,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.7138675,
+            "median": 0.7113,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.752564,
+            "median": 0.7553000000000001,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "1400-1499": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.428473,
+            "median": 1.43195,
+            "first": 1.4658,
+            "last": 1.438,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 1.11025,
+            "median": 1.1075,
+            "first": 1.1373,
+            "last": 1.0972,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.614972,
+            "median": 0.61105,
+            "first": 0.5766,
+            "last": 0.6407,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.442606,
+            "median": 0.4381,
+            "first": 0.4164,
+            "last": 0.4812,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.098374,
+            "median": 0.0989,
+            "first": 0.0907,
+            "last": 0.0992,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.901725,
+            "median": 0.9011,
+            "first": 0.9094,
+            "last": 0.9009,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 947.7377,
+            "median": 947.275,
+            "first": 948.77,
+            "last": 944.61,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.7348,
+            "median": 0.74,
+            "first": 0.67,
+            "last": 0.78,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 5.7497489999999996,
+            "median": 5.7498000000000005,
+            "first": 5.7694,
+            "last": 5.73,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.125808,
+            "median": -0.12355,
+            "first": -0.1221,
+            "last": -0.1373,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.274483,
+            "median": -0.27005,
+            "first": -0.2688,
+            "last": -0.3021,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.175448,
+            "median": -0.17095,
+            "first": -0.1593,
+            "last": -0.2032,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.15376499999999999,
+            "median": -0.0816,
+            "first": -0.0778,
+            "last": -0.0853,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.7142365,
+            "median": 0.715975,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.7401666666666666,
+            "median": 0.7383333333333333,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "1490-1499": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.40591,
+            "median": 1.4019,
+            "first": 1.4071,
+            "last": 1.438,
+            "count": 10
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 1.0758,
+            "median": 1.07485,
+            "first": 1.0682,
+            "last": 1.0972,
+            "count": 10
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.63524,
+            "median": 0.6372,
+            "first": 0.6553,
+            "last": 0.6407,
+            "count": 10
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.47637,
+            "median": 0.4748,
+            "first": 0.4709,
+            "last": 0.4812,
+            "count": 10
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.10016,
+            "median": 0.1,
+            "first": 0.1005,
+            "last": 0.0992,
+            "count": 10
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.9,
+            "median": 0.9002,
+            "first": 0.8997,
+            "last": 0.9009,
+            "count": 10
+          },
+          "Mean episode length": {
+            "mean": 945.952,
+            "median": 945.835,
+            "first": 947.06,
+            "last": 944.61,
+            "count": 10
+          },
+          "Mean action std": {
+            "mean": 0.787,
+            "median": 0.79,
+            "first": 0.78,
+            "last": 0.78,
+            "count": 10
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 5.72444,
+            "median": 5.724349999999999,
+            "first": 5.7217,
+            "last": 5.73,
+            "count": 10
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.13543,
+            "median": -0.13424999999999998,
+            "first": -0.1338,
+            "last": -0.1373,
+            "count": 10
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.29844,
+            "median": -0.30205,
+            "first": -0.289,
+            "last": -0.3021,
+            "count": 10
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.19959,
+            "median": -0.19935,
+            "first": -0.1956,
+            "last": -0.2032,
+            "count": 10
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.14017000000000002,
+            "median": -0.09670000000000001,
+            "first": -0.2659,
+            "last": -0.0853,
+            "count": 10
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.702955,
+            "median": 0.70095,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.7172000000000001,
+            "median": 0.7165666666666667,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        }
+      }
+    },
+    "F00_C0_reward_historical_training": {
+      "log_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\logs\\train_F00.log",
+      "log_sha256": "20b03f6fc3efa46781d5968a2a31a309be97212aaaa2e8de7039e6770d0a9c0f",
+      "env_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\preserved\\F00\\2026-10-01_13-44-14_round20_F00\\params\\env.yaml",
+      "env_sha256": "cf8a03c19f8c3583a99bcbe4e03100d5cf1ef7e7a3ac6cdcda5b5aebf54683b7",
+      "effective_weights": {
+        "track_lin_vel_xy_exp": 2.0,
+        "track_ang_vel_z_exp": 0.75,
+        "lin_vel_z_l2": -3.0,
+        "ang_vel_xy_l2": -0.08,
+        "dof_torques_l2": -0.0002,
+        "dof_acc_l2": -2.5e-07,
+        "action_rate_l2": -0.01,
+        "feet_air_time": 0.01,
+        "flat_orientation_l2": 0.0,
+        "dof_pos_limits": 0.0
+      },
+      "iterations": 4000,
+      "windows": {
+        "500-599": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.32013,
+            "median": 1.32215,
+            "first": 1.2821,
+            "last": 1.3044,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 0.523335,
+            "median": 0.5246,
+            "first": 0.5287,
+            "last": 0.5241,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.788784,
+            "median": 0.7887500000000001,
+            "first": 0.8731,
+            "last": 0.7751,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.512037,
+            "median": 0.5118,
+            "first": 0.5303,
+            "last": 0.4969,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.083618,
+            "median": 0.08585000000000001,
+            "first": 0.0697,
+            "last": 0.099,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.916382,
+            "median": 0.91415,
+            "first": 0.9303,
+            "last": 0.901,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 952.8716,
+            "median": 955.1099999999999,
+            "first": 973.98,
+            "last": 912.3,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.601,
+            "median": 0.6,
+            "first": 0.6,
+            "last": 0.59,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 2.286301,
+            "median": 2.28095,
+            "first": 1.7178,
+            "last": 2.8814,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.104695,
+            "median": -0.10475000000000001,
+            "first": -0.1073,
+            "last": -0.1009,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.234402,
+            "median": -0.23365,
+            "first": -0.2213,
+            "last": -0.2362,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.129532,
+            "median": -0.1292,
+            "first": -0.1287,
+            "last": -0.1282,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.0769,
+            "median": -0.0674,
+            "first": -0.0633,
+            "last": -0.068,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.660065,
+            "median": 0.661075,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.69778,
+            "median": 0.6994666666666666,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "700-799": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.308066,
+            "median": 1.3115999999999999,
+            "first": 1.2366,
+            "last": 1.3448,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 0.491025,
+            "median": 0.49145,
+            "first": 0.4909,
+            "last": 0.4859,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.643628,
+            "median": 0.6459,
+            "first": 0.7571,
+            "last": 0.5544,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.491625,
+            "median": 0.492,
+            "first": 0.4948,
+            "last": 0.476,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.178139,
+            "median": 0.1831,
+            "first": 0.1566,
+            "last": 0.1859,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.822009,
+            "median": 0.81715,
+            "first": 0.8435,
+            "last": 0.8141,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 901.0350999999999,
+            "median": 902.7850000000001,
+            "first": 915.04,
+            "last": 879.41,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.6313,
+            "median": 0.63,
+            "first": 0.64,
+            "last": 0.62,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 4.395975,
+            "median": 4.41425,
+            "first": 3.9851,
+            "last": 4.7272,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.104782,
+            "median": -0.1047,
+            "first": -0.0995,
+            "last": -0.1034,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.244108,
+            "median": -0.2446,
+            "first": -0.2352,
+            "last": -0.2378,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.13619,
+            "median": -0.13624999999999998,
+            "first": -0.1316,
+            "last": -0.1326,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.094662,
+            "median": -0.0716,
+            "first": -0.0734,
+            "last": -0.0685,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.654033,
+            "median": 0.6557999999999999,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.6547,
+            "median": 0.6552666666666667,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "900-999": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.373417,
+            "median": 1.37805,
+            "first": 1.3967,
+            "last": 1.3622,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 0.512951,
+            "median": 0.51225,
+            "first": 0.5149,
+            "last": 0.519,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.608725,
+            "median": 0.60945,
+            "first": 0.5658,
+            "last": 0.6726,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.48516,
+            "median": 0.48419999999999996,
+            "first": 0.4787,
+            "last": 0.5036,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.154281,
+            "median": 0.15,
+            "first": 0.1723,
+            "last": 0.1493,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.845814,
+            "median": 0.8501,
+            "first": 0.8278,
+            "last": 0.8507,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 919.995,
+            "median": 920.635,
+            "first": 912.53,
+            "last": 934.45,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.6242,
+            "median": 0.62,
+            "first": 0.65,
+            "last": 0.62,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 4.955246,
+            "median": 4.950200000000001,
+            "first": 4.888,
+            "last": 5.0451,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.110246,
+            "median": -0.1098,
+            "first": -0.1128,
+            "last": -0.1086,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.246197,
+            "median": -0.24665,
+            "first": -0.2483,
+            "last": -0.2362,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.137817,
+            "median": -0.1378,
+            "first": -0.1409,
+            "last": -0.1343,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.071886,
+            "median": -0.0643,
+            "first": -0.0626,
+            "last": -0.0614,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.6867085,
+            "median": 0.689025,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.6839346666666667,
+            "median": 0.6829999999999999,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "1000-1099": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.387126,
+            "median": 1.3952,
+            "first": 1.3987,
+            "last": 1.3202,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 0.51214,
+            "median": 0.51215,
+            "first": 0.528,
+            "last": 0.489,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.582453,
+            "median": 0.5764,
+            "first": 0.6134,
+            "last": 0.5714,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.482511,
+            "median": 0.48150000000000004,
+            "first": 0.4723,
+            "last": 0.4863,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.156969,
+            "median": 0.15905,
+            "first": 0.1485,
+            "last": 0.1638,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.843186,
+            "median": 0.84115,
+            "first": 0.8515,
+            "last": 0.8364,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 915.7308,
+            "median": 916.5250000000001,
+            "first": 922.59,
+            "last": 879.65,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.6431,
+            "median": 0.64,
+            "first": 0.62,
+            "last": 0.65,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 5.104845,
+            "median": 5.10095,
+            "first": 5.0406,
+            "last": 5.1746,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.111834,
+            "median": -0.112,
+            "first": -0.1095,
+            "last": -0.1122,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.243571,
+            "median": -0.24365,
+            "first": -0.2453,
+            "last": -0.2432,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.139433,
+            "median": -0.1388,
+            "first": -0.1356,
+            "last": -0.1427,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.113894,
+            "median": -0.0626,
+            "first": -0.0616,
+            "last": -0.0619,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.693563,
+            "median": 0.6976,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.6828533333333334,
+            "median": 0.6828666666666666,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "1200-1299": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.375815,
+            "median": 1.3765999999999998,
+            "first": 1.3524,
+            "last": 1.4447,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 0.490936,
+            "median": 0.49085,
+            "first": 0.5007,
+            "last": 0.4994,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.514466,
+            "median": 0.5137,
+            "first": 0.6132,
+            "last": 0.4181,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.480008,
+            "median": 0.47909999999999997,
+            "first": 0.5078,
+            "last": 0.4588,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.198941,
+            "median": 0.19829999999999998,
+            "first": 0.1818,
+            "last": 0.1956,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.801192,
+            "median": 0.8017,
+            "first": 0.8184,
+            "last": 0.8044,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 889.9122,
+            "median": 892.435,
+            "first": 945.23,
+            "last": 907.11,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.7066,
+            "median": 0.71,
+            "first": 0.7,
+            "last": 0.69,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 5.442875,
+            "median": 5.4413,
+            "first": 5.3539,
+            "last": 5.5348,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.120781,
+            "median": -0.12079999999999999,
+            "first": -0.1211,
+            "last": -0.1197,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.260641,
+            "median": -0.2619,
+            "first": -0.2684,
+            "last": -0.252,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.16178700000000001,
+            "median": -0.16185,
+            "first": -0.159,
+            "last": -0.1575,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.081084,
+            "median": -0.0661,
+            "first": -0.134,
+            "last": -0.0626,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.6879075,
+            "median": 0.6882999999999999,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.6545813333333333,
+            "median": 0.6544666666666666,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "1400-1499": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.433883,
+            "median": 1.43185,
+            "first": 1.438,
+            "last": 1.436,
+            "count": 100
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 0.495886,
+            "median": 0.496,
+            "first": 0.4982,
+            "last": 0.4898,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.453791,
+            "median": 0.45609999999999995,
+            "first": 0.4268,
+            "last": 0.423,
+            "count": 100
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.48379,
+            "median": 0.48475,
+            "first": 0.4602,
+            "last": 0.474,
+            "count": 100
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.171497,
+            "median": 0.1719,
+            "first": 0.1596,
+            "last": 0.2001,
+            "count": 100
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.828503,
+            "median": 0.8281,
+            "first": 0.8404,
+            "last": 0.7999,
+            "count": 100
+          },
+          "Mean episode length": {
+            "mean": 897.7817,
+            "median": 898.635,
+            "first": 861.98,
+            "last": 892.42,
+            "count": 100
+          },
+          "Mean action std": {
+            "mean": 0.7394,
+            "median": 0.74,
+            "first": 0.71,
+            "last": 0.76,
+            "count": 100
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 5.634928,
+            "median": 5.6326,
+            "first": 5.6106,
+            "last": 5.6664,
+            "count": 100
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.132098,
+            "median": -0.13195,
+            "first": -0.1255,
+            "last": -0.1301,
+            "count": 100
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.271014,
+            "median": -0.27144999999999997,
+            "first": -0.2545,
+            "last": -0.2759,
+            "count": 100
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.175697,
+            "median": -0.176,
+            "first": -0.162,
+            "last": -0.1813,
+            "count": 100
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.07691,
+            "median": -0.0651,
+            "first": -0.0617,
+            "last": -0.0653,
+            "count": 100
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.7169415,
+            "median": 0.715925,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.6611813333333333,
+            "median": 0.6613333333333333,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        },
+        "1490-1499": {
+          "Episode_Reward/track_lin_vel_xy_exp": {
+            "mean": 1.40335,
+            "median": 1.39755,
+            "first": 1.3513,
+            "last": 1.436,
+            "count": 10
+          },
+          "Episode_Reward/track_ang_vel_z_exp": {
+            "mean": 0.479,
+            "median": 0.47695,
+            "first": 0.4669,
+            "last": 0.4898,
+            "count": 10
+          },
+          "Metrics/base_velocity/error_vel_xy": {
+            "mean": 0.42257,
+            "median": 0.41675,
+            "first": 0.466,
+            "last": 0.423,
+            "count": 10
+          },
+          "Metrics/base_velocity/error_vel_yaw": {
+            "mean": 0.47373,
+            "median": 0.4758,
+            "first": 0.484,
+            "last": 0.474,
+            "count": 10
+          },
+          "Episode_Termination/base_contact": {
+            "mean": 0.1918,
+            "median": 0.19165,
+            "first": 0.1829,
+            "last": 0.2001,
+            "count": 10
+          },
+          "Episode_Termination/time_out": {
+            "mean": 0.8082,
+            "median": 0.80835,
+            "first": 0.8171,
+            "last": 0.7999,
+            "count": 10
+          },
+          "Mean episode length": {
+            "mean": 866.716,
+            "median": 864.425,
+            "first": 862.65,
+            "last": 892.42,
+            "count": 10
+          },
+          "Mean action std": {
+            "mean": 0.759,
+            "median": 0.76,
+            "first": 0.76,
+            "last": 0.76,
+            "count": 10
+          },
+          "Curriculum/terrain_levels": {
+            "mean": 5.67515,
+            "median": 5.67535,
+            "first": 5.6749,
+            "last": 5.6664,
+            "count": 10
+          },
+          "Episode_Reward/dof_torques_l2": {
+            "mean": -0.13158,
+            "median": -0.13015,
+            "first": -0.1286,
+            "last": -0.1301,
+            "count": 10
+          },
+          "Episode_Reward/dof_acc_l2": {
+            "mean": -0.26952,
+            "median": -0.2714,
+            "first": -0.2597,
+            "last": -0.2759,
+            "count": 10
+          },
+          "Episode_Reward/action_rate_l2": {
+            "mean": -0.17868,
+            "median": -0.17804999999999999,
+            "first": -0.1745,
+            "last": -0.1813,
+            "count": 10
+          },
+          "Episode_Reward/lin_vel_z_l2": {
+            "mean": -0.07178999999999999,
+            "median": -0.06515,
+            "first": -0.0629,
+            "last": -0.0653,
+            "count": 10
+          },
+          "weight_normalized_episode_reward_xy": {
+            "mean": 0.701675,
+            "median": 0.698775,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          },
+          "weight_normalized_episode_reward_yaw": {
+            "mean": 0.6386666666666666,
+            "median": 0.6359333333333334,
+            "definition": "logged Episode_Reward divided by effective reward weight; NOT heldout tracking quality or RMSE"
+          }
+        }
+      }
+    }
+  },
+  "comparability_limits": [
+    "F00 is a separate historical scratch run with C0 reward settings, not the official C0_5500 training trajectory.",
+    "Same iteration windows and seed42 do not equate endogenous terrain/command/termination distributions.",
+    "No independent training seeds; successive logged iterations are not independent experiments.",
+    "Historical runtime equality with B1 is not established by log-window matching.",
+    "Weight-normalized reward retains episode-duration/reset/aggregation effects and exploration; it is not deterministic-policy tracking.",
+    "Portal S1/R1 reports expose final terrain/std and rounded last10 training fall rate, but no normalized tracking trace.",
+    "B1 has zero heldout scenario evaluations; existing official calibration cannot accept its training metrics as replacement inputs."
+  ],
+  "B1_policy_internal_Q3": null,
+  "B1_official_score_prediction": null,
+  "config_comparison": {
+    "all_three_effective_configs": {
+      "seed": 42,
+      "num_envs": 6144,
+      "num_steps_per_env": 24,
+      "resume": false
+    },
+    "historical_agent_vs_B1": "Only max_iterations (4000 versus 1500) and run_name differ in saved agent.yaml.",
+    "historical_env_vs_B1": "Only reward weights and log_dir differ in saved env.yaml.",
+    "runtime_equivalence": "Not established by matching saved configuration; exact historical dependency versions were not proved.",
+    "diffs": {
+      "F10_historical_training": {
+        "env": {
+          "reference_sha256": "77eab5e85aca1d09747e05628466eddc7e438a4c24df3f474f8b0251caac1adc",
+          "B1_sha256": "1cca0dc7b6045fb3b9c1130a3835df873b3e4eb213e25a3e38a5873114c3f552",
+          "unified_diff": "--- F10_historical_training\n\n+++ B1\n\n@@ -817,3 +817,3 @@\n\n export_io_descriptors: false\n-log_dir: /workspace/training/quadruped/logs/rsl_rl/quadruped/2026-10-01_18-55-04_round20_F10\n+log_dir: /workspace/training/quadruped/logs/rsl_rl/quadruped/2026-10-09_21-12-00_B1_4h_1791547031\n is_finite_horizon: false\n@@ -826,3 +826,3 @@\n\n       std: 0.5\n-    weight: 2.0\n+    weight: 1.5\n   track_ang_vel_z_exp:\n@@ -832,3 +832,3 @@\n\n       std: 0.5\n-    weight: 1.5\n+    weight: 0.75\n   lin_vel_z_l2:\n@@ -836,3 +836,3 @@\n\n     params: {}\n-    weight: -3.0\n+    weight: -2.0\n   ang_vel_xy_l2:\n@@ -840,3 +840,3 @@\n\n     params: {}\n-    weight: -0.08\n+    weight: -0.05\n   dof_torques_l2:\n@@ -844,3 +844,3 @@\n\n     params: {}\n-    weight: -0.0002\n+    weight: -0.0001\n   dof_acc_l2:\n@@ -881,3 +881,3 @@\n\n       threshold: 0.5\n-    weight: 0.01\n+    weight: 0.0\n   undesired_contacts: null"
+        },
+        "agent": {
+          "reference_sha256": "630f3c96a31eef2998e3ce0baad65ef34ff02047d15a9e345cc2e7cf8886f70c",
+          "B1_sha256": "4f4424ae57303080b2a7ab49c8e00a67c6497ec6f64220d6054395d4b990f36d",
+          "unified_diff": "--- F10_historical_training\n\n+++ B1\n\n@@ -3,3 +3,3 @@\n\n num_steps_per_env: 24\n-max_iterations: 4000\n+max_iterations: 1500\n empirical_normalization: {}\n@@ -10,3 +10,3 @@\n\n experiment_name: quadruped\n-run_name: round20_F10\n+run_name: B1_4h_1791547031\n logger: tensorboard"
+        }
+      },
+      "F00_C0_reward_historical_training": {
+        "env": {
+          "reference_sha256": "cf8a03c19f8c3583a99bcbe4e03100d5cf1ef7e7a3ac6cdcda5b5aebf54683b7",
+          "B1_sha256": "1cca0dc7b6045fb3b9c1130a3835df873b3e4eb213e25a3e38a5873114c3f552",
+          "unified_diff": "--- F00_C0_reward_historical_training\n\n+++ B1\n\n@@ -817,3 +817,3 @@\n\n export_io_descriptors: false\n-log_dir: /workspace/training/quadruped/logs/rsl_rl/quadruped/2026-10-01_13-44-14_round20_F00\n+log_dir: /workspace/training/quadruped/logs/rsl_rl/quadruped/2026-10-09_21-12-00_B1_4h_1791547031\n is_finite_horizon: false\n@@ -826,3 +826,3 @@\n\n       std: 0.5\n-    weight: 2.0\n+    weight: 1.5\n   track_ang_vel_z_exp:\n@@ -836,3 +836,3 @@\n\n     params: {}\n-    weight: -3.0\n+    weight: -2.0\n   ang_vel_xy_l2:\n@@ -840,3 +840,3 @@\n\n     params: {}\n-    weight: -0.08\n+    weight: -0.05\n   dof_torques_l2:\n@@ -844,3 +844,3 @@\n\n     params: {}\n-    weight: -0.0002\n+    weight: -0.0001\n   dof_acc_l2:\n@@ -881,3 +881,3 @@\n\n       threshold: 0.5\n-    weight: 0.01\n+    weight: 0.0\n   undesired_contacts: null"
+        },
+        "agent": {
+          "reference_sha256": "0443f51ccf61b6ae0efa2edbf777491b9560d0ef53b270c8bdce51f4f81ceb65",
+          "B1_sha256": "4f4424ae57303080b2a7ab49c8e00a67c6497ec6f64220d6054395d4b990f36d",
+          "unified_diff": "--- F00_C0_reward_historical_training\n\n+++ B1\n\n@@ -3,3 +3,3 @@\n\n num_steps_per_env: 24\n-max_iterations: 4000\n+max_iterations: 1500\n empirical_normalization: {}\n@@ -10,3 +10,3 @@\n\n experiment_name: quadruped\n-run_name: round20_F00\n+run_name: B1_4h_1791547031\n logger: tensorboard"
+        }
+      }
+    }
+  },
+  "last100_comparison": {
+    "F10_historical_training": {
+      "Episode_Reward/track_lin_vel_xy_exp": {
+        "B1": 1.018175,
+        "reference": 1.428473,
+        "relative_change_percent": -28.722839003607348
+      },
+      "Episode_Reward/track_ang_vel_z_exp": {
+        "B1": 0.516734,
+        "reference": 1.11025,
+        "relative_change_percent": -53.457869849133075
+      },
+      "Metrics/base_velocity/error_vel_xy": {
+        "B1": 0.687926,
+        "reference": 0.614972,
+        "relative_change_percent": 11.862979127505003
+      },
+      "Metrics/base_velocity/error_vel_yaw": {
+        "B1": 0.502177,
+        "reference": 0.442606,
+        "relative_change_percent": 13.459148768882478
+      },
+      "Episode_Termination/base_contact": {
+        "B1": 0.125887,
+        "reference": 0.098374,
+        "relative_change_percent": 27.967755707808962
+      },
+      "Episode_Termination/time_out": {
+        "B1": 0.874184,
+        "reference": 0.901725,
+        "relative_change_percent": -3.0542571183010403
+      },
+      "Mean episode length": {
+        "B1": 936.6526,
+        "reference": 947.7377,
+        "relative_change_percent": -1.1696379705059767
+      },
+      "Mean action std": {
+        "B1": 0.7278,
+        "reference": 0.7348,
+        "relative_change_percent": -0.9526401741970614
+      },
+      "Curriculum/terrain_levels": {
+        "B1": 5.204448,
+        "reference": 5.7497489999999996,
+        "relative_change_percent": -9.48390964544712
+      },
+      "Episode_Reward/dof_torques_l2": {
+        "B1": -0.05949,
+        "reference": -0.125808,
+        "relative_change_percent": -52.71365890881343
+      },
+      "Episode_Reward/dof_acc_l2": {
+        "B1": -0.264968,
+        "reference": -0.274483,
+        "relative_change_percent": -3.4665170520578714
+      },
+      "Episode_Reward/action_rate_l2": {
+        "B1": -0.1689,
+        "reference": -0.175448,
+        "relative_change_percent": -3.732159956226344
+      },
+      "Episode_Reward/lin_vel_z_l2": {
+        "B1": -0.077986,
+        "reference": -0.15376499999999999,
+        "relative_change_percent": -49.28234643774591
+      },
+      "weight_normalized_episode_reward_xy": {
+        "B1": 0.6787833333333334,
+        "reference": 0.7142365,
+        "relative_change_percent": -4.963785338143123
+      },
+      "weight_normalized_episode_reward_yaw": {
+        "B1": 0.6889786666666667,
+        "reference": 0.7401666666666666,
+        "relative_change_percent": -6.915739698266144
+      }
+    },
+    "F00_C0_reward_historical_training": {
+      "Episode_Reward/track_lin_vel_xy_exp": {
+        "B1": 1.018175,
+        "reference": 1.433883,
+        "relative_change_percent": -28.991765715891738
+      },
+      "Episode_Reward/track_ang_vel_z_exp": {
+        "B1": 0.516734,
+        "reference": 0.495886,
+        "relative_change_percent": 4.2041920925373955
+      },
+      "Metrics/base_velocity/error_vel_xy": {
+        "B1": 0.687926,
+        "reference": 0.453791,
+        "relative_change_percent": 51.595337941916
+      },
+      "Metrics/base_velocity/error_vel_yaw": {
+        "B1": 0.502177,
+        "reference": 0.48379,
+        "relative_change_percent": 3.8006159697389297
+      },
+      "Episode_Termination/base_contact": {
+        "B1": 0.125887,
+        "reference": 0.171497,
+        "relative_change_percent": -26.595217409050896
+      },
+      "Episode_Termination/time_out": {
+        "B1": 0.874184,
+        "reference": 0.828503,
+        "relative_change_percent": 5.5136794918063
+      },
+      "Mean episode length": {
+        "B1": 936.6526,
+        "reference": 897.7817,
+        "relative_change_percent": 4.329660539973146
+      },
+      "Mean action std": {
+        "B1": 0.7278,
+        "reference": 0.7394,
+        "relative_change_percent": -1.568839599675409
+      },
+      "Curriculum/terrain_levels": {
+        "B1": 5.204448,
+        "reference": 5.634928,
+        "relative_change_percent": -7.639494240210343
+      },
+      "Episode_Reward/dof_torques_l2": {
+        "B1": -0.05949,
+        "reference": -0.132098,
+        "relative_change_percent": -54.965253069690675
+      },
+      "Episode_Reward/dof_acc_l2": {
+        "B1": -0.264968,
+        "reference": -0.271014,
+        "relative_change_percent": -2.2308810614949715
+      },
+      "Episode_Reward/action_rate_l2": {
+        "B1": -0.1689,
+        "reference": -0.175697,
+        "relative_change_percent": -3.86859195091549
+      },
+      "Episode_Reward/lin_vel_z_l2": {
+        "B1": -0.077986,
+        "reference": -0.07691,
+        "relative_change_percent": 1.399037836432182
+      },
+      "weight_normalized_episode_reward_xy": {
+        "B1": 0.6787833333333334,
+        "reference": 0.7169415,
+        "relative_change_percent": -5.322354287855646
+      },
+      "weight_normalized_episode_reward_yaw": {
+        "B1": 0.6889786666666667,
+        "reference": 0.6611813333333333,
+        "relative_change_percent": 4.204192092537418
+      }
+    }
+  },
+  "calibration_audit": {
+    "anchor_policy_count": 1,
+    "official_anchor_simulation": 58.14,
+    "official_anchor_total_assuming_report_design30": 88.14,
+    "legacy_prediction_status": "UNVALIDATED_CALIBRATION_OUTPUTS_NOT_PRIMARY_PREDICTION",
+    "legacy_primary_prediction": null,
+    "legacy_mse_floor_ceiling": 89.72110610657487,
+    "F10_existing_heldout_conditional_outputs_not_B1": {
+      "primary_total_assuming_30": 88.36455325710006,
+      "global_scale_total_assuming_30": 88.62902031806857,
+      "raw_self_total_assuming_30": 94.169742453186
+    },
+    "B1_applicability": false,
+    "reason": "Requires full-window scenario tracking/survival from policy evaluation; B1 training logs provide neither.",
+    "sources": {
+      "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\predicted_scores.json": "ebaf3727e8cc2ddad59e65fcdaabbbe22a8583fb1beb25c448465f4c7b5ee44f",
+      "D:\\UserData\\Desktop\\issac_sim\\analysis\\score_reverse_20261001\\analysis.json": "b18e8c7255e2c70886ac72fa0ccb4c423a726eae1cce78c14cb801870434b8d5",
+      "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\heldout_ranking.json": "c76f48566d0995f0b4fd4a1cc58b0188daa3234015d1b9a20d815eac508ea0a9"
+    }
+  },
+  "S1_R1_portal_training_context": {
+    "S1_tracking_pair": {
+      "last10_base_contact_rate_rounded": 0.073,
+      "final_terrain_rounded": 5.41,
+      "final_std_rounded": 0.865,
+      "portal_checkpoint_iter": 400,
+      "evaluated_checkpoint_iter": 1499,
+      "report_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\high_score_search_20261009\\portal_recovery_20261009\\S1_tracking_pair\\report_visible.txt",
+      "report_sha256": "4584e12704e4e23f0382f976d5f5f2a430e11d0ca19d96dc351c93201120fadb"
+    },
+    "R1_tracking_double": {
+      "last10_base_contact_rate_rounded": 0.08,
+      "final_terrain_rounded": 5.73,
+      "final_std_rounded": 0.934,
+      "portal_checkpoint_iter": 1499,
+      "evaluated_checkpoint_iter": 1499,
+      "report_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\high_score_search_20261009\\portal_recovery_20261009\\R1_tracking_double\\report_visible.txt",
+      "report_sha256": "11bb6745568475ad59875e937a6ef90fac43adec19d411a85f7f323a7bc111ae"
+    },
+    "tracking_trace_available": false,
+    "report_scripts_or_embedded_tracking_series_found": false
+  }
+}

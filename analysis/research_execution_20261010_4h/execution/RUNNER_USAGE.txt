@@ -1,0 +1,126 @@
+Authorized single-candidate execution, 2026-10-10; total actual allocation4h.
+
+The final frozen candidate is S5_torque_half, scratch1500,6144env,seed42.
+Its ten weights equal F10 except torque cost -0.0002 -> -0.0001.
+The runner reads design.candidate_name and design.candidate_reward_file; it
+refuses CANDIDATE_NAME_PLACEHOLDER. No prior B1 filename controls the new run.
+Existing B1 screen is explicitly disabled in this allocation. Optional screen
+code is not authorization to execute it. No retry/resume/extra candidate, budget
+extension, official submission, or local PC shutdown.
+
+Actual allocation start, never runner start, anchors fixed epoch deadlines:
+setup target+900, hard backstop+1200; training_begin_latest+1800; training_end_latest+9600;
+selection_end_latest+10500; compute_end+11700;
+dashboard_shutdown_request_latest+12900; shutdown_confirmed_latest+14400.
+At25minutes remaining, preserve available evidence and immediately request
+dashboard shutdown. Verify actual OFF by4h; recovery trouble cannot extend it.
+The runner cannot create/stop the portal allocation; the operator owns that UI.
+
+Admission uses historical planning_iteration_seconds, multiplier1.05, boot120,
+selection900, validation1650, and computation_margin_seconds300. These are
+planning assumptions, not measured new-runtime bounds. Full1500 ETA plus those
+downstream reservations must fit compute+195min and train must end by+160min.
+This can refuse a start well before the separate+30min backstop. After every
+100 iterations, actual recent rate is checked against both reservations.
+
+Frozen package must be uploaded by normal portal UI into a fresh unique root.
+Never overwrite an existing experiment/state/preserved directory. The package
+contains design.json, this runner, evaluator/decision/legacy-core files, fresh
+original reward, named reward candidate, reference_models.json plus exact C0/F10
+checkpoints, source_snapshot.py/live_preflight.py and the retrieval probe.
+Runtime source manifests are freshly generated from the actual installation.
+Provided train/play/agent_cfg/env_cfg and PPO source remain hash guarded.
+
+Before runner launch, verify package member hashes, actual original reward SHA
+09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7,
+provided/PPO source hashes, runtime versions, reference loader compatibility,
+and absence of competing training/evaluation jobs. Recover the binary retrieval
+probe by the normal Download UI and check its actual local bytes/SHA. An event
+timeout is not evidence of a failed download; inspect the actual Downloads path.
+
+Run both CPU compatibility probes through the supported remote UI terminal:
+/workspace/IsaacLab/isaaclab.sh -p ROOT/checkpoint_capture_probe.py --root ROOT --out ROOT/checkpoint_capture_probe.json
+/workspace/IsaacLab/isaaclab.sh -p ROOT/streaming_control_libc.py --probe-pidfd
+The first proves Linux inotify discovery, same-filesystem hardlink capture, and
+preservation after source unlink, using temporary non-policy bytes. It imports
+no Isaac/torch and starts no GPU work. The second uses signal0 on the helper
+itself, not a service. Neither probe establishes later service control success.
+Do not launch training if either compatibility probe fails.
+Capture probe receipt uses exclusive creation; never overwrite/reuse an earlier
+allocation receipt. Preflight reads that actual current-allocation JSON file.
+
+Preflight receipt: actual_allocation_start_epoch, verified_epoch,
+user_authorized_execution=true, retrieval_smoke_verified=true,
+no_competing_gpu_jobs_verified=true, runtime_verified=true,
+reference_loader_verified=true, checkpoint_capture_probe_verified=true,
+probe_sha256/probe_local_sha256 equal, runtime_versions{rsl_rl_lib,torch}, and
+checkpoint_capture_probe=<the actual current-allocation JSON probe receipt>.
+Do not infer any of these fields from old receipts or CPU mocks.
+
+Launch ONCE in a fresh tmux session using this single reviewed CPU wrapper:
+/workspace/IsaacLab/isaaclab.sh -p ROOT/start_once.py --root ROOT --train-dir /workspace/training/quadruped --source-hashes ROOT/source_hashes_current.json --preflight ROOT/preflight_receipt.json --server-start-epoch ACTUAL_EPOCH --authorized-execution
+The wrapper exclusively claims ROOT/launch_once.json and inherits the current
+Isaac Python environment. It creates the runner, proves its current argv/PID/
+start_ticks/session and fresh state within10s, then creates ONE helper with that
+exact current identity. No separate UI dispatch is needed for the30s initial
+release ACK. ROOT/launch_receipt.json records both current identities, commands,
+and the fact that the release ACK remains mandatory before GPU training starts.
+Wrapper/runner/helper consoles are distinct; tmux/bash/wrapper PIDs are not the
+runner identity. Helper validates the exact active runner before its own one-shot
+claim. Launcher failures normally signal only the identity-checked runner for
+owned cleanup, record launch_failed.json, and authorize no retry. Never rearm.
+Wrapper SIGINT/TERM/HUP and premature controller loss stop the current owned
+runner normally. A successful controller exit after terminal cleanup permits
+archive completion. The wrapper waits for helper recovery only within compute
+deadline+30s, and records actual controller audit evidence in launch_finished.json.
+No complete recovery claim is made without matching audit/ACK evidence.
+Wrapper runner SIGINT grace is120s, allowing its own55s child cleanup and reward
+restoration before wrapper TERM/KILL escalation. Every signal refreshes current
+owned identity/argv; all grace waits are capped at the actual OFF deadline-60s.
+This never extends the portal shutdown request or actual allocation OFF limits.
+
+Handshake order: release/train -> hold/selection -> validation(same hold token)
+-> release/cleanup. state.streaming_request{mode,token,requested_epoch} is
+acknowledged atomically in ROOT/streaming_status.json with the identical token,
+status released/held_gpu_released and current verified_epoch. No evaluation
+starts without hold ACK, no training starts without release ACK. Audit actual
+STOP -> GPU release -> CONT and controller recovery; signal0 alone is not proof.
+Only exact official launcher/renderer identities are handled by the helper.
+During cleanup, COMPUTE_FINISHED_CLEANUP_PENDING/ERROR_CLEANUP_PENDING keep the
+controller alive until release ACK. Only then publish terminal COMPLETE/PARTIAL.
+Never signal PID1 or unrelated processes. Finally and the independent resumer
+are bounded by compute deadline+30s; actual allocation OFF is unchanged.
+
+Checkpoint capture is internal to the runner. It watches only the unique owned
+run and hardlinks each model_N.pt inode into _runner_checkpoint_capture with
+.capture suffix, before the provided train postprocessor deletes original .pt
+paths. Stable bytes are copied into ROOT/preserved/<candidate>/<run>/model_N.pt.
+The original final path is allowed to be absent AFTER provided cleanup. Training
+completion requires contiguous logged0..1499,1500 durations, return0/group exit,
+and exact preserved model1499 loaded CPU/weights_only with iter1499, SHA and finite
+tensors. No model_best substitution. Complete iterations but missing/invalid
+final preserved checkpoint is a distinct partial-result error, not success.
+
+Selection: new1000/new1499 plus C0/F10, G1/G3/G5/G6,env64,
+reset2029/startup404/terrain10037. Rank fewer falls, higher unrounded internalQ3,
+lowerXYRMSE, later checkpoint on exact tie. Missing1000 or bounded selection
+timeout may freeze exact1499 fallback, with no optimality claim; corrupt/nonfinite
+checkpoints are fatal. Validation: frozen selected+C0/F10,G1-G7,env128,
+reset2039/2063,startup409,terrain11003. Full initial/transition windows and explicit
+terminal/timeout masks remain mandatory. Raw weighted reward is not a model rank.
+All source audits are immutable per evaluation job. Internal Q3 is not an official
+score prediction, and one training seed/unequal reference training lengths remain.
+
+Errors or deadline cutoff trigger identity-checked owned group SIGINT/SIGTERM
+then bounded SIGKILL if necessary. Refresh current /proc start_ticks/session and
+known group-member identities before every group signal. Refuse unexpected/reused
+identities; do not guess using a saved GPU PID. Confirm group exit, preserve partial
+artifacts, restore the actual reward file, and verify provided/PPO current hashes.
+
+Recover critical archive first, then full archive and .sha256.json by normal UI.
+Check actual local size/SHA and safely extract into a new child directory. Verify
+exact1000/1499, selected checkpoint, params/events/logs, selection coverage and
+3policies x7scenarios x2resetseeds validation coverage. Partial archives/clipboard
+summaries are not full retrieval. Verify actual dashboard OFF before pausing go2.
+No server, simulation or training was used to prepare these files; Windows CPU
+tests do not claim Linux live ABI, streaming control, or training success.

@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-01",
+  "status": "PLAN_ONLY_NO_TRAINING_OR_SUBMISSION",
+  "official_anchor": {
+    "total": 88.14,
+    "sim": 58.14,
+    "design": 20,
+    "report": 10,
+    "source": "https://robotics.connect.or.kr/board",
+    "last_confirmed_in_conversation": true
+  },
+  "target": {
+    "total": 90,
+    "sim": 60,
+    "sim_gain": 1.86,
+    "margin_total": 90.3,
+    "margin_sim": 60.3,
+    "allocation_is_not_a_prediction": true
+  },
+  "scenario_allocation": [
+    {
+      "sid": "G1",
+      "name": "전진·후진 추종",
+      "weight": 0.15,
+      "current": 8.8,
+      "target": 9.0,
+      "required_gain": 0.2
+    },
+    {
+      "sid": "G2",
+      "name": "전방향 추종",
+      "weight": 0.15,
+      "current": 8.66,
+      "target": 9.0,
+      "required_gain": 0.34
+    },
+    {
+      "sid": "G3",
+      "name": "요철",
+      "weight": 0.2,
+      "current": 11.69,
+      "target": 12.0,
+      "required_gain": 0.31
+    },
+    {
+      "sid": "G4",
+      "name": "경사",
+      "weight": 0.15,
+      "current": 8.79,
+      "target": 9.0,
+      "required_gain": 0.21
+    },
+    {
+      "sid": "G5",
+      "name": "계단",
+      "weight": 0.15,
+      "current": 8.56,
+      "target": 9.0,
+      "required_gain": 0.44
+    },
+    {
+      "sid": "G6",
+      "name": "밀침",
+      "weight": 0.1,
+      "current": 5.79,
+      "target": 6.0,
+      "required_gain": 0.21
+    },
+    {
+      "sid": "G7",
+      "name": "도메인 랜덤화",
+      "weight": 0.1,
+      "current": 5.85,
+      "target": 6.0,
+      "required_gain": 0.15
+    }
+  ],
+  "proxy_sensitivity": {
+    "warning": "Empirical models, not official evaluator or confidence interval; c is not a tunable physical parameter.",
+    "fixed_floor_c": 0.02684614570005177,
+    "fixed_floor_total_ceiling": 89.4209767142583,
+    "current_ratio_sim": 58.09352959967032,
+    "current_floor_sim": 58.14135369054604,
+    "ratio_raw3_milestone_for_90": 66.29834254143647,
+    "ratio_uniform_rmse_reduction_for_90": 0.3729541655790215,
+    "ratio_uniform_rmse_reduction_for_90_3": 0.4305418809529903,
+    "ratio_yaw_only_rmse_reduction_for_90": 0.8410577274433273,
+    "ratio_yaw_only_rmse_reduction_for_90_3": null
+  },
+  "budget": {
+    "last_confirmed_remaining_hours": 51.416666666666664,
+    "current_phase_cap_hours": 30,
+    "held_back_hours": 21.416666666666664,
+    "measured_go2_seconds_per_iteration": 4.8,
+    "estimates_not_reservations": true,
+    "stages": [
+      {
+        "stage": "공통 진단",
+        "hours": 1.5
+      },
+      {
+        "stage": "2×2 보상 탐색",
+        "hours": 7.5
+      },
+      {
+        "stage": "조건부 지형 보상 탐색",
+        "hours": 2.5
+      },
+      {
+        "stage": "독립 확인 학습·최종 검증",
+        "hours": 14.5
+      },
+      {
+        "stage": "실패 복구",
+        "hours": 4.0
+      }
+    ],
+    "screening_iterations_per_branch": 1200,
+    "screening_branches": 4,
+    "screening_training_hours": 6.4,
+    "final_candidate_continuous_iterations": 5500,
+    "independent_control_continuous_iterations": 4000,
+    "final_training_hours": 12.666666666666666
+  },
+  "candidates": {
+    "F00": {
+      "path": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\deep_research_20261001\\F00_rewards.py",
+      "sha256": "4570c277b0aa58fa64d8aa8886232bfe92b4d46bc8d07f3b42377c9420deb9ff",
+      "trained": false
+    },
+    "F10": {
+      "path": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\deep_research_20261001\\F10_rewards.py",
+      "sha256": "0a9b91a9d21e4d8a422520bcc814f4735546a13b5afa9f88fecccc94353fd5a9",
+      "trained": false
+    },
+    "F01": {
+      "path": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\deep_research_20261001\\F01_rewards.py",
+      "sha256": "eaf553ba4e6a6ec70feb6cea258cd0f9828ec42246e3316be4dee70346c153bc",
+      "trained": false
+    },
+    "F11": {
+      "path": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\deep_research_20261001\\F11_rewards.py",
+      "sha256": "2a5bd78aea4f06a2128729e4c04eba1fabb6275afa7530e46bf63a1d24ba0a7d",
+      "trained": false
+    }
+  },
+  "evaluation": {
+    "existing_reset_seeds": [
+      103,
+      280,
+      512,
+      991
+    ],
+    "held_out_reset_seeds": [
+      137,
+      389,
+      743,
+      1201
+    ],
+    "seeds_are_not_independent_terrain_layouts": true,
+    "existing_terrain_seed": 1234,
+    "default_stair_height_m": 0.12,
+    "supplemental_stair_heights_m": [
+      0.1,
+      0.12,
+      0.15
+    ],
+    "existing_transient_s": 0.5,
+    "supplemental_transient_s": 0,
+    "slope_conversion_issue": "Evaluator converts degrees to radians, upstream slope expects rise/run ratio; verify realized surface geometry.",
+    "local_survival_does_not_establish_official_survival": true
+  },
+  "promotion_gates": [
+    "Competition wrapper confirms permitted resume, seed, env-count flags before using them.",
+    "All branches share parent, training budget, reset conditions and evaluation settings.",
+    "Finite actor/critic/optimizer, valid distribution std, no contact-buffer overflow.",
+    "Weighted tracking improvement must survive independent confirmation; check per-scenario regressions and falls.",
+    "Keep selection set and held-out set separate; record boundary terrain and transition stress results.",
+    "Only actual official sim >=60 plus design/report 30 establishes total >=90."
+  ]
+}

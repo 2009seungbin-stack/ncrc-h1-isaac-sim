@@ -1,0 +1,90 @@
+단일 신규 후보 독립 검토 — 2026-10-10
+사용자 승인: 실제 서버 총4시간, 신규 연구 실행. 본 검토는 서버/정책을 실행하지 않았다.
+허용 변경: 기존10개 reward weight. 이 문서와 candidate_research.json만 새로 작성했다.
+
+독립 권고
+B1 저장600/1000/1499의 짧은 동일-runtime 검증에서 새로운 긍정 근거가 나오지 않는다면,
+신규1회 기본 선택으로 B2보다 S5 토크단독완화를 권고한다.
+S5: F10 lin2/yaw1.5/air.01/z−3/angular−.08/action−.01/acc−2.5e−7/
+flat0/limits0를 유지하고 torque만−.0002→−.0001.
+이는 기대점수를 추정하여 얻은 최적값이 아니다. 측정된 F10의 특성을 최대한 보존하고,
+미입증 변화의 수를 줄이며, 1회 실패의 해석 가능성을 확보한다는 보수적 효용 판단이다.
+개선 근거는 낮고 큰 상승폭을 예상하지 않는다. 최종 실행 결정은 주 작업의 통합 판단이다.
+
+B2는 S1/R1과 완전 중복인가?
+아니다. 다만 겹침이 상당하며, 새로움의 범위를 정확히 제한해야 한다.
+모든 항을 양의 상수로 나눠 추종2/1.5로 맞추면:
+항목          F10       S1÷1.5        R1÷2         B2
+z            −3        −2            −1.5         −2
+angular      −.08      −.053333      −.04         −.05
+torque       −.0002    −.00013333    −.0001       −.0001
+action       −.01      −.006667      −.005        −.01
+acc          −2.5e−7   −1.66667e−7   −1.25e−7     −2.5e−7
+air           .01       .006667       .005          0
+B2는 S1 정규화 대비 z가 같고 angular는6.25% 낮으며 torque는25% 낮다.
+대신 action/acc는50% 강하다. R1 정규화 대비 torque가 같고 z33.3%,
+angular25%, action/acc100% 강하다. 따라서 B2의 고유 질문은 추종 자체 확대가 아니라
+smoothness를 유지하면서 body/torque/air의 상대 균형을 바꾸는 것이다.
+이 나눗셈은 상태별 보상식의 대수 비교다. critic scale/entropy/optimizer 때문에
+동일 비율이 동일 PPO 업데이트 또는 동일 최종 정책을 보장하지 않는다.
+
+현재 근거가 B2를 1순위로 확정하지 못하는 이유
+B1의 공유 terrain4.5~5.5에서 F10 대비 XY logger+15.47%, yaw+21.68%,
+contact+1.9536%p였고, weight 제거 수직/roll-pitch proxy는+57.55%/+30.06%다.
+이는 B1 비용 묶음이 후반 제어에 도움이 됐다는 근거가 아니다. tracking을F10으로
+복원하면 비용의 장점만 남는다고 가정할 수 없다. 여러 계수를 같이 바꿨으므로 개별 원인은 미식별이다.
+초기terrain1.5~2.5 XY−4.49%는 yaw+12.15%와 함께 나타난 제한적 교환관계다.
+S1/R1의1500 결과가 F10보다 낮았으므로 단순 상대비용 완화에는 이미 경고 신호가 있다.
+단, 학습길이/runtime/seed 때문에 이 경고를 모든 비용완화의 일반적 실패로 확대하지 않는다.
+
+AX와 S5 비교
+AX2.25/1.25는 추종계수 합3.5를 유지하지만 yaw 우선도를 낮춘다. 실제 F10은 C0보다
+전 시나리오 yaw RMSE가 낮았고 ordinary 구간이 yaw SSE의86.73%다.
+VX 전환 꼬리만 보고 yaw를 희생하는 방향을 점수 우선 후보로 정할 근거는 약하다.
+과거lin3/yaw1.5의짧은run 밀침 실패도 전진강화에 대한 주의 근거지만 AX의 직접 반증은 아니다.
+S5는 토크 제한 원인을 입증하지 못했다는 약점이 있다. 다만 B2의 추가 body/air 변경을
+거치지 않으므로 유지할 특성과 검증할 가설이 가장 명확하다.
+첫8환경 mechanics에서는 전환 토크가 비슷하고 push 토크/관절가속도 방향도 달라,
+전체 힘 부족이나 actuator 포화를 단정할 수 없다. S5 역시 토크 병목이라는 가설의 시험이다.
+
+B2를 선택할 수 있는 조건
+기존 B1 checkpoint의 동일 고정 시나리오 screen에서, F10보다 전환/밀침 VX나
+생존의 구체적 이득이 확인되고 ordinary yaw의 손실과 구별된다면 비용 묶음을 유지한
+추종 복원 실험의 근거가 추가된다. 작은 screen은 확정적 검증이 아니므로 높은 효과를 예상하지 않는다.
+그 근거 없이 B2를 고른다면 '더 넓은 공동 보상 설계를 한 번 탐색하겠다'는 위험 선호의 선택이지,
+문헌과 현재 자료가 지목한 점수 승자로 설명해서는 안 된다.
+
+4시간 내 우선순위
+1. 보존 B1 600/1000/1499와C0/F10을 같은 runtime·작은 고정 선택 프로토콜로 비교.
+2. 신규후보1개와 선택/중단조건을 고정한 후 scratch1500/seed42/env6144 학습.
+3. train.py 후처리 전에 정확한 중간/최종 checkpoint 보존. 이전 원본1499 삭제/경로오인 재발 방지.
+4. raw training reward가 아닌 고정 시나리오 선택으로 정확한 SHA의 checkpoint를 결정.
+5. 선택과 겹치지 않는 reset seed로 reference와 독립 검증하고 원자료/모델을 회수.
+validation과회수시간이 부족해지면 학습 횟수보다 증거 완성을 우선한다. 두 번째 새 학습은 하지 않는다.
+reset seed 분리는 training seed 반복을 뜻하지 않는다. 현재1개의 학습 seed만으로 일반화된 우위를 주장하지 않는다.
+
+반증/실패조건
+사전 survival 비퇴행 조건 실패는 승격 실패다. whole-window tracking이 좋아져도
+VX 비퇴행/중요 시나리오 허용치가 깨지면 통과시키지 않는다.
+전환/start/push VX 꼬리 개선과 ordinary yaw를 함께 확인한다.
+학습 total reward·초기 curriculum 속도·최고보상 checkpoint만으로 후보를 선택하지 않는다.
+새 후보가 기준을 못 넘으면 실험 실패로 기록하고 C0/F10 기준을 유지한다.
+
+1차 근거
+IsaacLab v2.3.2 common rewards:
+https://raw.githubusercontent.com/isaac-sim/IsaacLab/v2.3.2/source/isaaclab/isaaclab/envs/mdp/rewards.py
+토크/몸통/행동변화 항은 서로 다른 물리량의 제곱이며 추종은 exponential kernel이다.
+IsaacLab v2.3.2 locomotion rewards:
+https://raw.githubusercontent.com/isaac-sim/IsaacLab/v2.3.2/source/isaaclab_tasks/isaaclab_tasks/manager_based/locomotion/velocity/mdp/rewards.py
+air는 착지 시 지난공중시간−threshold로, 제거가 특정발높이나짧은접촉을보장하지 않는다.
+Hwangbo2019:
+https://arxiv.org/html/1901.08652v1
+높은비용/낮은비용의교환관계 및 objective고정 비용curriculum의 선례다.
+ANYmal/TRPO/actuator/reset조건이 달라 현재10정적weight 후보의 개선을 보장하지 않는다.
+현재 설치된 method body가 위 upstream과 동일하다는 사실은 별도 source 감사가 필요하다.
+
+입력/원본 hash는 candidate_research.json에 기록했다.
+기존candidate_manifest의trained:false는 S1/R1 실행 이전 제안 상태라 실제 실행 판정에 사용하지 않았다.
+실제S1/R1수행은final_analysis, B1단계비교는phase_report, 고정평가오차는heldout_analysis에 근거했다.
+공식점수 예측·93점 성공확률·보장 상승폭은 산출하지 않았다.
+

@@ -1,0 +1,28 @@
+09-21 08:15:00 === LONGRUN D1 2500 iter @ 6144 envs ===
+09-21 11:40:41 run=2026-09-21_08-15-06 마지막 ckpt=model_2499.pt
+09-21 11:41:14 export OK policy.pt md5 97e71b13 (ckpt model_2499 md5 ae75987a)
+09-21 11:41:14 채점:  D1_1000 D1_2000 D1_2499
+11:41:14 === D1_1000  ckpt=model_1000.pt  md5 da76e1f8 ===
+11:41:14   D1_1000/flat
+11:44:32   D1_1000/rough
+11:45:47   D1_1000/slope
+11:47:13   D1_1000/stairs
+11:48:44   D1_1000/dr
+11:50:00 D1_1000 merged 15455 bytes
+11:50:00 === D1_2000  ckpt=model_2000.pt  md5 1781bcdd ===
+11:50:00   D1_2000/flat
+11:53:17   D1_2000/rough
+11:54:29   D1_2000/slope
+11:55:48   D1_2000/stairs
+11:57:20   D1_2000/dr
+11:58:32 D1_2000 merged 15469 bytes
+11:58:32 === D1_2499  ckpt=model_2499.pt  md5 ae75987a ===
+11:58:32   D1_2499/flat
+12:01:47   D1_2499/rough
+12:02:59   D1_2499/slope
+12:04:27   D1_2499/stairs
+12:05:59   D1_2499/dr
+12:07:11 D1_2499 merged 15435 bytes
+12:07:14 영상 축소 완료 (imageio-ffmpeg)
+12:07:14 BUNDLE /workspace/r4_out.tgz 490742 bytes
+12:07:14 ALL DONE — 이 tgz 하나를 그 오리진의 **첫 다운로드**로 받을 것

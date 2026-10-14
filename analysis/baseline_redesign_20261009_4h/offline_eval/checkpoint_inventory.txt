@@ -1,0 +1,39 @@
+B1 전체 저장본 로컬 CPU 무결성 검사
+
+결과: CHECKPOINT_INTEGRITY_PASS; 저장본 16개
+
+exact_16_checkpoint_coverage: True
+all_remote_manifest_hashes_match: True
+all_remote_manifest_sizes_match: True
+all_unchanged_after_cpu_deserialization: True
+all_iteration_numbers_match: True
+all_actor_layers_match: True
+all_floating_tensors_finite: True
+all_loaded_tensors_on_CPU: True
+all_std_parameters_finite_positive: True
+distinct_actor_states_across_16_saves: True
+distinct_deterministic_actor_MLPs_across_16_saves: True
+
+반복 | 바이트 SHA 앞12자리 | actor 상태 SHA 앞12자리 | 학습 탐색 std 평균
+
+   0 | 2e1bc8c4bbc9 | 4bf895ad83a8 | 0.998865351
+ 100 | 6e62b6349449 | 758d925e6fe9 | 0.611988492
+ 200 | 1a8463773fa7 | b60859fb2813 | 0.571394458
+ 300 | 6caae8b9f9dc | e9554fe82c36 | 0.555858803
+ 400 | 7bd43815727d | 63dcb5adf7a2 | 0.549615396
+ 500 | 50ec8fed9031 | 586f6728e4b5 | 0.558086738
+ 600 | ca66c781886c | 5ded0055a23e | 0.575565981
+ 700 | 1abbabfa61cf | 11c3939749d6 | 0.572126471
+ 800 | b1f1bdf87f55 | 664f51961af7 | 0.607277562
+ 900 | 5318bc5bec1d | bc17e0814f30 | 0.660277213
+1000 | d073b8f33ac1 | bc5bb2048715 | 0.708864272
+1100 | 0c12b9f89f3e | 4832644babf4 | 0.721594090
+1200 | d024a8a05908 | 0b3048b14ee6 | 0.754176403
+1300 | 859822d3e52c | fda78a795e23 | 0.705938071
+1400 | 9522eeacaacd | a54adee338ca | 0.719178396
+1499 | f0c791fc4d40 | c38a1aca9614 | 0.733375316
+
+torch.load(weights_only=True,map_location='cpu')로만 읽었습니다.
+원본 파일을 변경하지 않았으며, 네트워크 추론/시뮬레이션/학습을 수행하지 않았습니다.
+모든 값이 정상이고 actor가 변했다고 해도 낙상·추종 오차·점수 개선은 입증되지 않습니다.
+1499와1000 중 성능이 더 좋은 저장본은 아직 선택할 근거가 없습니다.

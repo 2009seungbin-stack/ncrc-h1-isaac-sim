@@ -1,0 +1,91 @@
+Execution scope
+===============
+Only three scratch runs: control, torque, posture; each 2000 iterations,
+6144 environments, training seed 42. No existing model is used for training.
+No additional seeds, continuation, extra models, submissions or PC shutdown.
+The server operator must download the archive and stop the remote server.
+
+Required files in the same directory as runner.py:
+  batch_eval.py, t_eval.py, t_eval_go2_core.py (unchanged recovered versions)
+
+Required source manifest supplied separately:
+  JSON mapping relative paths train.py, play.py, go2_task/agent_cfg.py,
+  go2_task/env_cfg.py to the approved SHA-256 hashes. Extra protected files
+  can be included. DO NOT include quadruped_rewards.py in this manifest:
+  the runner backs up the current reward file and protects that backup's hash.
+  A historical manifest is only a comparison reference until actual server
+  sources have been checked. The runner refuses any source hash mismatch.
+
+Read-only source preflight on the new server (never run train.py --help):
+  /workspace/IsaacLab/isaaclab.sh -p source_snapshot.py --reference previous_source_hashes_20261002.json
+This reads exactly the four protected files without importing training code.
+It creates source_snapshot_report.json beside the helper, then creates
+source_hashes_current.json only if all hashes match the historical reference.
+A difference stops preflight and requires source review; do not simply accept
+new hashes to bypass it. Existing snapshots are never overwritten. The current
+quadruped_rewards.py is backed up afresh by runner.py on its first execution,
+and that new-server original (not the historical reward file) is restored.
+
+Linux launch (substitute verified timestamps and manifest path):
+  /workspace/IsaacLab/isaaclab.sh -p runner.py --source-hashes source_hashes_current.json \
+    --server-start-epoch SERVER_START_UNIX \
+    --compute-deadline COMPUTE_DEADLINE_UNIX
+
+SERVER_START_UNIX is the actual new server start, including setup time.
+COMPUTE_DEADLINE_UNIX must be at most SERVER_START_UNIX + 33300 (9h15m).
+The last 2700 seconds of the 10-hour server window are reserved for archive
+recovery, download verification and server shutdown. The runner never extends
+these timestamps. External operator/watchdog server shutdown is still needed.
+Use the provided tmux session workflow so browser disconnects do not kill it.
+
+Runtime budgets:
+  Training admission estimate: 9636 seconds per remaining arm (2000*4.818).
+  Common evaluation reserve: 1800 seconds total for all three policies.
+  Each train emergency cap: 12000 seconds, always bounded by compute deadline
+  minus evaluation reserve. Individual evaluation caps: flat1800, others900.
+  Individual caps are not promises or an added allowance. The common absolute
+  compute deadline wins. Estimates can still be wrong; incomplete is recorded.
+
+Effective settings are checked against the actual params/env.yaml and
+params/agent.yaml as soon as both appear, then again after training:
+  linear 2, yaw1.5, airtime0.01, vertical-3, angularxy-0.08, actionrate-0.01;
+  default dof_acc-2.5e-7, torque-0.0002, flat0, dof_pos_limits0;
+  torque arm changes only torque to -0.00015;
+  posture arm changes only flat orientation to -0.3.
+The code changes only the REWARD_WEIGHTS assignment of quadruped_rewards.py.
+train.py/play.py/agent_cfg.py/env_cfg.py/PPO implementations are never edited.
+
+Comparison uses exact model_1999.pt from each arm, G1-G7, 128 environments,
+reset seeds809/1201, terrain9049, startup303, full-window metrics. These reset
+seeds informed proposal selection, so this is not unseen held-out evidence.
+The unchanged batch evaluator retains its known one-step push-observation
+timing issue for comparability. No correction is silently introduced.
+
+Recovery and resume:
+  Reuse the same command and exact timestamps with --resume.
+  Completed training arms are skipped after checkpoint hash verification.
+  A started/interrupted arm is never automatically retrained or continued.
+  An incomplete started evaluation also requires review; it is not overwritten.
+  A still-running previous process group prevents restoration/resume.
+  Recognized reward patches are restored before deadline validation on resume,
+  allowing recovery after expiry. Unrecognized external edits are not replaced.
+  SIGINT/SIGTERM stop the child group, preserve checkpoints, restore rewards,
+  verify protected hashes, and regenerate the archive. SIGKILL/power loss cannot
+  invoke finally cleanup; resume is needed for recognized reward restoration.
+
+Outputs:
+  state.json: atomic experiment contract, jobs, hashes, status and recovery errors
+  preserved/<arm>/<run>/: all captured model checkpoints, params, event files
+  models.json: three final1999 hashes and paths
+  results/common_*/: unchanged evaluator JSON and raw traces
+  summary.json: all7-scenario internal quality and survival gate versus control
+  reward_restored.json: original reward hash restoration evidence
+  manifest.json: SHA-256 and size of archive contents
+  ../causal_sweep_20261008_results.tar.gz and .sha256.json: atomic archive
+The archive is refreshed after each training arm, evaluation group and failure.
+
+Local CPU checks:
+  python -B tests_runner.py
+  python -B -c "from pathlib import Path; p=Path('runner.py'); compile(p.read_bytes(), str(p), 'exec'); print('syntax OK')"
+Only a real Linux GPU run can validate IsaacLab startup, elapsed training time,
+effective runtime configs and checkpoint/scenario completeness.

@@ -1,0 +1,274 @@
+{
+  "snapshot": {
+    "checked_utc": "2026-10-01T09:08:51.391684+00:00",
+    "state": {
+      "stage": "RUNNING",
+      "utc": "2026-10-01T04:44:10.284364+00:00",
+      "elapsed_hours": 0.20924565805329218,
+      "job": "train_F00",
+      "command": [
+        "/workspace/IsaacLab/isaaclab.sh",
+        "-p",
+        "train.py",
+        "--task",
+        "Quadruped-v0",
+        "--num_envs",
+        "6144",
+        "--seed",
+        "42",
+        "--max_iterations",
+        "4000",
+        "--run_name",
+        "round20_F00",
+        "--headless"
+      ],
+      "timeout_seconds": 21600
+    },
+    "elapsed_server_hours": 4.620664359132449,
+    "log_modified_seconds_ago": 0.13389348983764648,
+    "recent_error_lines": [],
+    "iteration": 3391,
+    "iteration_limit": 4000,
+    "seconds_per_iteration": 4.53,
+    "mean_action_std": 0.88,
+    "mean_reward": 22.36,
+    "mean_value_loss": 14.4277,
+    "terrain_level": 6.1026,
+    "eta_display": [
+      "00:47:19"
+    ],
+    "preserved_models": [
+      {
+        "name": "model_0.pt",
+        "bytes": 6881623
+      },
+      {
+        "name": "model_100.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_200.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_300.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_400.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_500.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_600.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_700.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_800.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_900.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_1000.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1100.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1200.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1300.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1400.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1500.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1600.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1700.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1800.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1900.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_2000.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_2100.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_2200.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_2300.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_2400.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_2500.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_2600.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_2700.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_2800.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_2900.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_3000.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_3100.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_3200.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_3300.pt",
+        "bytes": 6882293
+      }
+    ],
+    "driver_tail": "{\"stage\": \"STARTED\", \"utc\": \"2026-10-01T04:44:10.279313+00:00\", \"elapsed_hours\": 0.2092442559533649, \"mode\": \"scratch_pair\", \"training_seed\": 42, \"reason\": \"Installed PPO.load does not restore learning_rate scalar\", \"server_budget_hours\": 20, \"official_submission\": false}\n{\"stage\": \"RUNNING\", \"utc\": \"2026-10-01T04:44:10.284364+00:00\", \"elapsed_hours\": 0.20924565805329218, \"job\": \"train_F00\", \"command\": [\"/workspace/IsaacLab/isaaclab.sh\", \"-p\", \"train.py\", \"--task\", \"Quadruped-v0\", \"--num_envs\", \"6144\", \"--seed\", \"42\", \"--max_iterations\", \"4000\", \"--run_name\", \"round20_F00\", \"--headless\"], \"timeout_seconds\": 21600}\n",
+    "gpu": "94 %, 8028 MiB",
+    "nonfinite_metrics": []
+  },
+  "trend": [
+    {
+      "iteration": 3382,
+      "value_loss": 2.722,
+      "reward": 21.2,
+      "action_std": 0.86
+    },
+    {
+      "iteration": 3383,
+      "value_loss": 21.8316,
+      "reward": 21.33,
+      "action_std": 0.87
+    },
+    {
+      "iteration": 3384,
+      "value_loss": 3.0276,
+      "reward": 23.67,
+      "action_std": 0.87
+    },
+    {
+      "iteration": 3385,
+      "value_loss": 0.194,
+      "reward": 22.44,
+      "action_std": 0.87
+    },
+    {
+      "iteration": 3386,
+      "value_loss": 0.4989,
+      "reward": 21.51,
+      "action_std": 0.87
+    },
+    {
+      "iteration": 3387,
+      "value_loss": 0.3182,
+      "reward": 21.1,
+      "action_std": 0.87
+    },
+    {
+      "iteration": 3388,
+      "value_loss": 0.2621,
+      "reward": 22.35,
+      "action_std": 0.87
+    },
+    {
+      "iteration": 3389,
+      "value_loss": 1.544,
+      "reward": 21.14,
+      "action_std": 0.87
+    },
+    {
+      "iteration": 3390,
+      "value_loss": 1.0208,
+      "reward": 22.46,
+      "action_std": 0.88
+    },
+    {
+      "iteration": 3391,
+      "value_loss": 14.4277,
+      "reward": 22.36,
+      "action_std": 0.88
+    },
+    {
+      "iteration": 3392,
+      "value_loss": 4.9068,
+      "reward": 18.43,
+      "action_std": 0.88
+    },
+    {
+      "iteration": 3393,
+      "value_loss": 0.7133,
+      "reward": 21.09,
+      "action_std": 0.88
+    },
+    {
+      "iteration": 3394,
+      "value_loss": 32.9029,
+      "reward": -10.98,
+      "action_std": 0.88
+    },
+    {
+      "iteration": 3395,
+      "value_loss": 0.1459,
+      "reward": 21.53,
+      "action_std": 0.89
+    },
+    {
+      "iteration": 3396,
+      "value_loss": 2.883,
+      "reward": 21.45,
+      "action_std": 0.89
+    }
+  ]
+}

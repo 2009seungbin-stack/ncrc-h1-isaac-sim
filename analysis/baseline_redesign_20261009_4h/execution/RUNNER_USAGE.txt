@@ -1,0 +1,66 @@
+Authorized B1 execution, 2026-10-09
+
+The user approved total4h and then said 학습 진행. execution.json is the mutable
+execution ledger. design.json and RUNNER_REQUIREMENTS.txt remain the historical
+offline proposal; their old execution_authorized=false does not revoke this
+later direct instruction. Never launch the old S1/R1 six-hour runner.
+
+Only B1_selective_cost, scratch1500,6144env,seed42. No retry/resume, second arm,
+budget extension, official submission or local PC shutdown. Server stays OFF
+until local package/tests are verified. Actual allocation start anchors all
+deadlines: setup+900,training+9600,selection+10500,compute+11700,
+dashboard stop request+13800,allocation OFF confirmation+14400seconds.
+
+Package: b1_baseline_20261009_4h_package.zip. Remote fresh folder:
+/workspace/student_workspace/b1_baseline_20261009_4h
+Normal UI upload only; unpack into that fresh folder without overwriting any
+existing run. live_preflight.py verifies all package members, current original
+reward, provided source hashes, actual runtime versions and no GPU competitors.
+source_snapshot.py must produce fresh source_hashes_current.json and
+protected_runtime_sources.json. Recover recovery_probe.zip through the normal
+code-server Download UI, compare local SHA to the verified package hash.
+A portal env.yaml download or clipboard JSON is not binary-probe success.
+
+Preflight receipt fields: actual_allocation_start_epoch,verified_epoch,
+user_authorized_execution=true,retrieval_smoke_verified=true,
+no_competing_gpu_jobs_verified=true,runtime_verified=true,reference_loader_verified=true,
+probe_sha256,probe_local_sha256,runtime_versions{rsl_rl_lib,torch}.
+Receipt must be based on this actual allocation and live verified observations.
+
+Launch runner.py with --authorized-execution --root REMOTE --source-hashes
+REMOTE/source_hashes_current.json --preflight REMOTE/preflight_receipt.json
+--server-start-epoch ACTUAL_EPOCH through /workspace/IsaacLab/isaaclab.sh -p.
+Use one tmux session go2_b1_4h. Do not launch before probe/source/runtime checks.
+Observe actual train iteration and effective settings/model_0 within120s boot.
+Runner preserves every checkpoint, verifies active hashes, stops owned process
+groups before next phase, restores original reward before evaluation/cleanup.
+New model_1000/model_1499 selection is separate from frozen final validation.
+Full-window unrounded SSE/SAE, termination/timeout masks and diagnostics are
+recorded by evaluation.py; no official score forecast is emitted.
+
+Monitor only the existing job. Read execution.json/state.json and current logs.
+Fresh browser documentation each turn; supported mcp__cua_repl UI only. No
+hidden API/fetch/raw CDP/page globals/private runbooks/chrome://downloads bypass.
+Use clipboard.writeText + terminal textbox Control+V/Enter. No new permissions.
+At errors/deadlines, preserve partial output and stop; never auto-retrain.
+Use CURRENT file hashes/processgroup state, not an old restoration marker.
+
+Recover critical bundle first, then full results archive and hash JSON through
+normal UI. Verify local bytes/SHA and safely extract to a new child folder.
+Confirm model_1000/model_1499, exact selected model, params/events/logs and
+3policies x7scenarios x2resetseeds. Partial retrieval is not full completion.
+Recovery trouble never extends4h. Dashboard allocation OFF must be visibly
+confirmed by the hard deadline, then pause go2 heartbeat. Keep quiet while
+unchanged; notify only meaningful result/completion/error/operator action.
+
+Actual live handoff: server02, allocation1791547031, runnerPID16243/start_ticks2313931; training group16244/GPUchild16262. Re-read live /proc identity and stage before any signal. Never signal a stale stored GPU PID. Latest evidence at1791549397.5856972: training291/1500. Immutable selection deadline1791557531. Selection timeout -> exact1499 fallback, no optimality claim. Missing1499 -> partial result only; no retry/resume/model_best substitution.
+
+One auxiliary controller is running and waiting for training completion:
+/workspace/student_workspace/streaming_control_libc.py
+24225bytes SHA51be7115d3b6e343392c01f308821067f0c56c376ebb2aa89fc5a4e2c376ed51
+PID22397/start_ticks2457296, tmux go2_b1_stream_control.
+Audit /workspace/student_workspace/b1_streaming_control_audit.jsonl
+Console /workspace/student_workspace/b1_streaming_control_console.log
+The helper uses genuine libc pidfd exports because Kit Python has no native wrappers. Live self-open/signal0 passed; this does not verify later service pause/release/restore. Confirm actual audit sequence at selection/validation transition. Only exact official non-GPU launcher and its exact renderer child are controlled; no PID1, unrelated/group signals or source changes. Independent fork resumer and finally SIGCONT are bounded by compute+30seconds. Allocation OFF deadline remains1791561431. Never launch/rearm the helper again. Earlier streaming_control.py and b1_streaming_control_cf7ac10.py were uploaded but never executed. Keep audit/log outside frozen root; recover final auxiliary audit separately through normal UI/editor clipboard.
+
+If <=25minutes remain until actual OFF, preserve critical bundle/summary and immediately request allocation shutdown; do not wait for the full archive or extend the4h limit. Verify actual OFF, then pause go2. Training/evaluation errors, unexpected identities, nonfinite/config/source mismatches -> owned runner cleanup and preserve partial output; no new training.

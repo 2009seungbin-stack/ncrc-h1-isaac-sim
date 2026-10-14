@@ -1,0 +1,1059 @@
+{
+  "measurement_note": "Short screen internal diagnostics; no official score; one training seed; top5 share is pooled from per-reset top5 selections.",
+  "models": {
+    "acc": {
+      "G1": {
+        "episodes": 64,
+        "survived": 64,
+        "full": {
+          "count": 64000,
+          "rmse": [
+            0.14915129,
+            0.03132744,
+            0.09886085
+          ],
+          "mae": [
+            0.08645837,
+            0.02460932,
+            0.08067755
+          ],
+          "top5_share": [
+            0.70128899,
+            0.31247568,
+            0.24762609
+          ],
+          "body_rmse": [
+            0.12954631,
+            0.40081201,
+            0.42261878
+          ]
+        },
+        "steady": {
+          "count": 57600,
+          "rmse": [
+            0.08300903,
+            0.02974799,
+            0.09816661
+          ],
+          "mae": [
+            0.06523076,
+            0.02383486,
+            0.08015627
+          ],
+          "top5_share": [
+            0.3002134,
+            0.2706475,
+            0.24604181
+          ],
+          "body_rmse": [
+            0.1265666,
+            0.39147145,
+            0.41468704
+          ]
+        }
+      },
+      "G2": {
+        "episodes": 64,
+        "survived": 64,
+        "full": {
+          "count": 64000,
+          "rmse": [
+            0.09400601,
+            0.13433233,
+            0.12467338
+          ],
+          "mae": [
+            0.06079095,
+            0.09264371,
+            0.09833236
+          ],
+          "top5_share": [
+            0.51734368,
+            0.44563237,
+            0.31029244
+          ],
+          "body_rmse": [
+            0.12142278,
+            0.48686044,
+            0.48255568
+          ]
+        },
+        "steady": {
+          "count": 57600,
+          "rmse": [
+            0.08179167,
+            0.1090273,
+            0.12172348
+          ],
+          "mae": [
+            0.05507915,
+            0.08149706,
+            0.0967462
+          ],
+          "top5_share": [
+            0.47585864,
+            0.2938843,
+            0.29547929
+          ],
+          "body_rmse": [
+            0.12223026,
+            0.48328368,
+            0.48374174
+          ]
+        }
+      },
+      "G6": {
+        "episodes": 64,
+        "survived": 54,
+        "full": {
+          "count": 60300,
+          "rmse": [
+            0.17660816,
+            0.15998783,
+            0.15055064
+          ],
+          "mae": [
+            0.11297491,
+            0.06688238,
+            0.09496626
+          ],
+          "top5_share": [
+            0.57681461,
+            0.8357923,
+            0.62157489
+          ],
+          "body_rmse": [
+            0.16687808,
+            0.59432337,
+            0.51746309
+          ]
+        },
+        "steady": {
+          "count": 54175,
+          "rmse": [
+            0.15511531,
+            0.13079457,
+            0.14469015
+          ],
+          "mae": [
+            0.09874112,
+            0.05257949,
+            0.09203398
+          ],
+          "top5_share": [
+            0.61256865,
+            0.89500593,
+            0.60877111
+          ],
+          "body_rmse": [
+            0.16440677,
+            0.57379498,
+            0.50364911
+          ]
+        }
+      },
+      "G5": {
+        "episodes": 64,
+        "survived": 55,
+        "full": {
+          "count": 61268,
+          "rmse": [
+            0.28982502,
+            0.05185044,
+            0.11987195
+          ],
+          "mae": [
+            0.25348186,
+            0.03351361,
+            0.08801634
+          ],
+          "top5_share": [
+            0.11170524,
+            0.55171532,
+            0.40509674
+          ],
+          "body_rmse": [
+            0.12671239,
+            0.44458063,
+            0.42686638
+          ]
+        },
+        "steady": {
+          "count": 55018,
+          "rmse": [
+            0.28952893,
+            0.05254438,
+            0.11999649
+          ],
+          "mae": [
+            0.25212021,
+            0.03384599,
+            0.08770037
+          ],
+          "top5_share": [
+            0.11257602,
+            0.55352466,
+            0.41124398
+          ],
+          "body_rmse": [
+            0.12576484,
+            0.44137403,
+            0.42219568
+          ]
+        }
+      }
+    },
+    "action": {
+      "G1": {
+        "episodes": 64,
+        "survived": 64,
+        "full": {
+          "count": 64000,
+          "rmse": [
+            0.17062053,
+            0.03330601,
+            0.09589615
+          ],
+          "mae": [
+            0.11254735,
+            0.02548978,
+            0.07772341
+          ],
+          "top5_share": [
+            0.54802046,
+            0.35884892,
+            0.26172993
+          ],
+          "body_rmse": [
+            0.11289884,
+            0.45018361,
+            0.52541563
+          ]
+        },
+        "steady": {
+          "count": 57600,
+          "rmse": [
+            0.11837541,
+            0.03114061,
+            0.09400105
+          ],
+          "mae": [
+            0.09040214,
+            0.0245223,
+            0.07658652
+          ],
+          "top5_share": [
+            0.30193838,
+            0.30510061,
+            0.2499439
+          ],
+          "body_rmse": [
+            0.10826225,
+            0.43954042,
+            0.51417727
+          ]
+        }
+      },
+      "G2": {
+        "episodes": 64,
+        "survived": 64,
+        "full": {
+          "count": 64000,
+          "rmse": [
+            0.14054393,
+            0.1244563,
+            0.12960425
+          ],
+          "mae": [
+            0.10313576,
+            0.07742803,
+            0.10183308
+          ],
+          "top5_share": [
+            0.40661909,
+            0.64086445,
+            0.31372718
+          ],
+          "body_rmse": [
+            0.1005979,
+            0.53188502,
+            0.5314925
+          ]
+        },
+        "steady": {
+          "count": 57600,
+          "rmse": [
+            0.13140964,
+            0.0804033,
+            0.12544135
+          ],
+          "mae": [
+            0.09769506,
+            0.06274256,
+            0.09981615
+          ],
+          "top5_share": [
+            0.4086367,
+            0.29477176,
+            0.28881374
+          ],
+          "body_rmse": [
+            0.10020165,
+            0.51967892,
+            0.53382528
+          ]
+        }
+      },
+      "G6": {
+        "episodes": 64,
+        "survived": 63,
+        "full": {
+          "count": 63805,
+          "rmse": [
+            0.21334456,
+            0.1597248,
+            0.15095005
+          ],
+          "mae": [
+            0.15801413,
+            0.07114703,
+            0.09704417
+          ],
+          "top5_share": [
+            0.45307377,
+            0.80105182,
+            0.61588195
+          ],
+          "body_rmse": [
+            0.15317027,
+            0.56098974,
+            0.66058975
+          ]
+        },
+        "steady": {
+          "count": 57405,
+          "rmse": [
+            0.19501652,
+            0.12953485,
+            0.1399234
+          ],
+          "mae": [
+            0.14631124,
+            0.05642221,
+            0.09186896
+          ],
+          "top5_share": [
+            0.45779953,
+            0.86214847,
+            0.58567081
+          ],
+          "body_rmse": [
+            0.15081163,
+            0.54320349,
+            0.64642319
+          ]
+        }
+      },
+      "G5": {
+        "episodes": 64,
+        "survived": 64,
+        "full": {
+          "count": 64000,
+          "rmse": [
+            0.29161948,
+            0.04070309,
+            0.12078219
+          ],
+          "mae": [
+            0.26308314,
+            0.0281279,
+            0.08925795
+          ],
+          "top5_share": [
+            0.10534137,
+            0.47624199,
+            0.4105175
+          ],
+          "body_rmse": [
+            0.09923885,
+            0.40781366,
+            0.45467471
+          ]
+        },
+        "steady": {
+          "count": 57600,
+          "rmse": [
+            0.29207189,
+            0.04100246,
+            0.12088044
+          ],
+          "mae": [
+            0.26326892,
+            0.02824942,
+            0.08908649
+          ],
+          "top5_share": [
+            0.10488997,
+            0.48196766,
+            0.41532227
+          ],
+          "body_rmse": [
+            0.09767585,
+            0.40643041,
+            0.44921072
+          ]
+        }
+      }
+    },
+    "control": {
+      "G1": {
+        "episodes": 64,
+        "survived": 64,
+        "full": {
+          "count": 64000,
+          "rmse": [
+            0.12665752,
+            0.03711381,
+            0.09462348
+          ],
+          "mae": [
+            0.06633864,
+            0.02869129,
+            0.07718676
+          ],
+          "top5_share": [
+            0.79503717,
+            0.33915677,
+            0.25475418
+          ],
+          "body_rmse": [
+            0.10362256,
+            0.41210744,
+            0.32159827
+          ]
+        },
+        "steady": {
+          "count": 57600,
+          "rmse": [
+            0.05839418,
+            0.03497265,
+            0.09276194
+          ],
+          "mae": [
+            0.04765603,
+            0.02769266,
+            0.07605235
+          ],
+          "top5_share": [
+            0.25673523,
+            0.29211121,
+            0.24293881
+          ],
+          "body_rmse": [
+            0.10033083,
+            0.40044281,
+            0.3111399
+          ]
+        }
+      },
+      "G2": {
+        "episodes": 64,
+        "survived": 64,
+        "full": {
+          "count": 64000,
+          "rmse": [
+            0.0661351,
+            0.10637078,
+            0.11055329
+          ],
+          "mae": [
+            0.04546074,
+            0.06418057,
+            0.08836011
+          ],
+          "top5_share": [
+            0.52497933,
+            0.6662556,
+            0.28366503
+          ],
+          "body_rmse": [
+            0.09214053,
+            0.45650927,
+            0.36572632
+          ]
+        },
+        "steady": {
+          "count": 57600,
+          "rmse": [
+            0.05225397,
+            0.06314509,
+            0.10621871
+          ],
+          "mae": [
+            0.04070099,
+            0.04894601,
+            0.08573545
+          ],
+          "top5_share": [
+            0.32422914,
+            0.28949284,
+            0.26132473
+          ],
+          "body_rmse": [
+            0.09063451,
+            0.45070305,
+            0.35794511
+          ]
+        }
+      },
+      "G6": {
+        "episodes": 64,
+        "survived": 62,
+        "full": {
+          "count": 63005,
+          "rmse": [
+            0.17444953,
+            0.16425928,
+            0.16945961
+          ],
+          "mae": [
+            0.10100352,
+            0.0714934,
+            0.0980637
+          ],
+          "top5_share": [
+            0.63534659,
+            0.81467219,
+            0.70863998
+          ],
+          "body_rmse": [
+            0.12931181,
+            0.57529697,
+            0.49180862
+          ]
+        },
+        "steady": {
+          "count": 56680,
+          "rmse": [
+            0.15423737,
+            0.13475381,
+            0.15997164
+          ],
+          "mae": [
+            0.08746343,
+            0.05699816,
+            0.09366377
+          ],
+          "top5_share": [
+            0.71551782,
+            0.87262863,
+            0.69344073
+          ],
+          "body_rmse": [
+            0.12559686,
+            0.55438572,
+            0.4643503
+          ]
+        }
+      },
+      "G5": {
+        "episodes": 64,
+        "survived": 64,
+        "full": {
+          "count": 64000,
+          "rmse": [
+            0.26782691,
+            0.06232065,
+            0.14286051
+          ],
+          "mae": [
+            0.21952638,
+            0.04424349,
+            0.11028867
+          ],
+          "top5_share": [
+            0.21639713,
+            0.44990027,
+            0.33846921
+          ],
+          "body_rmse": [
+            0.12559751,
+            0.50006467,
+            0.51447553
+          ]
+        },
+        "steady": {
+          "count": 57600,
+          "rmse": [
+            0.2679037,
+            0.0629014,
+            0.14360116
+          ],
+          "mae": [
+            0.21894741,
+            0.04463161,
+            0.11070822
+          ],
+          "top5_share": [
+            0.21772859,
+            0.45202657,
+            0.34036033
+          ],
+          "body_rmse": [
+            0.12444462,
+            0.49691654,
+            0.5151743
+          ]
+        }
+      }
+    },
+    "linear": {
+      "G1": {
+        "episodes": 64,
+        "survived": 64,
+        "full": {
+          "count": 64000,
+          "rmse": [
+            0.13139135,
+            0.04686169,
+            0.11602224
+          ],
+          "mae": [
+            0.06791629,
+            0.03698284,
+            0.09405298
+          ],
+          "top5_share": [
+            0.79619739,
+            0.29401047,
+            0.26106758
+          ],
+          "body_rmse": [
+            0.12485151,
+            0.49793793,
+            0.3777604
+          ]
+        },
+        "steady": {
+          "count": 57600,
+          "rmse": [
+            0.06292572,
+            0.04562025,
+            0.11485753
+          ],
+          "mae": [
+            0.05067615,
+            0.03638838,
+            0.09326227
+          ],
+          "top5_share": [
+            0.27140527,
+            0.27421885,
+            0.2587114
+          ],
+          "body_rmse": [
+            0.11931455,
+            0.48936347,
+            0.36743667
+          ]
+        }
+      },
+      "G2": {
+        "episodes": 64,
+        "survived": 64,
+        "full": {
+          "count": 64000,
+          "rmse": [
+            0.07035291,
+            0.10229655,
+            0.14995256
+          ],
+          "mae": [
+            0.0505832,
+            0.06406249,
+            0.11540331
+          ],
+          "top5_share": [
+            0.43283868,
+            0.63209503,
+            0.35799224
+          ],
+          "body_rmse": [
+            0.12259214,
+            0.6043375,
+            0.4801145
+          ]
+        },
+        "steady": {
+          "count": 57600,
+          "rmse": [
+            0.0616691,
+            0.06524922,
+            0.14714561
+          ],
+          "mae": [
+            0.04712582,
+            0.05089935,
+            0.11343095
+          ],
+          "top5_share": [
+            0.32813382,
+            0.30742321,
+            0.3566022
+          ],
+          "body_rmse": [
+            0.12153645,
+            0.57445795,
+            0.4697904
+          ]
+        }
+      },
+      "G6": {
+        "episodes": 64,
+        "survived": 47,
+        "full": {
+          "count": 56540,
+          "rmse": [
+            0.16867544,
+            0.17651214,
+            0.21268201
+          ],
+          "mae": [
+            0.10014041,
+            0.08736484,
+            0.12419727
+          ],
+          "top5_share": [
+            0.6602846,
+            0.78602106,
+            0.70876654
+          ],
+          "body_rmse": [
+            0.16542686,
+            0.82023393,
+            0.51372927
+          ]
+        },
+        "steady": {
+          "count": 50672,
+          "rmse": [
+            0.15048313,
+            0.15114199,
+            0.20364493
+          ],
+          "mae": [
+            0.08837885,
+            0.07486645,
+            0.11924651
+          ],
+          "top5_share": [
+            0.71681699,
+            0.8272498,
+            0.70456842
+          ],
+          "body_rmse": [
+            0.16240769,
+            0.80243765,
+            0.4836637
+          ]
+        }
+      },
+      "G5": {
+        "episodes": 64,
+        "survived": 64,
+        "full": {
+          "count": 64000,
+          "rmse": [
+            0.24706679,
+            0.06063968,
+            0.15856064
+          ],
+          "mae": [
+            0.19673863,
+            0.04439872,
+            0.12178406
+          ],
+          "top5_share": [
+            0.17685487,
+            0.40524984,
+            0.36568028
+          ],
+          "body_rmse": [
+            0.13670705,
+            0.57526741,
+            0.5138351
+          ]
+        },
+        "steady": {
+          "count": 57600,
+          "rmse": [
+            0.24730839,
+            0.06079337,
+            0.15864341
+          ],
+          "mae": [
+            0.19674538,
+            0.04462849,
+            0.12190484
+          ],
+          "top5_share": [
+            0.17694454,
+            0.40321808,
+            0.36543422
+          ],
+          "body_rmse": [
+            0.13531023,
+            0.57504662,
+            0.51312782
+          ]
+        }
+      }
+    }
+  },
+  "learning_curves": {
+    "control": {
+      "iterations_seen": 800,
+      "windows": {
+        "0-99": {
+          "Mean episode length": 634.3712,
+          "Metrics/base_velocity/error_vel_xy": 1.132554,
+          "Metrics/base_velocity/error_vel_yaw": 0.616325,
+          "Episode_Termination/time_out": 0.437244,
+          "Episode_Termination/base_contact": 0.387943
+        },
+        "100-199": {
+          "Mean episode length": 967.6385,
+          "Metrics/base_velocity/error_vel_xy": 1.589109,
+          "Metrics/base_velocity/error_vel_yaw": 0.480564,
+          "Episode_Termination/time_out": 0.879521,
+          "Episode_Termination/base_contact": 0.120489
+        },
+        "200-299": {
+          "Mean episode length": 982.1987,
+          "Metrics/base_velocity/error_vel_xy": 1.480077,
+          "Metrics/base_velocity/error_vel_yaw": 0.423895,
+          "Episode_Termination/time_out": 0.960739,
+          "Episode_Termination/base_contact": 0.039261
+        },
+        "300-399": {
+          "Mean episode length": 965.9562,
+          "Metrics/base_velocity/error_vel_xy": 1.358413,
+          "Metrics/base_velocity/error_vel_yaw": 0.414594,
+          "Episode_Termination/time_out": 0.941643,
+          "Episode_Termination/base_contact": 0.058417
+        },
+        "400-499": {
+          "Mean episode length": 964.2034,
+          "Metrics/base_velocity/error_vel_xy": 1.128938,
+          "Metrics/base_velocity/error_vel_yaw": 0.422819,
+          "Episode_Termination/time_out": 0.925459,
+          "Episode_Termination/base_contact": 0.074642
+        },
+        "500-599": {
+          "Mean episode length": 958.7643,
+          "Metrics/base_velocity/error_vel_xy": 0.835466,
+          "Metrics/base_velocity/error_vel_yaw": 0.418624,
+          "Episode_Termination/time_out": 0.918971,
+          "Episode_Termination/base_contact": 0.081029
+        },
+        "600-699": {
+          "Mean episode length": 955.7903,
+          "Metrics/base_velocity/error_vel_xy": 0.692398,
+          "Metrics/base_velocity/error_vel_yaw": 0.415841,
+          "Episode_Termination/time_out": 0.913361,
+          "Episode_Termination/base_contact": 0.086639
+        },
+        "700-799": {
+          "Mean episode length": 950.6036,
+          "Metrics/base_velocity/error_vel_xy": 0.631782,
+          "Metrics/base_velocity/error_vel_yaw": 0.413573,
+          "Episode_Termination/time_out": 0.899775,
+          "Episode_Termination/base_contact": 0.100226
+        }
+      }
+    },
+    "action": {
+      "iterations_seen": 800,
+      "windows": {
+        "0-99": {
+          "Mean episode length": 642.2295,
+          "Metrics/base_velocity/error_vel_xy": 1.135166,
+          "Metrics/base_velocity/error_vel_yaw": 0.633212,
+          "Episode_Termination/time_out": 0.452482,
+          "Episode_Termination/base_contact": 0.373344
+        },
+        "100-199": {
+          "Mean episode length": 943.9832,
+          "Metrics/base_velocity/error_vel_xy": 1.523174,
+          "Metrics/base_velocity/error_vel_yaw": 0.491976,
+          "Episode_Termination/time_out": 0.843944,
+          "Episode_Termination/base_contact": 0.156312
+        },
+        "200-299": {
+          "Mean episode length": 966.9531,
+          "Metrics/base_velocity/error_vel_xy": 1.44193,
+          "Metrics/base_velocity/error_vel_yaw": 0.430433,
+          "Episode_Termination/time_out": 0.930578,
+          "Episode_Termination/base_contact": 0.069422
+        },
+        "300-399": {
+          "Mean episode length": 963.3705,
+          "Metrics/base_velocity/error_vel_xy": 1.241186,
+          "Metrics/base_velocity/error_vel_yaw": 0.425703,
+          "Episode_Termination/time_out": 0.924379,
+          "Episode_Termination/base_contact": 0.075621
+        },
+        "400-499": {
+          "Mean episode length": 964.4319,
+          "Metrics/base_velocity/error_vel_xy": 0.913164,
+          "Metrics/base_velocity/error_vel_yaw": 0.422813,
+          "Episode_Termination/time_out": 0.929255,
+          "Episode_Termination/base_contact": 0.070773
+        },
+        "500-599": {
+          "Mean episode length": 963.1577,
+          "Metrics/base_velocity/error_vel_xy": 0.757648,
+          "Metrics/base_velocity/error_vel_yaw": 0.417948,
+          "Episode_Termination/time_out": 0.930367,
+          "Episode_Termination/base_contact": 0.069812
+        },
+        "600-699": {
+          "Mean episode length": 962.0453,
+          "Metrics/base_velocity/error_vel_xy": 0.730594,
+          "Metrics/base_velocity/error_vel_yaw": 0.415251,
+          "Episode_Termination/time_out": 0.923521,
+          "Episode_Termination/base_contact": 0.076479
+        },
+        "700-799": {
+          "Mean episode length": 953.3851,
+          "Metrics/base_velocity/error_vel_xy": 0.738057,
+          "Metrics/base_velocity/error_vel_yaw": 0.425621,
+          "Episode_Termination/time_out": 0.914361,
+          "Episode_Termination/base_contact": 0.085658
+        }
+      }
+    },
+    "acc": {
+      "iterations_seen": 800,
+      "windows": {
+        "0-99": {
+          "Mean episode length": 685.8766,
+          "Metrics/base_velocity/error_vel_xy": 1.212345,
+          "Metrics/base_velocity/error_vel_yaw": 0.656823,
+          "Episode_Termination/time_out": 0.502534,
+          "Episode_Termination/base_contact": 0.32526
+        },
+        "100-199": {
+          "Mean episode length": 980.1036,
+          "Metrics/base_velocity/error_vel_xy": 1.579389,
+          "Metrics/base_velocity/error_vel_yaw": 0.476363,
+          "Episode_Termination/time_out": 0.936016,
+          "Episode_Termination/base_contact": 0.063984
+        },
+        "200-299": {
+          "Mean episode length": 981.458,
+          "Metrics/base_velocity/error_vel_xy": 1.454469,
+          "Metrics/base_velocity/error_vel_yaw": 0.425657,
+          "Episode_Termination/time_out": 0.962276,
+          "Episode_Termination/base_contact": 0.037724
+        },
+        "300-399": {
+          "Mean episode length": 963.1345,
+          "Metrics/base_velocity/error_vel_xy": 1.328846,
+          "Metrics/base_velocity/error_vel_yaw": 0.417077,
+          "Episode_Termination/time_out": 0.936645,
+          "Episode_Termination/base_contact": 0.063355
+        },
+        "400-499": {
+          "Mean episode length": 956.7057,
+          "Metrics/base_velocity/error_vel_xy": 1.089812,
+          "Metrics/base_velocity/error_vel_yaw": 0.41524,
+          "Episode_Termination/time_out": 0.918428,
+          "Episode_Termination/base_contact": 0.081572
+        },
+        "500-599": {
+          "Mean episode length": 946.2734,
+          "Metrics/base_velocity/error_vel_xy": 0.788361,
+          "Metrics/base_velocity/error_vel_yaw": 0.412882,
+          "Episode_Termination/time_out": 0.894709,
+          "Episode_Termination/base_contact": 0.105418
+        },
+        "600-699": {
+          "Mean episode length": 937.5034,
+          "Metrics/base_velocity/error_vel_xy": 0.717426,
+          "Metrics/base_velocity/error_vel_yaw": 0.415442,
+          "Episode_Termination/time_out": 0.890678,
+          "Episode_Termination/base_contact": 0.109455
+        },
+        "700-799": {
+          "Mean episode length": 922.1832,
+          "Metrics/base_velocity/error_vel_xy": 0.695989,
+          "Metrics/base_velocity/error_vel_yaw": 0.397072,
+          "Episode_Termination/time_out": 0.851947,
+          "Episode_Termination/base_contact": 0.148173
+        }
+      }
+    },
+    "linear": {
+      "iterations_seen": 800,
+      "windows": {
+        "0-99": {
+          "Mean episode length": 658.3482,
+          "Metrics/base_velocity/error_vel_xy": 1.136156,
+          "Metrics/base_velocity/error_vel_yaw": 0.701705,
+          "Episode_Termination/time_out": 0.460704,
+          "Episode_Termination/base_contact": 0.367574
+        },
+        "100-199": {
+          "Mean episode length": 954.6779,
+          "Metrics/base_velocity/error_vel_xy": 1.458822,
+          "Metrics/base_velocity/error_vel_yaw": 0.572408,
+          "Episode_Termination/time_out": 0.870221,
+          "Episode_Termination/base_contact": 0.129965
+        },
+        "200-299": {
+          "Mean episode length": 970.6909,
+          "Metrics/base_velocity/error_vel_xy": 1.326248,
+          "Metrics/base_velocity/error_vel_yaw": 0.527042,
+          "Episode_Termination/time_out": 0.942434,
+          "Episode_Termination/base_contact": 0.057661
+        },
+        "300-399": {
+          "Mean episode length": 970.2856,
+          "Metrics/base_velocity/error_vel_xy": 1.00226,
+          "Metrics/base_velocity/error_vel_yaw": 0.523348,
+          "Episode_Termination/time_out": 0.942764,
+          "Episode_Termination/base_contact": 0.057236
+        },
+        "400-499": {
+          "Mean episode length": 955.766,
+          "Metrics/base_velocity/error_vel_xy": 0.719578,
+          "Metrics/base_velocity/error_vel_yaw": 0.518629,
+          "Episode_Termination/time_out": 0.921769,
+          "Episode_Termination/base_contact": 0.078231
+        },
+        "500-599": {
+          "Mean episode length": 949.6654,
+          "Metrics/base_velocity/error_vel_xy": 0.672095,
+          "Metrics/base_velocity/error_vel_yaw": 0.523196,
+          "Episode_Termination/time_out": 0.908195,
+          "Episode_Termination/base_contact": 0.091805
+        },
+        "600-699": {
+          "Mean episode length": 936.7218,
+          "Metrics/base_velocity/error_vel_xy": 0.636257,
+          "Metrics/base_velocity/error_vel_yaw": 0.537724,
+          "Episode_Termination/time_out": 0.887282,
+          "Episode_Termination/base_contact": 0.11289
+        },
+        "700-799": {
+          "Mean episode length": 926.532,
+          "Metrics/base_velocity/error_vel_xy": 0.633785,
+          "Metrics/base_velocity/error_vel_yaw": 0.552783,
+          "Episode_Termination/time_out": 0.859999,
+          "Episode_Termination/base_contact": 0.140091
+        }
+      }
+    }
+  }
+}

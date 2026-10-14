@@ -1,0 +1,1711 @@
+{
+  "status": "CHECKPOINT_INTEGRITY_PASS",
+  "scope": "CPU-only weights_only=True; no policy inference/simulation/training/server actions",
+  "python": "C:\\Users\\2009s\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+  "python_version": "3.10.11",
+  "local_torch": "2.14.0+cpu",
+  "checkpoint_count": 16,
+  "expected_iterations": [
+    0,
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900,
+    1000,
+    1100,
+    1200,
+    1300,
+    1400,
+    1499
+  ],
+  "checks": {
+    "exact_16_checkpoint_coverage": true,
+    "all_remote_manifest_hashes_match": true,
+    "all_remote_manifest_sizes_match": true,
+    "all_unchanged_after_cpu_deserialization": true,
+    "all_iteration_numbers_match": true,
+    "all_actor_layers_match": true,
+    "all_floating_tensors_finite": true,
+    "all_loaded_tensors_on_CPU": true,
+    "all_std_parameters_finite_positive": true,
+    "distinct_actor_states_across_16_saves": true,
+    "distinct_deterministic_actor_MLPs_across_16_saves": true
+  },
+  "archive_manifest_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\manifest.json",
+  "archive_manifest_sha256": "e4d50c458c91960b90df04a98fab7a1f8a108c5ed404e0c633ff07e1da00786d",
+  "checkpoints": [
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_0.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_0.pt",
+      "file_sha256": "2e1bc8c4bbc9a1643152b0d026fee44629f4c6a4911f3c12de21704469bd4a0b",
+      "bytes": 6881623,
+      "manifest_sha256": "2e1bc8c4bbc9a1643152b0d026fee44629f4c6a4911f3c12de21704469bd4a0b",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 0,
+      "stored_iteration": 0,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "4bf895ad83a85f039e1d98b8dd78aeb80e6dc184373ec06e295cc034a2f6c004",
+      "deterministic_actor_MLP_sha256": "fc7a899d5eb8bb50c61c1454cb8c362ba8d0f9d86fe16dca06ec026564df6395",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.994892954826355,
+            0.9958764910697937,
+            0.9959092736244202,
+            0.9957170486450195,
+            0.9993185997009277,
+            1.0041369199752808,
+            1.0013806819915771,
+            0.997028112411499,
+            0.9994878172874451,
+            1.0000863075256348,
+            1.00014328956604,
+            1.0024067163467407
+          ],
+          "min": 0.994892954826355,
+          "mean": 0.9988653510808945,
+          "max": 1.0041369199752808,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_100.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_100.pt",
+      "file_sha256": "6e62b63494494afcf37f6dcb492098a879fe2ca88bc0d8eb3edc6eaf3ff8ab3e",
+      "bytes": 6882219,
+      "manifest_sha256": "6e62b63494494afcf37f6dcb492098a879fe2ca88bc0d8eb3edc6eaf3ff8ab3e",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 100,
+      "stored_iteration": 100,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "758d925e6fe9ba3b006bd8aa6832115f0e4e7e0215242bea9b0c78cd8cf4fa6f",
+      "deterministic_actor_MLP_sha256": "0bb3a4967cf081cf80e4fab504e0a84853d5a7451c2931df22c8622db689be5f",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.45831432938575745,
+            0.4488544464111328,
+            0.4204055070877075,
+            0.40474337339401245,
+            0.7623870968818665,
+            0.8128522634506226,
+            0.6044619083404541,
+            0.6045483946800232,
+            0.6717445850372314,
+            0.6449705362319946,
+            0.7471869587898254,
+            0.7633925080299377
+          ],
+          "min": 0.40474337339401245,
+          "mean": 0.6119884923100471,
+          "max": 0.8128522634506226,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_200.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_200.pt",
+      "file_sha256": "1a8463773fa72fcf09b98aaf35deea39f5bdfab9cbe33605cda34773748bb929",
+      "bytes": 6882219,
+      "manifest_sha256": "1a8463773fa72fcf09b98aaf35deea39f5bdfab9cbe33605cda34773748bb929",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 200,
+      "stored_iteration": 200,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "b60859fb281320e5853ea8bb8f58d17451178b36b8eaab1e0ec02b25e97f7357",
+      "deterministic_actor_MLP_sha256": "eaabeaf96a620ae8349bb32788d7dcec43850cb8bdcaa6b3080716620d1e7c78",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.4183162450790405,
+            0.4072040319442749,
+            0.3976002633571625,
+            0.36272385716438293,
+            0.7020590305328369,
+            0.7240301370620728,
+            0.5904461145401001,
+            0.5751137137413025,
+            0.6405829191207886,
+            0.6374618411064148,
+            0.6772570013999939,
+            0.7239383459091187
+          ],
+          "min": 0.36272385716438293,
+          "mean": 0.5713944584131241,
+          "max": 0.7240301370620728,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_300.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_300.pt",
+      "file_sha256": "6caae8b9f9dcf87bc7ff10b60e0c65e4e31a0257967776f8174b6a8db556d6cf",
+      "bytes": 6882219,
+      "manifest_sha256": "6caae8b9f9dcf87bc7ff10b60e0c65e4e31a0257967776f8174b6a8db556d6cf",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 300,
+      "stored_iteration": 300,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "e9554fe82c3608678c09a27b6af63520f64dbb5688638be502f2c119afb8997b",
+      "deterministic_actor_MLP_sha256": "d3543874adf4af0198abd003ea1c17b67dac9f0b7744d881436ec47a6eb542b3",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.41668421030044556,
+            0.40875813364982605,
+            0.40107622742652893,
+            0.3517344295978546,
+            0.6360525488853455,
+            0.6703094244003296,
+            0.566858172416687,
+            0.5269741415977478,
+            0.6428323984146118,
+            0.6360023617744446,
+            0.6739726066589355,
+            0.7390509843826294
+          ],
+          "min": 0.3517344295978546,
+          "mean": 0.5558588032921156,
+          "max": 0.7390509843826294,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_400.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_400.pt",
+      "file_sha256": "7bd43815727d2f5cd35b5ab650b26042e1762235338c4c855417c56f58e5acac",
+      "bytes": 6882219,
+      "manifest_sha256": "7bd43815727d2f5cd35b5ab650b26042e1762235338c4c855417c56f58e5acac",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 400,
+      "stored_iteration": 400,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "63dcb5adf7a234f75902afb922be76987251981b2f76d961a02a7d9853c9c4e5",
+      "deterministic_actor_MLP_sha256": "04a67256f1c4dc09acee26ae32cc8a17ecc433efe5ac08ae9d2a4db9210df460",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.40287867188453674,
+            0.4001062214374542,
+            0.4022369682788849,
+            0.3609241247177124,
+            0.6244535446166992,
+            0.60563725233078,
+            0.5580625534057617,
+            0.4959372282028198,
+            0.6494815349578857,
+            0.6365048885345459,
+            0.6889142990112305,
+            0.7702474594116211
+          ],
+          "min": 0.3609241247177124,
+          "mean": 0.5496153955658277,
+          "max": 0.7702474594116211,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_500.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_500.pt",
+      "file_sha256": "50ec8fed9031bff4654cfd4a14174b7d50d8287778e6dde2bf1061474950e65e",
+      "bytes": 6882219,
+      "manifest_sha256": "50ec8fed9031bff4654cfd4a14174b7d50d8287778e6dde2bf1061474950e65e",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 500,
+      "stored_iteration": 500,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "586f6728e4b5075b72ace97ae5ce7fc2d48a15cf9c545734b3a5906125cc9af5",
+      "deterministic_actor_MLP_sha256": "0b6b24069d792dc763a5c286954922817e75e9f59f2c8d1fd96b43b3cd8d42f0",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.4029924273490906,
+            0.42007094621658325,
+            0.4297104775905609,
+            0.3717379868030548,
+            0.6175547242164612,
+            0.6118325591087341,
+            0.5537803769111633,
+            0.5002586245536804,
+            0.6569176316261292,
+            0.6261090636253357,
+            0.7254992723464966,
+            0.780576765537262
+          ],
+          "min": 0.3717379868030548,
+          "mean": 0.5580867379903793,
+          "max": 0.780576765537262,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_600.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_600.pt",
+      "file_sha256": "ca66c781886cd026cb50237191b2805d2b3a80afc6858cdf5e00288004ab8f2a",
+      "bytes": 6882219,
+      "manifest_sha256": "ca66c781886cd026cb50237191b2805d2b3a80afc6858cdf5e00288004ab8f2a",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 600,
+      "stored_iteration": 600,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "5ded0055a23ea79f2cc55f50e3d217ad27aaf5dd4c77d58512f5d922d18246cf",
+      "deterministic_actor_MLP_sha256": "3d48196030ebf407270038126e1466adf762e23583fc87bf954428d3458be436",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.42024296522140503,
+            0.43323850631713867,
+            0.44369402527809143,
+            0.3917306065559387,
+            0.6351683735847473,
+            0.6463057994842529,
+            0.5567781329154968,
+            0.5265950560569763,
+            0.6563329100608826,
+            0.6437855362892151,
+            0.7545472979545593,
+            0.7983725666999817
+          ],
+          "min": 0.3917306065559387,
+          "mean": 0.5755659813682238,
+          "max": 0.7983725666999817,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_700.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_700.pt",
+      "file_sha256": "1abbabfa61cf46f3b4e3b815ebdc8d6d248d32fff5892c01299b4b21b153835e",
+      "bytes": 6882219,
+      "manifest_sha256": "1abbabfa61cf46f3b4e3b815ebdc8d6d248d32fff5892c01299b4b21b153835e",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 700,
+      "stored_iteration": 700,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "11c3939749d6b90c4f3533e935e24186315d7c3ee82289c121ce2b01555b91a1",
+      "deterministic_actor_MLP_sha256": "192039db004bae83988295f09bc08ac8af17b24c14a1e9c9749d60ca044a1667",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.4140130579471588,
+            0.4146731197834015,
+            0.43175002932548523,
+            0.3959749937057495,
+            0.612303614616394,
+            0.633208692073822,
+            0.5755165219306946,
+            0.5378150939941406,
+            0.6627422571182251,
+            0.643904983997345,
+            0.7429584860801697,
+            0.800656795501709
+          ],
+          "min": 0.3959749937057495,
+          "mean": 0.5721264705061913,
+          "max": 0.800656795501709,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_800.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_800.pt",
+      "file_sha256": "b1f1bdf87f5560c38f74dc2627873b326bcd3e53995a367db31d06c4a7193db9",
+      "bytes": 6882219,
+      "manifest_sha256": "b1f1bdf87f5560c38f74dc2627873b326bcd3e53995a367db31d06c4a7193db9",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 800,
+      "stored_iteration": 800,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "664f51961af70caaa9166306f09abe8f9ca766562bde4455f65aeb1e99a55b06",
+      "deterministic_actor_MLP_sha256": "72f076e17818096632b678388a1184c9bb38c3090f51300440867e1b40f4878d",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.4420311450958252,
+            0.45075252652168274,
+            0.4552377164363861,
+            0.43198108673095703,
+            0.6519061326980591,
+            0.6534649729728699,
+            0.6067544221878052,
+            0.5659847259521484,
+            0.6922639012336731,
+            0.666970431804657,
+            0.8195042014122009,
+            0.8504794836044312
+          ],
+          "min": 0.43198108673095703,
+          "mean": 0.6072775622208914,
+          "max": 0.8504794836044312,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_900.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_900.pt",
+      "file_sha256": "5318bc5bec1db5a900c3eef75c703113cada507b902fbe149ee96d066b3a5033",
+      "bytes": 6882219,
+      "manifest_sha256": "5318bc5bec1db5a900c3eef75c703113cada507b902fbe149ee96d066b3a5033",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 900,
+      "stored_iteration": 900,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "bc17e0814f30a302059c7bfb6c3970c6918c0787349f2f5c8dca4b167c8964c6",
+      "deterministic_actor_MLP_sha256": "a275aee1ff3967f8b28c58b18121af1d555dbfa7461d14b729a096c948c4b516",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.4851725101470947,
+            0.4832085967063904,
+            0.495965838432312,
+            0.47449058294296265,
+            0.7010281085968018,
+            0.7205517888069153,
+            0.6611189842224121,
+            0.6217150092124939,
+            0.7524083256721497,
+            0.7289419770240784,
+            0.8829770684242249,
+            0.9157477617263794
+          ],
+          "min": 0.47449058294296265,
+          "mean": 0.6602772126595179,
+          "max": 0.9157477617263794,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_1000.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_1000.pt",
+      "file_sha256": "d073b8f33ac1b8d68b9272abd68a93978ef7cbef5522c75e7017a69332a4317d",
+      "bytes": 6882293,
+      "manifest_sha256": "d073b8f33ac1b8d68b9272abd68a93978ef7cbef5522c75e7017a69332a4317d",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 1000,
+      "stored_iteration": 1000,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "bc5bb204871507a2bff6f50d9fd46245ca969c7594b173c8df83cb7ddcf291c9",
+      "deterministic_actor_MLP_sha256": "5f0d875e2fb2058cf89ce44562ee61e4c833e6456888d3dc637e23a3832937b5",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.5170305967330933,
+            0.5257342457771301,
+            0.5385470986366272,
+            0.515738844871521,
+            0.7503973245620728,
+            0.752159833908081,
+            0.7148470878601074,
+            0.6757911443710327,
+            0.8060938715934753,
+            0.7924205660820007,
+            0.9478445053100586,
+            0.9697661399841309
+          ],
+          "min": 0.515738844871521,
+          "mean": 0.7088642716407776,
+          "max": 0.9697661399841309,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_1100.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_1100.pt",
+      "file_sha256": "0c12b9f89f3e962e90ed4da036a6c0aebc223eb97888f1a0c60ece78c4c79b15",
+      "bytes": 6882293,
+      "manifest_sha256": "0c12b9f89f3e962e90ed4da036a6c0aebc223eb97888f1a0c60ece78c4c79b15",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 1100,
+      "stored_iteration": 1100,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "4832644babf41f9a60439537b56e0281caab3fcb6462451f114e840252a2f6cc",
+      "deterministic_actor_MLP_sha256": "84e630b84243b14d83c9b9881bcc8b6556327fb1a1205e4e61b0c69841aaaed8",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.5296695828437805,
+            0.5277321934700012,
+            0.5204165577888489,
+            0.5099194645881653,
+            0.7468684911727905,
+            0.7721429467201233,
+            0.7289377450942993,
+            0.689175009727478,
+            0.8156827092170715,
+            0.8181121945381165,
+            0.9930124282836914,
+            1.0074597597122192
+          ],
+          "min": 0.5099194645881653,
+          "mean": 0.7215940902630488,
+          "max": 1.0074597597122192,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_1200.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_1200.pt",
+      "file_sha256": "d024a8a05908f0ecb68a76177b66e34d5d481f876c59c1a906a25bbad1c89f2c",
+      "bytes": 6882293,
+      "manifest_sha256": "d024a8a05908f0ecb68a76177b66e34d5d481f876c59c1a906a25bbad1c89f2c",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 1200,
+      "stored_iteration": 1200,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "0b3048b14ee6eaf884a3e0e335c6791bd48524350710d8747628ca54f6ed606e",
+      "deterministic_actor_MLP_sha256": "6729316df7ff7220de88bd268ac3e97fa2f2215b8a1f5d1f5ca50a49d46044fe",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.5598950386047363,
+            0.555711030960083,
+            0.5487675070762634,
+            0.5319435596466064,
+            0.7919676303863525,
+            0.7922878265380859,
+            0.7596530318260193,
+            0.7338906526565552,
+            0.8570535182952881,
+            0.8664564490318298,
+            1.0291048288345337,
+            1.023385763168335
+          ],
+          "min": 0.5319435596466064,
+          "mean": 0.7541764030853907,
+          "max": 1.0291048288345337,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_1300.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_1300.pt",
+      "file_sha256": "859822d3e52cf79cc1bb9691d235fc2e6dd4fdfaf23021361af8f72fff35700f",
+      "bytes": 6882293,
+      "manifest_sha256": "859822d3e52cf79cc1bb9691d235fc2e6dd4fdfaf23021361af8f72fff35700f",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 1300,
+      "stored_iteration": 1300,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "fda78a795e23ada4d2abbb66aa583af4dc8caf8409718a304a7aa826dc164ffe",
+      "deterministic_actor_MLP_sha256": "a37bac2f762c86e5acd9e8eda0e6595cd7d23d8640907aea44aee9301d5108a9",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.5052646398544312,
+            0.516749918460846,
+            0.4826028347015381,
+            0.4956362843513489,
+            0.74031662940979,
+            0.747229814529419,
+            0.7162531018257141,
+            0.6778314709663391,
+            0.7895143628120422,
+            0.8336843252182007,
+            0.984926700592041,
+            0.9812467694282532
+          ],
+          "min": 0.4826028347015381,
+          "mean": 0.705938071012497,
+          "max": 0.984926700592041,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_1400.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_1400.pt",
+      "file_sha256": "9522eeacaacd5d71624b68e2a4b7a249e808cc3fc8d74afa73513f81e0f7ef44",
+      "bytes": 6882293,
+      "manifest_sha256": "9522eeacaacd5d71624b68e2a4b7a249e808cc3fc8d74afa73513f81e0f7ef44",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 1400,
+      "stored_iteration": 1400,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "a54adee338ca0cd91e0c7d7e4f9f75f38690a3e498573dd89c9732fa31968f9c",
+      "deterministic_actor_MLP_sha256": "9c03a7ec00040591f60a7c39148a707303f1da5bd0c99ec3267ad1f2662c0194",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.5137437582015991,
+            0.5274062752723694,
+            0.4983443319797516,
+            0.5029590129852295,
+            0.7563906311988831,
+            0.75943523645401,
+            0.7583315968513489,
+            0.7005676627159119,
+            0.8146393895149231,
+            0.8515853881835938,
+            0.9958893060684204,
+            0.9508481621742249
+          ],
+          "min": 0.4983443319797516,
+          "mean": 0.7191783959666888,
+          "max": 0.9958893060684204,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h\\preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_1499.pt",
+      "relative_path": "preserved/B1_selective_cost/2026-10-09_21-12-00_B1_4h_1791547031/model_1499.pt",
+      "file_sha256": "f0c791fc4d400f983b99abb3d4d296da7b69b666617bc7a1b3217b7f37da17af",
+      "bytes": 6882293,
+      "manifest_sha256": "f0c791fc4d400f983b99abb3d4d296da7b69b666617bc7a1b3217b7f37da17af",
+      "manifest_hash_matches": true,
+      "manifest_size_matches": true,
+      "unchanged_after_cpu_load": true,
+      "filename_iteration": 1499,
+      "stored_iteration": 1499,
+      "iteration_matches_filename": true,
+      "checkpoint_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "actor_state_key": "actor_state_dict",
+      "actor_state_sha256": "c38a1aca96142cf81739af08bf9d38f09dce02109fd7a718a225a33fb7e32088",
+      "deterministic_actor_MLP_sha256": "86d52164c85fa8ad1d00bbb7325b115f61ea6707cf7c4ca5f483736347996ae5",
+      "actor_layers": [
+        [
+          512,
+          235
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          12,
+          128
+        ]
+      ],
+      "actor_input_output_dimensions": [
+        235,
+        512,
+        256,
+        128,
+        12
+      ],
+      "actor_structure_matches": true,
+      "actor_weight_keys": [
+        "mlp.0.weight",
+        "mlp.2.weight",
+        "mlp.4.weight",
+        "mlp.6.weight"
+      ],
+      "actor_bias_shapes": {
+        "mlp.0.bias": [
+          512
+        ],
+        "mlp.2.bias": [
+          256
+        ],
+        "mlp.4.bias": [
+          128
+        ],
+        "mlp.6.bias": [
+          12
+        ]
+      },
+      "actor_tensor_count": 9,
+      "floating_tensor_count_all_checkpoint_sections": 68,
+      "all_floating_tensors_finite": true,
+      "nonfinite_tensor_paths": [],
+      "all_loaded_tensors_on_CPU": true,
+      "non_CPU_tensor_paths": [],
+      "gaussian_std_parameters": {
+        "distribution.std_param": {
+          "shape": [
+            12
+          ],
+          "values": [
+            0.5291929244995117,
+            0.5277861952781677,
+            0.5154083371162415,
+            0.5080779790878296,
+            0.783260703086853,
+            0.7607773542404175,
+            0.7864729762077332,
+            0.7149627208709717,
+            0.8325755000114441,
+            0.8500841856002808,
+            1.018674612045288,
+            0.9732303023338318
+          ],
+          "min": 0.5080779790878296,
+          "mean": 0.7333753158648809,
+          "max": 1.018674612045288,
+          "finite": true,
+          "positive": true,
+          "meaning": "stored Gaussian exploration parameter; not a deterministic performance metric"
+        }
+      },
+      "policy_inference_performed": false,
+      "physical_evaluation_performed": false
+    }
+  ],
+  "closed_loop_quality_measured": false,
+  "candidate_Q3": null,
+  "candidate_official_score_prediction": null,
+  "limitation": "Integrity and changing actor parameters establish recoverable model files and training updates only; they do not establish survival, tracking performance, optimal checkpoint or score improvement."
+}

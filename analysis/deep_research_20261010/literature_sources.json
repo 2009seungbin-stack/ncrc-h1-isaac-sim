@@ -1,0 +1,141 @@
+{
+  "scope": "PRIMARY_SOURCE_LITERATURE_AND_OFFICIAL_CODE_REVIEW_NO_SERVER_NO_POLICY_EXECUTION",
+  "reviewed_at": "2026-10-10 Asia/Seoul",
+  "current_runtime_method_body_verified": false,
+  "source_code_version": "IsaacLab v2.3.2 tag, not asserted byte-identical to the recovered training runtime",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "IsaacLab v2.3.2 common MDP reward functions",
+      "type": "official_repository_code",
+      "url": "https://raw.githubusercontent.com/isaac-sim/IsaacLab/v2.3.2/source/isaaclab/isaaclab/envs/mdp/rewards.py",
+      "relevant_symbols": [
+        "track_lin_vel_xy_exp",
+        "track_ang_vel_z_exp",
+        "joint_torques_l2",
+        "action_rate_l2",
+        "flat_orientation_l2",
+        "is_terminated",
+        "is_terminated_term"
+      ],
+      "quote": "Reward tracking of linear velocity commands (xy axes) using exponential kernel.",
+      "verified_facts": [
+        "XY reward is exp(-sum((command_xy-root_lin_vel_b_xy)^2)/std^2); yaw reward is exp(-(command_yaw-root_ang_vel_b_z)^2/std^2).",
+        "Torque cost uses summed squared applied torque; action-rate cost uses summed squared differences between consecutive actions.",
+        "Flat orientation uses squared XY projected gravity. It is not a body-height or joint-posture target.",
+        "is_terminated_term masks timeouts, and is_terminated reads true terminations rather than timeouts."
+      ],
+      "transfer_limit": "Saved cfg identifies symbol/std but does not establish the exact installed function body. Extra reward terms or std changes exceed a weights-only interface unless rules explicitly allow them."
+    },
+    {
+      "id": "S2",
+      "title": "IsaacLab v2.3.2 velocity locomotion reward functions",
+      "type": "official_repository_code",
+      "url": "https://raw.githubusercontent.com/isaac-sim/IsaacLab/v2.3.2/source/isaaclab_tasks/isaaclab_tasks/manager_based/locomotion/velocity/mdp/rewards.py",
+      "relevant_symbols": [
+        "feet_air_time"
+      ],
+      "quote": "If the commands are small",
+      "verified_facts": [
+        "Reward is sum((last_air_time-threshold)*first_contact).",
+        "It is gated by commanded XY speed norm greater than 0.1, not by yaw command.",
+        "With threshold 0.5, landings after shorter air intervals contribute negative values before weighting.",
+        "This term does not explicitly measure foot clearance, foot placement, slip, or gait phase."
+      ],
+      "transfer_limit": "This is the upstream quadruped method. Exact installed body must be checked before diagnosing training. Threshold/gating/function replacement is not a weight-only change."
+    },
+    {
+      "id": "S3",
+      "title": "Learning Agile and Dynamic Motor Skills for Legged Robots",
+      "authors": "Hwangbo et al.",
+      "year": 2019,
+      "type": "primary_research_paper",
+      "url": "https://arxiv.org/html/1901.08652v1",
+      "location": "Policy training details, curriculum paragraphs",
+      "quote": "All of cost terms are multiplied by this curriculum factor",
+      "verified_facts": [
+        "Objective costs are exempt while other costs increase through a multiplicative factor.",
+        "The paper uses k0=0.3 and k_(j+1)=k_j^0.997, converging toward 1.",
+        "The experiment uses ANYmal, learned actuator dynamics and TRPO, with distinct state/history/reset and termination settings."
+      ],
+      "transfer_limit": "Evidence for a particular curriculum method, not evidence that B1 checkpoint500 switched to F10 will improve Go2. Its coefficients, time scale, training state and model differ."
+    },
+    {
+      "id": "S4",
+      "title": "Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning",
+      "authors": "Rudin et al.",
+      "year": 2021,
+      "version": "arXiv v3, 2022",
+      "type": "primary_research_paper",
+      "url": "https://arxiv.org/html/2109.11978v3",
+      "location": "Sections 2.2.2, 3.1, 3.2",
+      "quote": "The solution is to distinguish the two termination modes",
+      "verified_facts": [
+        "Terrain difficulty follows per-environment progress and can decrease on insufficient progress.",
+        "Success at the highest terrain level is followed by random level assignment, so a mean terrain level is not a globally monotonic score.",
+        "The paper distinguishes timeout bootstrapping from failure termination.",
+        "It trains a single policy with the same rewards across terrain types."
+      ],
+      "transfer_limit": "Supports terrain/reset semantics and comparing fixed scenarios, not score forecasts or an arbitrary B1-to-F10 reward switch. Its timing/performance cannot be transferred to the competition runtime."
+    },
+    {
+      "id": "S5",
+      "title": "Walk These Ways: Tuning Robot Control for Generalization with Multiplicity of Behavior",
+      "authors": "Margolis and Agrawal",
+      "year": 2022,
+      "type": "primary_research_paper",
+      "url": "https://arxiv.org/html/2212.03238v1",
+      "location": "Section 3.1 and Table 4",
+      "quote": "we force the total reward to be a positive linear function of the task reward",
+      "verified_facts": [
+        "Total reward is task_reward * exp(0.02 * negative_auxiliary_reward), rather than a plain additive sum.",
+        "The method adds behavior commands, contact/gait reward structure, and a grid command curriculum.",
+        "Table 4 reports a gait-free flat-ground tracking baseline with XY/yaw rewards 0.94/0.76 versus trotting 0.92/0.70.",
+        "The paper also reports task-dependent benefits from behavior control; flat-ground tracking is not the only target."
+      ],
+      "transfer_limit": "Gait constraints do not universally improve tracking. These results are from another robot/training setup and do not prove that removing Go2 feet_air_time improves rough-terrain scoring."
+    }
+  ],
+  "allowed_scope_assumption": "Only the existing ten scalar reward weights may change; root task independently audits current rules. All proposed relaxations remain unimplemented.",
+  "hypotheses": [
+    {
+      "id": "H1",
+      "name": "Fixed-sum tracking-axis allocation",
+      "allowed_now": "Conditional on root confirming the ten-weight bounds",
+      "example_test_point": {
+        "track_lin_vel_xy_exp": 2.25,
+        "track_ang_vel_z_exp": 1.25,
+        "all_other_weights": "unchanged F10"
+      },
+      "rationale": "Keep the maximum positive tracking-coefficient sum at 3.5 and vary XY:yaw preference independently of total tracking escalation.",
+      "evidence_level": "Mechanism certain if upstream code matches; improvement evidence weak; diagnostic value moderate.",
+      "disconfirmation": "No fixed-scenario VX improvement or yaw/survival regression. Existing F10 benefit from raising yaw is counterevidence to assume yaw can safely be reduced.",
+      "warning": "Example coefficients are a falsifiable comparison point, not an optimum. The sum is a maximum reward bound, not equal expected reward or identical PPO updates."
+    },
+    {
+      "id": "H2",
+      "name": "Fixed objective with gradual non-task cost curriculum",
+      "allowed_now": false,
+      "requires": "Explicit permission for a reward schedule and verified training/resume-state semantics",
+      "evidence_level": "Strong precedent for the mechanism on ANYmal; unvalidated Go2 transfer.",
+      "design_constraint": "Hold tracking weights/ratio and reward functions fixed, vary only a prespecified cost schedule; do not call a simultaneous B1-to-F10 switch an isolated curriculum.",
+      "disconfirmation": "Early advantage fails to persist under matched final reward/iteration/evaluation, or survival regresses.",
+      "warning": "The published k0 and exponent are references, not a proposed optimal Go2 schedule."
+    },
+    {
+      "id": "H3",
+      "name": "Match tracking-kernel sensitivity and command difficulty to observed errors",
+      "allowed_now": false,
+      "requires": "Permission for std/command curriculum/function changes plus actual per-step error distributions",
+      "evidence_level": "Official kernel mathematics and command-curriculum precedent; no current evidence that B1 is kernel-saturated.",
+      "design_constraint": "Measure large-error occupancy first. A wider initial kernel or easier commands is only a conditional hypothesis; fine tracking and survival remain heldout targets.",
+      "disconfirmation": "Large-error occupancy is small, or shaping raises logged reward without reducing fixed-scenario RMSE.",
+      "warning": "A small derivative with respect to physical error is not proof that PPO has zero policy gradient."
+    }
+  ],
+  "score_forecast": null,
+  "server_access": false,
+  "policy_execution": false,
+  "training_execution": false
+}
+

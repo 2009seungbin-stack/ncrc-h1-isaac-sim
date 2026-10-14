@@ -1,0 +1,874 @@
+groups: cannot find name for group ID 109
+root@da-perfect41:/workspace# pwd
+ls -l /workspace/training/humanoid /workspace/training/quadruped
+nvidia-smi --query-gpu=name,memory.total,memory.used --format=csv,noheader
+/workspace
+/workspace/training/humanoid:
+total 72
+-rw-r--r-- 1 root root 17092 Sep 15 22:13 README.md
+drwxr-xr-x 2 root root  4096 Sep 15 22:13 h1_task
+-rw-r--r-- 1 root root  9356 Sep 15 22:13 humanoid_rewards.py
+-rw-r--r-- 1 root root 20344 Sep 15 22:13 play.py
+-rw-r--r-- 1 root root   571 Sep 15 22:13 pyproject.toml
+-rw-r--r-- 1 root root 10450 Sep 15 22:13 train.py
+/workspace/training/quadruped:
+total 72
+-rw-r--r-- 1 root root 17260 Sep 15 22:13 README.md
+drwxr-xr-x 2 root root  4096 Sep 15 22:13 go2_task
+-rw-r--r-- 1 root root 19660 Sep 15 22:13 play.py
+-rw-r--r-- 1 root root   584 Sep 15 22:13 pyproject.toml
+-rw-r--r-- 1 root root  9805 Sep 15 22:13 quadruped_rewards.py
+-rw-r--r-- 1 root root  8852 Sep 15 22:13 train.py
+NVIDIA GeForce RTX 5080, 16303 MiB, 3031 MiB
+root@da-perfect41:/workspace# sed -n '1,240p' /workspace/training/quadruped/train.py
+sed -n '1,160p' /workspace/training/quadruped/README.md
+which python
+ls -d /opt/* /workspace/IsaacLab/_* 2>/dev/null
+"""IsaacLab 공식 RSL-RL train.py 위임 + quadruped task 등록.
+자동:
+  1. cwd 를 이 폴더로 변경 → logs/rsl_rl/quadruped/<날짜>/ 에 저장
+  2. 학습 종료 후 best model 선별 → exported/ 폴더에 정리 (finalize)
+구현 (★ 부모/자식 — humanoid/train.py 와 동일):
+  - Isaac Sim 은 끝에 C레벨 강제종료 → 같은 프로세스면 finalize 못 돎.
+  - 자식 프로세스(python3 -c)로 띄우면 일부 환경서 startup segfault(-11).
+  - 해결: 부모가 학습을 `python.sh` 자식으로 실행 → 자식은 정상 env(segfault X),
+    부모는 살아서 finalize 실행. python.sh 없으면 in-process 폴백.
+사용:
+    isaaclab.sh -p train.py --task Quadruped-v0 --num_envs 4096 --max_iterations 8000 --headless
+"""
+from __future__ import annotations
+import os
+import subprocess
+import sys
+import traceback
+from pathlib import Path
+PROJECT_DIR = Path(__file__).resolve().parent
+os.chdir(PROJECT_DIR)
+CHILD_FLAG = "--_run_isaaclab_child"
+def _find_isaaclab_train() -> str:
+    """IsaacLab rsl_rl train.py 경로 — OS/설치위치 무관 자동 탐지."""
+    rel = Path("scripts") / "reinforcement_learning" / "rsl_rl" / "train.py"
+    cands = []
+    env = os.environ.get("ISAACLAB_PATH")
+    if env:
+        cands.append(Path(env) / rel)
+    cands += [Path("/workspace/IsaacLab") / rel,
+              Path.home() / "IsaacLab" / rel,
+              Path(r"C:\IsaacLab") / rel]
+    for up in Path(__file__).resolve().parents:
+        cands.append(up / "IsaacLab" / rel)
+    for c in cands:
+        if c.is_file():
+            return str(c)
+    raise FileNotFoundError(
+        "IsaacLab train.py 를 못 찾음. 환경변수로 지정하세요:\n"
+        "  Linux  : export ISAACLAB_PATH=/workspace/IsaacLab\n"
+        "  Windows: set ISAACLAB_PATH=C:\\IsaacLab")
+def _isaac_python_launcher() -> str | None:
+    """Isaac Sim python.sh(Linux)/python.bat(Windows) — env 셋업 런처. 없으면 None."""
+    name = "python.bat" if os.name == "nt" else "python.sh"
+    cands = []
+    try:
+        cands.append(Path(sys.executable).resolve().parents[3] / name)
+    except Exception:
+        pass
+    try:
+        ilab = Path(_find_isaaclab_train()).resolve().parents[3]
+        cands.append(ilab / "_isaac_sim" / name)
+    except Exception:
+        pass
+    for c in cands:
+        if c.is_file():
+            return str(c)
+    return None
+def _runpy_isaaclab_train() -> None:
+    """go2_task 등록 후 IsaacLab train.py 를 in-process runpy (자식에서 호출)."""
+    import runpy
+    isaaclab_train = _find_isaaclab_train()
+    sys.path.insert(0, str(PROJECT_DIR))
+    sys.path.insert(0, os.path.dirname(isaaclab_train))
+    import go2_task  # noqa: F401 — gym.register (가벼움)
+    args = [a for a in sys.argv[1:] if a not in (CHILD_FLAG, "--submit")]   # --submit 은 IsaacLab 에 안 넘김 (부모만 사용)
+    sys.argv = [isaaclab_train, *args]
+    runpy.run_path(isaaclab_train, run_name="__main__")
+def run_training() -> int:
+    """부모: 학습을 python.sh 자식으로 실행 → 자식 종료해도 부모 생존 → finalize."""
+    if "--task" not in sys.argv:
+        print("[ERROR] --task 인자가 없습니다. 명령을 '한 줄' 로 실행했는지 확인하세요.")
+        print("        예: isaaclab.sh -p train.py --task Quadruped-v0 --num_envs 4096 --max_iterations 8000 --headless")
+        return 2
+    launcher = _isaac_python_launcher()
+    if launcher:
+        cmd = [launcher, str(Path(__file__).resolve()), CHILD_FLAG, *sys.argv[1:]]
+        print(f"[INFO] 학습 자식 실행 (env 셋업 python.sh): {launcher}")
+        print(f"[INFO]   args: {sys.argv[1:]}")
+        print("-" * 70)
+        return subprocess.run(cmd, cwd=str(PROJECT_DIR), env=os.environ.copy()).returncode
+    print("[WARN] python.sh 미발견 → in-process 실행 "
+          "(끝나면 go2_task/_finalize.py 로 수동 finalize 필요할 수 있음)")
+    _runpy_isaaclab_train()
+    return 0
+if __name__ == "__main__":
+    # play.py 전용 밀침 스위치 — 학습에 새면 env 조건이 팀마다 달라진다.
+    os.environ.pop("NCRC_PLAY_PUSH", None)
+    if CHILD_FLAG in sys.argv:
+        _runpy_isaaclab_train()
+        os._exit(0)
+    print(f"[INFO] Working dir : {PROJECT_DIR}")
+    print(f"[INFO] Logs go to  : {PROJECT_DIR / 'logs' / 'rsl_rl' / 'quadruped'}")
+    print(f"[INFO] Final output: {PROJECT_DIR / 'exported' / 'model_best.pt'}  (+ env.yaml)")
+    try:
+        exit_code = run_training()
+    except KeyboardInterrupt:
+        # Ctrl+C — 자식(학습)은 subprocess 가 정리함. 트레이스백 없이 지금까지
+        # 저장된 체크포인트로 best 선별(model_best.pt 생성) 까지 진행.
+        print("\n[INFO] Ctrl+C 감지 — 학습 중단. 지금까지 체크포인트로 best 선별합니다...")
+        exit_code = 130
+    print("\n" + "=" * 70)
+    print(f"[POST] 학습 종료 (exit={exit_code}) → best model 선별 → {PROJECT_DIR}")
+    print("=" * 70)
+    meta_result = None
+    try:
+        from go2_task._finalize import finalize
+        meta_result = finalize()
+    except KeyboardInterrupt:
+        # ⚠️ Ctrl+C 를 **두 번** 누른 경우. 첫 번째는 학습 중단으로 처리했고, 두 번째가
+        #    여기(best 선별 = tfevents 읽기, 수십 초)에 떨어진다. KeyboardInterrupt 는
+        #    Exception 이 아니라서 아래 except 로는 안 잡히고, 그대로 트레이스백과 함께
+        #    끝나 **model_best.pt 가 안 생긴다**(22분 학습의 결과 선별을 잃는다).
+        #    체크포인트는 logs/ 에 그대로 있으니 아래 명령으로 그 자리서 복구된다.
+        print("\n[WARN] best 선별을 중단했습니다 — model_best.pt 가 만들어지지 않았습니다.")
+        print("       체크포인트는 logs/ 에 그대로 있습니다. 아래로 이어서 만들 수 있습니다:")
+        print(f"         {_isaac_python_launcher() or 'python3'} go2_task/_finalize.py")
+        print("       (이번엔 Ctrl+C 누르지 말고 기다려 주세요 — 기록 읽기에 수십 초 걸립니다)")
+    except Exception as e:
+        # 🔴 **학습이 비정상 종료했으면 체크포인트가 없는 게 당연하다.** 그때도
+        #    "선별 실패" 트레이스백을 찍으면 **화면의 마지막 오류가 엉뚱한 것**이 되어,
+        #    참가자가 진짜 원인(위쪽 학습 로그) 대신 이 오류를 붙들고 씨름한다.
+        #    실측 문의: 이어서 학습이 안 된다며 보낸 화면의 마지막 줄이
+        #    `FileNotFoundError: model_*.pt 없음: .../logs/rsl_rl/quadruped/resumed`
+        #    였는데, 그건 학습이 시작조차 못 한 뒤 이 블록이 남긴 흔적이었다.
+        if exit_code:
+            print(f"[WARN] 학습이 정상 종료되지 않았습니다 (exit={exit_code}) —"
+                  f" best 선별을 건너뜁니다. ({e})")
+            print("       🔴 원인은 **이 줄 위쪽** 학습 로그에 있습니다 —"
+                  " 이 메시지는 그 결과일 뿐입니다.")
+            print("       위로 올려 첫 번째 오류(Traceback·Error)를 찾아 주세요."
+                  " tmux 라면  Ctrl+B  [  로 스크롤합니다.")
+        else:
+            print(f"[WARN] 선별 실패 (학습 결과는 logs/ 에 보존됨): {e}")
+            print(f"       수동: {_isaac_python_launcher() or 'python3'} go2_task/_finalize.py")
+            traceback.print_exc()
+    # (리포트 report.html 생성 + 학습 기록 백업 모두 finalize() 가 자동 수행 — _finalize.py 내장.
+    #  플래그 불필요.
+    #  🔴 이 백업은 끌 수 없습니다 — 대회 서버에서 학습했다는 것을 확인하는 근거라
+    #     남지 않으면 규정 확인이 불가능해집니다(예선 제14조). 공식 제출은 이것과 별개로
+    #     대회 웹사이트에 직접 업로드하는 것입니다.)
+    try:
+        sys.path.insert(0, str(PROJECT_DIR.parent.parent / "scripts"))
+        from notify import send_notification
+        details = {"robot": "quadruped", "exit_code": exit_code, "args": " ".join(sys.argv[1:])}
+        if meta_result:
+            details.update({
+                "run":         meta_result.get("run_name", "?"),
+                "best_iter":   meta_result.get("best_iter", "?"),
+                "best_reward": round(meta_result.get("best_reward") or 0, 2),
+            })
+        send_notification(
+            title=f"[finals_game] Quadruped 학습 종료 (exit={exit_code})",
+            body=f"학습 완료 — {PROJECT_DIR / 'exported' / 'model_best.pt'}",
+            details=details,
+        )
+    except Exception as e:
+        print(f"[notify] skip: {e}")
+    sys.exit(exit_code if isinstance(exit_code, int) else 0)
+# Quadruped (Go2) 학습 — NAVER Connect Robotics Cup 2026 예선
+사족로봇 Unitree Go2 의 보행 정책 학습 패키지. **reward 수정 → 학습 → 영상으로 검증 → 제출** 단계.
+> **실행 환경: Ubuntu + 클라우드 컨테이너 (headless, GUI 창 없음).**
+> 학습·플레이 모두 `--headless` 로 돌리고, **결과 확인은 영상(mp4)으로만** 합니다.
+> 런처는 `isaaclab.sh` — 이 문서는 `/workspace/IsaacLab/isaaclab.sh` 기준 (경로는 환경에 맞게).
+## 학생이 수정하는 파일
+**`quadruped_rewards.py`** 의 `REWARD_WEIGHTS` 안 값들을 자유롭게 바꿔 실험합니다.
+핵심 5개 항목은 `[이동·등반]` / `[자세·안정]` 두 그룹으로 묶여 있고, 전부 조정 대상이에요. (파일 아래쪽 `[고급 옵션]` 은 주석 처리돼 있으니 필요하면 풀어서 실험하세요.)
+어떤 reward 가 뭘 하는지는 파일 안 주석과 예선 가이드를 참고하세요. 그 외(`go2_task/`, `train.py`, `play.py`) 및 이 파일의 다른 코드는 건드리지 마세요.
+---
+## 1. 학습 (train.py)
+학습은 몇 시간씩 걸려요. **반드시 `tmux` 안에서 시작하세요.** code-server 터미널은 끊기면 학습이 멈춥니다(죽지 않고 그대로 정지). tmux 안에서 돌리면 브라우저/SSH 가 끊기거나 창을 닫아도 계속 돕니다.
+```bash
+tmux new -As train     # train 세션 생성 → 이 안에서 아래 학습 명령 실행
+# 학습이 돌기 시작하면: Ctrl+b 누른 뒤 d → 빠져나오기(detach). 창 닫아도 OK.
+tmux attach -t train  # 나중에 다시 들어가 진행 확인
+```
+세션 안에서:
+```bash
+cd /workspace/training/quadruped
+/workspace/IsaacLab/isaaclab.sh -p train.py --task Quadruped-v0 \
+    --num_envs 4096 --max_iterations 10000 --headless
+```
+- 명령 안의 `\` 는 줄바꿈 이어쓰기 — **블록째 복사**하면 됩니다.
+- `--max_iterations`: 길수록 좋지만 수렴하면 정체. RTX 5080 기준 10000 iter ≈ 8h
+  (Go2 는 H1 보다 **오래** 걸립니다 — 이유는 아래 §학습 시간 참고).
+- 학습이 끝나면 best 체크포인트가 자동 선별돼 `exported/` 로 정리됩니다 (아래).
+**학습이 잘 되는 중인지 (콘솔 로그):** `Curriculum/terrain_levels` 가 0 에서 점점 오르고,
+`Metrics/base_velocity/error_vel_xy` 가 낮아지고, `Train/mean_reward` 가 (오르내림은 있어도) 전반적으로 우상향이면 정상 궤도예요.
+`Mean episode length` 는 긴데 reward 만 높으면 편법(reward hacking)일 수 있으니 영상으로 꼭 확인하세요.
+(Go2 가 제자리에서 빙빙 돌고 안 나아가면 — 전진을 못 배운 것. reward 재조정.)
+### 학습 후 생기는 파일 — `quadruped/exported/`
+| 파일 | 내용 |
+|---|---|
+| `model_best.pt` | ★ 예선 채점용 체크포인트 (best iter 자동 선별) |
+| `model_best_<ts>.pt` | 백업 |
+| `env.yaml` (+ `env_<ts>.yaml`) | 학습 환경·reward dump (학습 의도) |
+전체 로그·중간 체크포인트: `quadruped/logs/rsl_rl/quadruped/<run>/`
+### 이어서 학습 (resume) — 끊긴 학습 복구 / 추가 학습
+이미 돌린 학습의 **마지막 지점에서 가중치를 이어받아** 더 돌립니다. 세션이 끊겼을 때, 또는 "조금 더 돌려보고 싶을 때" 씁니다.
+방법이 두 가지인데, **지금 상태에 따라 갈립니다.** 먼저 이것부터 실행해 보세요.
+```bash
+cd /workspace/training/quadruped
+ls -1d logs/rsl_rl/quadruped/*/
+```
+| 결과 | 어디로 |
+| --- | --- |
+| `2026-…` 이름의 폴더가 보인다 | **A. 그냥 이어받기** — 가장 쉽습니다 |
+| 아무것도 안 나온다 (`No such file`) | **B. 파일을 올려서 이어받기** |
+---
+#### A. 그냥 이어받기 — `logs/` 가 남아 있을 때
+평소 학습 명령 뒤에 **`--resume` 만** 붙이면 됩니다. 몇 시간 걸리니 `tmux` 안에서 시작하세요 — 브라우저를 닫아도 학습이 계속 돌 아갑니다.
+```bash
+tmux new -s training
+cd /workspace/training/quadruped
+/workspace/IsaacLab/isaaclab.sh -p train.py --task Quadruped-v0 --num_envs 4096 --max_iterations 10000 --headless --resume
+```
+- `--resume` 은 **값을 붙이지 않습니다.** `--resume True` 라고 쓰면 학습이 시작되지 않습니다.
+- `--max_iterations` 는 **이번에 더 돌릴** 횟수입니다. 10000 을 적으면 "총 10000회" 가 아니라 "여기서 10000회 더" 입니다.
+- tmux **나가기**: `Ctrl+B` 를 누르고 손을 뗀 뒤 `D`. **돌아오기**: `tmux attach -t training`.
+옛 학습을 **콕 집어** 이어받고 싶으면 폴더 이름과 파일 이름을 지정합니다.
+```bash
+ls logs/rsl_rl/quadruped/
+```
+폴더 이름(예: `2026-06-19_10-00-00`)을 확인한 뒤:
+```bash
+/workspace/IsaacLab/isaaclab.sh -p train.py --task Quadruped-v0 --num_envs 4096 --max_iterations 10000 --headless --resume --load_run 2026-06-19_10-00-00 --checkpoint model_5000.pt
+```
+- `--load_run` 에는 **폴더 이름만** 적습니다. 경로(`logs/rsl_rl/quadruped/2026-…`)를 적으면 안 됩니다.
+- `--checkpoint` 에는 **파일 이름만** 적습니다. 생략하면 그 폴더의 마지막 체크포인트를 씁니다.
+---
+#### B. 파일을 올려서 이어받기 — 작업 폴더가 초기화됐을 때
+서버가 재시작되면 `logs/` 뿐 아니라 **`exported/` 폴더까지 함께 사라집니다.** 서버에 복사할 원본이 없으니, 파일을 먼저 올려야 합니다.
+**1) `model_best.pt` 를 준비합니다.**
+학습이 끝날 때마다 `model_best.pt`·`env.yaml`·`report.html` 이 대회 서버로 자동 백업되므로 지난 학습 결과가 남아 있습니다. 파일 이 필요하면 운영진에게 문의해 주세요. 본인 PC 나 다른 PC 에 내려둔 파일이 있으면 그걸 쓰셔도 됩니다.
+**2) `exported` 폴더를 만들고 파일을 올립니다.**
+```bash
+cd /workspace/training/quadruped
+mkdir -p exported
+```
+그다음 VS Code 왼쪽 **파일 탐색기**에서 `training/quadruped/exported` 폴더를 열고, `model_best.pt` 를 **끌어다 놓으면** 업로드됩니다 (폴더에서 우클릭 → `Upload...` 도 됩니다).
+**3) 이어받을 폴더를 만들고 그 안으로 복사합니다.**
+```bash
+mkdir -p logs/rsl_rl/quadruped/0000-00-00_from_best
+cp exported/model_best.pt logs/rsl_rl/quadruped/0000-00-00_from_best/
+```
+이 모양이 되어야 합니다 — **폴더 바로 안에 파일 하나**입니다.
+```
+logs/rsl_rl/quadruped/
+└── 0000-00-00_from_best/     ← --load_run 에 적는 이름
+    └── model_best.pt         ← --checkpoint 에 적는 이름
+```
+**4) ★ 복사가 됐는지 확인합니다. 이 단계를 건너뛰지 마세요.**
+```bash
+ls -l logs/rsl_rl/quadruped/*/model_*.pt
+```
+**파일 한 줄이 찍혀야 합니다.** 아무것도 안 찍히면 파일이 제자리에 없는 것이니, 여기서 멈추고 3)을 다시 하세요. 확인하지 않고 학습을 시작하면 Isaac Sim 이 켜지는 2분을 기다린 뒤에야 실패를 알게 됩니다.
+**5) 이어서 학습합니다.**
+```bash
+tmux new -s training
+cd /workspace/training/quadruped
+/workspace/IsaacLab/isaaclab.sh -p train.py --task Quadruped-v0 --num_envs 4096 --max_iterations 10000 --headless --resume --load_run 0000-00-00_from_best --checkpoint model_best.pt
+```
+럼 `2026-…` 보다 뒤로 정렬되는 이름을 쓰면, 앞으로 `--resume` 만 붙여 돌릴 때마다 새 학습이 아니라 **이 옛 모델을 다시 불러옵니 다.**
+- `exported/` 는 평소 학습이 끝나면 자동으로 만들어지는 폴더입니다. 초기화됐을 때만 직접 만들면 되고, 여기에 두면 `play.py` 로  영상을 확인할 때도 같은 파일을 씁니다.
+---
+#### 제대로 이어받았는지 보는 법
+학습이 시작되면 화면에 `Learning iteration <시작 회차>/<끝 회차>` 가 찍힙니다. **시작 회차가 `0` 이 아니라 이전 학습의 회차**여 야 이어받은 것입니다. `0` 부터 올라가면 이어받지 못한 것이니 위 4) 확인을 다시 하세요.
+ /workspace/IsaacLab/_isaac_sim
+root@da-perfect41:/workspace# /workspace/IsaacLab/_isaac_sim/python.sh -c "import inspect, rsl_rl; from rsl_rl.algorithms import PPO; from rsl_rl.runners import OnPolicyRunner; print(rsl_rl.__file__); print(inspect.getsource(OnPolicyRunner.load)); print(inspect.getsource(PPO.load)); s=inspect.getsource(PPO.update); print(s[s.find('learning_rate')-100:s.find('learning_rate')+1800])" 
+sed -n '1,160p' /workspace/IsaacLab/scripts/reinforcement_learning/rsl_rl/cli_args.py
+sed -n '1,150p' /workspace/training/quadruped/go2_task/_finalize.py
+/workspace/IsaacLab/_isaac_sim/kit/python/lib/python3.11/site-packages/rsl_rl/__init__.py
+    def load(
+        self, path: str, load_cfg: dict | None = None, strict: bool = True, map_location: str | None = None
+    ) -> dict:
+        """Load the models and training state from a given path.
+        Args:
+            path (str): Path to load the model from.
+            load_cfg (dict | None): Optional dictionary that defines what models and states to load. If None, all
+                models and states are loaded.
+            strict (bool): Whether state_dict loading should be strict.
+            map_location (str | None): Device mapping for loading the model.
+        """
+        loaded_dict = torch.load(path, weights_only=False, map_location=map_location)
+        load_iteration = self.alg.load(loaded_dict, load_cfg, strict)
+        if load_iteration:
+            self.current_learning_iteration = loaded_dict["iter"]
+        return loaded_dict["infos"]
+    def load(self, loaded_dict: dict, load_cfg: dict | None, strict: bool) -> bool:
+        """Load specified models from a saved dict."""
+        # If no load_cfg is provided, load all models and states
+        if load_cfg is None:
+            load_cfg = {
+                "actor": True,
+                "critic": True,
+                "optimizer": True,
+                "iteration": True,
+                "rnd": True,
+            }
+        # Load the specified models
+        if load_cfg.get("actor"):
+            self.actor.load_state_dict(loaded_dict["actor_state_dict"], strict=strict)
+        if load_cfg.get("critic"):
+            self.critic.load_state_dict(loaded_dict["critic_state_dict"], strict=strict)
+        if load_cfg.get("optimizer"):
+            self.optimizer.load_state_dict(loaded_dict["optimizer_state_dict"])
+        if load_cfg.get("rnd") and self.rnd:
+            self.rnd.load_state_dict(loaded_dict["rnd_state_dict"], strict=strict)
+            self.rnd_optimizer.load_state_dict(loaded_dict["rnd_optimizer_state_dict"])
+        return load_cfg.get("iteration", False)
+ == 0:
+                        if kl_mean > self.desired_kl * 2.0:
+                            self.learning_rate = max(1e-5, self.learning_rate / 1.5)
+                        elif kl_mean < self.desired_kl / 2.0 and kl_mean > 0.0:
+                            self.learning_rate = min(1e-2, self.learning_rate * 1.5)
+                    # Update the learning rate for all GPUs
+                    if self.is_multi_gpu:
+                        lr_tensor = torch.tensor(self.learning_rate, device=self.device)
+                        torch.distributed.broadcast(lr_tensor, src=0)
+                        self.learning_rate = lr_tensor.item()
+                    # Update the learning rate for all parameter groups
+                    for param_group in self.optimizer.param_groups:
+                        param_group["lr"] = self.learning_rate
+            # Surrogate loss
+            ratio = torch.exp(actions_log_prob - torch.squeeze(batch.old_actions_log_prob))  # type: ignore
+            surrogate = -torch.squeeze(batch.advantages) * ratio  # type: ignore
+            surrogate_clipped = -torch.squeeze(batch.advantages) * torch.clamp(  # type: ignore
+                ratio, 1.0 - self.clip_param, 1.0 + self.clip_param
+            )
+            surrogate_loss = torch.max(surrogate, surrogate_clipped).mean()
+            # Value function loss
+            if self.use_clipped_value_loss:
+                value_clipped = batch.values + (values - batch.values).clamp(-self.clip_param, self.clip_param)
+                value_losses = (values - batch.returns).pow(2)
+                value_losses_clipped = (value_clipped - batch.returns).pow(2)
+                value_loss = torch.max(value_losses, value_losses_clipped).mean()
+            else:
+                value_loss = (batch.returns - values).pow(2).mean()
+            loss = surrogate_loss + self.value_loss_coef * value_loss - self.entr
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+from __future__ import annotations
+import argparse
+import random
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from isaaclab_rl.rsl_rl import RslRlBaseRunnerCfg
+def add_rsl_rl_args(parser: argparse.ArgumentParser):
+    """Add RSL-RL arguments to the parser.
+    Args:
+        parser: The parser to add the arguments to.
+    """
+    # create a new argument group
+    arg_group = parser.add_argument_group("rsl_rl", description="Arguments for RSL-RL agent.")
+    # -- experiment arguments
+    arg_group.add_argument(
+        "--experiment_name", type=str, default=None, help="Name of the experiment folder where logs will be stored."
+    )
+    arg_group.add_argument("--run_name", type=str, default=None, help="Run name suffix to the log directory.")
+    # -- load arguments
+    arg_group.add_argument("--resume", action="store_true", default=False, help="Whether to resume from a checkpoint.")
+    arg_group.add_argument("--load_run", type=str, default=None, help="Name of the run folder to resume from.")
+    arg_group.add_argument("--checkpoint", type=str, default=None, help="Checkpoint file to resume from.")
+    # -- logger arguments
+    arg_group.add_argument(
+        "--logger", type=str, default=None, choices={"wandb", "tensorboard", "neptune"}, help="Logger module to use."
+    )
+    arg_group.add_argument(
+        "--log_project_name", type=str, default=None, help="Name of the logging project when using wandb or neptune."
+    )
+def parse_rsl_rl_cfg(task_name: str, args_cli: argparse.Namespace) -> RslRlBaseRunnerCfg:
+    """Parse configuration for RSL-RL agent based on inputs.
+    Args:
+        task_name: The name of the environment.
+        args_cli: The command line arguments.
+    Returns:
+        The parsed configuration for RSL-RL agent based on inputs.
+    """
+    from isaaclab_tasks.utils.parse_cfg import load_cfg_from_registry
+    # load the default configuration
+    rslrl_cfg: RslRlBaseRunnerCfg = load_cfg_from_registry(task_name, "rsl_rl_cfg_entry_point")
+    rslrl_cfg = update_rsl_rl_cfg(rslrl_cfg, args_cli)
+    return rslrl_cfg
+def update_rsl_rl_cfg(agent_cfg: RslRlBaseRunnerCfg, args_cli: argparse.Namespace):
+    """Update configuration for RSL-RL agent based on inputs.
+    Args:
+        agent_cfg: The configuration for RSL-RL agent.
+        args_cli: The command line arguments.
+    Returns:
+        The updated configuration for RSL-RL agent based on inputs.
+    """
+    # override the default configuration with CLI arguments
+    if hasattr(args_cli, "seed") and args_cli.seed is not None:
+        # randomly sample a seed if seed = -1
+        if args_cli.seed == -1:
+            args_cli.seed = random.randint(0, 10000)
+        agent_cfg.seed = args_cli.seed
+    if args_cli.resume is not None:
+        agent_cfg.resume = args_cli.resume
+    if args_cli.load_run is not None:
+        agent_cfg.load_run = args_cli.load_run
+    if args_cli.checkpoint is not None:
+        agent_cfg.load_checkpoint = args_cli.checkpoint
+    if args_cli.experiment_name is not None:
+        agent_cfg.experiment_name = args_cli.experiment_name
+    if args_cli.run_name is not None:
+        agent_cfg.run_name = args_cli.run_name
+    if args_cli.logger is not None:
+        agent_cfg.logger = args_cli.logger
+    # set the project name for wandb and neptune
+    if agent_cfg.logger in {"wandb", "neptune"} and args_cli.log_project_name:
+        agent_cfg.wandb_project = args_cli.log_project_name
+        agent_cfg.neptune_project = args_cli.log_project_name
+    return agent_cfg
+"""학습 종료 후 best model 선별 + training/quadruped/exported/ 에 출력.
+출력 파일 (training/quadruped/exported/ 안 — 한 곳에 모음):
+  - model_best.pt   : 예선 채점용 RSL-RL checkpoint
+  - env.yaml        : 학습 환경 dump
+  - policy.pt       : (play.py 실행 후) 본선 매치용 JIT exported
+학생/운영자가 exported/ 한 폴더만 보면 됨.
+"""
+from __future__ import annotations
+import argparse
+import json
+import math
+import shutil
+from pathlib import Path
+PROJECT_DIR = Path(__file__).resolve().parent.parent  # training/quadruped/
+LOG_ROOT = PROJECT_DIR / "logs" / "rsl_rl" / "quadruped"
+FINAL_DIR = PROJECT_DIR / "exported"  # ★ 결과물 한 폴더에 모음
+def _model_iter(p: Path) -> int:
+    # model_<iter>.pt → iter. 비숫자(model_best.pt 등 resume 용 사용자 파일)는
+    # -1 반환 → 선별/정리 대상에서 제외. (int("best") ValueError 크래시 방지.)
+    s = p.stem.split("_")[-1]
+    return int(s) if s.isdigit() else -1
+def _is_run(p: Path) -> bool:
+    """실제 학습이 남긴 run 폴더인가 — tfevents 나 params/ 가 있으면 그렇다.
+    🔴 **가짜 run 폴더를 run 으로 세면 안 된다.** README 의 "logs 가 날아갔을 때"
+       우회책은 `logs/rsl_rl/<robot>/from_best/` 를 만들어 체크포인트를 복사하라고
+       한다. 그런데 그 폴더는 **방금 만든 것이라 mtime 이 가장 최신**이어서, 예전
+       `max(runs, key=mtime)` 은 그것을 '최신 run' 으로 골랐다. 학습이 실패하면
+       finalize 가 그 폴더를 뒤지고 `model_*.pt 없음` 을 내는데, 참가자에게는 그게
+       마지막 화면이라 **진짜 원인(학습 실패)을 못 찾는다**(실측 문의).
+    """
+    return any(p.glob("events.out.tfevents.*")) or (p / "params").is_dir()
+def find_latest_run() -> Path:
+    if not LOG_ROOT.exists():
+        raise FileNotFoundError(f"학습 log 없음: {LOG_ROOT}")
+    runs = [p for p in LOG_ROOT.iterdir() if p.is_dir()]
+    if not runs:
+        raise FileNotFoundError(f"학습 run 없음: {LOG_ROOT}")
+    real = [p for p in runs if _is_run(p)]
+    if not real:
+        # ⚠️ '학습 기록이 없다' 와 '체크포인트가 없다' 는 다른 말이다 — 섞으면
+        #    참가자가 체크포인트를 찾아 헤맨다. 무엇이 없는지 그대로 적는다.
+        raise FileNotFoundError(
+            f"학습 기록(tfevents)이 있는 run 이 없습니다: {LOG_ROOT}"
+            f" — 학습이 시작되지 못했습니다. 이어서 학습용으로 만든 폴더"
+            f"(예: from_best)는 run 이 아닙니다. 위쪽 학습 로그의 첫 오류를 보세요.")
+    return max(real, key=lambda p: p.stat().st_mtime)
+def find_best_model(run_dir: Path) -> tuple[Path, float | None, int | None]:
+    """tfevents 의 mean_reward 최고 iter 모델 선택. 실패 시 마지막."""
+    models = sorted([m for m in run_dir.glob("model_*.pt") if _model_iter(m) >= 0],
+                    key=_model_iter)
+    if not models:
+        # ⚠️ 이어서 학습용으로 손수 넣은 `model_best.pt` 는 _model_iter 가 -1 로 걸러낸다.
+        #    그래서 파일이 **눈앞에 있는데** "없음" 이라고 나온다 — 실측 문의가 이 경우였다.
+        #    폴더에 무엇이 있는지 같이 알려줘서 그 오해를 끊는다.
+        others = sorted(p.name for p in run_dir.glob("model_*.pt"))
+        msg = f"model_*.pt 없음: {run_dir}"
+        if others:
+            msg += (f" — 이 폴더엔 {', '.join(others)} 가 있지만, 학습이 남긴"
+                    f" model_<숫자>.pt(예: model_100.pt)가 없습니다."
+                    f" 이어서 학습용으로 넣어둔 파일은 여기서 세지 않습니다.")
+        msg += (" 이 메시지는 학습이 끝난 뒤의 정리 단계에서 나옵니다 —"
+                " 학습이 시작조차 못 했다면 위쪽 첫 오류가 진짜 원인입니다.")
+        raise FileNotFoundError(msg)
+    try:
+        from tensorboard.backend.event_processing.event_accumulator import (
+            EventAccumulator,
+        )
+        # 🔴 size_guidance 를 안 주면 scalar 를 태그당 10,000개만 남긴다 — 그것도
+        #    잘림이 아니라 **무작위 표본**(reservoir, 시드 고정)이다. 10,000 iter 를
+        #    넘는 학습은 최고점 step 이 표본에서 빠질 수 있어 엉뚱한 체크포인트가
+        #    best 로 뽑히고, cleanup 이 진짜 best 를 지워 버린다(복구 불가).
+        #    실측(참가자 제보, 25,000 iter): 표본 best 23101/6.749 → model_23100 선택,
+        #    전체 best 24012/6.904 → model_24000 이 정답이었다.
+        #    scalars=0 = 전부 보관. 다른 종류(images 등)는 기본값과 병합된다.
+        ea = EventAccumulator(str(run_dir), size_guidance={"scalars": 0})
+        # ⚠️ 이 읽기는 학습이 길면 수십 초 걸린다. 아무 출력이 없으면 멈춘 것처럼 보여
+        #    사용자가 Ctrl+C 를 한 번 더 누르고, 그러면 best 선별을 통째로 잃는다.
+        print("[INFO] 학습 기록(tfevents) 읽는 중... 수십 초 걸릴 수 있습니다 — Ctrl+C 누르지 마세요.")
+        ea.Reload()
+        tags = ea.Tags().get("scalars", [])
+        for tag in (
+            "Train/mean_reward",
+            "Episode_Reward/mean",
+            "Reward/mean",
+            "Train/mean_episode_reward",
+        ):
+            if tag in tags:
+                events = ea.Scalars(tag)
+                if not events:
+                    continue
+                # ★ resume warmup 제외 — 리쥼 직후 초반은 보상이 비정상적으로 높을 수
+                #   있어(이미 학습된 모델 + 커리큘럼/지형이 쉬운 초기) best 가 그 스파이크로
+                #   잘못 잡힘. 앞 10%(최소 50 step) 워밍업을 빼고 '나중에 수렴한' 구간서 best.
+                # ⚠️ resume 시 step 은 0 이 아니라 이어받은 iter(예: 13200)부터 시작 →
+                #   warmup 임계는 절대값(0.1*max)이 아니라 이 run 의 step 범위(lo~hi) 기준.
+                #   (절대값이면 lo > warmup 이라 리쥼 직후 스파이크가 안 걸러져
+                #    best 가 resume iter 로 고정되는 버그 — 이후 학습분이 cleanup 으로 삭제됨.)
+                steps_all = [e.step for e in events]
+                lo, hi = min(steps_all), max(steps_all)
+                warmup = lo + max(50, int((hi - lo) * 0.10))
+                eligible = [e for e in events if e.step >= warmup] or events
+                best = max(eligible, key=lambda e: e.value)
+                best_model = min(models, key=lambda p: abs(_model_iter(p) - best.step))
+                print(
+                    f"[INFO] Best by '{tag}': step {best.step}, "
+                    f"reward {best.value:.3f} → {best_model.name}"
+                )
+                return best_model, best.value, best.step
+        print("[WARN] reward tag 못 찾음 → 마지막 model 사용.")
+    except ImportError:
+        print("[WARN] tensorboard 패키지 없음 → 마지막 model 사용.")
+    except KeyboardInterrupt:
+        # ⚠️ KeyboardInterrupt 는 Exception 이 **아니라서** 아래 except 에 안 걸린다.
+        #    안 잡으면 여기서 트레이스백과 함께 finalize 가 죽고 model_best.pt 가 안 생긴다
+        #    (학습 중단하려고 Ctrl+C 를 두 번 누르는 건 자연스러운 행동이다).
+        print("[WARN] 기록 읽기를 중단했습니다 → 마지막 체크포인트를 사용합니다"
+              " (보상 최고점 대신 마지막 시점).")
+    except Exception as e:
+        print(f"[WARN] tfevents 파싱 실패: {e} → 마지막 model 사용.")
+    return models[-1], None, _model_iter(models[-1])
+def _cleanup_intermediate_checkpoints(run_dir: Path, keep_iter: int | None = None) -> int:
+    """run_dir 안의 model_*.pt 모두 삭제 (keep_iter 만 보존).
+    tfevents/params/exported 는 보존 (tensorboard, 분석, resume 용).
+    keep_iter 는 play.py 호환 — IsaacLab play.py 가 logs/ 에서 model 찾음.
+    """
+    deleted_count = 0
+    deleted_bytes = 0
+    for p in run_dir.glob("model_*.pt"):
+        # 비숫자 모델(model_best.pt 등 사용자 resume 파일) 은 삭제하지 않음
+        if _model_iter(p) < 0:
+            continue
+root@da-perfect41:/workspace# grep -n 'seed\|max_iterations\|num_envs' /workspace/IsaacLab/scripts/reinforcement_learning/rsl_rl/train.py
+cat /workspace/training/quadruped/go2_task/agents/rsl_rl_ppo_cfg.py
+ls /workspace/training/quadruped/go2_task
+ls /workspace/student_workspace
+23:parser.add_argument("--num_envs", type=int, default=None, help="Number of environments to simulate.")
+28:parser.add_argument("--seed", type=int, default=None, help="Seed used for the environment")
+29:parser.add_argument("--max_iterations", type=int, default=None, help="RL Policy training iterations.")
+119:    env_cfg.scene.num_envs = args_cli.num_envs if args_cli.num_envs is not None else env_cfg.scene.num_envs
+120:    agent_cfg.max_iterations = (
+121:        args_cli.max_iterations if args_cli.max_iterations is not None else agent_cfg.max_iterations
+127:    # set the environment seed
+128:    # note: certain randomizations occur in the environment initialization so we set the seed here
+129:    env_cfg.seed = agent_cfg.seed
+143:        # set seed to have diversity in different threads
+144:        seed = agent_cfg.seed + app_launcher.local_rank
+145:        env_cfg.seed = seed
+146:        agent_cfg.seed = seed
+220:    runner.learn(num_learning_iterations=agent_cfg.max_iterations, init_at_random_ep_len=True)
+cat: /workspace/training/quadruped/go2_task/agents/rsl_rl_ppo_cfg.py: No such file or directory
+__init__.py  _finalize.py  agent_cfg.py  env_cfg.py
+ScorePreview
+root@da-perfect41:/workspace# cat /workspace/training/quadruped/go2_task/agent_cfg.py
+mkdir -p /workspace/student_workspace/round20_20261001
+cp /workspace/training/quadruped/quadruped_rewards.py /workspace/student_workspace/round20_20261001/provided_rewards_original.py 
+sha256sum /workspace/training/quadruped/{train.py,quadruped_rewards.py} /workspace/training/quadruped/go2_task/{agent_cfg.py,env_cfg.py}
+command -v tmux
+"""PPO runner config for Quadruped (Unitree Go2) training.
+Go2 의 action space 는 12 (각 다리 3 joint × 4 다리). H1 의 19 보다 작음.
+네트워크는 비슷한 크기 [512,256,128] 유지 — overkill 아님, robust.
+"""
+from __future__ import annotations
+from isaaclab.utils import configclass
+from isaaclab_rl.rsl_rl import (
+    RslRlOnPolicyRunnerCfg,
+    RslRlPpoActorCriticCfg,
+    RslRlPpoAlgorithmCfg,
+)
+@configclass
+class QuadrupedPPORunnerCfg(RslRlOnPolicyRunnerCfg):
+    num_steps_per_env = 24
+    max_iterations = 5000
+    save_interval = 100
+    experiment_name = "quadruped"
+    empirical_normalization = False
+    policy = RslRlPpoActorCriticCfg(
+        class_name="ActorCritic",
+        init_noise_std=1.0,
+        actor_hidden_dims=[512, 256, 128],
+        critic_hidden_dims=[512, 256, 128],
+        activation="elu",
+    )
+    # ─── PPO hyperparameter — H1 검증값 정렬 (2026-06-11) ────────────
+    # 이력: 2026-05-25 발산(iter 7097 value_loss=inf) 후 보수화했었음
+    #   (lr 5e-4 / desired_kl 0.008 / grad_norm 0.5).
+    # ⚠️ 그 보수화가 신 스택(rsl-rl 4.x)에선 역효과: 탐색이 조기 수축
+    #   (action std 1.0→0.43 @ iter 300)해 "서서 제자리 회전" 국소최적에
+    #   갇히고 보행을 못 배움. 같은 서버에서 H1 은 아래 값으로 std 1.1 유지
+    #   하며 정상 학습(terrain 5.9) → H1 검증값으로 정렬.
+    # 발산 재발 시: model_best 선별이 발산 전 최고 체크포인트를 집으므로
+    #   결과물은 보존됨. 그래도 재발하면 lr 만 7e-4 로 한 단계 내릴 것.
+    algorithm = RslRlPpoAlgorithmCfg(
+        class_name="PPO",
+        value_loss_coef=1.0,
+        use_clipped_value_loss=True,
+        clip_param=0.2,
+        entropy_coef=0.008,
+        num_learning_epochs=5,
+        num_mini_batches=4,
+        learning_rate=1.0e-3,
+        schedule="adaptive",
+        gamma=0.99,
+        lam=0.95,
+        desired_kl=0.01,
+        max_grad_norm=1.0,
+    )
+c09ac99bcd93bb367f0eec69bdb05f4063cb8d60f0258d4667f07addf509de22  /workspace/training/quadruped/train.py
+09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7  /workspace/training/quadruped/quadruped_rewards.py
+a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23  /workspace/training/quadruped/go2_task/agent_cfg.py
+df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1  /workspace/training/quadruped/go2_task/env_cfg.py
+/usr/bin/tmux
+root@da-perfect41:/workspace# cd /workspace/student_workspace/round20_20261001
+ls -l round20_inputs.tar.gz
+tar -xzf round20_inputs.tar.gz
+sha256sum original_C0_model_5500.pt
+/usr/bin/python3 -m py_compile worker.py
+tmux new-session -d -s round20 'cd /workspace/student_workspace/round20_20261001 && /usr/bin/python3 -u worker.py > driver.log 2>&1'
+tmux ls
+cat state.json
+tail -n 15 logs/train_F00.log
+-rw-r--r-- 1 root root 6408768 Oct  1 13:43 round20_inputs.tar.gz
+8d553e697ed4c2856ab002431af96d626eb8b0d23e56b7c754d652193026b1d3  original_C0_model_5500.pt
+bash: /usr/bin/python3: No such file or directory
+no server running on /tmp/tmux-0/default
+cat: state.json: No such file or directory
+tail: cannot open 'logs/train_F00.log' for reading: No such file or directory
+root@da-perfect41:/workspace/student_workspace/round20_20261001# /workspace/IsaacLab/_isaac_sim/python.sh -m py_compile worker.py
+tmux new-session -d -s round20 'cd /workspace/student_workspace/round20_20261001 && /workspace/IsaacLab/_isaac_sim/python.sh -u worker.py > driver.log 2>&1'
+tmux ls
+cat state.json
+tail -n 15 logs/train_F00.log
+round20: 1 windows (created Thu Oct  1 13:44:10 2026)
+cat: state.json: No such file or directory
+tail: cannot open 'logs/train_F00.log' for reading: No such file or directory
+root@da-perfect41:/workspace/student_workspace/round20_20261001# cat state.json
+tail -n 12 driver.log
+tail -n 22 logs/train_F00.log
+nvidia-smi --query-gpu=memory.used,utilization.gpu --format=csv,noheader
+{
+  "stage": "RUNNING",
+  "utc": "2026-10-01T04:44:10.284364+00:00",
+  "elapsed_hours": 0.20924565805329218,
+  "job": "train_F00",
+  "command": [
+    "/workspace/IsaacLab/isaaclab.sh",
+    "-p",
+    "train.py",
+    "--task",
+    "Quadruped-v0",
+    "--num_envs",
+    "6144",
+    "--seed",
+    "42",
+    "--max_iterations",
+    "4000",
+    "--run_name",
+    "round20_F00",
+    "--headless"
+  ],
+  "timeout_seconds": 21600
+}{"stage": "STARTED", "utc": "2026-10-01T04:44:10.279313+00:00", "elapsed_hours": 0.2092442559533649, "mode": "scratch_pair", "training_seed": 42, "reason": "Installed PPO.load does not restore learning_rate scalar", "server_budget_hours": 20, "official_submission": false}
+{"stage": "RUNNING", "utc": "2026-10-01T04:44:10.284364+00:00", "elapsed_hours": 0.20924565805329218, "job": "train_F00", "command": ["/workspace/IsaacLab/isaaclab.sh", "-p", "train.py", "--task", "Quadruped-v0", "--num_envs", "6144", "--seed", "42", "--max_iterations", "4000", "--run_name", "round20_F00", "--headless"], "timeout_seconds": 21600}
+  [OK] track_ang_vel_z_exp.weight = 0.75
+[Quadruped:student] terrain override - boxes ≤0.15m
+[INFO]: Parsing configuration from: go2_task.agent_cfg:QuadrupedPPORunnerCfg
+[WARNING]: The `policy` configuration is deprecated for rsl-rl >= 4.0.0. Please use, e.g., `actor` and `critic` model configurations instead.
+[WARNING]: The `empirical_normalization` parameter is deprecated. Please set `actor_obs_normalization` and `critic_obs_normalization` as part of the `policy` configuration instead.
+[WARNING]: The `policy` configuration is used to infer the `actor` model configuration.
+[WARNING]: The `policy` configuration is used to infer the `critic` model configuration.
+[WARNING]: The `distribution_cfg` configuration is now used to specify the output distribution for stochastic policies. Consider updating the configuration to use `distribution_cfg` instead of `stochastic`, `init_noise_std`, `noise_std_type`, and `state_dependent_std` parameters.
+[INFO] Logging experiment in directory: /workspace/training/quadruped/logs/rsl_rl/quadruped
+Exact experiment name requested from command line: 2026-10-01_13-44-14
+======================================================================================
+[INFO][IsaacLab]: Logging to file: /tmp/isaaclab/logs/isaaclab_2026-10-01_13-44-14.log
+======================================================================================
+13:44:14 [simulation_context.py] WARNING: The `enable_external_forces_every_iteration` parameter in the PhysxCfg is set to False. If you are experiencing noisy velocities, consider enabling this flag. You may need to slightly increase the number of velocity iterations (setting it to 1 or 2 rather than 0), together with this flag, to improve the accuracy of velocity updates.
+xplicitly
+  warnings.warn(
+/workspace/IsaacLab/_isaac_sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/utils.py:251: UserWarning: The observation configuration dictionary 'obs_groups' does not contain the 'actor' key. As an observation group with the name 'policy' was found, this is assumed to be the appropriate observation. Consider adding the 'actor' key to the 'obs_groups' dictionary for clarity. This behavior will be removed in a future version.
+  warnings.warn(
+/workspace/IsaacLab/_isaac_sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/utils.py:251: UserWarning: The observation configuration dictionary 'obs_groups' does not contain the 'critic' key. As an observation group with the name 'policy' was found, this is assumed to be the appropriate observation. Consider adding the 'critic' key to the 'obs_groups' dictionary for clarity. This behavior will be removed in a future version.
+  warnings.warn(
+5398 MiB, 0 %
+root@da-perfect41:/workspace/student_workspace/round20_20261001# ls -1 /workspace/training/quadruped/logs/rsl_rl/quadruped
+grep -n 'Learning iteration\|Mean action noise std\|Learning rate\|Computation\|Error\|Traceback\|contact.*buffer\|nan\|inf' logs/train_F00.log | tail -n 22
+find preserved -maxdepth 3 -type f | head -n 8
+sed -n '150,180p' /workspace/IsaacLab/scripts/reinforcement_learning/rsl_rl/train.py
+2026-10-01_13-44-14_round20_F00
+16:[WARNING]: The `policy` configuration is used to infer the `actor` model configuration.
+17:[WARNING]: The `policy` configuration is used to infer the `critic` model configuration.
+180:                           Learning iteration 0/4000                             
+214:                           Learning iteration 1/4000                             
+preserved/F00/2026-10-01_13-44-14_round20_F00/events.out.tfevents.1790829869.da-perfect41.4251.0
+preserved/F00/2026-10-01_13-44-14_round20_F00/model_0.pt
+    log_root_path = os.path.abspath(log_root_path)
+    print(f"[INFO] Logging experiment in directory: {log_root_path}")
+    # specify directory for logging runs: {time-stamp}_{run_name}
+    log_dir = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    # The Ray Tune workflow extracts experiment name using the logging line below, hence, do not
+    # change it (see PR #2346, comment-2819298849)
+    print(f"Exact experiment name requested from command line: {log_dir}")
+    if agent_cfg.run_name:
+        log_dir += f"_{agent_cfg.run_name}"
+    log_dir = os.path.join(log_root_path, log_dir)
+    # set the IO descriptors export flag if requested
+    if isinstance(env_cfg, ManagerBasedRLEnvCfg):
+        env_cfg.export_io_descriptors = args_cli.export_io_descriptors
+    else:
+        logger.warning(
+            "IO descriptors are only supported for manager based RL environments. No IO descriptors will be exported."
+        )
+    # set the log directory for the environment (works for all environment types)
+    env_cfg.log_dir = log_dir
+    # create isaac environment
+    env = gym.make(args_cli.task, cfg=env_cfg, render_mode="rgb_array" if args_cli.video else None)
+    # convert to single-agent instance if required by the RL algorithm
+    if isinstance(env.unwrapped, DirectMARLEnv):
+        env = multi_agent_to_single_agent(env)
+    # save resume path before creating a new log_dir
+    if agent_cfg.resume or agent_cfg.algorithm.class_name == "Distillation":
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 40 logs/train_F00.log
+find preserved/F00 -name env.yaml -o -name model_0.pt
+sha256sum /workspace/training/quadruped/go2_task/{agent_cfg.py,env_cfg.py}
+nvidia-smi --query-gpu=memory.used,utilization.gpu --format=csv,noheader
+           Episode_Termination/time_out: 0.2444
+       Episode_Termination/base_contact: 0.0784
+--------------------------------------------------------------------------------
+                         Iteration time: 4.81s
+                           Time elapsed: 00:00:52
+                                    ETA: 05:19:57
+################################################################################
+                           Learning iteration 11/4000                            
+                               Run name: round20_F00
+                            Total steps: 1769472 
+                       Steps per second: 30040 
+                        Collection time: 4.795s 
+                          Learning time: 0.113s 
+                        Mean value loss: 0.0153
+                    Mean surrogate loss: -0.0052
+                      Mean entropy loss: 15.3233
+                            Mean reward: -6.09
+                    Mean episode length: 278.31
+                        Mean action std: 0.87
+    Episode_Reward/track_lin_vel_xy_exp: 0.0981
+     Episode_Reward/track_ang_vel_z_exp: 0.0581
+            Episode_Reward/lin_vel_z_l2: -0.0752
+           Episode_Reward/ang_vel_xy_l2: -0.2400
+          Episode_Reward/dof_torques_l2: -0.0325
+              Episode_Reward/dof_acc_l2: -0.0541
+          Episode_Reward/action_rate_l2: -0.0586
+           Episode_Reward/feet_air_time: -0.0005
+     Episode_Reward/flat_orientation_l2: 0.0000
+          Episode_Reward/dof_pos_limits: 0.0000
+              Curriculum/terrain_levels: 3.1575
+     Metrics/base_velocity/error_vel_xy: 0.5293
+    Metrics/base_velocity/error_vel_yaw: 0.4807
+           Episode_Termination/time_out: 0.2646
+       Episode_Termination/base_contact: 0.0899
+--------------------------------------------------------------------------------
+                         Iteration time: 4.91s
+                           Time elapsed: 00:00:57
+                                    ETA: 05:20:24
+preserved/F00/2026-10-01_13-44-14_round20_F00/model_0.pt
+preserved/F00/2026-10-01_13-44-14_round20_F00/params/env.yaml
+a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23  /workspace/training/quadruped/go2_task/agent_cfg.py
+df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1  /workspace/training/quadruped/go2_task/env_cfg.py
+8036 MiB, 85 %
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 38 logs/train_F00.log
+cat F00_weights.json
+ls -lh preserved/F00/*/model_*.pt
+grep -n 'checkpoint\|video_length\|export_policy\|export_dir' /workspace/training/quadruped/play.py | tail -n 24
+--------------------------------------------------------------------------------
+                         Iteration time: 5.15s
+                           Time elapsed: 00:03:51
+                                    ETA: 05:31:08
+################################################################################
+                           Learning iteration 46/4000                            
+                               Run name: round20_F00
+                            Total steps: 6930432 
+                       Steps per second: 28458 
+                        Collection time: 5.069s 
+                          Learning time: 0.113s 
+                        Mean value loss: 0.0213
+                    Mean surrogate loss: -0.0037
+                      Mean entropy loss: 12.0274
+                            Mean reward: -2.28
+                    Mean episode length: 844.61
+                        Mean action std: 0.67
+    Episode_Reward/track_lin_vel_xy_exp: 0.4093
+     Episode_Reward/track_ang_vel_z_exp: 0.2475
+            Episode_Reward/lin_vel_z_l2: -0.0680
+           Episode_Reward/ang_vel_xy_l2: -0.3236
+          Episode_Reward/dof_torques_l2: -0.0887
+              Episode_Reward/dof_acc_l2: -0.1099
+          Episode_Reward/action_rate_l2: -0.1255
+           Episode_Reward/feet_air_time: -0.0015
+     Episode_Reward/flat_orientation_l2: 0.0000
+          Episode_Reward/dof_pos_limits: 0.0000
+              Curriculum/terrain_levels: 2.2296
+     Metrics/base_velocity/error_vel_xy: 1.4974
+    Metrics/base_velocity/error_vel_yaw: 1.1220
+           Episode_Termination/time_out: 0.6087
+       Episode_Termination/base_contact: 0.3916
+--------------------------------------------------------------------------------
+                         Iteration time: 5.18s
+                           Time elapsed: 00:03:56
+                                    ETA: 05:31:17
+{
+  "track_lin_vel_xy_exp": 2.0,
+  "feet_air_time": 0.01,
+  "lin_vel_z_l2": -3.0,
+  "ang_vel_xy_l2": -0.08,
+  "action_rate_l2": -0.01,
+  "track_ang_vel_z_exp": 0.75
+}-rw-r--r-- 1 root root 6.6M Oct  1 13:44 preserved/F00/2026-10-01_13-44-14_round20_F00/model_0.pt
+84:    # 부모가 이미 --checkpoint 를 붙여 넘겼다 (여기선 그대로 전달)
+90:#    IsaacLab play.py 는 `--checkpoint <절대경로>` 를 그대로 로드하고(125~126행,
+151:    사용자가 직접 `--checkpoint` 를 준 경우는 존중하고 건드리지 않는다.
+153:    if ckpt is None or any(a.startswith("--checkpoint") for a in argv):
+155:    return list(argv) + ["--checkpoint", str(ckpt)]
+158:def _export_policy_to_exported(ckpt: Path | None = None) -> bool:
+407:        _ok_p = _export_policy_to_exported(play_ckpt)
+'actor_state_dict','critic_state_dict') for v in d[k].values() if isinstance(v,torch.Tensor)]; print(json.dumps({'iter':d['iter'],'all_model_tensors_finite':all(torch.isfinite(v).all().item() for v in tensors),'checkpoint_keys':list(d),'optimizer_lr':d['optimizer_state_dict']['param_groups'][0]['lr']}))"
+grep -n 'Error\|Traceback\|Pxg.*error\|overflow\|expects all elements' logs/train_F00.log | tail -n 6
+tail -n 6 logs/train_F00.log
+{"iter": 0, "all_model_tensors_finite": true, "checkpoint_keys": ["actor_state_dict", "critic_state_dict", "optimizer_state_dict", "iter", "infos"], "optimizer_lr": 0.00019753086419753085}
+           Episode_Termination/time_out: 0.6315
+       Episode_Termination/base_contact: 0.3688
+--------------------------------------------------------------------------------
+                         Iteration time: 5.15s
+                           Time elapsed: 00:05:14
+                                    ETA: 05:32:25
+root@da-perfect41:/workspace/student_workspace/round20_20261001# 

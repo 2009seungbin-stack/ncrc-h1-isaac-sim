@@ -1,0 +1,552 @@
+{
+  "status": "OFFLINE_RESEARCH_UNTRAINED_PROPOSALS",
+  "created_utc": "2026-10-09T01:31:43.130773+00:00",
+  "inputs": {
+    "source": {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\fresh_rewards_original.py",
+      "sha256": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7"
+    },
+    "control_env": {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\preserved\\short_20261002_control\\2026-10-02_20-37-44_short_20261002_control\\params\\env.yaml",
+      "sha256": "fd0ab0f148e55506743e16efde922de41fd2fb9492c735a65c1755d19b40e179"
+    },
+    "old_research": {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\score_breakthrough_20261002\\third\\analysis.json",
+      "sha256": "e3c6c9eb8c86420b6cbcf1677f059c5404b2eefed47094dc1afed43facde4b50"
+    },
+    "anchor": {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\score_reverse_20261001\\analysis.json",
+      "sha256": "b18e8c7255e2c70886ac72fa0ccb4c423a726eae1cce78c14cb801870434b8d5"
+    },
+    "budget": {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\research_directions_20261003\\objective_and_budget_audit.json",
+      "sha256": "5f42dfee304b241ec13fcdf3e289ed8bb11d1952e3515c9a208184ac665e0d6b"
+    },
+    "heldout": {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\heldout_ranking.json",
+      "sha256": "c76f48566d0995f0b4fd4a1cc58b0188daa3234015d1b9a20d815eac508ea0a9"
+    },
+    "short": {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\short_ranking.json",
+      "sha256": "c194943478dda002dea83f3db134baa56160dd22ccbee50783a3293f01c45f1a"
+    },
+    "saved": {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\saved_ranking.json",
+      "sha256": "1a3ff938503cbce23cb502ceabc60028b1c77394296eee5cdaf68e4ff8121a9a"
+    },
+    "C0_checkpoint": {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\inputs\\models\\C0_5500.pt",
+      "sha256": "8d553e697ed4c2856ab002431af96d626eb8b0d23e56b7c754d652193026b1d3"
+    },
+    "official_C0_export": {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\score_reverse_20261001\\official_r4\\policy.pt",
+      "sha256": "1a11b661301564afee85f82f5866ae34e5e7b374c8bcec31a23a67996e92fbdd"
+    },
+    "local_C0_export": {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\submit_C0\\policy.pt",
+      "sha256": "1a11b661301564afee85f82f5866ae34e5e7b374c8bcec31a23a67996e92fbdd"
+    },
+    "portal_evidence": {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\high_score_search_20261009\\portal_evidence.json",
+      "sha256": "65d1fabca4c34712c1980ca48c83a252b13391549234505933e336540f27f54f"
+    }
+  },
+  "candidate_count": 15,
+  "primary_count_including_control": 6,
+  "proposed_screen_count": 2,
+  "official_target_arithmetic": {
+    "90": {
+      "needed_simulation_gain_if_report_stays_30": 1.8599999999999994,
+      "needed_weighted_scenario_quality_gain": 0.026571428571428562,
+      "needed_quality_gain_if_only_G3_G4_G5_improve": 0.053142857142857124,
+      "warning": "Required official arithmetic, not predicted candidate performance."
+    },
+    "92": {
+      "needed_simulation_gain_if_report_stays_30": 3.8599999999999994,
+      "needed_weighted_scenario_quality_gain": 0.05514285714285713,
+      "needed_quality_gain_if_only_G3_G4_G5_improve": 0.11028571428571426,
+      "warning": "Required official arithmetic, not predicted candidate performance."
+    },
+    "93": {
+      "needed_simulation_gain_if_report_stays_30": 4.859999999999999,
+      "needed_weighted_scenario_quality_gain": 0.06942857142857142,
+      "needed_quality_gain_if_only_G3_G4_G5_improve": 0.13885714285714285,
+      "warning": "Required official arithmetic, not predicted candidate performance."
+    },
+    "95": {
+      "needed_simulation_gain_if_report_stays_30": 6.859999999999999,
+      "needed_weighted_scenario_quality_gain": 0.09799999999999999,
+      "needed_quality_gain_if_only_G3_G4_G5_improve": 0.19599999999999998,
+      "warning": "Required official arithmetic, not predicted candidate performance."
+    }
+  },
+  "selected_official_goal": {
+    "selected_by_user": true,
+    "official_total_target": 93,
+    "reference_official_total": 88.14,
+    "non_simulation_points_assumption": 30,
+    "required_simulation_points": 63,
+    "simulation_maximum": 70,
+    "required_simulation_gain": 4.859999999999999,
+    "required_weighted_scenario_quality": 0.9,
+    "required_weighted_quality_gain": 0.06942857142857142,
+    "terrain_only_if_other_scores_unchanged": {
+      "reference_points": 29.04,
+      "maximum_points": 35.0,
+      "required_points": 33.9,
+      "required_average_quality": 0.9685714285714285
+    },
+    "uniform_quality_point_allocation_example": [
+      {
+        "scenario": "G1",
+        "reference_official_points": 8.8,
+        "illustrative_target_points": 9.45,
+        "illustrative_gain": 0.6499999999999986
+      },
+      {
+        "scenario": "G2",
+        "reference_official_points": 8.66,
+        "illustrative_target_points": 9.45,
+        "illustrative_gain": 0.7899999999999991
+      },
+      {
+        "scenario": "G3",
+        "reference_official_points": 11.69,
+        "illustrative_target_points": 12.600000000000001,
+        "illustrative_gain": 0.9100000000000019
+      },
+      {
+        "scenario": "G4",
+        "reference_official_points": 8.79,
+        "illustrative_target_points": 9.45,
+        "illustrative_gain": 0.6600000000000001
+      },
+      {
+        "scenario": "G5",
+        "reference_official_points": 8.56,
+        "illustrative_target_points": 9.45,
+        "illustrative_gain": 0.8899999999999988
+      },
+      {
+        "scenario": "G6",
+        "reference_official_points": 5.79,
+        "illustrative_target_points": 6.300000000000001,
+        "illustrative_gain": 0.5100000000000007
+      },
+      {
+        "scenario": "G7",
+        "reference_official_points": 5.85,
+        "illustrative_target_points": 6.300000000000001,
+        "illustrative_gain": 0.45000000000000107
+      }
+    ],
+    "selection_priority": "Prioritize gains across the full weighted scenario set while preserving survival and recording tracking regressions. Partial short screens cannot certify target achievement.",
+    "completion_evidence": "Actual official Go2 total at least 93; offline metrics and arithmetic are not evidence of achievement.",
+    "official_score_prediction": null,
+    "target_achieved": false
+  },
+  "terrain_only_example_quality_increase": 0.054,
+  "terrain_only_example_total_if_other_scores_stay_fixed": 90.03,
+  "fixed_old_trajectory_reweighting": [
+    {
+      "candidate": "S0_control",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.25925,
+        "Episode_Reward/dof_acc_l2": -0.2979,
+        "Episode_Reward/dof_torques_l2": -0.1488,
+        "Episode_Reward/feet_air_time": -0.0013,
+        "Episode_Reward/lin_vel_z_l2": -0.0767,
+        "Episode_Reward/track_ang_vel_z_exp": 1.14805,
+        "Episode_Reward/track_lin_vel_xy_exp": 1.52215
+      },
+      "unidentified_new_terms": [],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    },
+    {
+      "candidate": "S1_tracking_pair",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.25925,
+        "Episode_Reward/dof_acc_l2": -0.2979,
+        "Episode_Reward/dof_torques_l2": -0.1488,
+        "Episode_Reward/feet_air_time": -0.0013,
+        "Episode_Reward/lin_vel_z_l2": -0.0767,
+        "Episode_Reward/track_ang_vel_z_exp": 1.722075,
+        "Episode_Reward/track_lin_vel_xy_exp": 2.283225
+      },
+      "unidentified_new_terms": [],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    },
+    {
+      "candidate": "S2_short_step",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.25925,
+        "Episode_Reward/dof_acc_l2": -0.2979,
+        "Episode_Reward/dof_torques_l2": -0.1488,
+        "Episode_Reward/feet_air_time": -0.0,
+        "Episode_Reward/lin_vel_z_l2": -0.03835,
+        "Episode_Reward/track_ang_vel_z_exp": 1.14805,
+        "Episode_Reward/track_lin_vel_xy_exp": 1.52215
+      },
+      "unidentified_new_terms": [],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    },
+    {
+      "candidate": "S3_long_step",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.25925,
+        "Episode_Reward/dof_acc_l2": -0.2979,
+        "Episode_Reward/dof_torques_l2": -0.1488,
+        "Episode_Reward/feet_air_time": -0.0078,
+        "Episode_Reward/lin_vel_z_l2": -0.03835,
+        "Episode_Reward/track_ang_vel_z_exp": 1.14805,
+        "Episode_Reward/track_lin_vel_xy_exp": 1.52215
+      },
+      "unidentified_new_terms": [],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    },
+    {
+      "candidate": "S4_tracking_short_step",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.25925,
+        "Episode_Reward/dof_acc_l2": -0.2979,
+        "Episode_Reward/dof_torques_l2": -0.1488,
+        "Episode_Reward/feet_air_time": -0.0,
+        "Episode_Reward/lin_vel_z_l2": -0.03835,
+        "Episode_Reward/track_ang_vel_z_exp": 1.722075,
+        "Episode_Reward/track_lin_vel_xy_exp": 2.283225
+      },
+      "unidentified_new_terms": [],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    },
+    {
+      "candidate": "S5_torque_half",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.25925,
+        "Episode_Reward/dof_acc_l2": -0.2979,
+        "Episode_Reward/dof_torques_l2": -0.0744,
+        "Episode_Reward/feet_air_time": -0.0013,
+        "Episode_Reward/lin_vel_z_l2": -0.0767,
+        "Episode_Reward/track_ang_vel_z_exp": 1.14805,
+        "Episode_Reward/track_lin_vel_xy_exp": 1.52215
+      },
+      "unidentified_new_terms": [],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    },
+    {
+      "candidate": "R1_tracking_double",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.25925,
+        "Episode_Reward/dof_acc_l2": -0.2979,
+        "Episode_Reward/dof_torques_l2": -0.1488,
+        "Episode_Reward/feet_air_time": -0.0013,
+        "Episode_Reward/lin_vel_z_l2": -0.0767,
+        "Episode_Reward/track_ang_vel_z_exp": 2.2961,
+        "Episode_Reward/track_lin_vel_xy_exp": 3.0443
+      },
+      "unidentified_new_terms": [],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    },
+    {
+      "candidate": "R2_tracking_torque_half",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.25925,
+        "Episode_Reward/dof_acc_l2": -0.2979,
+        "Episode_Reward/dof_torques_l2": -0.0744,
+        "Episode_Reward/feet_air_time": -0.0013,
+        "Episode_Reward/lin_vel_z_l2": -0.0767,
+        "Episode_Reward/track_ang_vel_z_exp": 1.722075,
+        "Episode_Reward/track_lin_vel_xy_exp": 2.283225
+      },
+      "unidentified_new_terms": [],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    },
+    {
+      "candidate": "R3_tracking_acc_relief",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.25925,
+        "Episode_Reward/dof_acc_l2": -0.223425,
+        "Episode_Reward/dof_torques_l2": -0.1488,
+        "Episode_Reward/feet_air_time": -0.0013,
+        "Episode_Reward/lin_vel_z_l2": -0.0767,
+        "Episode_Reward/track_ang_vel_z_exp": 1.722075,
+        "Episode_Reward/track_lin_vel_xy_exp": 2.283225
+      },
+      "unidentified_new_terms": [],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    },
+    {
+      "candidate": "R4_tracking_roll_flex",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.129625,
+        "Episode_Reward/dof_acc_l2": -0.2979,
+        "Episode_Reward/dof_torques_l2": -0.1488,
+        "Episode_Reward/feet_air_time": -0.0013,
+        "Episode_Reward/lin_vel_z_l2": -0.0767,
+        "Episode_Reward/track_ang_vel_z_exp": 1.722075,
+        "Episode_Reward/track_lin_vel_xy_exp": 2.283225
+      },
+      "unidentified_new_terms": [],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    },
+    {
+      "candidate": "R5_tracking_orientation",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.25925,
+        "Episode_Reward/dof_acc_l2": -0.2979,
+        "Episode_Reward/dof_torques_l2": -0.1488,
+        "Episode_Reward/feet_air_time": -0.0013,
+        "Episode_Reward/lin_vel_z_l2": -0.0767,
+        "Episode_Reward/track_ang_vel_z_exp": 1.722075,
+        "Episode_Reward/track_lin_vel_xy_exp": 2.283225
+      },
+      "unidentified_new_terms": [
+        "flat_orientation_l2"
+      ],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    },
+    {
+      "candidate": "R6_tracking_limits",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.25925,
+        "Episode_Reward/dof_acc_l2": -0.2979,
+        "Episode_Reward/dof_torques_l2": -0.1488,
+        "Episode_Reward/feet_air_time": -0.0013,
+        "Episode_Reward/lin_vel_z_l2": -0.0767,
+        "Episode_Reward/track_ang_vel_z_exp": 1.722075,
+        "Episode_Reward/track_lin_vel_xy_exp": 2.283225
+      },
+      "unidentified_new_terms": [
+        "dof_pos_limits"
+      ],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    },
+    {
+      "candidate": "R7_linear_priority",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.25925,
+        "Episode_Reward/dof_acc_l2": -0.2979,
+        "Episode_Reward/dof_torques_l2": -0.0744,
+        "Episode_Reward/feet_air_time": -0.0013,
+        "Episode_Reward/lin_vel_z_l2": -0.0767,
+        "Episode_Reward/track_ang_vel_z_exp": 0.9567083333333333,
+        "Episode_Reward/track_lin_vel_xy_exp": 1.9026874999999999
+      },
+      "unidentified_new_terms": [],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    },
+    {
+      "candidate": "R8_tracking_body_quiet",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.3888749999999999,
+        "Episode_Reward/dof_acc_l2": -0.2979,
+        "Episode_Reward/dof_torques_l2": -0.1488,
+        "Episode_Reward/feet_air_time": -0.0,
+        "Episode_Reward/lin_vel_z_l2": -0.11505,
+        "Episode_Reward/track_ang_vel_z_exp": 1.722075,
+        "Episode_Reward/track_lin_vel_xy_exp": 2.283225
+      },
+      "unidentified_new_terms": [],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    },
+    {
+      "candidate": "R9_tracking_long_step",
+      "fixed_old_trajectory_term_medians": {
+        "Episode_Reward/action_rate_l2": -0.22019999999999998,
+        "Episode_Reward/ang_vel_xy_l2": -0.25925,
+        "Episode_Reward/dof_acc_l2": -0.2979,
+        "Episode_Reward/dof_torques_l2": -0.1488,
+        "Episode_Reward/feet_air_time": -0.0156,
+        "Episode_Reward/lin_vel_z_l2": -0.03835,
+        "Episode_Reward/track_ang_vel_z_exp": 1.722075,
+        "Episode_Reward/track_lin_vel_xy_exp": 2.283225
+      },
+      "unidentified_new_terms": [],
+      "warning": "Arithmetic reweighting only; not new-policy reward, gradient, or score prediction."
+    }
+  ],
+  "feet_airtime_arithmetic_not_foot_clearance": [
+    {
+      "airtime_s": 0.15,
+      "landings_per_s_assumption": 4,
+      "step_dt_s_from_historical_env": 0.02,
+      "dt_omitted_weighted_landing_sum_per_second": {
+        "0": -0.0,
+        "0.01": -0.013999999999999999,
+        "0.06": -0.08399999999999999,
+        "0.12": -0.16799999999999998
+      },
+      "integrated_reward_per_second_with_step_dt": {
+        "0": -0.0,
+        "0.01": -0.00028,
+        "0.06": -0.0016799999999999999,
+        "0.12": -0.0033599999999999997
+      },
+      "assumptions": "One rewarded control step per first contact, command gate active, fixed landing frequency; not measured gait or official score.",
+      "reward_manager_dt_evidence": "IsaacLab v2.3.2 upstream RewardManager.compute; installed manager was not locally preserved."
+    },
+    {
+      "airtime_s": 0.25,
+      "landings_per_s_assumption": 4,
+      "step_dt_s_from_historical_env": 0.02,
+      "dt_omitted_weighted_landing_sum_per_second": {
+        "0": -0.0,
+        "0.01": -0.01,
+        "0.06": -0.06,
+        "0.12": -0.12
+      },
+      "integrated_reward_per_second_with_step_dt": {
+        "0": -0.0,
+        "0.01": -0.0002,
+        "0.06": -0.0012,
+        "0.12": -0.0024
+      },
+      "assumptions": "One rewarded control step per first contact, command gate active, fixed landing frequency; not measured gait or official score.",
+      "reward_manager_dt_evidence": "IsaacLab v2.3.2 upstream RewardManager.compute; installed manager was not locally preserved."
+    },
+    {
+      "airtime_s": 0.5,
+      "landings_per_s_assumption": 4,
+      "step_dt_s_from_historical_env": 0.02,
+      "dt_omitted_weighted_landing_sum_per_second": {
+        "0": 0.0,
+        "0.01": 0.0,
+        "0.06": 0.0,
+        "0.12": 0.0
+      },
+      "integrated_reward_per_second_with_step_dt": {
+        "0": 0.0,
+        "0.01": 0.0,
+        "0.06": 0.0,
+        "0.12": 0.0
+      },
+      "assumptions": "One rewarded control step per first contact, command gate active, fixed landing frequency; not measured gait or official score.",
+      "reward_manager_dt_evidence": "IsaacLab v2.3.2 upstream RewardManager.compute; installed manager was not locally preserved."
+    },
+    {
+      "airtime_s": 0.65,
+      "landings_per_s_assumption": 4,
+      "step_dt_s_from_historical_env": 0.02,
+      "dt_omitted_weighted_landing_sum_per_second": {
+        "0": 0.0,
+        "0.01": 0.006000000000000001,
+        "0.06": 0.036000000000000004,
+        "0.12": 0.07200000000000001
+      },
+      "integrated_reward_per_second_with_step_dt": {
+        "0": 0.0,
+        "0.01": 0.00012000000000000002,
+        "0.06": 0.00072,
+        "0.12": 0.00144
+      },
+      "assumptions": "One rewarded control step per first contact, command gate active, fixed landing frequency; not measured gait or official score.",
+      "reward_manager_dt_evidence": "IsaacLab v2.3.2 upstream RewardManager.compute; installed manager was not locally preserved."
+    }
+  ],
+  "budget": {
+    "quota_remaining_hours_last_verified_20261009": 33.083333333333336,
+    "quota_source": "D:\\UserData\\Desktop\\issac_sim\\analysis\\high_score_search_20261009\\portal_evidence.json",
+    "historical_seconds_per_iteration": 4.818008522014856,
+    "revision_reason": "User requires protecting time for final training and validation instead of spending it all on experiments.",
+    "exploration": {
+      "candidate_ids": [
+        "S1_tracking_pair",
+        "R1_tracking_double"
+      ],
+      "iterations_each": 1500,
+      "scratch": true,
+      "training_seed": 42,
+      "training_environments": 6144,
+      "training_only_projection_hours": 4.015007101679047,
+      "total_including_startup_evaluation_retrieval_shutdown_cap_hours": 6.0,
+      "within_cap_allowance_at_historical_speed_hours": 1.9849928983209528,
+      "fixed_existing_comparator_ids": [
+        "C0_5500",
+        "F10_3000"
+      ],
+      "new_control_training": false,
+      "previous_proposed_candidate_ids": [
+        "S1_tracking_pair",
+        "S4_tracking_short_step"
+      ],
+      "revision_reason": "Deeper source and trajectory review favors tracking-strength comparison; S4 body-normal and air-time explanation was weaker than initially stated.",
+      "selection_gate": "Matched 1500-iteration candidate performance, late learning trend and terrain survival; no automatic early-rank promotion.",
+      "ambiguous_outcome": "Leave convergence unresolved and preserve quota; do not automatically launch long training.",
+      "comparison_limit": "Unequal-length comparisons against existing C0/F10 support policy selection, not reward-change causality."
+    },
+    "main_training": {
+      "max_new_candidates": 1,
+      "scratch": true,
+      "training_seed": 42,
+      "target_iterations": 5000,
+      "maximum_iterations_if_measured_time_fits": 6000,
+      "training_only_projection_5000_hours": 6.691678502798411,
+      "training_only_projection_6000_hours": 8.030014203358094,
+      "allocation_total_cap_hours": 10.0,
+      "checkpoint_shortlist_iterations": [
+        2500,
+        3000,
+        4000,
+        "final"
+      ],
+      "checkpoint_screen_replaces_last_checkpoint_default": true,
+      "checkpoint_selection_and_final_verification_share_existing_validation_budget": true,
+      "resume_assumed_free": false,
+      "second_training_seed_automatic": false,
+      "admission": "Measure fresh speed and startup/evaluation cost; planned iterations must fit allocation with recovery/shutdown reserve."
+    },
+    "final_validation_retrieval": {
+      "protected_total_cap_hours": 3.0,
+      "required_scenarios": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7"
+      ],
+      "fixed_official_C0_required": true,
+      "admission": "Do not consume this reserve on candidate exploration. Recheck measured evaluation and recovery cost before training."
+    },
+    "planned_total_cap_hours": 19.0,
+    "protected_uncommitted_hours_after_all_caps": 14.083333333333336,
+    "quota_preserved_after_exploration_cap_hours": 27.083333333333336,
+    "additional_candidates_or_seed_repeats_automatic": false,
+    "superseded_plan": {
+      "status": "WITHDRAWN_NOT_RUN",
+      "screen_candidate_count": 6,
+      "screen_iterations_each": 1200,
+      "total_iterations": 19200,
+      "training_plus_assumed_overhead_hours": 29.6960454507459
+    },
+    "allocation_hours_limit": 10,
+    "minimum_shutdown_retrieval_reserve_hours_each_allocation": 0.75,
+    "not_authorized_or_launched": true,
+    "warning": "Caps are limits, not measured completion times. Historical speed is an estimate. No extra candidate, control, seed repeat or long run is automatic."
+  },
+  "all_input_hashes_unchanged": true,
+  "fixed_official_reference": {
+    "C0_checkpoint_matches_prior_evaluation": true,
+    "C0_export_matches_downloaded_official_submission": true,
+    "required_in_final_evaluation": true,
+    "new_S0_is_F10_reward_control_not_official_C0": true
+  },
+  "no_server_started": true,
+  "no_policy_training": true,
+  "no_new_robot_evaluation": true,
+  "no_official_submission": true
+}

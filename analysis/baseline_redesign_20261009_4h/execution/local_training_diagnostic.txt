@@ -1,0 +1,9 @@
+B1 local recovery diagnostic
+
+Training completed1500 iterations, return code0, complete contiguous0..1499 log headers.
+Exact recovered AST parser reports1500; profile guard did not fail.
+Provided train.py postprocessing deleted15 intermediate .pt and kept only model600.
+Runner checked model1499 in original logs path after that cleanup; preserved1000/1499 remain intact.
+No selection or validation ran; no performance or official-score inference is justified.
+All numeric training log metrics parsed are finite; both exact checkpoints have finite floating tensors.
+Params and events files preserved and hashed; TensorBoard events content not decoded locally.

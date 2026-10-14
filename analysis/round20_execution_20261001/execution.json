@@ -1,0 +1,547 @@
+{
+  "shutdown_local_pc_after_completion": true,
+  "shutdown_local_pc_command": "shutdown.exe /s /t 0",
+  "shutdown_local_pc_requested_by_user": "모든 작업 끝나고 컴퓨터 꺼줘",
+  "local_completion_required_before_shutdown": [
+    "results_retrieved_and_verified",
+    "remote_server_shutdown_confirmed",
+    "heldout_and_stress_results_reviewed",
+    "video_reviewed",
+    "final_report_saved",
+    "heartbeat_stopped"
+  ],
+  "status": "LOCAL_SHUTDOWN_REQUESTED",
+  "server": "39.robotics.connect.or.kr",
+  "team_used_minutes_before_start": 2916,
+  "team_used_minutes_hard_cap": 4116,
+  "budget_hours": 20,
+  "conservative_start_utc": "2026-10-01T04:31:37Z",
+  "hard_deadline_utc": "2026-10-02T00:31:37Z",
+  "no_new_training_after_utc": "2026-10-01T21:01:37Z",
+  "protected_final_verification_hours": 3,
+  "shutdown_buffer_hours": 0.5,
+  "mode": "scratch_pair",
+  "tmux_session": "round20",
+  "active_job": null,
+  "train_started_utc": "2026-10-01T04:44:10Z",
+  "iterations_per_job": 4000,
+  "num_envs": 6144,
+  "seed": 42,
+  "candidate": "F10 yaw reward .75 to 1.5",
+  "monitor_automation_id": "ncrc-20",
+  "monitor_interval_minutes": 15,
+  "shutdown_completed": true,
+  "results_retrieved": true,
+  "official_submission": false,
+  "actual_gpu": "RTX 5080",
+  "initial_seconds_per_iteration": 4.9,
+  "initial_gpu_memory_mib": 8036,
+  "resume_rejected_reason": "Installed PPO.load restores optimizer but not learning_rate scalar",
+  "remote_root": "/workspace/student_workspace/round20_20261001",
+  "latest_verified_iteration": 3999,
+  "latest_verified_seconds_per_iteration": 4.65,
+  "performance_mode": "SEQUENTIAL_6144_ENVS",
+  "gpu_solo_sample_mean_percent": 90.2,
+  "overlap_benchmark_cancelled": true,
+  "overlap_benchmark_completed": false,
+  "evaluation_tool_restored": true,
+  "checkpoints_preserved": [
+    0,
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900,
+    1000,
+    1100,
+    1200,
+    1300,
+    1400,
+    1500,
+    1600,
+    1700,
+    1800,
+    1900,
+    2000,
+    2100,
+    2200,
+    2300,
+    2400,
+    2500,
+    2600,
+    2700,
+    2800,
+    2900,
+    3000,
+    3100,
+    3200,
+    3300,
+    3400,
+    3500,
+    3600,
+    3700,
+    3800,
+    3900
+  ],
+  "last_verified_utc": "2026-10-01T15:58:49.791900+00:00",
+  "last_heartbeat_result": "RECOVERED_REMOTE_STOPPED_VALIDATION_INCOMPLETE",
+  "gpu_latest_sample_percent": 90,
+  "gpu_latest_memory_mib": 8036,
+  "latest_mean_action_std": 1,
+  "latest_mean_reward": 24.24,
+  "training_error_match_count": 0,
+  "latest_terrain_level": 5.943,
+  "elapsed_server_hours": 11.205500372648238,
+  "remote_snapshot_script": "/workspace/student_workspace/round20_20261001/heartbeat_snapshot.py",
+  "latest_mean_value_loss": 6.996,
+  "latest_f00_eta_utc": "2026-10-01T09:55:06.954Z",
+  "budget_check": "Training pair finished; sequential validation group observed 72-197s, ample time before worker deadline",
+  "loss_spike_review": {
+    "iteration": 1806,
+    "value_loss": 125.4712,
+    "recovered_iteration": 1811,
+    "recovered_value_loss": 0.3093,
+    "action_std": 0.84,
+    "nonfinite_detected": false,
+    "action": "Continue unchanged; check future loss trend",
+    "followup_iteration": 3981,
+    "followup_value_loss": 0.0769,
+    "followup_nonfinite_detected": false,
+    "nonfinite": false
+  },
+  "latest_loss_trend_review": {
+    "last": {
+      "iteration": 3396,
+      "value_loss": 2.883,
+      "reward": 21.45,
+      "action_std": 0.89
+    },
+    "max_value_loss": 32.9029,
+    "nonfinite": false,
+    "decision": "Continue unchanged; observed spikes recover and no stop criterion triggered"
+  },
+  "active_train_started_utc": "2026-10-01T09:55:00.957156+00:00",
+  "f00_completed_utc": "2026-10-01T09:55:00.952205+00:00",
+  "f00_training_seconds": 18650.66627049446,
+  "f00_checkpoints_preserved": [
+    0,
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900,
+    1000,
+    1100,
+    1200,
+    1300,
+    1400,
+    1500,
+    1600,
+    1700,
+    1800,
+    1900,
+    2000,
+    2100,
+    2200,
+    2300,
+    2400,
+    2500,
+    2600,
+    2700,
+    2800,
+    2900,
+    3000,
+    3100,
+    3200,
+    3300,
+    3400,
+    3500,
+    3600,
+    3700,
+    3800,
+    3900,
+    3999
+  ],
+  "latest_f10_eta_utc": "2026-10-01T15:05:18.255Z",
+  "f00_final_checkpoint": {
+    "path": "/workspace/student_workspace/round20_20261001/preserved/F00/2026-10-01_13-44-14_round20_F00/model_3999.pt",
+    "bytes": 6882293,
+    "sha256": "34827817b188d79ee23943b1f801b8886ffcaa592d619c66c024f5b182e07305",
+    "env_exists": true
+  },
+  "f00_exports_verified": true,
+  "f10_reward_changes_verified": {
+    "track_ang_vel_z_exp": [
+      0.75,
+      1.5
+    ]
+  },
+  "board_used_minutes_latest": 3678,
+  "board_used_time_latest": "61시간 18분",
+  "browser_tab_id": "330018527",
+  "board_tab_id": "330018460",
+  "f10_completed_utc": "2026-10-01T15:05:11.809013+00:00",
+  "f10_training_seconds": 18610.850793600082,
+  "training_pair_completed": true,
+  "f10_final_checkpoint": {
+    "path": "/workspace/student_workspace/round20_20261001/preserved/F10/2026-10-01_18-55-04_round20_F10/model_3999.pt",
+    "bytes": 6882293,
+    "sha256": "6c9daffc3b6db5193bae7cfe2ec9b68957ddf4554e9af6a2da7ea9d54d5398d1",
+    "env_exists": true
+  },
+  "original_A_verified": true,
+  "original_A_proxy": {
+    "floor": 58.128491365917505,
+    "ratio": 58.07913924860655,
+    "raw": 64.1758444735984,
+    "weighted_survival": 0.9998
+  },
+  "original_A_sha256": "51ea0e6625b0232806aa5d222d608e5a9a867bae2e25aae79a150eea9e90710e",
+  "completed_eval_hashes": {
+    "eval/F00_model_3000_A/rough.json": {
+      "sha256": "d8b99cf94fedcfd51bad5e553fbebc02b56018bd8f6ddb4e5e670a31947b7ab9",
+      "scenarios": [
+        "G3"
+      ]
+    },
+    "eval/F00_model_3000_A/flat.json": {
+      "sha256": "120fe80ded7d49445b55b8eba48efc25157f2d6451104203c4ea4eb97f1e7209",
+      "scenarios": [
+        "G1",
+        "G2",
+        "G6"
+      ]
+    },
+    "eval/F00_model_3000_A/merged.json": {
+      "sha256": "0b783925dc2e4a287d16640f46b0254557dfcbe971c858588e144db4a721c4fb",
+      "scenarios": [
+        "G1",
+        "G2",
+        "G6",
+        "G3",
+        "G4",
+        "G5",
+        "G7"
+      ]
+    },
+    "eval/F00_model_3000_A/dr.json": {
+      "sha256": "e39a03b33cc61fe93f87a368bfbf919530270e2018f25284a5be7cdf49d6953c",
+      "scenarios": [
+        "G7"
+      ]
+    },
+    "eval/F00_model_3000_A/stairs.json": {
+      "sha256": "6be248ec2e70bf3996b8ba8b901f1300e0b5aacd82a74b0cf7081e468b63ba0b",
+      "scenarios": [
+        "G5"
+      ]
+    },
+    "eval/F00_model_3000_A/slope.json": {
+      "sha256": "d0b112af6065c74ce94ba882da4a810eb866c1fafeacb1f90fbcd98ccbeebf99",
+      "scenarios": [
+        "G4"
+      ]
+    },
+    "eval/F10_model_3999_A/rough.json": {
+      "sha256": "8dafeece2800fb8883a9626674d27a6487470dd719f45761a600a0a4dabdbc57",
+      "scenarios": [
+        "G3"
+      ]
+    },
+    "eval/F10_model_3999_A/flat.json": {
+      "sha256": "0020b4b18767a41f1c4b576a5f9981e0d10213d9300b641dddede0e939cb0fdf",
+      "scenarios": [
+        "G1",
+        "G2",
+        "G6"
+      ]
+    },
+    "eval/F10_model_3000_A/rough.json": {
+      "sha256": "543023fae3b9287a2b950856feb74104c307823bfd4c691614bb5a3df22f1aaf",
+      "scenarios": [
+        "G3"
+      ]
+    },
+    "eval/F10_model_3000_A/flat.json": {
+      "sha256": "79753dac355aa7600cc37c07be45a58a437f7dd7430244e1672464c803467d50",
+      "scenarios": [
+        "G1",
+        "G2",
+        "G6"
+      ]
+    },
+    "eval/F10_model_3000_A/merged.json": {
+      "sha256": "953c625c81cb2e5eed9e05695c9d497e8d7c43f90c56f8510bab2330df734e3c",
+      "scenarios": [
+        "G1",
+        "G2",
+        "G6",
+        "G3",
+        "G4",
+        "G5",
+        "G7"
+      ]
+    },
+    "eval/F10_model_3000_A/dr.json": {
+      "sha256": "e03f595d28f8cd518cbabf15ce662c1a13f0086aa0c5d705c89866742dc90812",
+      "scenarios": [
+        "G7"
+      ]
+    },
+    "eval/F10_model_3000_A/stairs.json": {
+      "sha256": "a1de08342458a890e0b0e6a7d8f7bd50affa39c7b4cfcac93ad94f694a44d1af",
+      "scenarios": [
+        "G5"
+      ]
+    },
+    "eval/F10_model_3000_A/slope.json": {
+      "sha256": "448fa68987fcdf7452349b61a44865e078948484bd49636598957f0cf50c9b4f",
+      "scenarios": [
+        "G4"
+      ]
+    },
+    "eval/original_A/rough.json": {
+      "sha256": "b818637fd33503c1971884cb9542f3595d2edd5a93a5924e54bd046d78c97d52",
+      "scenarios": [
+        "G3"
+      ]
+    },
+    "eval/original_A/flat.json": {
+      "sha256": "105e8ee492186e14305c6eaa7cb4af6275ca3c3e50fa9fc6bbca7dbde9a9a84f",
+      "scenarios": [
+        "G1",
+        "G2",
+        "G6"
+      ]
+    },
+    "eval/original_A/merged.json": {
+      "sha256": "51ea0e6625b0232806aa5d222d608e5a9a867bae2e25aae79a150eea9e90710e",
+      "scenarios": [
+        "G1",
+        "G2",
+        "G6",
+        "G3",
+        "G4",
+        "G5",
+        "G7"
+      ]
+    },
+    "eval/original_A/dr.json": {
+      "sha256": "fc4a16b165a70742480265335faaa0810c0ee19fc9133663b42b47b6227a489a",
+      "scenarios": [
+        "G7"
+      ]
+    },
+    "eval/original_A/stairs.json": {
+      "sha256": "eb8ad087329f24ab96574e2efee032281fe35460318998b2992b63b0e7e2fd47",
+      "scenarios": [
+        "G5"
+      ]
+    },
+    "eval/original_A/slope.json": {
+      "sha256": "948e5c2e4f92a397cfa03146ff014f8d1b684510d2c6045c0b18a8201e99fa0e",
+      "scenarios": [
+        "G4"
+      ]
+    },
+    "eval/F00_model_3999_A/rough.json": {
+      "sha256": "7bdd68e241a839612b4016bf60503a3f0a58cd5456dce6cacd80414e437bd244",
+      "scenarios": [
+        "G3"
+      ]
+    },
+    "eval/F00_model_3999_A/flat.json": {
+      "sha256": "2ff6908215ad5b35eae91cfadf18b362496cfcad8af54f6459863246b9cdea6e",
+      "scenarios": [
+        "G1",
+        "G2",
+        "G6"
+      ]
+    },
+    "eval/F00_model_3999_A/merged.json": {
+      "sha256": "6d6855a74c09e89e3ec24632907fb951ebe8c978a66ceb6917c56ee5a4981de8",
+      "scenarios": [
+        "G1",
+        "G2",
+        "G6",
+        "G3",
+        "G4",
+        "G5",
+        "G7"
+      ]
+    },
+    "eval/F00_model_3999_A/dr.json": {
+      "sha256": "390ea86e86cdd4573ca0ad0cfac7584267af5f139daa77df95191eb3ada2f3a3",
+      "scenarios": [
+        "G7"
+      ]
+    },
+    "eval/F00_model_3999_A/stairs.json": {
+      "sha256": "e0c3aa46a6a074a4540419981b6f355ca09d0bfe0d20e2ccf64273eae212da84",
+      "scenarios": [
+        "G5"
+      ]
+    },
+    "eval/F00_model_3999_A/slope.json": {
+      "sha256": "c6250cfc97ab7ec59e63464bbc35aef9b7f9802dba898cdbbfbb4326a64b27a2",
+      "scenarios": [
+        "G4"
+      ]
+    }
+  },
+  "validation_observed_seconds_per_full_suite": 510.0896,
+  "validation_suites": {
+    "F00_model_3000_A": {
+      "floor": 57.519588113490244,
+      "ratio": 57.11203743437046,
+      "raw": 63.10722368438724,
+      "weighted_survival": 0.995305
+    },
+    "F10_model_3000_A": {
+      "floor": 58.41930693025822,
+      "ratio": 58.752940474467366,
+      "raw": 64.92037621488107,
+      "weighted_survival": 1
+    },
+    "original_A": {
+      "floor": 58.128491365917505,
+      "ratio": 58.07913924860655,
+      "raw": 64.1758444735984,
+      "weighted_survival": 0.9998
+    },
+    "F00_model_3999_A": {
+      "floor": 57.67007349408297,
+      "ratio": 57.208512298915906,
+      "raw": 63.21382574465846,
+      "weighted_survival": 0.9994149999999999
+    }
+  },
+  "validation_errors": [],
+  "validation_nonfinite": [],
+  "gpu_latest_sample": "62 %, 6696 MiB",
+  "screening_selection_complete": false,
+  "remote_error": "eval_F10_model_3999_A_dr exit=1; inspect /workspace/student_workspace/round20_20261001/logs/eval_F10_model_3999_A_dr.log",
+  "remote_worker_stopped_utc": "2026-10-01T15:46:12.920570+00:00",
+  "remote_archive": {
+    "path": "/workspace/student_workspace/round20_results_20261001.tar.gz",
+    "bytes": 566387722,
+    "sha256": "b66790910954f7661c5c73a8fb21f4dca8c75ecd9b5a79ae8c7908ea19282d1f"
+  },
+  "download_status": "Full archive recovered via 17 browser editor clipboard chunks, per-chunk and full SHA256 verified",
+  "heldout_validation_complete": true,
+  "stress_validation_complete": true,
+  "video_validation_complete": true,
+  "local_shutdown_requested": true,
+  "results_verified": true,
+  "results_archive_local": "C:/Users/2009s/Desktop/issac_sim/analysis/round20_execution_20261001/results/round20_results_20261001.tar.gz",
+  "remote_shutdown_confirmed_utc": "2026-10-01T16:28:29.268Z",
+  "round_used_minutes_by_board": 762,
+  "unused_round_budget_minutes": 438,
+  "remote_shutdown_evidence": "C:/Users/2009s/Desktop/issac_sim/analysis/round20_execution_20261001/server_shutdown_confirmed.png",
+  "local_results_review_completed": true,
+  "missing_validation_reviewed": true,
+  "final_report_saved": true,
+  "final_report": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\final_comparison_review.txt",
+  "local_shutdown_eligible": true,
+  "local_shutdown_blocker": null,
+  "heartbeat_stopped": true,
+  "heartbeat_deleted": true,
+  "heartbeat_stopped_utc": "2026-10-01T16:32:02.350Z",
+  "final_review_saved": true,
+  "cleanup_completed": true,
+  "requested_full_validation_completed": true,
+  "local_power_off_verified": false,
+  "validation_preflight_server": "43.robotics.connect.or.kr",
+  "validation_preflight": {
+    "provided_hashes_match": true,
+    "upload_filechooser_blocked": true,
+    "alternative": "Browser editor clipboard base64 transfer",
+    "preflight_used_minutes": 4,
+    "validation_inputs_sha256": "93f1cb98b3c58dd41d48977ae3ecd319e5f005b300d13e75d8aedafc280b7311"
+  },
+  "validation_server": "45.robotics.connect.or.kr",
+  "validation_browser_tab_id": "330018654",
+  "validation_board_tab_id": "330018650",
+  "validation_restart_utc": "2026-10-01T22:45:06.642587+00:00",
+  "validation_remote_root": "/workspace/student_workspace/go2_validation_20261002",
+  "validation_tmux": "go2_validation",
+  "validation_input_remote_sha256": "93f1cb98b3c58dd41d48977ae3ecd319e5f005b300d13e75d8aedafc280b7311",
+  "validation_baseline_B_live": {
+    "floor": 58.12659801787603,
+    "ratio": 58.08180386741679,
+    "survival": {
+      "G1": 1.0,
+      "G2": 1.0,
+      "G3": 1.0,
+      "G4": 1.0,
+      "G5": 0.998,
+      "G6": 1.0,
+      "G7": 1.0
+    },
+    "archive_verification_pending": true
+  },
+  "validation_baseline_B_complete": true,
+  "validation_remote_shutdown_confirmed_utc": "2026-10-01T23:07:49.369159+00:00",
+  "validation_results_retrieved": true,
+  "validation_results_verified": true,
+  "validation_results_archive_local": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\validation_results\\go2_validation_20261002_results.tar.gz",
+  "validation_results_sha256": "ae922ff00fd076a2bc32989184b3080ab9686433691a133ad31c6f4e725693d3",
+  "validation_B_gate_passed": false,
+  "validation_B_delta": {
+    "floor": 0.2793847399658347,
+    "ratio": 0.6584757700932897
+  },
+  "validation_additional_used_minutes": 28,
+  "validation_stop_reason": "B G6 survival 511/512 below original 512/512; score gains pass but per-scenario survival gate fails.",
+  "stress_server": "27.robotics.connect.or.kr",
+  "stress_server_started_utc": "2026-10-01T23:23:03.716264+00:00",
+  "stress_input_sha256": "89d9074e9f80099bad72c3f2ee656b4de4737b787b7a9019f297eecff7c11aae",
+  "stress_remote_root": "/workspace/student_workspace/go2_stress_20261002",
+  "stress_tmux": "go2_stress",
+  "stress_started_utc": "2026-10-01T23:25:02.767947+00:00",
+  "stress_evaluation_jobs_complete": true,
+  "stress_live_summary": {
+    "GX1_survived": [
+      473,
+      474
+    ],
+    "GX5_survived": [
+      512,
+      512
+    ],
+    "stairs_0.10_survived": [
+      512,
+      512
+    ],
+    "stairs_0.15_survived": [
+      502,
+      509
+    ]
+  },
+  "stress_artifact_verification_pending": false,
+  "stress_remote_shutdown_confirmed_utc": "2026-10-01T23:39:43.076843+00:00",
+  "stress_additional_used_minutes": 17,
+  "stress_results_retrieved": true,
+  "stress_results_verified": true,
+  "stress_results_sha256": "f25a2925be630b51cb45d5cda69f6bd365d960e9877226d596b6e2fea19f5cc0",
+  "stress_results_archive_local": "analysis\\round20_execution_20261001\\stress_results\\go2_stress_20261002_results.tar.gz",
+  "completion_utc": "2026-10-01T23:41:41.485070+00:00",
+  "stress_remote_shutdown_evidence": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\stress_server_shutdown_confirmed.jpg",
+  "completion_conditions_verified": {
+    "results_retrieved_and_verified": true,
+    "remote_server_shutdown_confirmed": true,
+    "heldout_and_stress_results_reviewed": true,
+    "video_reviewed": true,
+    "final_report_saved": true,
+    "heartbeat_stopped": true
+  },
+  "local_shutdown_requested_utc": "2026-10-01T23:42:27.583095+00:00"
+}

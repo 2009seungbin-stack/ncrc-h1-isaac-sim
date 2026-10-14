@@ -1,0 +1,19 @@
+{
+  "runner_returncode": 0,
+  "helper_returncode": 0,
+  "finished_epoch": 1791774031.3578253,
+  "error": null,
+  "cleanup_errors": [],
+  "controller_recovery_evidence": {
+    "verified": true,
+    "controller_returncode": 0,
+    "started_audit": true,
+    "finished_audit": true,
+    "hold_ack_count": 1,
+    "released_after_each_hold": true,
+    "resumer_reaped_release_count": 1,
+    "errors": [],
+    "allocation_off_confirmed": false
+  },
+  "allocation_off_confirmed": false
+}

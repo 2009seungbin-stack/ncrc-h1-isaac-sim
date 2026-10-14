@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang=ko><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><title>제출 분석 — 사족</title><style>
+body{font-family:system-ui,'Apple SD Gothic Neo',sans-serif;background:#faf9f7;color:#222;margin:0;padding:24px;}
+.card{max-width:720px;margin:0 auto;background:#fff;border:1px solid #e1e0d9;border-radius:12px;padding:24px 28px;}
+.head{font-size:18px;font-weight:600;border-bottom:1px solid #eee;padding-bottom:12px;overflow:hidden;}
+.head .meta{font-size:13px;color:#777;font-weight:400;float:right;font-family:ui-monospace,monospace;}
+.timing{clear:both;font-size:12px;color:#888;font-family:ui-monospace,monospace;padding-top:8px;}
+.banner{background:#FAECE7;color:#993C1D;border-radius:8px;padding:12px 16px;margin:16px 0 22px;font-size:15px;font-weight:600;}
+.banner small{display:block;font-size:11px;font-weight:400;text-transform:uppercase;opacity:.7;letter-spacing:.04em;}
+.axis{display:flex;justify-content:space-between;font-size:11px;color:#999;margin:0 132px 8px 152px;}
+.row{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.lbl{width:140px;font-size:12.5px;color:#555;text-align:right;flex:none;}
+.track{position:relative;flex:1;height:8px;background:#f0efec;border:1px solid #ddd;border-radius:6px;}
+.tick{position:absolute;top:-3px;width:2px;height:14px;background:#999;transform:translateX(-1px);}
+.dot{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;border:2px solid #fff;transform:translate(-50%,-50%);}
+.val{width:132px;font-size:12px;font-family:ui-monospace,monospace;text-align:right;flex:none;white-space:nowrap;}
+.val em{color:#999;font-style:normal;}
+.warn{background:#FCEBEB;color:#A32D2D;border-radius:8px;padding:10px 14px;margin-top:18px;font-size:13px;}
+table{width:100%;border-collapse:collapse;margin-top:22px;font-size:13px;}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid #eee;}
+th{color:#777;font-weight:500;}
+.guide{margin-top:18px;}
+.guide h2{font-size:16px;font-weight:600;margin:0;}
+.guide h3{font-size:13.5px;font-weight:600;color:#333;margin:18px 0 6px;border-top:1px solid #f0f0f0;padding-top:14px;}
+.guide dt{font-family:ui-monospace,monospace;font-weight:600;font-size:12.5px;color:#222;margin-top:10px;}
+.guide dd{margin:2px 0 0;font-size:13px;color:#555;line-height:1.65;}
+.guide ul{margin:6px 0 0;padding-left:18px;} .guide li{font-size:13px;color:#555;line-height:1.85;}
+.guide p{font-size:13px;color:#555;line-height:1.65;margin:6px 0 0;}
+.guide .hint{color:#7a6a3a;font-size:12px;background:#f6f1e3;border-radius:6px;padding:9px 12px;margin-top:12px;line-height:1.6;}
+.guide code{background:#eee;padding:1px 5px;border-radius:4px;font-family:ui-monospace,monospace;font-size:12px;}
+.guide .keep{background:#FFF7E6;border:1px solid #f0e0b8;border-radius:8px;padding:11px 14px;color:#7a5b00;margin-top:8px;line-height:1.65;}
+.swatch{display:inline-block;width:11px;height:11px;border-radius:50%;border:1px solid #0002;margin:0 3px -1px 0;}
+.diag .note{font-size:13px;color:#555;line-height:1.6;margin:0 0 16px;}
+.stats{display:flex;flex-wrap:wrap;gap:12px;}
+.stat{flex:1;min-width:118px;background:#f7f6f3;border:1px solid #eceae3;border-radius:8px;padding:13px 14px;text-align:center;}
+.sv{font-size:20px;font-weight:600;font-family:ui-monospace,monospace;color:#222;}
+.sk{font-size:11.5px;color:#888;margin-top:4px;}
+.diagmsg{margin-top:16px;border-radius:8px;padding:11px 14px;font-size:13px;line-height:1.7;}
+.diagmsg.ok{background:#EAF4EC;color:#1F6B33;}
+.diagmsg.warn{background:#FBF3E2;color:#8A5A00;}
+.diagmsg.bad{background:#FCEBEB;color:#A32D2D;}
+</style></head><body><div class=card>
+<div class=head>사족 <span class=meta>12관절 · iter 400 / 총 1500 · 0.29M params · NaN 없음(제출 파일)</span><div class=timing>학습시작 2026-10-09 11:34 · 종료 2026-10-09 13:33 · 소요 1시간 59분</div></div>
+<div class=banner><small>튜닝 의도</small>공격/적극 지향 — 속도↑</div>
+<div class=axis><span>← 안정</span><span>공격 →</span></div>
+<div class=row><span class=lbl>속도 추종</span><div class=track><span class=tick style="left:33.3%"></span><span class=dot style="left:100.0%;background:#E24B4A"></span></div><span class=val>3 <em>(+2 · 범위 밖)</em></span></div>
+<div class=row><span class=lbl>발 들기</span><div class=track><span class=tick style="left:0.0%"></span><span class=dot style="left:0.0%;background:#888780"></span></div><span class=val>0.01 <em>(변화없음)</em></span></div>
+<div class=row><span class=lbl>지면 밀착</span><div class=track><span class=tick style="left:44.4%"></span><span class=dot style="left:44.4%;background:#888780"></span></div><span class=val>-3 <em>(변화없음)</em></span></div>
+<div class=row><span class=lbl>좌우 흔들림</span><div class=track><span class=tick style="left:78.6%"></span><span class=dot style="left:78.6%;background:#888780"></span></div><span class=val>-0.08 <em>(변화없음)</em></span></div>
+<div class=row><span class=lbl>동작 부드러움</span><div class=track><span class=tick style="left:66.7%"></span><span class=dot style="left:66.7%;background:#888780"></span></div><span class=val>-0.01 <em>(변화없음)</em></span></div>
+<div class=row><span class=lbl>회전 추종 (고급)</span><div class=track><span class=tick style="left:50.0%"></span><span class=dot style="left:100.0%;background:#E24B4A"></span></div><span class=val>2.25 <em>(+1.5 · 범위 밖)</em></span></div>
+
+<table><tr><th>항목</th><th>기본</th><th>제출</th><th>Δ</th><th>의도/효과</th></tr><tr><td>track_lin_vel_xy_exp</td><td>1</td><td>3</td><td>+2</td><td>속도 추종: 속도 ↑ 빠릿·멀리(과속 시 넘어짐) ⚠ 추천 범위 밖</td></tr><tr><td>feet_air_time</td><td>0.01</td><td>0.01</td><td>—</td><td>발 들기: 바꾸지 않음</td></tr><tr><td>lin_vel_z_l2</td><td>-3</td><td>-3</td><td>—</td><td>지면 밀착: 바꾸지 않음</td></tr><tr><td>ang_vel_xy_l2</td><td>-0.08</td><td>-0.08</td><td>—</td><td>좌우 흔들림: 바꾸지 않음</td></tr><tr><td>action_rate_l2</td><td>-0.01</td><td>-0.01</td><td>—</td><td>동작 부드러움: 바꾸지 않음</td></tr><tr><td>track_ang_vel_z_exp (고급)</td><td>0.75</td><td>2.25</td><td>+1.5</td><td>회전 추종: 선회 ↑ 빠른 방향전환 ⚠ 추천 범위 밖</td></tr></table>
+</div>
+<div class="card diag"><div class=head>학습 결과 (수치) <span class=meta>실패 진단용 · 직접 정하는 값 아님</span></div><p class=note>아래는 <b>학습이 어떻게 끝났는지</b> 보여주는 결과예요. 보상·전략을 바꾼 게 어떤 결과로 이어졌는지, 특히 <b>실패 원인</b>을 여기서 읽습니다.</p><div class=stats><div class=stat><div class=sv>56.64</div><div class=sk>최고 보상 · iter 357</div></div><div class=stat><div class=sv>5.41</div><div class=sk>지형 난이도 · 시작 3.5 → 올라감</div></div><div class=stat><div class=sv>7.3%</div><div class=sk>낙상률 (마지막 10회 평균)</div></div><div class=stat><div class=sv>0.865</div><div class=sk>탐색 std (마지막)</div></div></div><div class="diagmsg ok">✅ 수치상 큰 이상 신호 없음.<br>실제 보행 안정성은 숫자만으로 판단하지 말고 play.py 로 영상 확인하세요.</div></div>
+<div class="card guide">
+<h2>리포트 보는 법</h2>
+<h3>① 맨 윗줄 — 모델 정보</h3>
+<dl>
+<dt>관절 수 (예: 12)</dt><dd>로봇이 움직이는 관절(다리 모터) 수. 사족(Go2)=12, 휴머노이드(H1)=19 → <b>로봇 종류 확인용</b>.</dd>
+<dt>iter A / 총 B (예: 6300 / 총 8000)</dt><dd><b>A</b> = 제출용으로 선택된 <b>best 체크포인트의 시점</b>(보상이 가장 높았던 반복), <b>B</b> = 실제로 돌린 <b>총 반복 횟수</b>. 둘은 다릅니다 — <b>A 가 B 보다 많이 작으면</b> 초반에 정점을 찍고 이후 나빠졌다는 뜻(보상 설정 의심). 아주 짧게 돌리면(예: 10회) 학습이 되기 전이라 A 가 0 으로 나올 수 있어요.</dd>
+<dt>params (예: 0.29M)</dt><dd>정책 신경망 가중치 개수 = <b>모델 크기</b>. 로봇 종류 같으면 보통 비슷.</dd>
+<dt>NaN 없음(제출 파일) / NaN 발견</dt><dd>가중치에 '깨진 값'(계산 불가)이 있나 검사. <b>없음 = 제출 파일이 멀쩡하다</b>는 뜻입니다. ⚠️ <b>학습 도중 발산했는지는 이것으로 알 수 없습니다</b> — 제출은 보상이 가장 높았던 시점(발산 *이전*)을 고르므로 발산한 학습도 여기는 '없음' 으로 나옵니다. <b>발산 여부는 아래 '학습 결과' 카드</b>에서 확인하세요. <i>(NaN 없음이 '잘 걷는다'는 뜻도 아님.)</i></dd>
+<dt>학습시작 · 종료 · 소요</dt><dd>학습 시작/종료 시각과 걸린 시간. 학습 종료 시 자동 기록.</dd>
+</dl>
+<p class=hint>※ <code>iter</code> 는 '<b>반복 횟수</b>', <b>소요</b> 는 실제 걸린 '<b>시간</b>' — 둘은 다릅니다(같은 iter라도 GPU·설정에 따라 시간이 달라요).</p>
+<h3>② 게이지 — 안정 ↔ 공격</h3>
+<ul>
+<li><b>회색 세로 눈금</b> = 기본값, <b>색 점</b> = 제출값.</li>
+<li><b>왼쪽=안정 / 오른쪽=공격</b> — 오른쪽일수록 빠르고 과감.</li>
+<li><span class=swatch style="background:#D85A30"></span><b>주황</b> 공격 쪽 이동 · <span class=swatch style="background:#378ADD"></span><b>파랑</b> 안정 쪽 이동 · <span class=swatch style="background:#888780"></span><b>회색</b> 안 바꿈.</li>
+<li><span class=swatch style="background:#E24B4A"></span><b>빨강</b> = 추천 범위 <b>벗어남</b>(보행 망가질 수 있어 꼭 확인).
+<b>처음 받은 값 그대로여도 빨강일 수 있어요</b> — 그 항목은 직접 조정해 보라는 뜻입니다.</li>
+<li><b>(고급)</b> = 배포 파일에서 주석 처리돼 있던 항목을 직접 적어 넣었다는 뜻.
+기본값이 <b>0(꺼짐)</b>인 항목이면 '켬', 기본값이 있는 항목이면 <b>그 값을 기준</b>으로 증감을 표시합니다.</li>
+</ul>
+<h3>③ 학습 결과 수치 — 실패 진단</h3>
+<dl>
+<dt>최고 보상 (iter N)</dt><dd>학습 중 보상이 가장 높았던 시점과 그 반복 횟수 — 이 시점 모델을 제출용으로 자동 선택해요. <b>iter 가 너무 초반</b>이면 초반에 정점 찍고 이후 나빠졌다는 뜻(보상 설정 의심).</dd>
+<dt>지형 난이도 (terrain level)</dt><dd>로봇이 견딘 지형의 어려움 단계(평지에서 시작해 험지로 <b>자동 상승</b>). 높을수록 거친 지형까지 정복. <b>0 근처에 머물면</b> 평지조차 제대로 못 걸어 난이도가 안 올라간 것(걷기 실패). <i>(평지 전용 학습이면 표시 안 됨.)</i></dd>
+<dt>낙상률</dt><dd>에피소드가 <b>넘어져서</b> 끝난 비율(시간이 다 차서 끝나면 '생존'). 낮을수록 안정. <b>높으면</b> 불안정 → 안전 쪽 보상(낙상 벌점↑·속도↓) 검토.</dd>
+<dt>탐색 std</dt><dd>정책이 동작을 얼마나 <b>무작위로 시도</b>하는지(처음 1.0 → 학습되며 보통 0.3~0.6 으로 감소). <b>너무 낮으면(≈0)</b> 한 동작에 갇힘(제자리·주저앉기), <b>1.0 근처면</b> 거의 학습이 안 된 것.</dd>
+<dt>발산 (divergence)</dt><dd><b>학습이 스스로 무너져 계산이 깨지는 것.</b> 강화학습은
+'앞으로 받을 보상'을 예측하는 값(가치함수)을 같이 학습하는데, 그 예측 오차가 한번 커지기
+시작하면 걷잡을 수 없이 불어나 결국 <code>nan</code>(숫자 아님)이 됩니다. 그러면 계산을
+이어갈 수 없어 <b>학습이 그 자리에서 멈춥니다</b> — 요청한 횟수를 다 못 채웁니다.
+<br>⚠️ <b>제출물은 안전합니다.</b> 발산 <b>이전</b>의 가장 좋았던 시점이 자동으로 선택되므로,
+그때까지 배운 것은 그대로 남습니다. 헤더의 <code>NaN 없음(제출 파일)</code> 은 그래서 나오는
+말이고, 발산했는지는 <b>이 카드</b>에서만 알 수 있습니다.
+<br><b>왜 생기나</b> — 특정 값이 잘못돼서라기보다 <b>오래 돌릴수록 확률이 올라갑니다</b>.
+보상을 극단적으로 크게/작게 두거나, 흔들림·수직 속도를 누르는 안정 쪽 보상을 많이 풀면
+더 쉽게 일어납니다.
+<br><b>대처</b> — ① <b>나눠 돌리세요.</b> 8000회를 한 번에 걸면 4000회에서 멈췄을 때 그 뒤가
+통째로 날아가지만, 3000회씩 이어서 돌리면 중간 결과가 남습니다. ② 값을 한 번에 크게
+바꾸기보다 조금씩 옮기며 확인하세요.</dd>
+</dl>
+<p class=hint>※ 이 수치들은 학습이 끝난 '결과'예요. 보상·전략을 바꾼 게 좋은 결과로 이어졌는지, 특히 <b>왜 실패했는지</b> 단서를 줍니다. 위 색 박스가 🔴(빨강)면 그 항목부터 확인하세요.</p>
+<h3>꼭 기억하세요</h3>
+<p class=keep>이 리포트는 보상을 <b>어떻게 바꿨나(의도)</b>만 보여줍니다. <b>실제로 잘 걷는지</b>는 숫자로 안 보여요 — 반드시 <code>play.py</code> 로 <b>영상을 직접 확인</b>하세요.</p>
+</div></body></html>

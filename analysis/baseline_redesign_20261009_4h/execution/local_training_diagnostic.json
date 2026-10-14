@@ -1,0 +1,251 @@
+{
+  "created_utc": "2026-10-09T14:28:12.112960+00:00",
+  "diagnostic_scope": "Read-only local recovery; AST-isolated training_profile and weights_only tensor reads; no experiment execution",
+  "root": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427\\b1_baseline_20261009_4h",
+  "runner_sha256": "a7a318148c5a9605ebee59962f78bf62873c6d3ad38bf76f489e721a5f9662c8",
+  "log_sha256": "a28885fee84d938b384cd01e5896f73cf231629001ffb5f55a9416ec546f8bbe",
+  "fresh_final_profile": {
+    "samples": 1500,
+    "completed_iterations": 1500,
+    "recent_seconds_per_iteration": 4.7078
+  },
+  "learning_iteration_headers": 1500,
+  "first_iteration": 0,
+  "last_iteration": 1499,
+  "iteration_headers_contiguous_0_to_1499": true,
+  "training_metrics": {
+    "Collection time": {
+      "count": 1500,
+      "first": 5.491,
+      "last": 4.584,
+      "finite": true
+    },
+    "Learning time": {
+      "count": 1500,
+      "first": 0.258,
+      "last": 0.114,
+      "finite": true
+    },
+    "Mean value loss": {
+      "count": 1500,
+      "first": 0.0676,
+      "last": 5.6672,
+      "finite": true
+    },
+    "Mean surrogate loss": {
+      "count": 1500,
+      "first": 0.008,
+      "last": 0.0021,
+      "finite": true
+    },
+    "Mean entropy loss": {
+      "count": 1500,
+      "first": 17.0215,
+      "last": 12.9597,
+      "finite": true
+    },
+    "Mean reward": {
+      "count": 1500,
+      "first": -0.62,
+      "last": 15.63,
+      "finite": true
+    },
+    "Mean episode length": {
+      "count": 1500,
+      "first": 16.3,
+      "last": 957.34,
+      "finite": true
+    },
+    "Mean action std": {
+      "count": 1500,
+      "first": 1.0,
+      "last": 0.73,
+      "finite": true
+    },
+    "Episode_Reward/track_lin_vel_xy_exp": {
+      "count": 1500,
+      "first": 0.004,
+      "last": 0.9968,
+      "finite": true
+    },
+    "Episode_Reward/track_ang_vel_z_exp": {
+      "count": 1500,
+      "first": 0.0029,
+      "last": 0.532,
+      "finite": true
+    },
+    "Episode_Reward/lin_vel_z_l2": {
+      "count": 1500,
+      "first": -0.0144,
+      "last": -0.0592,
+      "finite": true
+    },
+    "Episode_Reward/ang_vel_xy_l2": {
+      "count": 1500,
+      "first": -0.0081,
+      "last": -0.1686,
+      "finite": true
+    },
+    "Episode_Reward/dof_torques_l2": {
+      "count": 1500,
+      "first": -0.0008,
+      "last": -0.0607,
+      "finite": true
+    },
+    "Episode_Reward/dof_acc_l2": {
+      "count": 1500,
+      "first": -0.0044,
+      "last": -0.2642,
+      "finite": true
+    },
+    "Episode_Reward/action_rate_l2": {
+      "count": 1500,
+      "first": -0.0029,
+      "last": -0.1672,
+      "finite": true
+    },
+    "Episode_Reward/feet_air_time": {
+      "count": 1500,
+      "first": 0.0,
+      "last": 0.0,
+      "finite": true
+    },
+    "Episode_Reward/flat_orientation_l2": {
+      "count": 1500,
+      "first": 0.0,
+      "last": 0.0,
+      "finite": true
+    },
+    "Episode_Reward/dof_pos_limits": {
+      "count": 1500,
+      "first": 0.0,
+      "last": 0.0,
+      "finite": true
+    },
+    "Curriculum/terrain_levels": {
+      "count": 1500,
+      "first": 3.4985,
+      "last": 5.245,
+      "finite": true
+    },
+    "Metrics/base_velocity/error_vel_xy": {
+      "count": 1500,
+      "first": 0.0219,
+      "last": 0.8496,
+      "finite": true
+    },
+    "Metrics/base_velocity/error_vel_yaw": {
+      "count": 1500,
+      "first": 0.0191,
+      "last": 0.5153,
+      "finite": true
+    },
+    "Episode_Termination/time_out": {
+      "count": 1500,
+      "first": 0.0123,
+      "last": 0.8837,
+      "finite": true
+    },
+    "Episode_Termination/base_contact": {
+      "count": 1500,
+      "first": 0.0,
+      "last": 0.1163,
+      "finite": true
+    },
+    "Iteration time": {
+      "count": 1500,
+      "first": 5.75,
+      "last": 4.7,
+      "finite": true
+    }
+  },
+  "nonfinite_training_metric_tokens": [],
+  "checkpoint_files": [
+    {
+      "path": "preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_1000.pt",
+      "bytes": 6882293,
+      "sha256": "d073b8f33ac1b8d68b9272abd68a93978ef7cbef5522c75e7017a69332a4317d"
+    },
+    {
+      "path": "preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\model_1499.pt",
+      "bytes": 6882293,
+      "sha256": "f0c791fc4d400f983b99abb3d4d296da7b69b666617bc7a1b3217b7f37da17af"
+    },
+    {
+      "path": "preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\params\\env.yaml",
+      "bytes": 28519,
+      "sha256": "1cca0dc7b6045fb3b9c1130a3835df873b3e4eb213e25a3e38a5873114c3f552"
+    },
+    {
+      "path": "preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\params\\agent.yaml",
+      "bytes": 1143,
+      "sha256": "4f4424ae57303080b2a7ab49c8e00a67c6497ec6f64220d6054395d4b990f36d"
+    }
+  ],
+  "checkpoint_tensor_checks": [
+    {
+      "name": "model_1000.pt",
+      "checkpoint_top_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "stored_iteration": 1000,
+      "finite_tensor_check": {
+        "tensors": 68,
+        "floating_tensors": 68,
+        "nonfinite_tensors": []
+      }
+    },
+    {
+      "name": "model_1499.pt",
+      "checkpoint_top_keys": [
+        "actor_state_dict",
+        "critic_state_dict",
+        "optimizer_state_dict",
+        "iter",
+        "infos"
+      ],
+      "stored_iteration": 1499,
+      "finite_tensor_check": {
+        "tensors": 68,
+        "floating_tensors": 68,
+        "nonfinite_tensors": []
+      }
+    }
+  ],
+  "events_files": [
+    {
+      "path": "preserved\\B1_selective_cost\\2026-10-09_21-12-00_B1_4h_1791547031\\events.out.tfevents.1791547935.da-perfect02.16262.0",
+      "bytes": 2576788,
+      "sha256": "568a776f20266fb15dd7e7e2f92a4ad4f0db6c627e4e7ec71320ddba1c83883c"
+    }
+  ],
+  "events_content_decoded": false,
+  "event_content_limit": "TensorBoard package unavailable in this interpreter; event file preserved and hashed, scalar coverage independently read from train log",
+  "provided_train_post_cleanup_evidence": [
+    {
+      "line": 51226,
+      "text": "[INFO] Best by 'Train/mean_reward': step 585, reward 22.430 → model_600.pt"
+    },
+    {
+      "line": 51231,
+      "text": "[CLEAN] logs/ 의 intermediate .pt 15개 삭제 (98MB 회수)"
+    },
+    {
+      "line": 51232,
+      "text": "[KEEP] logs/<run>/model_600.pt 보존 (play.py 호환)"
+    }
+  ],
+  "guard_location": "runner.py:490",
+  "guard_expression": "profile['completed_iterations'] !=1500 or not (runs[0]/'model_1499.pt').is_file()",
+  "diagnosis": "The first guard clause is false: exact recovered parser returns1500. Provided train.py postprocessing log explicitly deletes15 intermediate checkpoint files and retains model_600 only, explaining missing original model_1499 path. Preserved exact1000/1499 survive. Parent separately verifies current original run path.",
+  "training_returncode": 0,
+  "training_process_group_exited": true,
+  "evaluation_records": {},
+  "selected": null,
+  "complete_validation": false,
+  "score_prediction": null
+}

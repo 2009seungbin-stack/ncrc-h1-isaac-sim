@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "provided": {
+    "train.py": "c09ac99bcd93bb367f0eec69bdb05f4063cb8d60f0258d4667f07addf509de22",
+    "play.py": "ce703acf54eac40073e3f6d585d6002e3b4a2d9062581b3c0ed45db73ac5f9dc",
+    "go2_task/agent_cfg.py": "a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23",
+    "go2_task/env_cfg.py": "df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1"
+  },
+  "runtime": {
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/__init__.py": "9b4c420fef3ae39683544833b6d2efbb26aecfc0583ec59be7f4eeb748fecf66",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/algorithms/__init__.py": "e370271e689bada5cdf2b4623e0d16d75e8439864a2ae913b22215f7b2985843",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/algorithms/distillation.py": "c9a326d1c9d0f57a2c14fbea23b8b0f92d3b96bb7a38224e090e07f13e1fb7e0",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/algorithms/ppo.py": "a2d35e7ad7b884c80b7434e7d2ce785a6da1e18d93c96f1179fbd3a208669f8c",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/env/__init__.py": "33bfc9562580377c2ce6388c37b0df2b8e992c22ce46923443681cbbf1960d60",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/env/vec_env.py": "4a72df2fbf9b3e162e0e4b10e0b473511f02ad8c3ebaab0b7993ddfd63a9fa43",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/extensions/__init__.py": "595fd79b13fa6c64cce1f20adb7440660a4c5e5b78749db4794554a782a1ccfe",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/extensions/rnd.py": "e8f25627c04f4cf478cbbf1ec4c362276e80566a1222c75ba55f7b8e0f8471af",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/extensions/symmetry.py": "eb83c3f77e4cc3f3b3b18f7a592429761b7152c8ac1160c32e02562dc0987481",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/__init__.py": "6444fc1df8bc94d40ab1911f0e8e6b3f777459986e7f7944d25b7e5ca9b3e206",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/cnn_model.py": "818422d1d7a93cd8174a3c34fec8c425f2adf9d81c9623f2b335c2934a60276e",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/mlp_model.py": "6219ebb3ed4df036dae7ff1c30d0fbb169eaaa659e44a659dd757a292124476b",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/rnn_model.py": "80c1d6452ef021e4d7b174231ed7abac1ed0db8de9604561f8060148d4333ccc",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/__init__.py": "56df7ca2ff95c53f17451fd98720c48871a1679e9d6e3ab0c0961e4339908054",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/cnn.py": "4f5bab5f192c42180125f32a4af350108dd1c247e1e84c81f6cf4ea560037ccf",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/distribution.py": "4631eae1939dcd6b065d79c3c0128a88ba2c6126d08f46944c8795682a208a1b",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/mlp.py": "bad934b364b26cd47b6d1612e00ace107a425ae4d272c0cd0c82cbfc57bbcdbc",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/normalization.py": "539e1193cebcc472585cd3df100946fb8d788c4aa0f9f5cbcb3387a64d312926",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/rnn.py": "07f0eec06c7f2638edbdbc3ba25f56122a7941cb0543138f4a6b04675b2a97e6",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/runners/__init__.py": "26f4130a403414e13041b62a848d04da3fb0166757603950ea758b151d4b5aaa",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/runners/distillation_runner.py": "7445cbaf3e1fa241d742447ab17d941a659c92b6f8365ef22c5d818923d9e275",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/runners/on_policy_runner.py": "39358a0a60219fdb360df7acddf80f6a382837aa58e2ec0ccf875df4afee4825",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/storage/__init__.py": "7c9d96df3cad10aa27f34e77f7105a29f74e2d7dd10467b2919f99867a69298e",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/storage/rollout_storage.py": "ececf28e7412d24867066829cc443acae811f034f8e63975b90343947779918d",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/__init__.py": "129856dea5f7ccff56aee74c8590b6cd2201183131bc836c666d7d1a4880e5c4",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/logger.py": "d9822d8317724507a7c817e85399db0db9e56a4eae959435138e75cf92e44b8d",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/neptune_utils.py": "a3446faf8d655b75feb215ff4df8598bc91ff5aab446a6349e9ced31bf3cc495",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/utils.py": "4d094c17e54ab09a0d37b14711157f638f0bd929d0f1b49a3f89b4c8fc67caaa",
+    "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/wandb_utils.py": "0fdc97e968bf9c47fed3c1beeacaab7d65769c5342b221f9a20ea2e64b2d407d"
+  },
+  "checked_epoch": 1791555101.0706062
+}

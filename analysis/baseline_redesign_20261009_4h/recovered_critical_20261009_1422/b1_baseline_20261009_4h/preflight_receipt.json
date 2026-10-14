@@ -1,0 +1,37 @@
+{
+  "actual_allocation_start_epoch": 1791547031,
+  "verified_epoch": 1791547895.2478666,
+  "user_authorized_execution": true,
+  "retrieval_smoke_verified": true,
+  "no_competing_gpu_jobs_verified": true,
+  "runtime_verified": true,
+  "reference_loader_verified": true,
+  "probe_sha256": "d896a94ee0d428425b07dbd6a1748b6c9971e66d7b7b93d7eacc9a44b077328e",
+  "probe_local_sha256": "d896a94ee0d428425b07dbd6a1748b6c9971e66d7b7b93d7eacc9a44b077328e",
+  "runtime_versions": {
+    "rsl_rl_lib": "5.0.1",
+    "torch": "2.7.0+cu128"
+  },
+  "initial_observation_preserved": true,
+  "gpu_default_service": [
+    {
+      "pid": 13216,
+      "args": [
+        "/isaac-sim/kit/python/bin/python3",
+        "/streaming/livestream_webrtc.py"
+      ],
+      "nvidia_row": "13216, /isaac-sim/kit/python/bin/python3, 2597 MiB"
+    },
+    {
+      "pid": 13216,
+      "args": [
+        "/isaac-sim/kit/python/bin/python3",
+        "/streaming/livestream_webrtc.py"
+      ],
+      "nvidia_row": "13216, /isaac-sim/kit/python/bin/python3, 2597 MiB"
+    }
+  ],
+  "competing_training_or_evaluation": [],
+  "gpu_classification": "Only official default livestream; platform supervisor stops it when train.py --task starts. Post-launch handoff must be verified.",
+  "supervisor_sha256": "90c24436b23531c994af760060a5b4ed885b953482944f5883e859bd0126f70a"
+}

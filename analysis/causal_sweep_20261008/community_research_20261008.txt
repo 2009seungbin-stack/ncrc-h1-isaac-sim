@@ -1,0 +1,43 @@
+Codex browser permission failure: public community research
+Checked: 2026-10-08, Asia/Seoul
+
+Observed local symptom
+- Browser Use could not request permission.
+- saved browser permissions could not be verified.
+- Chrome extension and tab discovery succeed, while website access is blocked.
+- Desktop logs also contain No ChatGPT browser route is available for browser session warnings. A causal link between the two failures is not established.
+
+Closest public Windows reports
+1. https://github.com/openai/codex/issues/48670
+   Windows desktop report contains both the saved-permission error and missing browser-route logs. Fresh conversations, app restarts, recreated tabs, and reauthorizing origins did not resolve the reporter's problem. No confirmed fix was visible in the inspected report.
+2. https://github.com/openai/codex/issues/49555
+   Windows report after an update: tab inventory succeeds but page access fails with the same saved-permission verification error. App restart and a temporary CODEX_HOME launcher did not resolve it. No confirmed fix was visible.
+3. https://github.com/openai/codex/issues/45028
+   Related Windows in-app browser routing failure persisted after app restart, fresh tasks, Windows reboot, package repair, and full package-local app-data reset. This is evidence about the related routing symptom, not proof that our Chrome permission failure has the same cause.
+
+Reported recoveries and applicability
+4. https://www.reddit.com/r/codex/comments/1wrtr68/fixed_saved_browser_permissions_could_not_be/
+   Firsthand macOS report: ~/.codex/browser/sessions was a symlink. Replacing it with a real directory while preserving the same permission files reportedly restored Chrome and in-app browser access. Related crossposts are the same report, not independent successful fixes.
+5. https://github.com/openai/codex/issues/50717
+   Another macOS report describes saved-permission failure with a symlinked browser directory; a follow-up reports recovery with a normal directory and unchanged configuration/origin permissions. Applicability depends on an actual symlink in the affected configuration path.
+6. https://github.com/openai/codex/issues/50180
+   macOS Chrome report: access recovered after rolling back the official app and fully restarting it. Both version and process state changed, so the report does not isolate the effective step. This is not a verified Windows downgrade remedy.
+7. https://github.com/openai/codex/issues/50145
+   Windows update/reboot report: reboot completed the update, but the browser saved-permission failure remained. The issue is closed; the inspected page did not establish a confirmed browser fix. Closed issue status must not be treated as proof of resolution.
+
+Local read-only metadata check
+- C:\Users\2009s\.codex: ordinary directory, no LinkType or Target.
+- C:\Users\2009s\.codex\browser: ordinary directory, no LinkType or Target.
+- C:\Users\2009s\.codex\browser\sessions: ordinary directory, no LinkType or Target.
+- C:\Users\2009s\.codex\browser\config.toml: ordinary file, no LinkType or Target.
+- C:\Users and C:\Users\2009s also have no LinkType or Target.
+- This excludes a symlink/junction in the inspected default directory chain. It does not prove which configuration path every app process uses.
+- Permission-store contents were not read or changed.
+
+Assessment
+The exact symptom is not unique to this PC. The strongest public matches are Windows app permission/routing failures. Inferring an app permission/session-routing problem is reasonable, but the root cause remains unconfirmed. Repeated reinstalls or destructive configuration resets are not supported as reliable fixes by these reports. The specific symlink repair does not fit the default paths inspected on this PC.
+
+Search scope
+Exact errors and related reinstall/routing terms were searched across GitHub, Reddit, OpenAI Community, and Korean queries. The useful exact matches were GitHub issues and firsthand Reddit reports. No relevant exact OpenAI Community or Korean-language match was established in this search. This is not an exhaustive claim that none exist.
+
+No external report was submitted. No installation, permission, security setting, remote server, or training job was changed by this research.

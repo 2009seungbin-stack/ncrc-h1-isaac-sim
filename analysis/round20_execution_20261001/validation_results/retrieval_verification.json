@@ -1,0 +1,19 @@
+{
+  "archive_verified": true,
+  "sha256": "ae922ff00fd076a2bc32989184b3080ab9686433691a133ad31c6f4e725693d3",
+  "bytes": 12860851,
+  "members": 42,
+  "required_files_verified": [
+    "state.json",
+    "selection.json",
+    "reward_restored.json",
+    "driver.log",
+    "eval/original_B/merged.json",
+    "eval/selected_B/merged.json",
+    "candidate/model_3000.pt",
+    "candidate/params/env.yaml",
+    "original_C0_model_5500.pt"
+  ],
+  "reward_restore_verified": true,
+  "eval_files": 12
+}

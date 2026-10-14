@@ -1,0 +1,274 @@
+{
+  "snapshot": {
+    "checked_utc": "2026-10-01T07:08:48.821496+00:00",
+    "state": {
+      "stage": "RUNNING",
+      "utc": "2026-10-01T04:44:10.284364+00:00",
+      "elapsed_hours": 0.20924565805329218,
+      "job": "train_F00",
+      "command": [
+        "/workspace/IsaacLab/isaaclab.sh",
+        "-p",
+        "train.py",
+        "--task",
+        "Quadruped-v0",
+        "--num_envs",
+        "6144",
+        "--seed",
+        "42",
+        "--max_iterations",
+        "4000",
+        "--run_name",
+        "round20_F00",
+        "--headless"
+      ],
+      "timeout_seconds": 21600
+    },
+    "elapsed_server_hours": 2.619950417611334,
+    "log_modified_seconds_ago": 12.418186902999878,
+    "recent_error_lines": [],
+    "iteration": 1806,
+    "iteration_limit": 4000,
+    "seconds_per_iteration": 4.56,
+    "mean_action_std": 0.83,
+    "mean_reward": 18.88,
+    "mean_value_loss": 125.4712,
+    "terrain_level": 5.8271,
+    "eta_display": [
+      "02:54:40"
+    ],
+    "preserved_models": [
+      {
+        "name": "model_0.pt",
+        "bytes": 6881623
+      },
+      {
+        "name": "model_100.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_200.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_300.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_400.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_500.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_600.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_700.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_800.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_900.pt",
+        "bytes": 6882219
+      },
+      {
+        "name": "model_1000.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1100.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1200.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1300.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1400.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1500.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1600.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1700.pt",
+        "bytes": 6882293
+      },
+      {
+        "name": "model_1800.pt",
+        "bytes": 6882293
+      }
+    ],
+    "driver_tail": "{\"stage\": \"STARTED\", \"utc\": \"2026-10-01T04:44:10.279313+00:00\", \"elapsed_hours\": 0.2092442559533649, \"mode\": \"scratch_pair\", \"training_seed\": 42, \"reason\": \"Installed PPO.load does not restore learning_rate scalar\", \"server_budget_hours\": 20, \"official_submission\": false}\n{\"stage\": \"RUNNING\", \"utc\": \"2026-10-01T04:44:10.284364+00:00\", \"elapsed_hours\": 0.20924565805329218, \"job\": \"train_F00\", \"command\": [\"/workspace/IsaacLab/isaaclab.sh\", \"-p\", \"train.py\", \"--task\", \"Quadruped-v0\", \"--num_envs\", \"6144\", \"--seed\", \"42\", \"--max_iterations\", \"4000\", \"--run_name\", \"round20_F00\", \"--headless\"], \"timeout_seconds\": 21600}\n",
+    "gpu": "87 %, 8028 MiB",
+    "nonfinite_metrics": []
+  },
+  "trend": [
+    {
+      "iteration": 1787,
+      "value_loss": 0.0622,
+      "reward": 18.31,
+      "action_std": 0.81
+    },
+    {
+      "iteration": 1788,
+      "value_loss": 0.8014,
+      "reward": 20.24,
+      "action_std": 0.81
+    },
+    {
+      "iteration": 1789,
+      "value_loss": 0.0551,
+      "reward": 19.49,
+      "action_std": 0.81
+    },
+    {
+      "iteration": 1790,
+      "value_loss": 0.0458,
+      "reward": 17.02,
+      "action_std": 0.8
+    },
+    {
+      "iteration": 1791,
+      "value_loss": 0.0427,
+      "reward": 18.56,
+      "action_std": 0.8
+    },
+    {
+      "iteration": 1792,
+      "value_loss": 0.0448,
+      "reward": 18.1,
+      "action_std": 0.8
+    },
+    {
+      "iteration": 1793,
+      "value_loss": 0.0449,
+      "reward": 17.31,
+      "action_std": 0.8
+    },
+    {
+      "iteration": 1794,
+      "value_loss": 0.0996,
+      "reward": 15.19,
+      "action_std": 0.8
+    },
+    {
+      "iteration": 1795,
+      "value_loss": 0.5438,
+      "reward": 16.48,
+      "action_std": 0.8
+    },
+    {
+      "iteration": 1796,
+      "value_loss": 1.0481,
+      "reward": 16.99,
+      "action_std": 0.8
+    },
+    {
+      "iteration": 1797,
+      "value_loss": 0.2442,
+      "reward": 19.17,
+      "action_std": 0.8
+    },
+    {
+      "iteration": 1798,
+      "value_loss": 0.3486,
+      "reward": 19.23,
+      "action_std": 0.8
+    },
+    {
+      "iteration": 1799,
+      "value_loss": 0.1154,
+      "reward": 19.12,
+      "action_std": 0.81
+    },
+    {
+      "iteration": 1800,
+      "value_loss": 2.0125,
+      "reward": 19.94,
+      "action_std": 0.81
+    },
+    {
+      "iteration": 1801,
+      "value_loss": 8.6672,
+      "reward": 18.23,
+      "action_std": 0.81
+    },
+    {
+      "iteration": 1802,
+      "value_loss": 2.2986,
+      "reward": 19.01,
+      "action_std": 0.81
+    },
+    {
+      "iteration": 1803,
+      "value_loss": 1.5268,
+      "reward": 19.62,
+      "action_std": 0.82
+    },
+    {
+      "iteration": 1804,
+      "value_loss": 8.3721,
+      "reward": 19.27,
+      "action_std": 0.82
+    },
+    {
+      "iteration": 1805,
+      "value_loss": 48.2056,
+      "reward": 17.31,
+      "action_std": 0.82
+    },
+    {
+      "iteration": 1806,
+      "value_loss": 125.4712,
+      "reward": 18.88,
+      "action_std": 0.83
+    },
+    {
+      "iteration": 1807,
+      "value_loss": 13.0794,
+      "reward": 16.86,
+      "action_std": 0.83
+    },
+    {
+      "iteration": 1808,
+      "value_loss": 0.7876,
+      "reward": 19.04,
+      "action_std": 0.84
+    },
+    {
+      "iteration": 1809,
+      "value_loss": 0.1291,
+      "reward": 16.8,
+      "action_std": 0.84
+    },
+    {
+      "iteration": 1810,
+      "value_loss": 1.7051,
+      "reward": 17.19,
+      "action_std": 0.84
+    },
+    {
+      "iteration": 1811,
+      "value_loss": 0.3093,
+      "reward": 18.48,
+      "action_std": 0.84
+    }
+  ]
+}

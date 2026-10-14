@@ -1,0 +1,148 @@
+Independent local integration review, 2026-10-10
+Scope: read-only runner, streaming helper, live preflight, receipt seal, design,
+package builder, evaluation and decision rules. No server/browser/network,
+CUDA, actual policy inference, service signal, Linux inotify or pidfd execution.
+
+Actionable findings communicated to owners:
+
+P1 — Terminal/cleanup streaming ACK race: FIX VERIFIED.
+runner.validate saves COMPUTE_COMPLETE_RETRIEVE_AND_STOP_ALLOCATION before
+execute.finally performs preserve/restore/guard and requests a new cleanup
+release token. helper.control exits immediately on that terminal stage and
+releases its lease in finally; it therefore cannot acknowledge the subsequent
+cleanup token. CPU mocked control reproduced terminal return with acknowledge
+call_count=0 and release_lease call_count=1. If the helper reads the terminal
+stage in that gap, the runner's 30-second ACK wait reports RECOVERY_FAILED after
+otherwise complete validation. Partial/error stages have the same possibility.
+Owner repaired runner.validate to store compute_completed=true and the
+non-terminal COMPUTE_FINISHED_CLEANUP_PENDING stage. Failure stores the
+non-terminal ERROR_CLEANUP_PENDING stage. Actual terminal complete/partial is
+published only after the cleanup release ACK; archive completeness is assessed
+after that publication. Two new CPU integration fixtures cover success and error
+ordering; runner43 tests pass. There is no controller rearm or fabricated ACK.
+Actual deadline recovery after11700 still requires observed helper/resumer
+receipts; any missing current ACK correctly remains an incomplete recovery.
+
+P1 — Missing capture probe receipt and seal script package member: FIX VERIFIED.
+Initial preflight_receipt.py omitted checkpoint_capture_probe_verified and the
+checkpoint_capture_probe object required by runner.initialize; package builder
+also omitted the seal script. Parent repaired both during this review. The seal
+now reads the real checkpoint_capture_probe.json, checks current-allocation
+verified_epoch and all required booleans, and includes both fields. A temporary
+CPU fixture executed the seal CLI and confirmed exact capture receipt equality.
+This is interface verification with mocks, not actual Linux capture proof.
+
+P2 — Conditional missing official-launcher path: FIX VERIFIED.
+live_preflight allows classification=no_gpu_jobs without requiring a launcher.
+If the actual installation has no exact official launcher, acquire_lease returns
+None and control does not issue held_gpu_released, so selection hold times out.
+live_preflight.observe_processes now calls verify_controller_launcher even when
+GPU inventory is empty, requiring one current active exact launcher and no
+ambiguous/unknown live children. Missing/dead/recycled/paused launchers reject
+preflight. All28 live-preflight CPU tests pass, including the GPU0 case. This
+closes the later hold-ACK dead path without changing service-control semantics.
+
+Final delta — setup hard backstop and one-shot bootstrap:
+design.setup_end, runner.OFFSETS.setup_end and preflight seal cap are1200s;
+setup target remains900s. Compute11700s and OFF14400s remain unchanged, and
+whole-pipeline ETA admission remains stricter than the20min setup backstop.
+New start_once.py launches exactly one runner with current official Python,
+verifies its exact argv/PID/start_ticks/parent/session, waits at most10s for
+matching fresh runner state, and dispatches one helper plus2s identity proof.
+Both process sessions are fresh, receipt records training not_started and the
+initial release ACK still gates actual training. A one-shot claim and existing
+state/helper evidence prohibit second launches. Current22 CPU launcher tests
+pass, including subsequent monitor repairs. Package builder includes start_once.py.
+
+P1/P2 — Bootstrap monitoring cleanup: initial defects FIX VERIFIED.
+Initial main monitor has no try/finally or SIGINT/SIGTERM cleanup handler after
+launch returns. Wrapper Ctrl+C/TERM can leave the actual runner active while the
+separate helper remains bound to it. The monitor also does not fail fast if the
+helper unexpectedly exits before compute deadline, permitting training to use
+the budget despite a missing future hold controller. Owner added handlers before
+launch for SIGINT/TERM/HUP, monitored finally cleanup, early helper-exit rejection,
+terminal return0 allowance during archive, and bounded helper recovery audit
+checks. All22 CPU launcher tests pass, including interrupt, early loss, terminal
+archive and compute+30s helper recovery bound. No real signal/service was used.
+
+P1 — Nested forced-stop allowance: FIX VERIFIED at final delta.
+Wrapper monitor/launch-error cleanup invokes runner.stop_process on the runner;
+that routine INT30s -> TERM15s -> KILL5s escalates to KILL at45s. The runner itself
+uses the same sequence to stop its owned GPU child before preserve/restore/archive.
+In the worst case the wrapper can KILL a normally cleaning-up runner at45s while
+the child cleanup still consumes its45-50s allowance, before reward restoration.
+Owner added separate graceful_stop_runner with SIGINT120s, TERM15s, KILL5s,
+bounded by confirmed-OFF deadline minus60s. Current owned member identities and
+the leader's exact original argv are checked immediately before every signal.
+Both bootstrap failure and monitored finally use this routine, without helper
+rearm or numeric signaling of unrelated GPU groups. Four new CPU fixtures cover
+a runner finishing normal nested cleanup after60s without escalation, fresh
+identity checks at every escalation, changed-argv refusal and the final deadline
+bound. All22 launcher tests pass; no actual Linux signals were executed.
+Final reviewed start_once.py SHA256:
+49c121c4ec180d3b428dcfe8ffff0bddec443146b2325f81fdb29a88286310fd,
+12377 bytes. No remaining actionable local integration defect was found.
+
+Verified contracts:
+- initial disabled screen returns without evaluator/controller calls; only one
+  scratch S5 candidate is scheduled; no resume/retry or extra GPU phase.
+- runner initializes state.runner_identity before requesting train release.
+  helper argv/PID/start_ticks binding matches the launch contract. Initial ACK
+  requires helper dispatch within 30 seconds; prepare dispatch before runner.
+- selection reuses the single held token during validation. There is no second
+  hold token without an intervening release in the final pipeline.
+- exact model1499 is verified after provided cleanup from preserved bytes,
+  weights_only on CPU, stored iteration, SHA and all floating tensor finiteness.
+  Missing final is a distinct partial error. model1000 missing may freeze1499
+  with an explicit non-optimal fallback; corrupt1000 is fatal, not fallback.
+- inotify hardlink capture only touches the unique owned output run/spool. Its
+  CREATE/CLOSE_WRITE discovery and surviving inode design are CPU contract-tested;
+  actual Linux ABI and deletion race timing remain unverified before live probe.
+- actor_state_dict/model_state_dict preference is the same in evaluator and
+  legacy loader; layer dimensions, biases, output shape and actual normalizer
+  keys are checked. Fresh effective agent/config checks require normalization
+  disabled and clip_actions null. Loading performs duplicate hash-bound reads
+  for validation and legacy reconstruction, not additional rollouts.
+- full initial/transition error samples are retained; first terminal/timeout tick
+  and later reset trajectories are excluded; only actual final timeout999 is
+  allowed. Per-episode counts reconcile with SSE/SAE and survival. NaN/Inf aborts.
+  p99/signed-response/ordinary-yaw diagnostics do not modify gate inputs.
+- final merge requires exact scenario/seed/model coverage, immutable per-job
+  source audits, checkpoint hashes and diagnostic completion. decision_rules
+  enforces all design gate thresholds before recommending any separate budget.
+  complete_validation means measured data complete even if admission gate fails;
+  archive receipts keep local_retrieval_verified=false and OFF remains separate.
+- design offsets match runner OFFSETS (including setup hard cap1200s after delta),
+  14400s allocation limit, 11700s compute,
+  planning multiplier1.05, boot120, selection900, validation1650, margin300.
+  Admission reserves the whole downstream pipeline, stricter than the30min cap.
+- frozen input guard hashes package Python files/design/reference manifests and
+  freshly created protected_runtime_sources.json. Streaming state/status/claim/
+  audit files are legitimate mutable JSON/JSONL; their writes do not trip frozen
+  code hashes. Source audit snapshots passed to each evaluator are immutable.
+- source_snapshot.py generates current provided source hashes and all actual
+  installed rsl_rl Python hashes/layout; it does not reuse prior runtime paths.
+  live_preflight independently rehashes package/provided/runtime sources before
+  and after CPU reference-load proof and classifies current process identities.
+- builder uploads only exact selected source/reference members and hash-verifies
+  ZIP contents. No builder or evaluator merge invokes simulation or GPU work.
+
+Local verification performed:
+runner_tests.py: 44 passed after setup-cap delta (43 after terminal-stage repair).
+streaming_control_libc_tests.py: 50 passed.
+evaluation_tests.py: 44 passed.
+live_preflight_tests.py: 28 passed.
+start_once_tests.py: 22 passed (dispatch, monitor and nested-cleanup contracts).
+Receipt seal temporary fixture: current capture contract passed.
+Terminal-control CPU mock: premature terminal exit reproduced as above.
+
+Final local review closure: all communicated actionable findings are repaired
+and the current code may be frozen for the authorized live preflight. This does
+not assert runtime readiness, successful training or server allocation OFF.
+launch_finished.json is written after the runner archive and needs separate
+normal-UI preservation; its controller recovery evidence is not an OFF receipt.
+
+Limitations: Windows mocks do not establish actual Linux signal/inotify/pidfd ABI,
+streamer GPU release/restart, effective new-server config, training completion,
+evaluation throughput, checkpoint capture under real cleanup, binary retrieval,
+or dashboard OFF. Those require authorized live preflight/observed receipts.

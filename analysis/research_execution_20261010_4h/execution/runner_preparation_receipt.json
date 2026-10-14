@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "test_count": 66,
+  "runner_test_count": 44,
+  "launcher_test_count": 22,
+  "CPU_only": true,
+  "server_used": false,
+  "new_training_executed": false,
+  "Linux_capture_probe_executed": false,
+  "live_pidfd_probe_executed": false,
+  "created_epoch": 1791614367,
+  "setup_target_seconds": 900,
+  "setup_hard_backstop_seconds": 1200,
+  "compute_end_seconds": 11700,
+  "stop_request_seconds": 12900,
+  "OFF_seconds": 14400,
+  "wrapper_SIGINT_grace_seconds": 120,
+  "wrapper_grace_cutoff": "OFFminus60",
+  "files": {
+    "runner.py": {
+      "sha256": "fed0e531ff19cf0970a6cd98c18892f92c3f58559ecb684c2b79394650aaaaf9",
+      "bytes": 61323
+    },
+    "runner_tests.py": {
+      "sha256": "edc8e5515558e4fe7e37fcc30aec19f0d0e3fe7248bb10f9d7d113a8546be85d",
+      "bytes": 28642
+    },
+    "checkpoint_capture_probe.py": {
+      "sha256": "10f841504ab763b39570384db487ec784da37bcbfc31194b91814db0c13dec00",
+      "bytes": 3039
+    },
+    "RUNNER_USAGE.txt": {
+      "sha256": "1c823e753590e68a9336f9b7a844673919e9afdaa98179446b7aa58b724db85b",
+      "bytes": 8961
+    },
+    "start_once.py": {
+      "sha256": "49c121c4ec180d3b428dcfe8ffff0bddec443146b2325f81fdb29a88286310fd",
+      "bytes": 12377
+    },
+    "start_once_tests.py": {
+      "sha256": "805f5e26420c718a72b155df0c9452454ef96182fa46eba2cee8ea632af1ffe7",
+      "bytes": 16891
+    }
+  }
+}

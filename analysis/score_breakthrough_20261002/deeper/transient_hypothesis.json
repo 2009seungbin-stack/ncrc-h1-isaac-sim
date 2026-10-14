@@ -1,0 +1,52 @@
+{
+  "rows": [
+    {
+      "scenario": "G1",
+      "effective_extra_mse_assuming_S1_and_exp_rmse": 0.025941146689196254,
+      "conditional_cap_of_excluded_command_transients": 0.021583333333333333,
+      "ratio_needed_to_cap": 1.2019064103102512
+    },
+    {
+      "scenario": "G2",
+      "effective_extra_mse_assuming_S1_and_exp_rmse": 0.029020314921504177,
+      "conditional_cap_of_excluded_command_transients": 0.025,
+      "ratio_needed_to_cap": 1.160812596860167
+    },
+    {
+      "scenario": "G3",
+      "effective_extra_mse_assuming_S1_and_exp_rmse": 0.026060174174537255,
+      "conditional_cap_of_excluded_command_transients": 0.005833333333333334,
+      "ratio_needed_to_cap": 4.467458429920672
+    },
+    {
+      "scenario": "G4",
+      "effective_extra_mse_assuming_S1_and_exp_rmse": 0.0248161548578426,
+      "conditional_cap_of_excluded_command_transients": 0.0020833333333333333,
+      "ratio_needed_to_cap": 11.911754331764447
+    },
+    {
+      "scenario": "G5",
+      "effective_extra_mse_assuming_S1_and_exp_rmse": 0.03273283300186926,
+      "conditional_cap_of_excluded_command_transients": 0.0013333333333333335,
+      "ratio_needed_to_cap": 24.54962475140194
+    },
+    {
+      "scenario": "G6",
+      "effective_extra_mse_assuming_S1_and_exp_rmse": 0.022933255186059015,
+      "conditional_cap_of_excluded_command_transients": 0.0020833333333333333,
+      "ratio_needed_to_cap": 11.007962489308328
+    },
+    {
+      "scenario": "G7",
+      "effective_extra_mse_assuming_S1_and_exp_rmse": 0.02544214478403052,
+      "conditional_cap_of_excluded_command_transients": 0.004333333333333332,
+      "ratio_needed_to_cap": 5.871264180930122
+    }
+  ],
+  "assumptions": [
+    "Assumes official survival one and official tracking exp(-3-axis RMSE), neither verified.",
+    "Previous command tracked before change; monotone response with no overshoot; any additional command-transition error confined to first 0.5 seconds.",
+    "Ignores pushes and terrain disturbances; not a bound for arbitrary real robot behavior."
+  ],
+  "conclusion": "Under these assumptions command-transition exclusion alone does not explain the gap, especially constant-command slope/stairs."
+}

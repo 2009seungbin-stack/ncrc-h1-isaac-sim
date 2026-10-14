@@ -1,0 +1,197 @@
+{
+  "run_id": "A2",
+  "checkpoint": "/workspace/training/quadruped/logs/rsl_rl/quadruped/A2/model_best.pt",
+  "eval_seed_set": "EVAL_SET_A",
+  "scenarios": {
+    "G7": {
+      "w": 0.1,
+      "desc": "도메인 랜덤화 (험지 + 마찰/질량 랜덤)",
+      "terrain": "dr",
+      "episodes": 512,
+      "survived": 484,
+      "survival": 0.9453,
+      "survival_lcb": 0.9221,
+      "tracking": 0.8299,
+      "score": 0.7846,
+      "rmse": {
+        "vx": 0.2346,
+        "vy": 0.0824,
+        "yaw": 0.206
+      },
+      "rmse_used": 0.1864,
+      "rmse_extra": {
+        "vz": 0.1717,
+        "wx": 0.5879,
+        "wy": 0.7747
+      },
+      "mae": {
+        "vx": 0.1693,
+        "vy": 0.063,
+        "yaw": 0.1547
+      },
+      "mse_seg": {
+        "vx": [
+          0.03253,
+          0.01658,
+          0.04917,
+          0.12347
+        ],
+        "vy": [
+          0.00593,
+          0.00558,
+          0.00601,
+          0.0097
+        ],
+        "yaw": [
+          0.03421,
+          0.03399,
+          0.038,
+          0.06403
+        ]
+      },
+      "axis_mode": "all",
+      "axis_weights": {
+        "vx": 1.0,
+        "vy": 1.0,
+        "yaw": 1.0
+      },
+      "segment_cmds": [
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.3
+        ],
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          -0.3
+        ]
+      ],
+      "segment_tracking": [
+        0.8559,
+        0.8721,
+        0.8384,
+        0.7738
+      ],
+      "segment_mean_actual": [
+        [
+          0.373,
+          -0.037,
+          -0.018
+        ],
+        [
+          0.416,
+          -0.03,
+          0.261
+        ],
+        [
+          0.344,
+          -0.025,
+          -0.032
+        ],
+        [
+          0.215,
+          -0.039,
+          -0.237
+        ]
+      ],
+      "segment_falls": [
+        1,
+        0,
+        3,
+        24
+      ],
+      "seg_s": 5.0,
+      "push_mag": null,
+      "push_period_s": null,
+      "falls": 28,
+      "nan_actions": 0,
+      "crashes": 0
+    }
+  },
+  "coverage_weight": 0.1,
+  "sim_score": 5.492,
+  "sim_score_pct": 78.46,
+  "sim_score_by_axis_mode": {
+    "all": 5.492,
+    "scenario": 5.306,
+    "yaw": 5.385
+  },
+  "official_pred": {
+    "all": {
+      "self_q": 0.0785,
+      "official_sim": -3.99,
+      "official_total": 26.01,
+      "total_lo": 26.01,
+      "total_hi": 35.03,
+      "band": 9.03,
+      "anchor": "2R R3A_9000 + 1R model_4600 (V1)",
+      "target_total": 91.0,
+      "target_self_sim": 66.15,
+      "borrowed_anchor": true,
+      "ratio": null
+    },
+    "scenario": {
+      "self_q": 0.0758,
+      "official_sim": -4.19,
+      "official_total": 25.81,
+      "total_lo": 25.81,
+      "total_hi": 34.86,
+      "band": 9.06,
+      "anchor": "2R R3A_9000 + 1R model_4600 (V1)",
+      "target_total": 91.0,
+      "target_self_sim": 66.15,
+      "borrowed_anchor": true,
+      "ratio": null
+    },
+    "yaw": {
+      "self_q": 0.0769,
+      "official_sim": -4.11,
+      "official_total": 25.89,
+      "total_lo": 25.89,
+      "total_hi": 34.94,
+      "band": 9.04,
+      "anchor": "2R R3A_9000 + 1R model_4600 (V1)",
+      "target_total": 91.0,
+      "target_self_sim": 66.15,
+      "borrowed_anchor": true,
+      "ratio": null
+    }
+  },
+  "h_survival": 0.9453,
+  "h_survival_lcb": 0.9221,
+  "official_offset": null,
+  "falls": 28,
+  "nan_actions": 0,
+  "crashes": 0,
+  "stress": null,
+  "config": {
+    "seg_s": 5.0,
+    "transient_s": 0.5,
+    "num_envs": 128,
+    "seeds": "103,280,512,991",
+    "rough_range": [
+      0.04,
+      0.1
+    ],
+    "slope_deg": 20.0,
+    "push_period_s": 2.5,
+    "push_mag": 1.0,
+    "obs_noise": true,
+    "tracking_def": "exp(-RMSE)",
+    "axis_mode": "all",
+    "cmd_scale": 1.0,
+    "stair_height": 0.12,
+    "stair_width": 0.3
+  }
+}

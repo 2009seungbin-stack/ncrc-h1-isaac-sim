@@ -1,0 +1,35 @@
+{
+  "control": {
+    "track_lin_vel_xy_exp": 2.0,
+    "track_ang_vel_z_exp": 1.5,
+    "feet_air_time": 0.01,
+    "lin_vel_z_l2": -3.0,
+    "ang_vel_xy_l2": -0.08,
+    "action_rate_l2": -0.01
+  },
+  "action": {
+    "track_lin_vel_xy_exp": 2.0,
+    "track_ang_vel_z_exp": 1.5,
+    "feet_air_time": 0.01,
+    "lin_vel_z_l2": -3.0,
+    "ang_vel_xy_l2": -0.08,
+    "action_rate_l2": -0.0075
+  },
+  "acc": {
+    "track_lin_vel_xy_exp": 2.0,
+    "track_ang_vel_z_exp": 1.5,
+    "feet_air_time": 0.01,
+    "lin_vel_z_l2": -3.0,
+    "ang_vel_xy_l2": -0.08,
+    "action_rate_l2": -0.01,
+    "dof_acc_l2": -2e-07
+  },
+  "linear": {
+    "track_lin_vel_xy_exp": 3.0,
+    "track_ang_vel_z_exp": 1.5,
+    "feet_air_time": 0.01,
+    "lin_vel_z_l2": -3.0,
+    "ang_vel_xy_l2": -0.08,
+    "action_rate_l2": -0.01
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "observed_epoch": 1791548272.3317587,
+  "stage": "RUNNING_train_B1",
+  "iteration_line": "Learning iteration 61/1500                           \u001b[0m ",
+  "training_cmdline": [
+    "/isaac-sim/kit/python/bin/python3",
+    "/workspace/training/quadruped/train.py",
+    "--_run_isaaclab_child",
+    "--task",
+    "Quadruped-v0",
+    "--num_envs",
+    "6144",
+    "--seed",
+    "42",
+    "--max_iterations",
+    "1500",
+    "--run_name",
+    "B1_4h_1791547031",
+    "--headless"
+  ],
+  "training_process_group": 16244,
+  "gpu_processes": "16262, /isaac-sim/kit/python/bin/python3, 7983 MiB\n16262, /isaac-sim/kit/python/bin/python3, 7983 MiB\n",
+  "configuration": {
+    "effective_weights": {
+      "track_lin_vel_xy_exp": 1.5,
+      "track_ang_vel_z_exp": 0.75,
+      "lin_vel_z_l2": -2.0,
+      "ang_vel_xy_l2": -0.05,
+      "dof_torques_l2": -0.0001,
+      "dof_acc_l2": -2.5e-07,
+      "action_rate_l2": -0.01,
+      "feet_air_time": 0.0,
+      "flat_orientation_l2": 0.0,
+      "dof_pos_limits": 0.0
+    },
+    "env_sha256": "1cca0dc7b6045fb3b9c1130a3835df873b3e4eb213e25a3e38a5873114c3f552",
+    "agent_sha256": "4f4424ae57303080b2a7ab49c8e00a67c6497ec6f64220d6054395d4b990f36d",
+    "actor_observation_normalization": false,
+    "policy_clip_actions": null,
+    "actor_configs": {
+      "actor": {
+        "class_name": "MLPModel",
+        "activation": "elu",
+        "obs_normalization": false,
+        "hidden_dims": [
+          512,
+          256,
+          128
+        ]
+      },
+      "critic": {
+        "class_name": "MLPModel",
+        "activation": "elu",
+        "obs_normalization": false,
+        "hidden_dims": [
+          512,
+          256,
+          128
+        ]
+      }
+    },
+    "control_step_seconds": 0.02
+  },
+  "model_0_sha256": "2e1bc8c4bbc9a1643152b0d026fee44629f4c6a4911f3c12de21704469bd4a0b"
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "C0_5500",
+    "checkpoint": "models/C0_5500.pt",
+    "sha256": "8d553e697ed4c2856ab002431af96d626eb8b0d23e56b7c754d652193026b1d3"
+  },
+  {
+    "name": "F10_2000",
+    "checkpoint": "models/F10_2000.pt",
+    "sha256": "f4de9c4b802762de314fb611b090479098f24515cd164ed0136ccd784c1275e9"
+  },
+  {
+    "name": "F10_2200",
+    "checkpoint": "models/F10_2200.pt",
+    "sha256": "050f32dd8867d577c0627615310233504551a67d85566231dff0b46a77a94474"
+  },
+  {
+    "name": "F10_2400",
+    "checkpoint": "models/F10_2400.pt",
+    "sha256": "441d16f95a87b298442106a8d86ed7608c71f0973508ca2c21c3e88071aff6e6"
+  },
+  {
+    "name": "F10_2600",
+    "checkpoint": "models/F10_2600.pt",
+    "sha256": "0a26e000e062a44f030175b2d5a2953af47dbbd8422c1a8142a8bf78291b6c54"
+  },
+  {
+    "name": "F10_2800",
+    "checkpoint": "models/F10_2800.pt",
+    "sha256": "d8e9afb96b30c3faa9a6dd765d80e4522527495cc139cb525b6890b1f83e3fbb"
+  },
+  {
+    "name": "F10_3000",
+    "checkpoint": "models/F10_3000.pt",
+    "sha256": "4684a58838229b729feb2f2534ab9423a4993377e75179a0d55a95904ecf23d2"
+  }
+]

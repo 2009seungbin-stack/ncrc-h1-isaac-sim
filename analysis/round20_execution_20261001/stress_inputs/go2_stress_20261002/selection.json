@@ -1,0 +1,13 @@
+{
+  "selected": "F10_model_3000",
+  "heldout_original": {
+    "floor": 58.12659801787603,
+    "ratio": 58.08180386741679
+  },
+  "heldout_selected": {
+    "floor": 58.40598275784186,
+    "ratio": 58.74027963751008
+  },
+  "heldout_gate_passed": false,
+  "official_submission": false
+}

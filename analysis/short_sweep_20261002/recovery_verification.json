@@ -1,0 +1,116 @@
+{
+  "status": "VERIFIED",
+  "verified_utc": "2026-10-02T16:52:15.054564+00:00",
+  "archive": "C:\\Users\\2009s\\Desktop\\issac_sim\\short_sweep_20261002_results.tar.gz",
+  "archive_bytes": 503786122,
+  "archive_sha256": "1a8a5a284a6622e9a7cb60a5066e080adb15fa8061a7eb8a20f7edaaf34ca6d9",
+  "extracted_root": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002",
+  "file_count": 235,
+  "json_files_parsed": 44,
+  "checkpoints": {
+    "control": {
+      "path": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\preserved\\short_20261002_control\\2026-10-02_20-37-44_short_20261002_control\\model_799.pt",
+      "sha256": "bbe5192e24aad58db28d91bcb20f710226d9a4e5e096b866ea8654955a399c62",
+      "bytes": 6882219,
+      "preserved_iterations": [
+        0,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        799
+      ],
+      "log_iterations": 800,
+      "event_file": "preserved\\short_20261002_control\\2026-10-02_20-37-44_short_20261002_control\\events.out.tfevents.1790941076.da-perfect38.13759.0"
+    },
+    "action": {
+      "path": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\preserved\\short_20261002_action\\2026-10-02_21-42-09_short_20261002_action\\model_799.pt",
+      "sha256": "ada90e26dc549c448e92b3aee42ee00dba67f953f0605e148eb48e9a01fff797",
+      "bytes": 6882219,
+      "preserved_iterations": [
+        0,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        799
+      ],
+      "log_iterations": 800,
+      "event_file": "preserved\\short_20261002_action\\2026-10-02_21-42-09_short_20261002_action\\events.out.tfevents.1790944940.da-perfect38.28864.0"
+    },
+    "acc": {
+      "path": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\preserved\\short_20261002_acc\\2026-10-02_22-46-35_short_20261002_acc\\model_799.pt",
+      "sha256": "256af12f1ff93f5998670966dbb64cbdcc1a5a00ff2fe11b2be7fc8bb7b631fb",
+      "bytes": 6882219,
+      "preserved_iterations": [
+        0,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        799
+      ],
+      "log_iterations": 800,
+      "event_file": "preserved\\short_20261002_acc\\2026-10-02_22-46-35_short_20261002_acc\\events.out.tfevents.1790948806.da-perfect38.43791.0"
+    },
+    "linear": {
+      "path": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\preserved\\short_20261002_linear\\2026-10-02_23-50-45_short_20261002_linear\\model_799.pt",
+      "sha256": "c421a9d39bd3555d80c63c6e3b59cd61a3286ed44add2a402b5b8447d5e6bdd4",
+      "bytes": 6882219,
+      "preserved_iterations": [
+        0,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        799
+      ],
+      "log_iterations": 800,
+      "event_file": "preserved\\short_20261002_linear\\2026-10-02_23-50-45_short_20261002_linear\\events.out.tfevents.1790952655.da-perfect38.58596.0"
+    }
+  },
+  "evaluation": {
+    "saved": {
+      "models": 7,
+      "scenarios_per_model": 4,
+      "trace_archives_crc_verified": 56,
+      "episodes_per_model": 256,
+      "aggregate_rmse_matches_raw": true
+    },
+    "short": {
+      "models": 4,
+      "scenarios_per_model": 4,
+      "trace_archives_crc_verified": 32,
+      "episodes_per_model": 256,
+      "aggregate_rmse_matches_raw": true
+    },
+    "heldout": {
+      "models": 2,
+      "scenarios_per_model": 7,
+      "trace_archives_crc_verified": 28,
+      "episodes_per_model": 1792,
+      "aggregate_rmse_matches_raw": true
+    }
+  },
+  "reward_restoration": {
+    "restored": true,
+    "sha256": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7"
+  },
+  "protected_source_manifest_matches": true,
+  "remote_rechecked_utc": "2026-10-02T16:49:54Z",
+  "remote_recheck": "Archive size and SHA256 match; original reward SHA256 matches; tmux has no sessions.",
+  "checkpoints_loaded_as_code": false,
+  "official_submission": false
+}

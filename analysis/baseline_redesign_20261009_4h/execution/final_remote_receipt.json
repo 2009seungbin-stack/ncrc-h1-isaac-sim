@@ -1,0 +1,274 @@
+{
+  "observed_epoch": 1791555409.9651997,
+  "state": {
+    "schema_version": 1,
+    "stage": "STOPPED_PARTIAL_RETRIEVE_AND_STOP_ALLOCATION",
+    "allocation_start_epoch": 1791547031,
+    "deadlines_epoch": {
+      "setup_end": 1791547931,
+      "training_end_latest": 1791556631,
+      "selection_end_latest": 1791557531,
+      "compute_end": 1791558731,
+      "dashboard_shutdown_request_latest": 1791560831,
+      "shutdown_confirmed_latest": 1791561431
+    },
+    "training": {
+      "status": "complete",
+      "run_name": "B1_4h_1791547031",
+      "expected_weights": {
+        "track_lin_vel_xy_exp": 1.5,
+        "track_ang_vel_z_exp": 0.75,
+        "feet_air_time": 0,
+        "lin_vel_z_l2": -2,
+        "ang_vel_xy_l2": -0.05,
+        "action_rate_l2": -0.01,
+        "dof_acc_l2": -2.5e-7,
+        "dof_torques_l2": -0.0001,
+        "flat_orientation_l2": 0,
+        "dof_pos_limits": 0
+      },
+      "pid": 16244,
+      "process_group_id": 16244,
+      "started_epoch": 1791547911.4679155,
+      "command": [
+        "/workspace/IsaacLab/isaaclab.sh",
+        "-p",
+        "train.py",
+        "--task",
+        "Quadruped-v0",
+        "--num_envs",
+        "6144",
+        "--seed",
+        "42",
+        "--max_iterations",
+        "1500",
+        "--run_name",
+        "B1_4h_1791547031",
+        "--headless"
+      ],
+      "configuration": {
+        "effective_weights": {
+          "track_lin_vel_xy_exp": 1.5,
+          "track_ang_vel_z_exp": 0.75,
+          "lin_vel_z_l2": -2,
+          "ang_vel_xy_l2": -0.05,
+          "dof_torques_l2": -0.0001,
+          "dof_acc_l2": -2.5e-7,
+          "action_rate_l2": -0.01,
+          "feet_air_time": 0,
+          "flat_orientation_l2": 0,
+          "dof_pos_limits": 0
+        },
+        "env_sha256": "1cca0dc7b6045fb3b9c1130a3835df873b3e4eb213e25a3e38a5873114c3f552",
+        "agent_sha256": "4f4424ae57303080b2a7ab49c8e00a67c6497ec6f64220d6054395d4b990f36d",
+        "actor_observation_normalization": false,
+        "policy_clip_actions": null,
+        "actor_configs": {
+          "actor": {
+            "class_name": "MLPModel",
+            "activation": "elu",
+            "obs_normalization": false,
+            "hidden_dims": [
+              512,
+              256,
+              128
+            ]
+          },
+          "critic": {
+            "class_name": "MLPModel",
+            "activation": "elu",
+            "obs_normalization": false,
+            "hidden_dims": [
+              512,
+              256,
+              128
+            ]
+          }
+        },
+        "control_step_seconds": 0.02
+      },
+      "initial_checkpoint_sha256": "2e1bc8c4bbc9a1643152b0d026fee44629f4c6a4911f3c12de21704469bd4a0b",
+      "training_time_profile": {
+        "samples": 1500,
+        "completed_iterations": 1500,
+        "recent_seconds_per_iteration": 4.7078
+      },
+      "process_group_exited": true,
+      "returncode": 0,
+      "ended_epoch": 1791555100.8381581,
+      "seconds": 7189.556985139847
+    },
+    "evaluations": {},
+    "selected": null,
+    "input_hashes": {
+      "protected_runtime_sources.json": "7dff36a4ad3209d0ca6714df2beaba75ad0fbee6305e4ba4dfcfede5a23ca997",
+      "design.json": "62f71dd24c946cb7cb41452845291654becead00153b8913ebcc2ff607f2f4d9",
+      "reference_models.json": "07da0126af908a4b2dc0cc64bb432ff91f1a9334884df24dd61b8b0527703712",
+      "t_eval.py": "bd95f7e7df231454927c70b2bb2431b05cd504ad38c736f16f91dab3435651d9",
+      "runner.py": "a7a318148c5a9605ebee59962f78bf62873c6d3ad38bf76f489e721a5f9662c8",
+      "source_snapshot.py": "d3bc1705a07392032b1369d6f48fb1b72b676f1b3cd0dd9457882480b781b211",
+      "t_eval_go2_core.py": "baa43b161ec7a02d9ae1dfebfe593976f17d78916354d9029ba22b239f0cff6e",
+      "live_preflight.py": "681dffe4f0c81a75c3c4c258faff5d063896363cbead33bfbfaecc8a88a6c376",
+      "evaluation.py": "f5ba443c4a095287686aa61210b0e3b196cb60de6c95102ca092d8077b9a0ec1",
+      "fresh_rewards_original.py": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7",
+      "decision_rules.py": "aefe734c93b9ba9f55ebdc1b2be7d7bf4c9b3c78c331a376468f919481abaca7",
+      "candidates/B1_selective_cost_rewards.py": "a856051f81920f603e56bd39ca0e554a69ecafed34961d6c0e70ed2073040381"
+    },
+    "source_hashes": {
+      "train.py": "c09ac99bcd93bb367f0eec69bdb05f4063cb8d60f0258d4667f07addf509de22",
+      "play.py": "ce703acf54eac40073e3f6d585d6002e3b4a2d9062581b3c0ed45db73ac5f9dc",
+      "go2_task/agent_cfg.py": "a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23",
+      "go2_task/env_cfg.py": "df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1"
+    },
+    "preflight": {
+      "actual_allocation_start_epoch": 1791547031,
+      "verified_epoch": 1791547895.2478666,
+      "user_authorized_execution": true,
+      "retrieval_smoke_verified": true,
+      "no_competing_gpu_jobs_verified": true,
+      "runtime_verified": true,
+      "reference_loader_verified": true,
+      "probe_sha256": "d896a94ee0d428425b07dbd6a1748b6c9971e66d7b7b93d7eacc9a44b077328e",
+      "probe_local_sha256": "d896a94ee0d428425b07dbd6a1748b6c9971e66d7b7b93d7eacc9a44b077328e",
+      "runtime_versions": {
+        "rsl_rl_lib": "5.0.1",
+        "torch": "2.7.0+cu128"
+      },
+      "initial_observation_preserved": true,
+      "gpu_default_service": [
+        {
+          "pid": 13216,
+          "args": [
+            "/isaac-sim/kit/python/bin/python3",
+            "/streaming/livestream_webrtc.py"
+          ],
+          "nvidia_row": "13216, /isaac-sim/kit/python/bin/python3, 2597 MiB"
+        },
+        {
+          "pid": 13216,
+          "args": [
+            "/isaac-sim/kit/python/bin/python3",
+            "/streaming/livestream_webrtc.py"
+          ],
+          "nvidia_row": "13216, /isaac-sim/kit/python/bin/python3, 2597 MiB"
+        }
+      ],
+      "competing_training_or_evaluation": [],
+      "gpu_classification": "Only official default livestream; platform supervisor stops it when train.py --task starts. Post-launch handoff must be verified.",
+      "supervisor_sha256": "90c24436b23531c994af760060a5b4ed885b953482944f5883e859bd0126f70a"
+    },
+    "original_reward_sha256": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7",
+    "official_score_prediction": null,
+    "allocation_off_confirmed": false,
+    "warnings": [
+      "One training seed; references have unequal training length",
+      "Internal comparison only; no official prediction or automatic follow-up"
+    ],
+    "updated_epoch": 1791555103.7846866,
+    "updated_utc": "2026-10-09T14:11:43.784690+00:00",
+    "error": "RuntimeError('Training did not confirm1500 iterations and exact final checkpoint')",
+    "cleanup": {
+      "complete": true,
+      "process_and_restore_complete": true,
+      "errors": [],
+      "checked_epoch": 1791555101.0775988,
+      "archive_errors": []
+    },
+    "critical_archive": {
+      "path": "/workspace/student_workspace/b1_baseline_20261009_4h_critical.tar.gz",
+      "bytes": 6403369,
+      "sha256": "7c32a8354b100af92af429d83da256b3124d890ea188d60b371c785587fd2a41",
+      "kind": "critical_partial",
+      "created_epoch": 1791555101.2340164,
+      "contains_complete_validation": false,
+      "local_retrieval_verified": false
+    },
+    "full_archive": {
+      "path": "/workspace/student_workspace/b1_baseline_20261009_4h_results.tar.gz",
+      "bytes": 115670853,
+      "sha256": "53aa132fedc6e7515bfee883c50de16af3b2d3bbb04a38f3e65be668b085ae51",
+      "kind": "full",
+      "created_epoch": 1791555103.7660449,
+      "contains_complete_validation": false,
+      "local_retrieval_verified": false
+    }
+  },
+  "owned_processes": [],
+  "source_audit": {
+    "ok": true,
+    "provided": {
+      "train.py": "c09ac99bcd93bb367f0eec69bdb05f4063cb8d60f0258d4667f07addf509de22",
+      "play.py": "ce703acf54eac40073e3f6d585d6002e3b4a2d9062581b3c0ed45db73ac5f9dc",
+      "go2_task/agent_cfg.py": "a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23",
+      "go2_task/env_cfg.py": "df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1"
+    },
+    "runtime": {
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/__init__.py": "9b4c420fef3ae39683544833b6d2efbb26aecfc0583ec59be7f4eeb748fecf66",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/algorithms/__init__.py": "e370271e689bada5cdf2b4623e0d16d75e8439864a2ae913b22215f7b2985843",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/algorithms/distillation.py": "c9a326d1c9d0f57a2c14fbea23b8b0f92d3b96bb7a38224e090e07f13e1fb7e0",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/algorithms/ppo.py": "a2d35e7ad7b884c80b7434e7d2ce785a6da1e18d93c96f1179fbd3a208669f8c",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/env/__init__.py": "33bfc9562580377c2ce6388c37b0df2b8e992c22ce46923443681cbbf1960d60",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/env/vec_env.py": "4a72df2fbf9b3e162e0e4b10e0b473511f02ad8c3ebaab0b7993ddfd63a9fa43",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/extensions/__init__.py": "595fd79b13fa6c64cce1f20adb7440660a4c5e5b78749db4794554a782a1ccfe",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/extensions/rnd.py": "e8f25627c04f4cf478cbbf1ec4c362276e80566a1222c75ba55f7b8e0f8471af",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/extensions/symmetry.py": "eb83c3f77e4cc3f3b3b18f7a592429761b7152c8ac1160c32e02562dc0987481",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/__init__.py": "6444fc1df8bc94d40ab1911f0e8e6b3f777459986e7f7944d25b7e5ca9b3e206",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/cnn_model.py": "818422d1d7a93cd8174a3c34fec8c425f2adf9d81c9623f2b335c2934a60276e",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/mlp_model.py": "6219ebb3ed4df036dae7ff1c30d0fbb169eaaa659e44a659dd757a292124476b",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/models/rnn_model.py": "80c1d6452ef021e4d7b174231ed7abac1ed0db8de9604561f8060148d4333ccc",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/__init__.py": "56df7ca2ff95c53f17451fd98720c48871a1679e9d6e3ab0c0961e4339908054",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/cnn.py": "4f5bab5f192c42180125f32a4af350108dd1c247e1e84c81f6cf4ea560037ccf",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/distribution.py": "4631eae1939dcd6b065d79c3c0128a88ba2c6126d08f46944c8795682a208a1b",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/mlp.py": "bad934b364b26cd47b6d1612e00ace107a425ae4d272c0cd0c82cbfc57bbcdbc",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/normalization.py": "539e1193cebcc472585cd3df100946fb8d788c4aa0f9f5cbcb3387a64d312926",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/modules/rnn.py": "07f0eec06c7f2638edbdbc3ba25f56122a7941cb0543138f4a6b04675b2a97e6",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/runners/__init__.py": "26f4130a403414e13041b62a848d04da3fb0166757603950ea758b151d4b5aaa",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/runners/distillation_runner.py": "7445cbaf3e1fa241d742447ab17d941a659c92b6f8365ef22c5d818923d9e275",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/runners/on_policy_runner.py": "39358a0a60219fdb360df7acddf80f6a382837aa58e2ec0ccf875df4afee4825",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/storage/__init__.py": "7c9d96df3cad10aa27f34e77f7105a29f74e2d7dd10467b2919f99867a69298e",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/storage/rollout_storage.py": "ececf28e7412d24867066829cc443acae811f034f8e63975b90343947779918d",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/__init__.py": "129856dea5f7ccff56aee74c8590b6cd2201183131bc836c666d7d1a4880e5c4",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/logger.py": "d9822d8317724507a7c817e85399db0db9e56a4eae959435138e75cf92e44b8d",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/neptune_utils.py": "a3446faf8d655b75feb215ff4df8598bc91ff5aab446a6349e9ced31bf3cc495",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/utils.py": "4d094c17e54ab09a0d37b14711157f638f0bd929d0f1b49a3f89b4c8fc67caaa",
+      "/isaac-sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/wandb_utils.py": "0fdc97e968bf9c47fed3c1beeacaab7d65769c5342b221f9a20ea2e64b2d407d"
+    },
+    "checked_epoch": 1791555101.0706062
+  },
+  "original_backup_sha256": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7",
+  "active_reward_sha256": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7",
+  "archives": [
+    {
+      "receipt": {
+        "path": "/workspace/student_workspace/b1_baseline_20261009_4h_critical.tar.gz",
+        "bytes": 6403369,
+        "sha256": "7c32a8354b100af92af429d83da256b3124d890ea188d60b371c785587fd2a41",
+        "kind": "critical_partial",
+        "created_epoch": 1791555101.2340164,
+        "contains_complete_validation": false,
+        "local_retrieval_verified": false
+      },
+      "actual_bytes": 6403369,
+      "actual_sha256": "7c32a8354b100af92af429d83da256b3124d890ea188d60b371c785587fd2a41"
+    },
+    {
+      "receipt": {
+        "path": "/workspace/student_workspace/b1_baseline_20261009_4h_results.tar.gz",
+        "bytes": 115670853,
+        "sha256": "53aa132fedc6e7515bfee883c50de16af3b2d3bbb04a38f3e65be668b085ae51",
+        "kind": "full",
+        "created_epoch": 1791555103.7660449,
+        "contains_complete_validation": false,
+        "local_retrieval_verified": false
+      },
+      "actual_bytes": 115670853,
+      "actual_sha256": "53aa132fedc6e7515bfee883c50de16af3b2d3bbb04a38f3e65be668b085ae51"
+    }
+  ],
+  "helper_audit": "{\"epoch\":1791549345.0604444,\"writer_pid\":22397,\"event\":\"controller_started\",\"runner\":{\"pid\":16243,\"start_ticks\":2313931,\"ppid\":16238,\"argv\":[\"/workspace/IsaacLab/_isaac_sim/kit/python/bin/python3\",\"/workspace/student_workspace/b1_baseline_20261009_4h/runner.py\",\"--root\",\"/workspace/student_workspace/b1_baseline_20261009_4h\",\"--train-dir\",\"/workspace/training/quadruped\",\"--source-hashes\",\"/workspace/student_workspace/b1_baseline_20261009_4h/source_hashes_current.json\",\"--server-start-epoch\",\"1791547031\",\"--preflight\",\"/workspace/student_workspace/b1_baseline_20261009_4h/preflight_receipt.json\",\"--authorized-execution\"],\"state\":\"S\",\"pgrp\":16228},\"root\":\"/workspace/student_workspace/b1_baseline_20261009_4h\",\"deadline_epoch\":1791558731,\"pid1_signal_allowed\":false,\"process_group_signals_allowed\":false,\"source_modifications\":false,\"pidfd_backend\":\"libc_pidfd\",\"live_self_pidfd_signal_zero_verified\":true}\n{\"epoch\":1791555101.506219,\"writer_pid\":22397,\"event\":\"controller_finished\",\"reason\":\"compute_finished_or_stopped_groups_exited\"}\n",
+  "helper_console": "\u001b[3g\n\u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH    \u001bH   \n[INFO] Using python from: /workspace/IsaacLab/_isaac_sim/python.sh\n",
+  "tmux": "",
+  "root_log_files": [
+    "train_B1.log"
+  ]
+}

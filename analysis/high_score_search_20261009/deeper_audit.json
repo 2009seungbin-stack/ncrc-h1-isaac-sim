@@ -1,0 +1,257 @@
+{
+  "status": "OFFLINE_RESEARCH_ONLY_NO_NEW_POLICY_MEASUREMENTS",
+  "official_total_goal": 93,
+  "input_sha256": {
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\score_breakthrough_20261002\\third\\analysis.json": "e3c6c9eb8c86420b6cbcf1677f059c5404b2eefed47094dc1afed43facde4b50",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\eval\\F10_model_3000_A\\flat.json": "79753dac355aa7600cc37c07be45a58a437f7dd7430244e1672464c803467d50",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\eval\\F10_model_3000_A\\rough.json": "543023fae3b9287a2b950856feb74104c307823bfd4c691614bb5a3df22f1aaf",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\eval\\F10_model_3000_A\\slope.json": "448fa68987fcdf7452349b61a44865e078948484bd49636598957f0cf50c9b4f",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\eval\\F10_model_3000_A\\stairs.json": "a1de08342458a890e0b0e6a7d8f7bd50affa39c7b4cfcac93ad94f694a44d1af",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\eval\\F10_model_3999_A\\flat.json": "0020b4b18767a41f1c4b576a5f9981e0d10213d9300b641dddede0e939cb0fdf",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\eval\\F10_model_3999_A\\rough.json": "8dafeece2800fb8883a9626674d27a6487470dd719f45761a600a0a4dabdbc57",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\eval\\F10_model_3999_A\\slope.json": "1d6a80b02a6a0fdd2800447226489f372a8293f81b6b807f6e1fb5ccff53e517",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\round20_execution_20261001\\results\\extracted\\round20_20261001\\eval\\F10_model_3999_A\\stairs.json": "a399a1023e0d1d809cc9b3d69e2c5536bdf64d2756dfdd4d9ebd7fdc3658e212",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_dr\\C0_5500.json": "1f7d7499da01332642e50aec8db9dc0665db257e34f6944db66e70273e285c59",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_dr\\F10_3000.json": "772b7d3cd949aef8f40fe1cf3274bebcd28e5631b4788c1756ae9308a3727481",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\C0_5500.json": "cb97194239025374063d83f7c4b69fdc3fbd66e187ef87c2f266632a1172ebb3",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_flat\\F10_3000.json": "2562a05b23513cc017f283857348d7cb4d0d0c946ce3d37b1ab3ba18d41d9200",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_rough\\C0_5500.json": "4e91739a10c8a19c2d0d27f0b088929d32ad89a60791c21437cf71fa862d74b7",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_rough\\F10_3000.json": "0aae93018068bb5879f6da9199a7a32f9da26e7d03c3a286bbac0972f26c1ff0",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_slope\\C0_5500.json": "2480bacfc1db5d685615a506f82af371bc20e8bbfe474eec3eb28cbc2b0634ab",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_slope\\F10_3000.json": "918a672bc8cf69205cff7242db857935abb97f98502d421d96971122f94c72f1",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_stairs\\C0_5500.json": "c1fb6d563f00dd2c0ec9afb47710ec7937208dde69ebe745580ad2a309d5ffb4",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\results\\heldout_stairs\\F10_3000.json": "356d4933ea69a73da17014a9550af852f3d205b7a62768516ecea098fd355f66",
+    "D:\\UserData\\Desktop\\issac_sim\\analysis\\high_score_search_20261009\\audit.json": "398982a33de90d386d010d84c32db24e0f38e8a0eb40a955357de130462d7644"
+  },
+  "reweighting": {
+    "fixed_trajectory_tracking_sum_of_medians": 2.6702,
+    "negative_sum_of_medians": 1.00415,
+    "S1_tracking_gain": 1.3351,
+    "R1_tracking_gain": 2.6702,
+    "S4_extra_over_S1": 0.039650000000000005,
+    "R2_extra_over_S1": 0.0744,
+    "air_fraction_of_negative_median_sum": 0.0012946272967186176,
+    "S4_extra_fraction_of_S1_tracking_gain": 0.029698149951314513,
+    "warning": "Fixed old trajectories and sums of marginal medians only. Not a policy gradient, learning prediction or official score."
+  },
+  "matched_checkpoint_comparison": {
+    "same_policy_training_run": true,
+    "set": "A",
+    "scenarios": [
+      "G1",
+      "G2",
+      "G6",
+      "G3",
+      "G4",
+      "G5"
+    ],
+    "coverage_weight": 0.9,
+    "G7_unmeasured_at_3999": true,
+    "independent_training_seed_repeat": false,
+    "axis_comparisons": [
+      {
+        "scenario": "G1",
+        "axis": "vx",
+        "rmse_3000": 0.0414,
+        "rmse_3999": 0.0486,
+        "change_percent": 17.391304347826075
+      },
+      {
+        "scenario": "G1",
+        "axis": "vy",
+        "rmse_3000": 0.0466,
+        "rmse_3999": 0.0489,
+        "change_percent": 4.935622317596566
+      },
+      {
+        "scenario": "G1",
+        "axis": "yaw",
+        "rmse_3000": 0.0888,
+        "rmse_3999": 0.1023,
+        "change_percent": 15.202702702702698
+      },
+      {
+        "scenario": "G2",
+        "axis": "vx",
+        "rmse_3000": 0.0391,
+        "rmse_3999": 0.042,
+        "change_percent": 7.416879795396425
+      },
+      {
+        "scenario": "G2",
+        "axis": "vy",
+        "rmse_3000": 0.0654,
+        "rmse_3999": 0.0804,
+        "change_percent": 22.935779816513758
+      },
+      {
+        "scenario": "G2",
+        "axis": "yaw",
+        "rmse_3000": 0.1003,
+        "rmse_3999": 0.1142,
+        "change_percent": 13.858424725822527
+      },
+      {
+        "scenario": "G6",
+        "axis": "vx",
+        "rmse_3000": 0.1015,
+        "rmse_3999": 0.1004,
+        "change_percent": -1.0837438423645374
+      },
+      {
+        "scenario": "G6",
+        "axis": "vy",
+        "rmse_3000": 0.136,
+        "rmse_3999": 0.1393,
+        "change_percent": 2.4264705882352855
+      },
+      {
+        "scenario": "G6",
+        "axis": "yaw",
+        "rmse_3000": 0.0917,
+        "rmse_3999": 0.1036,
+        "change_percent": 12.977099236641209
+      },
+      {
+        "scenario": "G3",
+        "axis": "vx",
+        "rmse_3000": 0.044,
+        "rmse_3999": 0.0459,
+        "change_percent": 4.318181818181821
+      },
+      {
+        "scenario": "G3",
+        "axis": "vy",
+        "rmse_3000": 0.0503,
+        "rmse_3999": 0.0601,
+        "change_percent": 19.483101391650102
+      },
+      {
+        "scenario": "G3",
+        "axis": "yaw",
+        "rmse_3000": 0.0937,
+        "rmse_3999": 0.1036,
+        "change_percent": 10.56563500533616
+      },
+      {
+        "scenario": "G4",
+        "axis": "vx",
+        "rmse_3000": 0.0508,
+        "rmse_3999": 0.0569,
+        "change_percent": 12.007874015748033
+      },
+      {
+        "scenario": "G4",
+        "axis": "vy",
+        "rmse_3000": 0.0502,
+        "rmse_3999": 0.0608,
+        "change_percent": 21.11553784860558
+      },
+      {
+        "scenario": "G4",
+        "axis": "yaw",
+        "rmse_3000": 0.0938,
+        "rmse_3999": 0.1057,
+        "change_percent": 12.686567164179108
+      },
+      {
+        "scenario": "G5",
+        "axis": "vx",
+        "rmse_3000": 0.0791,
+        "rmse_3999": 0.0853,
+        "change_percent": 7.838179519595445
+      },
+      {
+        "scenario": "G5",
+        "axis": "vy",
+        "rmse_3000": 0.0708,
+        "rmse_3999": 0.0746,
+        "change_percent": 5.36723163841808
+      },
+      {
+        "scenario": "G5",
+        "axis": "yaw",
+        "rmse_3000": 0.1181,
+        "rmse_3999": 0.1365,
+        "change_percent": 15.580016934801023
+      }
+    ],
+    "worse_rmse_count": 17,
+    "total_axis_comparisons": 18,
+    "weighted_partial_axis_mse": {
+      "vx": {
+        "weighted_partial_mse_3000": 0.003229458,
+        "weighted_partial_mse_3999": 0.0036253270000000002,
+        "change_percent": 12.258063117712004
+      },
+      "vy": {
+        "weighted_partial_mse_3000": 0.004452828000000001,
+        "weighted_partial_mse_3999": 0.0053804265,
+        "change_percent": 20.83167146810969
+      },
+      "yaw": {
+        "weighted_partial_mse_3000": 0.008700564000000001,
+        "weighted_partial_mse_3999": 0.0112166385,
+        "change_percent": 28.918521833756984
+      }
+    },
+    "warning": "Historical internal comparison; earlier evaluator conditions differ from later heldout protocol. Not an official score or evidence that every new run worsens after 3000."
+  },
+  "heldout_first_half_second": {
+    "definition": "First 0.5 seconds of each 5-second command segment, including initial settling and repeated-command segments; not exclusively changed-command response or push recovery.",
+    "fraction_of_samples": 0.1,
+    "models": {
+      "C0_5500": {
+        "vx": {
+          "weighted_full_mse": 0.006544024274273192,
+          "weighted_first_window_mse_contribution": 0.0034857715057566283,
+          "first_window_fraction_of_weighted_mse": 0.5326648190258697
+        },
+        "vy": {
+          "weighted_full_mse": 0.007305794435122082,
+          "weighted_first_window_mse_contribution": 0.0024733174820422395,
+          "first_window_fraction_of_weighted_mse": 0.3385418935621763
+        },
+        "yaw": {
+          "weighted_full_mse": 0.014102002822198268,
+          "weighted_first_window_mse_contribution": 0.0017676358900548194,
+          "first_window_fraction_of_weighted_mse": 0.12534644279551166
+        }
+      },
+      "F10_3000": {
+        "vx": {
+          "weighted_full_mse": 0.006991512734324485,
+          "weighted_first_window_mse_contribution": 0.00419284429664591,
+          "first_window_fraction_of_weighted_mse": 0.5997048787541142
+        },
+        "vy": {
+          "weighted_full_mse": 0.0069424488909656445,
+          "weighted_first_window_mse_contribution": 0.0026811326401286356,
+          "first_window_fraction_of_weighted_mse": 0.3861940767929383
+        },
+        "yaw": {
+          "weighted_full_mse": 0.009882547986607561,
+          "weighted_first_window_mse_contribution": 0.0013649311453515934,
+          "first_window_fraction_of_weighted_mse": 0.13811530661943602
+        }
+      }
+    },
+    "warning": "Shares of measured squared error, not shares of official lost points or fully recoverable error."
+  },
+  "candidate_revision": {
+    "previous": [
+      "S1_tracking_pair",
+      "S4_tracking_short_step"
+    ],
+    "current": [
+      "S1_tracking_pair",
+      "R1_tracking_double"
+    ],
+    "why": "Test 1.5x versus 2x task priority with the same tracking ratio and fixed auxiliary coefficients. Retain S4/R2 as untrained reserves.",
+    "exploration_cap_hours_unchanged": 6,
+    "total_cap_hours_unchanged": 19,
+    "score_prediction": null,
+    "server_started": false
+  },
+  "all_inputs_unchanged": true
+}

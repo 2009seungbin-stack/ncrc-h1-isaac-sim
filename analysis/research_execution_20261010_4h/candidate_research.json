@@ -1,0 +1,224 @@
+{
+  "status": "INDEPENDENT_PRE_EXECUTION_CANDIDATE_REVIEW_NOT_PROOF_OF_OPTIMALITY",
+  "date": "2026-10-10",
+  "scope": {
+    "server_used_by_this_review": false,
+    "policy_executed": false,
+    "existing_files_modified": false,
+    "only_ten_reward_values_may_change": true,
+    "new_training_authorized_by_user_but_not_started_by_this_review": true,
+    "total_server_budget_hours": 4
+  },
+  "recommendation": {
+    "provisional_single_new_candidate": "S5_torque_only",
+    "weights": {
+      "track_lin_vel_xy_exp": 2,
+      "track_ang_vel_z_exp": 1.5,
+      "feet_air_time": 0.01,
+      "lin_vel_z_l2": -3,
+      "ang_vel_xy_l2": -0.08,
+      "dof_torques_l2": -0.0001,
+      "action_rate_l2": -0.01,
+      "dof_acc_l2": -2.5e-7,
+      "flat_orientation_l2": 0,
+      "dof_pos_limits": 0
+    },
+    "training": "scratch1500 seed42 env6144, conditional on measured remaining time permitting selection and independent validation",
+    "basis": "Conservative utility judgment combining preservation of measured F10 behavior, fewer unvalidated simultaneous changes, and interpretability. It is not an estimated expected-score optimum.",
+    "confidence_in_score_improvement": "low",
+    "official_score_prediction": null,
+    "b2_review": "Defensible as a deliberately broader exploration choice, but evidence does not establish higher expected score than S5. Do not infer that restoring F10 tracking preserves a beneficial B1 cost bundle.",
+    "conditional_reconsideration": "Before launching the single new training, use preserved B1 checkpoints and current-runtime C0/F10 screening. Only a concrete B1 fixed-scenario advantage relevant to transitions/push/ordinary yaw can supply new support for retaining its cost bundle. Do not choose from raw training reward."
+  },
+  "weights": {
+    "F10": {
+      "track_lin_vel_xy_exp": 2,
+      "track_ang_vel_z_exp": 1.5,
+      "feet_air_time": 0.01,
+      "lin_vel_z_l2": -3,
+      "ang_vel_xy_l2": -0.08,
+      "dof_torques_l2": -0.0002,
+      "action_rate_l2": -0.01,
+      "dof_acc_l2": -2.5e-7,
+      "flat_orientation_l2": 0,
+      "dof_pos_limits": 0
+    },
+    "S1": {
+      "track_lin_vel_xy_exp": 3,
+      "track_ang_vel_z_exp": 2.25,
+      "feet_air_time": 0.01,
+      "lin_vel_z_l2": -3,
+      "ang_vel_xy_l2": -0.08,
+      "dof_torques_l2": -0.0002,
+      "action_rate_l2": -0.01,
+      "dof_acc_l2": -2.5e-7,
+      "flat_orientation_l2": 0,
+      "dof_pos_limits": 0
+    },
+    "R1": {
+      "track_lin_vel_xy_exp": 4,
+      "track_ang_vel_z_exp": 3,
+      "feet_air_time": 0.01,
+      "lin_vel_z_l2": -3,
+      "ang_vel_xy_l2": -0.08,
+      "dof_torques_l2": -0.0002,
+      "action_rate_l2": -0.01,
+      "dof_acc_l2": -2.5e-7,
+      "flat_orientation_l2": 0,
+      "dof_pos_limits": 0
+    },
+    "B2": {
+      "track_lin_vel_xy_exp": 2,
+      "track_ang_vel_z_exp": 1.5,
+      "feet_air_time": 0,
+      "lin_vel_z_l2": -2,
+      "ang_vel_xy_l2": -0.05,
+      "dof_torques_l2": -0.0001,
+      "action_rate_l2": -0.01,
+      "dof_acc_l2": -2.5e-7,
+      "flat_orientation_l2": 0,
+      "dof_pos_limits": 0
+    },
+    "S5": {
+      "track_lin_vel_xy_exp": 2,
+      "track_ang_vel_z_exp": 1.5,
+      "feet_air_time": 0.01,
+      "lin_vel_z_l2": -3,
+      "ang_vel_xy_l2": -0.08,
+      "dof_torques_l2": -0.0001,
+      "action_rate_l2": -0.01,
+      "dof_acc_l2": -2.5e-7,
+      "flat_orientation_l2": 0,
+      "dof_pos_limits": 0
+    },
+    "AX": {
+      "track_lin_vel_xy_exp": 2.25,
+      "track_ang_vel_z_exp": 1.25,
+      "feet_air_time": 0.01,
+      "lin_vel_z_l2": -3,
+      "ang_vel_xy_l2": -0.08,
+      "dof_torques_l2": -0.0002,
+      "action_rate_l2": -0.01,
+      "dof_acc_l2": -2.5e-7,
+      "flat_orientation_l2": 0,
+      "dof_pos_limits": 0
+    }
+  },
+  "reward_algebra": {
+    "S1_divided_by_1_5": {
+      "track_lin_vel_xy_exp": 2,
+      "track_ang_vel_z_exp": 1.5,
+      "feet_air_time": 0.006666666666666667,
+      "lin_vel_z_l2": -2,
+      "ang_vel_xy_l2": -0.05333333333333334,
+      "dof_torques_l2": -0.00013333333333333334,
+      "action_rate_l2": -0.006666666666666667,
+      "dof_acc_l2": -1.6666666666666665e-7,
+      "flat_orientation_l2": 0,
+      "dof_pos_limits": 0
+    },
+    "R1_divided_by_2": {
+      "track_lin_vel_xy_exp": 2,
+      "track_ang_vel_z_exp": 1.5,
+      "feet_air_time": 0.005,
+      "lin_vel_z_l2": -1.5,
+      "ang_vel_xy_l2": -0.04,
+      "dof_torques_l2": -0.0001,
+      "action_rate_l2": -0.005,
+      "dof_acc_l2": -1.25e-7,
+      "flat_orientation_l2": 0,
+      "dof_pos_limits": 0
+    },
+    "B2_vs_F10_cost_coefficient_magnitude_ratios": {
+      "vertical": 0.6666666666666666,
+      "roll_pitch": 0.625,
+      "torque": 0.5,
+      "action_change": 1,
+      "joint_acceleration": 1,
+      "air": 0
+    },
+    "B2_vs_normalized_S1_cost_magnitude_ratios": {
+      "vertical": 1,
+      "roll_pitch": 0.9375,
+      "torque": 0.75,
+      "action_change": 1.5,
+      "joint_acceleration": 1.5,
+      "air": 0
+    },
+    "B2_vs_normalized_R1_cost_magnitude_ratios": {
+      "vertical": 1.3333333333333333,
+      "roll_pitch": 1.25,
+      "torque": 1,
+      "action_change": 2,
+      "joint_acceleration": 2,
+      "air": 0
+    },
+    "limit": "Per-state reward algebra only. Global reward scaling need not produce identical PPO updates because critic/value scales, entropy weighting and optimization interact."
+  },
+  "candidate_comparison": [
+    {
+      "id": "B2",
+      "pro": "Preserves F10 XY:yaw ratio and keeps action/acceleration smoothing while changing the body/torque/air balance; not an exact S1/R1 duplicate.",
+      "con": "Four cost-related changes are bundled. B1 matched-terrain late tracking/contact worsened, and vertical/roll-pitch proxies rose. No isolated beneficial B1 cost effect established.",
+      "utility": "Exploration breadth, low causal resolution, unproven expected-score advantage."
+    },
+    {
+      "id": "S5",
+      "pro": "Keeps F10 tracking, body-motion costs, air, action and acceleration weights; changes one coefficient.",
+      "con": "Torque restriction has not been identified as the cause of the VX tail; more permitted effort may worsen contact or have no effect.",
+      "utility": "Best conservative single-run diagnostic among these candidates; improvement remains unproven."
+    },
+    {
+      "id": "AX",
+      "pro": "Changes axis preference without increasing the sum of maximum positive tracking coefficients.",
+      "con": "Reduces yaw coefficient despite F10's strong yaw advantage and ordinary yaw contribution. A previous linear3/yaw1.5 short run had push failures; not an exact counterexample to AX but a caution.",
+      "utility": "Deprioritized for this single new run; coefficient sum does not preserve expected reward or gradient mass."
+    }
+  ],
+  "falsification": [
+    "Do not promote any candidate on training reward, curriculum level, or B1 early-learning advantage alone.",
+    "Reject selection if any prespecified scenario survival nonregression gate fails.",
+    "Require whole-window tracking improvement under matched evaluation; short-window VX gains cannot offset unreported ordinary-yaw regression.",
+    "Track full-window VX and critical-scenario caps, plus transition/start/push VX tail and ordinary yaw as diagnostics.",
+    "Independent validation reset seeds must be disjoint from checkpoint-selection seeds. These are not independent training seeds.",
+    "Exact model SHA, iteration, params and full-window/event coverage must identify each evaluated checkpoint.",
+    "If the four-hour reserve for independent validation and artifact recovery cannot be retained, do not launch an additional or second training."
+  ],
+  "execution_sequence_advice": [
+    "First screen preserved B1 600/1000/1499 alongside C0/F10 with the same current runtime; this phase is selection, not final validation.",
+    "Lock one fresh candidate and stopping/selection rules before new training.",
+    "Preserve exact intermediate and final checkpoints despite provided train.py postprocessing; do not let the earlier model1499-original-path deletion bug invalidate selection.",
+    "Select on one fixed screening protocol, then validate the selected exact checkpoint on disjoint reset seeds with reference policies.",
+    "Keep training to one run; prioritize evidence completion over spending the entire budget on iterations."
+  ],
+  "primary_sources": [
+    {
+      "url": "https://raw.githubusercontent.com/isaac-sim/IsaacLab/v2.3.2/source/isaaclab/isaaclab/envs/mdp/rewards.py",
+      "relevance": "Squared body-motion/torque/action penalties and exponential tracking are different quantities. Coefficient sizes alone do not identify dominant control limits."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/isaac-sim/IsaacLab/v2.3.2/source/isaaclab_tasks/isaaclab_tasks/manager_based/locomotion/velocity/mdp/rewards.py",
+      "relevance": "Removing air-time removes a landing-time shaping term, not a verified foot-height or rapid-contact controller."
+    },
+    {
+      "url": "https://arxiv.org/html/1901.08652v1",
+      "relevance": "Tradeoff between excessive penalties and unnatural low-penalty motion; staged cost curriculum is a separate method not implemented by this static candidate."
+    }
+  ],
+  "source_hashes": {
+    "analysis/high_score_search_20261009/candidate_manifest.json": "e6347aa9dde346e991fa565ea3afe78ccb176dbf9bf8b963ed495c5e542c751e",
+    "analysis/high_score_search_20261009/final_analysis.txt": "6c56beb937da36c223f2f5724b4d8a90bfe6fcd59a4a3371e001b7d791ad78e2",
+    "analysis/deep_research_20261010/heldout_analysis.txt": "8896eca82752880a3f1785f74e11d8c49ca07f8e6ffdecb6b40aa09d0a86c983",
+    "analysis/deep_research_20261010/phase_report.txt": "1f1c5856071928e8b60de0a462b76cc3610e3fd32c70c55c4b852f453f61d86b",
+    "analysis/deep_research_20261010/literature_sources.json": "a40d1f89c4ec6cb21327f55d3b9ed8d1d3132b2da6fb371ff933a10cf6a27391"
+  },
+  "historical_manifest_warning": "The old candidate manifest lists trained:false even for S1/R1; actual execution/result status comes from final_analysis.txt, not stale proposal fields.",
+  "limitations": [
+    "No independent training seed replication.",
+    "F10 historical training and current1500 runs differ in length/runtime provenance.",
+    "B1 cost effects are not causally identified by shared-terrain descriptive bins.",
+    "First8-environment mechanics traces do not establish population torque saturation or a causal bottleneck.",
+    "No official score or success probability estimated."
+  ]
+}
+

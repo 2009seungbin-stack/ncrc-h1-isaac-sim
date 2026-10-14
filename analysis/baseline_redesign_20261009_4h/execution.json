@@ -1,0 +1,323 @@
+{
+  "status": "CLOSED_PARTIAL_EVALUATION_NOT_STARTED_RESULTS_VERIFIED_SERVER_OFF",
+  "authorization": "User said 학습 진행 after approving total4h design",
+  "authorized_scope": "B1_selective_cost only;scratch1500;6144env;seed42;checkpoint selection;frozen common validation;retrieval;allocation shutdown",
+  "total_allocation_limit_seconds": 14400,
+  "automatic_additional_training_authorized": false,
+  "official_submission_authorized": false,
+  "server_started": true,
+  "training_started": true,
+  "server": "02.robotics.connect.or.kr",
+  "actual_allocation_start_epoch": 1791547031,
+  "training_deadline_epoch": 1791556631,
+  "compute_deadline_epoch": 1791558731,
+  "dashboard_shutdown_request_deadline_epoch": 1791560831,
+  "effective_shutdown_deadline_epoch": 1791561431,
+  "local_folder": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h",
+  "remote_root": "/workspace/student_workspace/b1_baseline_20261009_4h",
+  "tmux_session": "go2_b1_4h",
+  "dashboard_browser": "3",
+  "dashboard_tab": "330034320",
+  "quota_last_observed": "72h02 used /100h,27h58 remaining",
+  "quota_basis": "Current authenticated dashboard UI, before new allocation",
+  "recovery_probe_binary_verified": true,
+  "runner_CPU_tests_passed": 19,
+  "evaluator_CPU_tests_passed": 37,
+  "runtime_effective_config_verified": true,
+  "provided_and_PPO_hashes_live_verified": true,
+  "full_archive_retrieved": true,
+  "server_shutdown_confirmed": true,
+  "package": {
+    "package_path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\execution\\b1_baseline_20261009_4h_package.zip",
+    "bytes": 12799640,
+    "sha256": "ae4fe14a62445961aa4d452433f515b2b6bc4153ce4a01ab74530b616b37ae42",
+    "probe": {
+      "bytes": 573,
+      "sha256": "d896a94ee0d428425b07dbd6a1748b6c9971e66d7b7b93d7eacc9a44b077328e"
+    },
+    "member_hashes_verified": true,
+    "source_files": {
+      "design.json": {
+        "bytes": 8572,
+        "sha256": "62f71dd24c946cb7cb41452845291654becead00153b8913ebcc2ff607f2f4d9"
+      },
+      "decision_rules.py": {
+        "bytes": 8349,
+        "sha256": "aefe734c93b9ba9f55ebdc1b2be7d7bf4c9b3c78c331a376468f919481abaca7"
+      },
+      "candidates/B1_selective_cost_rewards.py": {
+        "bytes": 5715,
+        "sha256": "a856051f81920f603e56bd39ca0e554a69ecafed34961d6c0e70ed2073040381"
+      },
+      "fresh_rewards_original.py": {
+        "bytes": 9805,
+        "sha256": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7"
+      },
+      "previous_source_hashes_20261002.json": {
+        "bytes": 353,
+        "sha256": "8161c241c64ef110650d3aebd1806886361b8dc146b9b1151fca6d952c4ec8f2"
+      },
+      "reference_models.json": {
+        "bytes": 525,
+        "sha256": "07da0126af908a4b2dc0cc64bb432ff91f1a9334884df24dd61b8b0527703712"
+      },
+      "source_snapshot.py": {
+        "bytes": 4485,
+        "sha256": "d3bc1705a07392032b1369d6f48fb1b72b676f1b3cd0dd9457882480b781b211"
+      },
+      "t_eval.py": {
+        "bytes": 52863,
+        "sha256": "bd95f7e7df231454927c70b2bb2431b05cd504ad38c736f16f91dab3435651d9"
+      },
+      "t_eval_go2_core.py": {
+        "bytes": 7652,
+        "sha256": "baa43b161ec7a02d9ae1dfebfe593976f17d78916354d9029ba22b239f0cff6e"
+      },
+      "references/C0_5500.pt": {
+        "bytes": 6882293,
+        "sha256": "8d553e697ed4c2856ab002431af96d626eb8b0d23e56b7c754d652193026b1d3"
+      },
+      "references/F10_3000.pt": {
+        "bytes": 6882293,
+        "sha256": "4684a58838229b729feb2f2534ab9423a4993377e75179a0d55a95904ecf23d2"
+      },
+      "runner.py": {
+        "bytes": 38799,
+        "sha256": "a7a318148c5a9605ebee59962f78bf62873c6d3ad38bf76f489e721a5f9662c8"
+      },
+      "evaluation.py": {
+        "bytes": 29143,
+        "sha256": "f5ba443c4a095287686aa61210b0e3b196cb60de6c95102ca092d8077b9a0ec1"
+      },
+      "live_preflight.py": {
+        "bytes": 3050,
+        "sha256": "681dffe4f0c81a75c3c4c258faff5d063896363cbead33bfbfaecc8a88a6c376"
+      },
+      "recovery_probe.zip": {
+        "bytes": 573,
+        "sha256": "d896a94ee0d428425b07dbd6a1748b6c9971e66d7b7b93d7eacc9a44b077328e"
+      }
+    }
+  },
+  "setup_deadline_epoch": 1791547931,
+  "editor_tab": "330034514",
+  "recovery_probe_local": {
+    "path": "D:\\UserData\\Downloads\\recovery_probe.zip",
+    "bytes": 573,
+    "sha256": "d896a94ee0d428425b07dbd6a1748b6c9971e66d7b7b93d7eacc9a44b077328e",
+    "method": "normal code-server Download menu; direct filesystem verification despite download-event timeout"
+  },
+  "training_start_epoch": 1791547911.4679155,
+  "training_process_group_id": 16244,
+  "training_gpu_pid": 16262,
+  "actual_configuration": {
+    "effective_weights": {
+      "track_lin_vel_xy_exp": 1.5,
+      "track_ang_vel_z_exp": 0.75,
+      "lin_vel_z_l2": -2.0,
+      "ang_vel_xy_l2": -0.05,
+      "dof_torques_l2": -0.0001,
+      "dof_acc_l2": -2.5e-07,
+      "action_rate_l2": -0.01,
+      "feet_air_time": 0.0,
+      "flat_orientation_l2": 0.0,
+      "dof_pos_limits": 0.0
+    },
+    "env_sha256": "1cca0dc7b6045fb3b9c1130a3835df873b3e4eb213e25a3e38a5873114c3f552",
+    "agent_sha256": "4f4424ae57303080b2a7ab49c8e00a67c6497ec6f64220d6054395d4b990f36d",
+    "actor_observation_normalization": false,
+    "policy_clip_actions": null,
+    "actor_configs": {
+      "actor": {
+        "class_name": "MLPModel",
+        "activation": "elu",
+        "obs_normalization": false,
+        "hidden_dims": [
+          512,
+          256,
+          128
+        ]
+      },
+      "critic": {
+        "class_name": "MLPModel",
+        "activation": "elu",
+        "obs_normalization": false,
+        "hidden_dims": [
+          512,
+          256,
+          128
+        ]
+      }
+    },
+    "control_step_seconds": 0.02
+  },
+  "initial_checkpoint_sha256": "2e1bc8c4bbc9a1643152b0d026fee44629f4c6a4911f3c12de21704469bd4a0b",
+  "default_streamer_handoff_verified": true,
+  "last_observed_iteration": 1500,
+  "last_observed_utc": "2026-10-09T14:31:18.8107812Z",
+  "streamer_evaluation_control": "Controller exited without service signals because evaluation never started; official livestream launcher and GPU renderer are healthy in live final phase evidence.",
+  "runner_python_pid": 16243,
+  "runner_python_start_ticks": 2313931,
+  "streaming_controller": {
+    "path": "/workspace/student_workspace/streaming_control_libc.py",
+    "sha256": "51be7115d3b6e343392c01f308821067f0c56c376ebb2aa89fc5a4e2c376ed51",
+    "bytes": 24225,
+    "pid": 22397,
+    "start_ticks": 2457296,
+    "tmux_session": "go2_b1_stream_control",
+    "audit_path": "/workspace/student_workspace/b1_streaming_control_audit.jsonl",
+    "log_path": "/workspace/student_workspace/b1_streaming_control_console.log",
+    "launched_epoch": 1791549345.0275605,
+    "stage": "finished_without_service_signals_evaluation_not_started",
+    "backend": "libc_pidfd",
+    "live_self_pidfd_verified": true,
+    "actual_service_handoff_verified": false,
+    "compute_deadline_epoch": 1791558731,
+    "recovery_grace_seconds": 30,
+    "automatic_rearm_allowed": false,
+    "audit_outside_frozen_archive": true,
+    "cpu_tests_passed": 31
+  },
+  "selection_deadline_epoch": 1791557531,
+  "training_eta_seconds_last_observed": 419.0,
+  "last_heartbeat_evidence": "execution/heartbeat_20261009_1405.json",
+  "training_final": {
+    "status": "complete",
+    "run_name": "B1_4h_1791547031",
+    "expected_weights": {
+      "track_lin_vel_xy_exp": 1.5,
+      "track_ang_vel_z_exp": 0.75,
+      "feet_air_time": 0,
+      "lin_vel_z_l2": -2,
+      "ang_vel_xy_l2": -0.05,
+      "action_rate_l2": -0.01,
+      "dof_acc_l2": -2.5e-07,
+      "dof_torques_l2": -0.0001,
+      "flat_orientation_l2": 0,
+      "dof_pos_limits": 0
+    },
+    "pid": 16244,
+    "process_group_id": 16244,
+    "started_epoch": 1791547911.4679155,
+    "command": [
+      "/workspace/IsaacLab/isaaclab.sh",
+      "-p",
+      "train.py",
+      "--task",
+      "Quadruped-v0",
+      "--num_envs",
+      "6144",
+      "--seed",
+      "42",
+      "--max_iterations",
+      "1500",
+      "--run_name",
+      "B1_4h_1791547031",
+      "--headless"
+    ],
+    "configuration": {
+      "effective_weights": {
+        "track_lin_vel_xy_exp": 1.5,
+        "track_ang_vel_z_exp": 0.75,
+        "lin_vel_z_l2": -2,
+        "ang_vel_xy_l2": -0.05,
+        "dof_torques_l2": -0.0001,
+        "dof_acc_l2": -2.5e-07,
+        "action_rate_l2": -0.01,
+        "feet_air_time": 0,
+        "flat_orientation_l2": 0,
+        "dof_pos_limits": 0
+      },
+      "env_sha256": "1cca0dc7b6045fb3b9c1130a3835df873b3e4eb213e25a3e38a5873114c3f552",
+      "agent_sha256": "4f4424ae57303080b2a7ab49c8e00a67c6497ec6f64220d6054395d4b990f36d",
+      "actor_observation_normalization": false,
+      "policy_clip_actions": null,
+      "actor_configs": {
+        "actor": {
+          "class_name": "MLPModel",
+          "activation": "elu",
+          "obs_normalization": false,
+          "hidden_dims": [
+            512,
+            256,
+            128
+          ]
+        },
+        "critic": {
+          "class_name": "MLPModel",
+          "activation": "elu",
+          "obs_normalization": false,
+          "hidden_dims": [
+            512,
+            256,
+            128
+          ]
+        }
+      },
+      "control_step_seconds": 0.02
+    },
+    "initial_checkpoint_sha256": "2e1bc8c4bbc9a1643152b0d026fee44629f4c6a4911f3c12de21704469bd4a0b",
+    "training_time_profile": {
+      "samples": 1500,
+      "completed_iterations": 1500,
+      "recent_seconds_per_iteration": 4.7078
+    },
+    "process_group_exited": true,
+    "returncode": 0,
+    "ended_epoch": 1791555100.8381581,
+    "seconds": 7189.556985139847
+  },
+  "final_runner_error": "RuntimeError('Training did not confirm1500 iterations and exact final checkpoint')",
+  "selection_completed": false,
+  "validation_completed": false,
+  "runner_and_children_exited_verified": true,
+  "original_reward_restored_verified": true,
+  "final_remote_receipt": "execution/final_remote_receipt.json",
+  "official_score_prediction": null,
+  "critical_archive_retrieved": true,
+  "full_archive_verification": {
+    "safe_extraction": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\recovered_full_20261009_1427",
+    "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\retrieved_archives\\b1_baseline_20261009_4h_results.tar.gz",
+    "method": "6 normal UI Downloads joined; final remote hash and bytes match",
+    "bytes": 115670853,
+    "sha256": "53aa132fedc6e7515bfee883c50de16af3b2d3bbb04a38f3e65be668b085ae51",
+    "files": 48
+  },
+  "evaluation_coverage": {
+    "validation": 0,
+    "selection": 0,
+    "selected_checkpoint": null,
+    "official_score_prediction": null
+  },
+  "confirmed_error_cause": "Provided train.py post-training cleanup removes original model_1000/model_1499; runner checks original directory after preservation instead of preserved checkpoints. Final log exact parser reports1500, and preserved checkpoints have verified SHA. No evaluation began.",
+  "server_off_confirmed_utc": "2026-10-09T14:29:00Z",
+  "server_off_evidence": {
+    "visible_status": "사용가능",
+    "snapshot": "execution/dashboard_off_20261009_1429.txt",
+    "VSCode_disabled": true,
+    "start_button": "서버 시작하기",
+    "quota_used": "74시간33분/100시간",
+    "screenshot": "execution/dashboard_off_20261009_1429.png"
+  },
+  "automation_status": "PAUSED",
+  "local_training_diagnostic": "execution/local_training_diagnostic.json",
+  "checkpoint_tensor_finiteness_verified": true,
+  "training_samples_exact_reparse": 1500,
+  "study_complete": false,
+  "offline_internal_assessment": {
+    "completed_utc": "2026-10-09T14:57:32Z",
+    "status": "LOCAL_TRAINING_DIAGNOSTIC_COMPLETE_B1_POLICY_PERFORMANCE_UNMEASURED",
+    "server_used": false,
+    "policy_performance_measured": false,
+    "research_priority": "B1_FURTHER_LONG_TRAINING_LOW",
+    "model_integrity_verified_count": 16,
+    "training_iterations_analyzed": 1500,
+    "official_score_prediction": null,
+    "predicted_gain": null,
+    "report": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\offline_eval\\internal_assessment.txt",
+    "json": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\offline_eval\\internal_assessment.json",
+    "chart": "D:\\UserData\\Desktop\\issac_sim\\analysis\\baseline_redesign_20261009_4h\\offline_eval\\B1_training_assessment.png",
+    "report_sha256": "d6cecb4fb8e9c8bb7d9b6f8bcfe53ae83da9d8b015ce7186395657e144ed2327",
+    "json_sha256": "766f9fe64b910046a9de67f75aac43730b14db35391ed1101018077f80466a71"
+  }
+}

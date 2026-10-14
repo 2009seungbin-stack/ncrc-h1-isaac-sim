@@ -1,0 +1,44 @@
+Read-only source review for final retrieval, 2026-10-09
+
+This is a validation checklist, not evidence of completed retrieval or evaluation.
+
+Final state: COMPLETE_RETRIEVE_AND_STOP_SERVER, both arms complete, five common
+evaluation groups complete, cleanup_errors empty. Confirm actual runner/group
+exit and current reward SHA equals fresh original; COMPLETE is saved before
+cleanup/bundling. PIDs retained in state can be historical.
+
+Final archive pair: sidecar {path,bytes,sha256}, local size/SHA match. Retrieve
+after cleanup and runner exit, since archive and sidecar replacements are
+separate operations. Existing intermediate archives can be partial or stale.
+
+Tar prefix tracking_screen_20261009/. Inspect first; reject absolute/traversing
+paths, duplicate destinations (including Windows case aliases), links and
+special files. Extract to a fresh safe subfolder. Verify internal manifest.json
+files{relative_path:{bytes,sha256}} and account for missing/unexpected files.
+Manifest excludes itself, __pycache__, .tmp/.copying/.lock files.
+
+Preserved: two model_1499.pt files with state hashes, params/events/train logs.
+Hash checkpoints without deserializing untrusted pickle.
+
+Evaluation completeness: models C0_5500,F10_3000,S1_tracking_pair,R1_tracking_double.
+20 model JSONs,28 model/scenario combinations,56 seed rows,56 npz traces.
+Flat G1/G2/G6; rough G3; slope G4; stairs G5; dr G7. Seed rows ordered809,1201;
+env128,startup303,terrain9049,128episodes/row,256/scenario/model. Check model,
+version short-sweep-v2-20261002,checkpoint hashes,finite metrics,positive counts,
+steps/horizon and trace correspondence. File presence alone is insufficient.
+
+Summary pools full-window SSE/count and computes tracking=exp(-sqrt(mean of
+three axis MSEs)); scenario score=survival*tracking. G1-G7 weights
+0.15,0.15,0.20,0.15,0.15,0.10,0.10. Recompute and compare. Candidate survival
+non-regression flag compares each scenario with C0 only.
+
+Report full and steady windows separately. Steady omits first0.5s of EVERY5s
+segment; it is not the official score. Both windows score still-alive envs,
+exclude termination tick and later reset paths. Full is every scored tick.
+Known G6 push-observation timing remains unchanged. No independent training
+seed replication; current runtime differs from historical training, and new
+1500-iteration arms differ in length from references3000/5500. No93 guarantee.
+
+Reviewed sources: execution/runner.py:480-610, execution/batch_eval.py:64-179,
+execution/t_eval.py:800-887. Runner eval_complete validates only a subset of
+the final checks above; validation must inspect the retrieved outputs directly.

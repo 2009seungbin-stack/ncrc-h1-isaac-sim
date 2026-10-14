@@ -1,0 +1,245 @@
+{
+  "created_utc": "2026-10-08T10:15:03.668838+00:00",
+  "status": "UNVALIDATED_CALIBRATION_OUTPUTS_NOT_PRIMARY_PREDICTION",
+  "interpretation_review_date": "2026-10-08",
+  "primary_prediction": null,
+  "prediction_validated": false,
+  "legacy_field_note": "Numeric fields named primary are retained for historical compatibility, not endorsed as primary predictions.",
+  "primary_method": "Legacy C0 anchored 3-axis MSE floor. Retained for sensitivity analysis only.",
+  "legacy_floor_zero_local_error_ceiling_assuming_30": 89.72110610657487,
+  "formula": "30 + 70*sum(w*S_local*exp(-sqrt((vx_rmse^2+vy_rmse^2+yaw_rmse^2)/3+c)))",
+  "current_evaluator_floor_c": 0.025220536061869164,
+  "anchor_sim": 58.14,
+  "anchor_total": 88.14,
+  "qualitative_points_assumed": 30.0,
+  "weights": {
+    "G1": 0.15,
+    "G2": 0.15,
+    "G3": 0.2,
+    "G4": 0.15,
+    "G5": 0.15,
+    "G6": 0.1,
+    "G7": 0.1
+  },
+  "anchor_source": "D:\\UserData\\Desktop\\issac_sim\\analysis\\score_reverse_20261001\\analysis.json",
+  "anchor_source_sha256": "b18e8c7255e2c70886ac72fa0ccb4c423a726eae1cce78c14cb801870434b8d5",
+  "measurement_source": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\heldout_ranking.json",
+  "measurement_source_sha256": "c76f48566d0995f0b4fd4a1cc58b0188daa3234015d1b9a20d815eac508ea0a9",
+  "full_predictions": {
+    "F10_3000": {
+      "primary_sim": 58.36455325710006,
+      "primary_total_assuming_30": 88.36455325710006,
+      "global_scale_total_assuming_30": 88.62902031806857,
+      "scenario_floor_total_assuming_30": 88.36280474187046,
+      "scenario_scale_total_assuming_30": 88.62700808316018,
+      "model_sensitivity_min": 88.36280474187046,
+      "model_sensitivity_max": 88.62902031806857,
+      "raw_self_sim": 64.169742453186,
+      "raw_self_total_assuming_30": 94.169742453186,
+      "scenario_predictions": {
+        "mse_floor_points": {
+          "G1": 8.818226676327177,
+          "G2": 8.70970537171958,
+          "G6": 5.783195739334252,
+          "G3": 11.75066445726955,
+          "G4": 8.8464585896123,
+          "G5": 8.574908042351343,
+          "G7": 5.879645865256256
+        },
+        "scale_points": {
+          "G1": 8.833951237822564,
+          "G2": 8.75495467878665,
+          "G6": 5.780247709264884,
+          "G3": 11.829263540880293,
+          "G4": 8.918836917837435,
+          "G5": 8.59242313639861,
+          "G7": 5.917330862169741
+        },
+        "mse_floor_sum": 58.362804741870455,
+        "scale_sum": 58.62700808316017
+      },
+      "officially_evaluated_candidate": false
+    },
+    "C0_5500": {
+      "primary_sim": 58.14,
+      "primary_total_assuming_30": 88.14,
+      "global_scale_total_assuming_30": 88.14000000000001,
+      "scenario_floor_total_assuming_30": 88.14,
+      "scenario_scale_total_assuming_30": 88.14,
+      "model_sensitivity_min": 88.14,
+      "model_sensitivity_max": 88.14000000000001,
+      "raw_self_sim": 63.63450738197734,
+      "raw_self_total_assuming_30": 93.63450738197734,
+      "scenario_predictions": {
+        "mse_floor_points": {
+          "G1": 8.8,
+          "G2": 8.66,
+          "G6": 5.79,
+          "G3": 11.69,
+          "G4": 8.79,
+          "G5": 8.56,
+          "G7": 5.85
+        },
+        "scale_points": {
+          "G1": 8.799999999999999,
+          "G2": 8.66,
+          "G6": 5.79,
+          "G3": 11.69,
+          "G4": 8.79,
+          "G5": 8.56,
+          "G7": 5.85
+        },
+        "mse_floor_sum": 58.14,
+        "scale_sum": 58.14
+      },
+      "officially_evaluated_candidate": true
+    }
+  },
+  "partial_predictions_not_totals": {
+    "saved": {
+      "F10_2800": {
+        "covered_max_points": 38.5,
+        "predicted_covered_points_mse_floor": 31.840972513578762,
+        "predicted_covered_points_scale": 31.79528096223474,
+        "unmeasured_scenarios": [
+          "G3",
+          "G4",
+          "G7"
+        ],
+        "total_prediction": null,
+        "falls": 0
+      },
+      "F10_3000": {
+        "covered_max_points": 38.5,
+        "predicted_covered_points_mse_floor": 31.975293122898186,
+        "predicted_covered_points_scale": 32.03783838252078,
+        "unmeasured_scenarios": [
+          "G3",
+          "G4",
+          "G7"
+        ],
+        "total_prediction": null,
+        "falls": 0
+      },
+      "F10_2000": {
+        "covered_max_points": 38.5,
+        "predicted_covered_points_mse_floor": 31.83036086883409,
+        "predicted_covered_points_scale": 31.779660553995384,
+        "unmeasured_scenarios": [
+          "G3",
+          "G4",
+          "G7"
+        ],
+        "total_prediction": null,
+        "falls": 0
+      },
+      "C0_5500": {
+        "covered_max_points": 38.5,
+        "predicted_covered_points_mse_floor": 31.810000000000002,
+        "predicted_covered_points_scale": 31.810000000000002,
+        "unmeasured_scenarios": [
+          "G3",
+          "G4",
+          "G7"
+        ],
+        "total_prediction": null,
+        "falls": 1
+      },
+      "F10_2200": {
+        "covered_max_points": 38.5,
+        "predicted_covered_points_mse_floor": 31.814611597348986,
+        "predicted_covered_points_scale": 31.755652250719987,
+        "unmeasured_scenarios": [
+          "G3",
+          "G4",
+          "G7"
+        ],
+        "total_prediction": null,
+        "falls": 0
+      },
+      "F10_2400": {
+        "covered_max_points": 38.5,
+        "predicted_covered_points_mse_floor": 31.7439775900573,
+        "predicted_covered_points_scale": 31.622061801244456,
+        "unmeasured_scenarios": [
+          "G3",
+          "G4",
+          "G7"
+        ],
+        "total_prediction": null,
+        "falls": 0
+      },
+      "F10_2600": {
+        "covered_max_points": 38.5,
+        "predicted_covered_points_mse_floor": 31.873359762487926,
+        "predicted_covered_points_scale": 31.858609155787413,
+        "unmeasured_scenarios": [
+          "G3",
+          "G4",
+          "G7"
+        ],
+        "total_prediction": null,
+        "falls": 0
+      }
+    },
+    "short": {
+      "linear": {
+        "covered_max_points": 38.5,
+        "predicted_covered_points_mse_floor": 29.69769415586373,
+        "predicted_covered_points_scale": 29.341885315712137,
+        "unmeasured_scenarios": [
+          "G3",
+          "G4",
+          "G7"
+        ],
+        "total_prediction": null,
+        "falls": 17
+      },
+      "action": {
+        "covered_max_points": 38.5,
+        "predicted_covered_points_mse_floor": 30.9436425402518,
+        "predicted_covered_points_scale": 30.460938597928124,
+        "unmeasured_scenarios": [
+          "G3",
+          "G4",
+          "G7"
+        ],
+        "total_prediction": null,
+        "falls": 1
+      },
+      "control": {
+        "covered_max_points": 38.5,
+        "predicted_covered_points_mse_floor": 31.197022840232183,
+        "predicted_covered_points_scale": 30.936044732957654,
+        "unmeasured_scenarios": [
+          "G3",
+          "G4",
+          "G7"
+        ],
+        "total_prediction": null,
+        "falls": 2
+      },
+      "acc": {
+        "covered_max_points": 38.5,
+        "predicted_covered_points_mse_floor": 29.178947292934986,
+        "predicted_covered_points_scale": 28.827844969453373,
+        "unmeasured_scenarios": [
+          "G3",
+          "G4",
+          "G7"
+        ],
+        "total_prediction": null,
+        "falls": 19
+      }
+    }
+  },
+  "limitations": [
+    "C0 matching 88.14 is calibration by construction, not out-of-sample validation.",
+    "The relation between local tracking/survival and official scoring may change for F10.",
+    "Model sensitivity min/max is not a confidence or prediction interval; actual score can lie outside.",
+    "Design/report 30 points are assumed, not yet awarded to a new submission.",
+    "No independent training seed repeats; no new simulator evaluations or submissions.",
+    "The MSE-floor model ceiling is a mathematical artifact, not an official competition ceiling.",
+    "Legacy calibration was based on another evaluation convention. Reanchoring is exploratory and unvalidated."
+  ]
+}

@@ -1,0 +1,1026 @@
+        self, path: str, load_cfg: dict | None = None, strict: bool = True, map_location: str | None = None
+    ) -> dict:
+        """Load the models and training state from a given path.
+        Args:
+            path (str): Path to load the model from.
+            load_cfg (dict | None): Optional dictionary that defines what models and states to load. If None, all
+                models and states are loaded.
+            strict (bool): Whether state_dict loading should be strict.
+            map_location (str | None): Device mapping for loading the model.
+        """
+        loaded_dict = torch.load(path, weights_only=False, map_location=map_location)
+        load_iteration = self.alg.load(loaded_dict, load_cfg, strict)
+        if load_iteration:
+            self.current_learning_iteration = loaded_dict["iter"]
+        return loaded_dict["infos"]
+    def load(self, loaded_dict: dict, load_cfg: dict | None, strict: bool) -> bool:
+        """Load specified models from a saved dict."""
+        # If no load_cfg is provided, load all models and states
+        if load_cfg is None:
+            load_cfg = {
+                "actor": True,
+                "critic": True,
+                "optimizer": True,
+                "iteration": True,
+                "rnd": True,
+            }
+        # Load the specified models
+        if load_cfg.get("actor"):
+            self.actor.load_state_dict(loaded_dict["actor_state_dict"], strict=strict)
+        if load_cfg.get("critic"):
+            self.critic.load_state_dict(loaded_dict["critic_state_dict"], strict=strict)
+        if load_cfg.get("optimizer"):
+            self.optimizer.load_state_dict(loaded_dict["optimizer_state_dict"])
+        if load_cfg.get("rnd") and self.rnd:
+            self.rnd.load_state_dict(loaded_dict["rnd_state_dict"], strict=strict)
+            self.rnd_optimizer.load_state_dict(loaded_dict["rnd_optimizer_state_dict"])
+        return load_cfg.get("iteration", False)
+ == 0:
+                        if kl_mean > self.desired_kl * 2.0:
+                            self.learning_rate = max(1e-5, self.learning_rate / 1.5)
+                        elif kl_mean < self.desired_kl / 2.0 and kl_mean > 0.0:
+                            self.learning_rate = min(1e-2, self.learning_rate * 1.5)
+                    # Update the learning rate for all GPUs
+                    if self.is_multi_gpu:
+                        lr_tensor = torch.tensor(self.learning_rate, device=self.device)
+                        torch.distributed.broadcast(lr_tensor, src=0)
+                        self.learning_rate = lr_tensor.item()
+                    # Update the learning rate for all parameter groups
+                    for param_group in self.optimizer.param_groups:
+                        param_group["lr"] = self.learning_rate
+            # Surrogate loss
+            ratio = torch.exp(actions_log_prob - torch.squeeze(batch.old_actions_log_prob))  # type: ignore
+            surrogate = -torch.squeeze(batch.advantages) * ratio  # type: ignore
+            surrogate_clipped = -torch.squeeze(batch.advantages) * torch.clamp(  # type: ignore
+                ratio, 1.0 - self.clip_param, 1.0 + self.clip_param
+            )
+            surrogate_loss = torch.max(surrogate, surrogate_clipped).mean()
+            # Value function loss
+            if self.use_clipped_value_loss:
+                value_clipped = batch.values + (values - batch.values).clamp(-self.clip_param, self.clip_param)
+                value_losses = (values - batch.returns).pow(2)
+                value_losses_clipped = (value_clipped - batch.returns).pow(2)
+                value_loss = torch.max(value_losses, value_losses_clipped).mean()
+            else:
+                value_loss = (batch.returns - values).pow(2).mean()
+            loss = surrogate_loss + self.value_loss_coef * value_loss - self.entr
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+from __future__ import annotations
+import argparse
+import random
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from isaaclab_rl.rsl_rl import RslRlBaseRunnerCfg
+def add_rsl_rl_args(parser: argparse.ArgumentParser):
+    """Add RSL-RL arguments to the parser.
+    Args:
+        parser: The parser to add the arguments to.
+    """
+    # create a new argument group
+    arg_group = parser.add_argument_group("rsl_rl", description="Arguments for RSL-RL agent.")
+    # -- experiment arguments
+    arg_group.add_argument(
+        "--experiment_name", type=str, default=None, help="Name of the experiment folder where logs will be stored."
+    )
+    arg_group.add_argument("--run_name", type=str, default=None, help="Run name suffix to the log directory.")
+    # -- load arguments
+    arg_group.add_argument("--resume", action="store_true", default=False, help="Whether to resume from a checkpoint.")
+    arg_group.add_argument("--load_run", type=str, default=None, help="Name of the run folder to resume from.")
+    arg_group.add_argument("--checkpoint", type=str, default=None, help="Checkpoint file to resume from.")
+    # -- logger arguments
+    arg_group.add_argument(
+        "--logger", type=str, default=None, choices={"wandb", "tensorboard", "neptune"}, help="Logger module to use."
+    )
+    arg_group.add_argument(
+        "--log_project_name", type=str, default=None, help="Name of the logging project when using wandb or neptune."
+    )
+def parse_rsl_rl_cfg(task_name: str, args_cli: argparse.Namespace) -> RslRlBaseRunnerCfg:
+    """Parse configuration for RSL-RL agent based on inputs.
+    Args:
+        task_name: The name of the environment.
+        args_cli: The command line arguments.
+    Returns:
+        The parsed configuration for RSL-RL agent based on inputs.
+    """
+    from isaaclab_tasks.utils.parse_cfg import load_cfg_from_registry
+    # load the default configuration
+    rslrl_cfg: RslRlBaseRunnerCfg = load_cfg_from_registry(task_name, "rsl_rl_cfg_entry_point")
+    rslrl_cfg = update_rsl_rl_cfg(rslrl_cfg, args_cli)
+    return rslrl_cfg
+def update_rsl_rl_cfg(agent_cfg: RslRlBaseRunnerCfg, args_cli: argparse.Namespace):
+    """Update configuration for RSL-RL agent based on inputs.
+    Args:
+        agent_cfg: The configuration for RSL-RL agent.
+        args_cli: The command line arguments.
+    Returns:
+        The updated configuration for RSL-RL agent based on inputs.
+    """
+    # override the default configuration with CLI arguments
+    if hasattr(args_cli, "seed") and args_cli.seed is not None:
+        # randomly sample a seed if seed = -1
+        if args_cli.seed == -1:
+            args_cli.seed = random.randint(0, 10000)
+        agent_cfg.seed = args_cli.seed
+    if args_cli.resume is not None:
+        agent_cfg.resume = args_cli.resume
+    if args_cli.load_run is not None:
+        agent_cfg.load_run = args_cli.load_run
+    if args_cli.checkpoint is not None:
+        agent_cfg.load_checkpoint = args_cli.checkpoint
+    if args_cli.experiment_name is not None:
+        agent_cfg.experiment_name = args_cli.experiment_name
+    if args_cli.run_name is not None:
+        agent_cfg.run_name = args_cli.run_name
+    if args_cli.logger is not None:
+        agent_cfg.logger = args_cli.logger
+    # set the project name for wandb and neptune
+    if agent_cfg.logger in {"wandb", "neptune"} and args_cli.log_project_name:
+        agent_cfg.wandb_project = args_cli.log_project_name
+        agent_cfg.neptune_project = args_cli.log_project_name
+    return agent_cfg
+"""학습 종료 후 best model 선별 + training/quadruped/exported/ 에 출력.
+출력 파일 (training/quadruped/exported/ 안 — 한 곳에 모음):
+  - model_best.pt   : 예선 채점용 RSL-RL checkpoint
+  - env.yaml        : 학습 환경 dump
+  - policy.pt       : (play.py 실행 후) 본선 매치용 JIT exported
+학생/운영자가 exported/ 한 폴더만 보면 됨.
+"""
+from __future__ import annotations
+import argparse
+import json
+import math
+import shutil
+from pathlib import Path
+PROJECT_DIR = Path(__file__).resolve().parent.parent  # training/quadruped/
+LOG_ROOT = PROJECT_DIR / "logs" / "rsl_rl" / "quadruped"
+FINAL_DIR = PROJECT_DIR / "exported"  # ★ 결과물 한 폴더에 모음
+def _model_iter(p: Path) -> int:
+    # model_<iter>.pt → iter. 비숫자(model_best.pt 등 resume 용 사용자 파일)는
+    # -1 반환 → 선별/정리 대상에서 제외. (int("best") ValueError 크래시 방지.)
+    s = p.stem.split("_")[-1]
+    return int(s) if s.isdigit() else -1
+def _is_run(p: Path) -> bool:
+    """실제 학습이 남긴 run 폴더인가 — tfevents 나 params/ 가 있으면 그렇다.
+    🔴 **가짜 run 폴더를 run 으로 세면 안 된다.** README 의 "logs 가 날아갔을 때"
+       우회책은 `logs/rsl_rl/<robot>/from_best/` 를 만들어 체크포인트를 복사하라고
+       한다. 그런데 그 폴더는 **방금 만든 것이라 mtime 이 가장 최신**이어서, 예전
+       `max(runs, key=mtime)` 은 그것을 '최신 run' 으로 골랐다. 학습이 실패하면
+       finalize 가 그 폴더를 뒤지고 `model_*.pt 없음` 을 내는데, 참가자에게는 그게
+       마지막 화면이라 **진짜 원인(학습 실패)을 못 찾는다**(실측 문의).
+    """
+    return any(p.glob("events.out.tfevents.*")) or (p / "params").is_dir()
+def find_latest_run() -> Path:
+    if not LOG_ROOT.exists():
+        raise FileNotFoundError(f"학습 log 없음: {LOG_ROOT}")
+    runs = [p for p in LOG_ROOT.iterdir() if p.is_dir()]
+    if not runs:
+        raise FileNotFoundError(f"학습 run 없음: {LOG_ROOT}")
+    real = [p for p in runs if _is_run(p)]
+    if not real:
+        # ⚠️ '학습 기록이 없다' 와 '체크포인트가 없다' 는 다른 말이다 — 섞으면
+        #    참가자가 체크포인트를 찾아 헤맨다. 무엇이 없는지 그대로 적는다.
+        raise FileNotFoundError(
+            f"학습 기록(tfevents)이 있는 run 이 없습니다: {LOG_ROOT}"
+            f" — 학습이 시작되지 못했습니다. 이어서 학습용으로 만든 폴더"
+            f"(예: from_best)는 run 이 아닙니다. 위쪽 학습 로그의 첫 오류를 보세요.")
+    return max(real, key=lambda p: p.stat().st_mtime)
+def find_best_model(run_dir: Path) -> tuple[Path, float | None, int | None]:
+    """tfevents 의 mean_reward 최고 iter 모델 선택. 실패 시 마지막."""
+    models = sorted([m for m in run_dir.glob("model_*.pt") if _model_iter(m) >= 0],
+                    key=_model_iter)
+    if not models:
+        # ⚠️ 이어서 학습용으로 손수 넣은 `model_best.pt` 는 _model_iter 가 -1 로 걸러낸다.
+        #    그래서 파일이 **눈앞에 있는데** "없음" 이라고 나온다 — 실측 문의가 이 경우였다.
+        #    폴더에 무엇이 있는지 같이 알려줘서 그 오해를 끊는다.
+        others = sorted(p.name for p in run_dir.glob("model_*.pt"))
+        msg = f"model_*.pt 없음: {run_dir}"
+        if others:
+            msg += (f" — 이 폴더엔 {', '.join(others)} 가 있지만, 학습이 남긴"
+                    f" model_<숫자>.pt(예: model_100.pt)가 없습니다."
+                    f" 이어서 학습용으로 넣어둔 파일은 여기서 세지 않습니다.")
+        msg += (" 이 메시지는 학습이 끝난 뒤의 정리 단계에서 나옵니다 —"
+                " 학습이 시작조차 못 했다면 위쪽 첫 오류가 진짜 원인입니다.")
+        raise FileNotFoundError(msg)
+    try:
+        from tensorboard.backend.event_processing.event_accumulator import (
+            EventAccumulator,
+        )
+        # 🔴 size_guidance 를 안 주면 scalar 를 태그당 10,000개만 남긴다 — 그것도
+        #    잘림이 아니라 **무작위 표본**(reservoir, 시드 고정)이다. 10,000 iter 를
+        #    넘는 학습은 최고점 step 이 표본에서 빠질 수 있어 엉뚱한 체크포인트가
+        #    best 로 뽑히고, cleanup 이 진짜 best 를 지워 버린다(복구 불가).
+        #    실측(참가자 제보, 25,000 iter): 표본 best 23101/6.749 → model_23100 선택,
+        #    전체 best 24012/6.904 → model_24000 이 정답이었다.
+        #    scalars=0 = 전부 보관. 다른 종류(images 등)는 기본값과 병합된다.
+        ea = EventAccumulator(str(run_dir), size_guidance={"scalars": 0})
+        # ⚠️ 이 읽기는 학습이 길면 수십 초 걸린다. 아무 출력이 없으면 멈춘 것처럼 보여
+        #    사용자가 Ctrl+C 를 한 번 더 누르고, 그러면 best 선별을 통째로 잃는다.
+        print("[INFO] 학습 기록(tfevents) 읽는 중... 수십 초 걸릴 수 있습니다 — Ctrl+C 누르지 마세요.")
+        ea.Reload()
+        tags = ea.Tags().get("scalars", [])
+        for tag in (
+            "Train/mean_reward",
+            "Episode_Reward/mean",
+            "Reward/mean",
+            "Train/mean_episode_reward",
+        ):
+            if tag in tags:
+                events = ea.Scalars(tag)
+                if not events:
+                    continue
+                # ★ resume warmup 제외 — 리쥼 직후 초반은 보상이 비정상적으로 높을 수
+                #   있어(이미 학습된 모델 + 커리큘럼/지형이 쉬운 초기) best 가 그 스파이크로
+                #   잘못 잡힘. 앞 10%(최소 50 step) 워밍업을 빼고 '나중에 수렴한' 구간서 best.
+                # ⚠️ resume 시 step 은 0 이 아니라 이어받은 iter(예: 13200)부터 시작 →
+                #   warmup 임계는 절대값(0.1*max)이 아니라 이 run 의 step 범위(lo~hi) 기준.
+                #   (절대값이면 lo > warmup 이라 리쥼 직후 스파이크가 안 걸러져
+                #    best 가 resume iter 로 고정되는 버그 — 이후 학습분이 cleanup 으로 삭제됨.)
+                steps_all = [e.step for e in events]
+                lo, hi = min(steps_all), max(steps_all)
+                warmup = lo + max(50, int((hi - lo) * 0.10))
+                eligible = [e for e in events if e.step >= warmup] or events
+                best = max(eligible, key=lambda e: e.value)
+                best_model = min(models, key=lambda p: abs(_model_iter(p) - best.step))
+                print(
+                    f"[INFO] Best by '{tag}': step {best.step}, "
+                    f"reward {best.value:.3f} → {best_model.name}"
+                )
+                return best_model, best.value, best.step
+        print("[WARN] reward tag 못 찾음 → 마지막 model 사용.")
+    except ImportError:
+        print("[WARN] tensorboard 패키지 없음 → 마지막 model 사용.")
+    except KeyboardInterrupt:
+        # ⚠️ KeyboardInterrupt 는 Exception 이 **아니라서** 아래 except 에 안 걸린다.
+        #    안 잡으면 여기서 트레이스백과 함께 finalize 가 죽고 model_best.pt 가 안 생긴다
+        #    (학습 중단하려고 Ctrl+C 를 두 번 누르는 건 자연스러운 행동이다).
+        print("[WARN] 기록 읽기를 중단했습니다 → 마지막 체크포인트를 사용합니다"
+              " (보상 최고점 대신 마지막 시점).")
+    except Exception as e:
+        print(f"[WARN] tfevents 파싱 실패: {e} → 마지막 model 사용.")
+    return models[-1], None, _model_iter(models[-1])
+def _cleanup_intermediate_checkpoints(run_dir: Path, keep_iter: int | None = None) -> int:
+    """run_dir 안의 model_*.pt 모두 삭제 (keep_iter 만 보존).
+    tfevents/params/exported 는 보존 (tensorboard, 분석, resume 용).
+    keep_iter 는 play.py 호환 — IsaacLab play.py 가 logs/ 에서 model 찾음.
+    """
+    deleted_count = 0
+    deleted_bytes = 0
+    for p in run_dir.glob("model_*.pt"):
+        # 비숫자 모델(model_best.pt 등 사용자 resume 파일) 은 삭제하지 않음
+        if _model_iter(p) < 0:
+            continue
+root@da-perfect41:/workspace# grep -n 'seed\|max_iterations\|num_envs' /workspace/IsaacLab/scripts/reinforcement_learning/rsl_rl/train.py
+cat /workspace/training/quadruped/go2_task/agents/rsl_rl_ppo_cfg.py
+ls /workspace/training/quadruped/go2_task
+ls /workspace/student_workspace
+23:parser.add_argument("--num_envs", type=int, default=None, help="Number of environments to simulate.")
+28:parser.add_argument("--seed", type=int, default=None, help="Seed used for the environment")
+29:parser.add_argument("--max_iterations", type=int, default=None, help="RL Policy training iterations.")
+119:    env_cfg.scene.num_envs = args_cli.num_envs if args_cli.num_envs is not None else env_cfg.scene.num_envs
+120:    agent_cfg.max_iterations = (
+121:        args_cli.max_iterations if args_cli.max_iterations is not None else agent_cfg.max_iterations
+127:    # set the environment seed
+128:    # note: certain randomizations occur in the environment initialization so we set the seed here
+129:    env_cfg.seed = agent_cfg.seed
+143:        # set seed to have diversity in different threads
+144:        seed = agent_cfg.seed + app_launcher.local_rank
+145:        env_cfg.seed = seed
+146:        agent_cfg.seed = seed
+220:    runner.learn(num_learning_iterations=agent_cfg.max_iterations, init_at_random_ep_len=True)
+cat: /workspace/training/quadruped/go2_task/agents/rsl_rl_ppo_cfg.py: No such file or directory
+__init__.py  _finalize.py  agent_cfg.py  env_cfg.py
+ScorePreview
+root@da-perfect41:/workspace# cat /workspace/training/quadruped/go2_task/agent_cfg.py
+mkdir -p /workspace/student_workspace/round20_20261001
+cp /workspace/training/quadruped/quadruped_rewards.py /workspace/student_workspace/round20_20261001/provided_rewards_original.py 
+sha256sum /workspace/training/quadruped/{train.py,quadruped_rewards.py} /workspace/training/quadruped/go2_task/{agent_cfg.py,env_cfg.py}
+command -v tmux
+"""PPO runner config for Quadruped (Unitree Go2) training.
+Go2 의 action space 는 12 (각 다리 3 joint × 4 다리). H1 의 19 보다 작음.
+네트워크는 비슷한 크기 [512,256,128] 유지 — overkill 아님, robust.
+"""
+from __future__ import annotations
+from isaaclab.utils import configclass
+from isaaclab_rl.rsl_rl import (
+    RslRlOnPolicyRunnerCfg,
+    RslRlPpoActorCriticCfg,
+    RslRlPpoAlgorithmCfg,
+)
+@configclass
+class QuadrupedPPORunnerCfg(RslRlOnPolicyRunnerCfg):
+    num_steps_per_env = 24
+    max_iterations = 5000
+    save_interval = 100
+    experiment_name = "quadruped"
+    empirical_normalization = False
+    policy = RslRlPpoActorCriticCfg(
+        class_name="ActorCritic",
+        init_noise_std=1.0,
+        actor_hidden_dims=[512, 256, 128],
+        critic_hidden_dims=[512, 256, 128],
+        activation="elu",
+    )
+    # ─── PPO hyperparameter — H1 검증값 정렬 (2026-06-11) ────────────
+    # 이력: 2026-05-25 발산(iter 7097 value_loss=inf) 후 보수화했었음
+    #   (lr 5e-4 / desired_kl 0.008 / grad_norm 0.5).
+    # ⚠️ 그 보수화가 신 스택(rsl-rl 4.x)에선 역효과: 탐색이 조기 수축
+    #   (action std 1.0→0.43 @ iter 300)해 "서서 제자리 회전" 국소최적에
+    #   갇히고 보행을 못 배움. 같은 서버에서 H1 은 아래 값으로 std 1.1 유지
+    #   하며 정상 학습(terrain 5.9) → H1 검증값으로 정렬.
+    # 발산 재발 시: model_best 선별이 발산 전 최고 체크포인트를 집으므로
+    #   결과물은 보존됨. 그래도 재발하면 lr 만 7e-4 로 한 단계 내릴 것.
+    algorithm = RslRlPpoAlgorithmCfg(
+        class_name="PPO",
+        value_loss_coef=1.0,
+        use_clipped_value_loss=True,
+        clip_param=0.2,
+        entropy_coef=0.008,
+        num_learning_epochs=5,
+        num_mini_batches=4,
+        learning_rate=1.0e-3,
+        schedule="adaptive",
+        gamma=0.99,
+        lam=0.95,
+        desired_kl=0.01,
+        max_grad_norm=1.0,
+    )
+c09ac99bcd93bb367f0eec69bdb05f4063cb8d60f0258d4667f07addf509de22  /workspace/training/quadruped/train.py
+09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7  /workspace/training/quadruped/quadruped_rewards.py
+a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23  /workspace/training/quadruped/go2_task/agent_cfg.py
+df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1  /workspace/training/quadruped/go2_task/env_cfg.py
+/usr/bin/tmux
+root@da-perfect41:/workspace# cd /workspace/student_workspace/round20_20261001
+ls -l round20_inputs.tar.gz
+tar -xzf round20_inputs.tar.gz
+sha256sum original_C0_model_5500.pt
+/usr/bin/python3 -m py_compile worker.py
+tmux new-session -d -s round20 'cd /workspace/student_workspace/round20_20261001 && /usr/bin/python3 -u worker.py > driver.log 2>&1'
+tmux ls
+cat state.json
+tail -n 15 logs/train_F00.log
+-rw-r--r-- 1 root root 6408768 Oct  1 13:43 round20_inputs.tar.gz
+8d553e697ed4c2856ab002431af96d626eb8b0d23e56b7c754d652193026b1d3  original_C0_model_5500.pt
+bash: /usr/bin/python3: No such file or directory
+no server running on /tmp/tmux-0/default
+cat: state.json: No such file or directory
+tail: cannot open 'logs/train_F00.log' for reading: No such file or directory
+root@da-perfect41:/workspace/student_workspace/round20_20261001# /workspace/IsaacLab/_isaac_sim/python.sh -m py_compile worker.py
+tmux new-session -d -s round20 'cd /workspace/student_workspace/round20_20261001 && /workspace/IsaacLab/_isaac_sim/python.sh -u worker.py > driver.log 2>&1'
+tmux ls
+cat state.json
+tail -n 15 logs/train_F00.log
+round20: 1 windows (created Thu Oct  1 13:44:10 2026)
+cat: state.json: No such file or directory
+tail: cannot open 'logs/train_F00.log' for reading: No such file or directory
+root@da-perfect41:/workspace/student_workspace/round20_20261001# cat state.json
+tail -n 12 driver.log
+tail -n 22 logs/train_F00.log
+nvidia-smi --query-gpu=memory.used,utilization.gpu --format=csv,noheader
+{
+  "stage": "RUNNING",
+  "utc": "2026-10-01T04:44:10.284364+00:00",
+  "elapsed_hours": 0.20924565805329218,
+  "job": "train_F00",
+  "command": [
+    "/workspace/IsaacLab/isaaclab.sh",
+    "-p",
+    "train.py",
+    "--task",
+    "Quadruped-v0",
+    "--num_envs",
+    "6144",
+    "--seed",
+    "42",
+    "--max_iterations",
+    "4000",
+    "--run_name",
+    "round20_F00",
+    "--headless"
+  ],
+  "timeout_seconds": 21600
+}{"stage": "STARTED", "utc": "2026-10-01T04:44:10.279313+00:00", "elapsed_hours": 0.2092442559533649, "mode": "scratch_pair", "training_seed": 42, "reason": "Installed PPO.load does not restore learning_rate scalar", "server_budget_hours": 20, "official_submission": false}
+{"stage": "RUNNING", "utc": "2026-10-01T04:44:10.284364+00:00", "elapsed_hours": 0.20924565805329218, "job": "train_F00", "command": ["/workspace/IsaacLab/isaaclab.sh", "-p", "train.py", "--task", "Quadruped-v0", "--num_envs", "6144", "--seed", "42", "--max_iterations", "4000", "--run_name", "round20_F00", "--headless"], "timeout_seconds": 21600}
+  [OK] track_ang_vel_z_exp.weight = 0.75
+[Quadruped:student] terrain override - boxes ≤0.15m
+[INFO]: Parsing configuration from: go2_task.agent_cfg:QuadrupedPPORunnerCfg
+[WARNING]: The `policy` configuration is deprecated for rsl-rl >= 4.0.0. Please use, e.g., `actor` and `critic` model configurations instead.
+[WARNING]: The `empirical_normalization` parameter is deprecated. Please set `actor_obs_normalization` and `critic_obs_normalization` as part of the `policy` configuration instead.
+[WARNING]: The `policy` configuration is used to infer the `actor` model configuration.
+[WARNING]: The `policy` configuration is used to infer the `critic` model configuration.
+[WARNING]: The `distribution_cfg` configuration is now used to specify the output distribution for stochastic policies. Consider updating the configuration to use `distribution_cfg` instead of `stochastic`, `init_noise_std`, `noise_std_type`, and `state_dependent_std` parameters.
+[INFO] Logging experiment in directory: /workspace/training/quadruped/logs/rsl_rl/quadruped
+Exact experiment name requested from command line: 2026-10-01_13-44-14
+======================================================================================
+[INFO][IsaacLab]: Logging to file: /tmp/isaaclab/logs/isaaclab_2026-10-01_13-44-14.log
+======================================================================================
+13:44:14 [simulation_context.py] WARNING: The `enable_external_forces_every_iteration` parameter in the PhysxCfg is set to False. If you are experiencing noisy velocities, consider enabling this flag. You may need to slightly increase the number of velocity iterations (setting it to 1 or 2 rather than 0), together with this flag, to improve the accuracy of velocity updates.
+xplicitly
+  warnings.warn(
+/workspace/IsaacLab/_isaac_sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/utils.py:251: UserWarning: The observation configuration dictionary 'obs_groups' does not contain the 'actor' key. As an observation group with the name 'policy' was found, this is assumed to be the appropriate observation. Consider adding the 'actor' key to the 'obs_groups' dictionary for clarity. This behavior will be removed in a future version.
+  warnings.warn(
+/workspace/IsaacLab/_isaac_sim/kit/python/lib/python3.11/site-packages/rsl_rl/utils/utils.py:251: UserWarning: The observation configuration dictionary 'obs_groups' does not contain the 'critic' key. As an observation group with the name 'policy' was found, this is assumed to be the appropriate observation. Consider adding the 'critic' key to the 'obs_groups' dictionary for clarity. This behavior will be removed in a future version.
+  warnings.warn(
+5398 MiB, 0 %
+root@da-perfect41:/workspace/student_workspace/round20_20261001# ls -1 /workspace/training/quadruped/logs/rsl_rl/quadruped
+grep -n 'Learning iteration\|Mean action noise std\|Learning rate\|Computation\|Error\|Traceback\|contact.*buffer\|nan\|inf' logs/train_F00.log | tail -n 22
+find preserved -maxdepth 3 -type f | head -n 8
+sed -n '150,180p' /workspace/IsaacLab/scripts/reinforcement_learning/rsl_rl/train.py
+2026-10-01_13-44-14_round20_F00
+16:[WARNING]: The `policy` configuration is used to infer the `actor` model configuration.
+17:[WARNING]: The `policy` configuration is used to infer the `critic` model configuration.
+180:                           Learning iteration 0/4000                             
+214:                           Learning iteration 1/4000                             
+preserved/F00/2026-10-01_13-44-14_round20_F00/events.out.tfevents.1790829869.da-perfect41.4251.0
+preserved/F00/2026-10-01_13-44-14_round20_F00/model_0.pt
+    log_root_path = os.path.abspath(log_root_path)
+    print(f"[INFO] Logging experiment in directory: {log_root_path}")
+    # specify directory for logging runs: {time-stamp}_{run_name}
+    log_dir = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    # The Ray Tune workflow extracts experiment name using the logging line below, hence, do not
+    # change it (see PR #2346, comment-2819298849)
+    print(f"Exact experiment name requested from command line: {log_dir}")
+    if agent_cfg.run_name:
+        log_dir += f"_{agent_cfg.run_name}"
+    log_dir = os.path.join(log_root_path, log_dir)
+    # set the IO descriptors export flag if requested
+    if isinstance(env_cfg, ManagerBasedRLEnvCfg):
+        env_cfg.export_io_descriptors = args_cli.export_io_descriptors
+    else:
+        logger.warning(
+            "IO descriptors are only supported for manager based RL environments. No IO descriptors will be exported."
+        )
+    # set the log directory for the environment (works for all environment types)
+    env_cfg.log_dir = log_dir
+    # create isaac environment
+    env = gym.make(args_cli.task, cfg=env_cfg, render_mode="rgb_array" if args_cli.video else None)
+    # convert to single-agent instance if required by the RL algorithm
+    if isinstance(env.unwrapped, DirectMARLEnv):
+        env = multi_agent_to_single_agent(env)
+    # save resume path before creating a new log_dir
+    if agent_cfg.resume or agent_cfg.algorithm.class_name == "Distillation":
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 40 logs/train_F00.log
+find preserved/F00 -name env.yaml -o -name model_0.pt
+sha256sum /workspace/training/quadruped/go2_task/{agent_cfg.py,env_cfg.py}
+nvidia-smi --query-gpu=memory.used,utilization.gpu --format=csv,noheader
+           Episode_Termination/time_out: 0.2444
+       Episode_Termination/base_contact: 0.0784
+--------------------------------------------------------------------------------
+                         Iteration time: 4.81s
+                           Time elapsed: 00:00:52
+                                    ETA: 05:19:57
+################################################################################
+                           Learning iteration 11/4000                            
+                               Run name: round20_F00
+                            Total steps: 1769472 
+                       Steps per second: 30040 
+                        Collection time: 4.795s 
+                          Learning time: 0.113s 
+                        Mean value loss: 0.0153
+                    Mean surrogate loss: -0.0052
+                      Mean entropy loss: 15.3233
+                            Mean reward: -6.09
+                    Mean episode length: 278.31
+                        Mean action std: 0.87
+    Episode_Reward/track_lin_vel_xy_exp: 0.0981
+     Episode_Reward/track_ang_vel_z_exp: 0.0581
+            Episode_Reward/lin_vel_z_l2: -0.0752
+           Episode_Reward/ang_vel_xy_l2: -0.2400
+          Episode_Reward/dof_torques_l2: -0.0325
+              Episode_Reward/dof_acc_l2: -0.0541
+          Episode_Reward/action_rate_l2: -0.0586
+           Episode_Reward/feet_air_time: -0.0005
+     Episode_Reward/flat_orientation_l2: 0.0000
+          Episode_Reward/dof_pos_limits: 0.0000
+              Curriculum/terrain_levels: 3.1575
+     Metrics/base_velocity/error_vel_xy: 0.5293
+    Metrics/base_velocity/error_vel_yaw: 0.4807
+           Episode_Termination/time_out: 0.2646
+       Episode_Termination/base_contact: 0.0899
+--------------------------------------------------------------------------------
+                         Iteration time: 4.91s
+                           Time elapsed: 00:00:57
+                                    ETA: 05:20:24
+preserved/F00/2026-10-01_13-44-14_round20_F00/model_0.pt
+preserved/F00/2026-10-01_13-44-14_round20_F00/params/env.yaml
+a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23  /workspace/training/quadruped/go2_task/agent_cfg.py
+df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1  /workspace/training/quadruped/go2_task/env_cfg.py
+8036 MiB, 85 %
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 38 logs/train_F00.log
+cat F00_weights.json
+ls -lh preserved/F00/*/model_*.pt
+grep -n 'checkpoint\|video_length\|export_policy\|export_dir' /workspace/training/quadruped/play.py | tail -n 24
+--------------------------------------------------------------------------------
+                         Iteration time: 5.15s
+                           Time elapsed: 00:03:51
+                                    ETA: 05:31:08
+################################################################################
+                           Learning iteration 46/4000                            
+                               Run name: round20_F00
+                            Total steps: 6930432 
+                       Steps per second: 28458 
+                        Collection time: 5.069s 
+                          Learning time: 0.113s 
+                        Mean value loss: 0.0213
+                    Mean surrogate loss: -0.0037
+                      Mean entropy loss: 12.0274
+                            Mean reward: -2.28
+                    Mean episode length: 844.61
+                        Mean action std: 0.67
+    Episode_Reward/track_lin_vel_xy_exp: 0.4093
+     Episode_Reward/track_ang_vel_z_exp: 0.2475
+            Episode_Reward/lin_vel_z_l2: -0.0680
+           Episode_Reward/ang_vel_xy_l2: -0.3236
+          Episode_Reward/dof_torques_l2: -0.0887
+              Episode_Reward/dof_acc_l2: -0.1099
+          Episode_Reward/action_rate_l2: -0.1255
+           Episode_Reward/feet_air_time: -0.0015
+     Episode_Reward/flat_orientation_l2: 0.0000
+          Episode_Reward/dof_pos_limits: 0.0000
+              Curriculum/terrain_levels: 2.2296
+     Metrics/base_velocity/error_vel_xy: 1.4974
+    Metrics/base_velocity/error_vel_yaw: 1.1220
+           Episode_Termination/time_out: 0.6087
+       Episode_Termination/base_contact: 0.3916
+--------------------------------------------------------------------------------
+                         Iteration time: 5.18s
+                           Time elapsed: 00:03:56
+                                    ETA: 05:31:17
+{
+  "track_lin_vel_xy_exp": 2.0,
+  "feet_air_time": 0.01,
+  "lin_vel_z_l2": -3.0,
+  "ang_vel_xy_l2": -0.08,
+  "action_rate_l2": -0.01,
+  "track_ang_vel_z_exp": 0.75
+}-rw-r--r-- 1 root root 6.6M Oct  1 13:44 preserved/F00/2026-10-01_13-44-14_round20_F00/model_0.pt
+84:    # 부모가 이미 --checkpoint 를 붙여 넘겼다 (여기선 그대로 전달)
+90:#    IsaacLab play.py 는 `--checkpoint <절대경로>` 를 그대로 로드하고(125~126행,
+151:    사용자가 직접 `--checkpoint` 를 준 경우는 존중하고 건드리지 않는다.
+153:    if ckpt is None or any(a.startswith("--checkpoint") for a in argv):
+155:    return list(argv) + ["--checkpoint", str(ckpt)]
+158:def _export_policy_to_exported(ckpt: Path | None = None) -> bool:
+407:        _ok_p = _export_policy_to_exported(play_ckpt)
+'actor_state_dict','critic_state_dict') for v in d[k].values() if isinstance(v,torch.Tensor)]; print(json.dumps({'iter':d['iter'],'all_model_tensors_finite':all(torch.isfinite(v).all().item() for v in tensors),'checkpoint_keys':list(d),'optimizer_lr':d['optimizer_state_dict']['param_groups'][0]['lr']}))"
+grep -n 'Error\|Traceback\|Pxg.*error\|overflow\|expects all elements' logs/train_F00.log | tail -n 6
+tail -n 6 logs/train_F00.log
+{"iter": 0, "all_model_tensors_finite": true, "checkpoint_keys": ["actor_state_dict", "critic_state_dict", "optimizer_state_dict", "iter", "infos"], "optimizer_lr": 0.00019753086419753085}
+           Episode_Termination/time_out: 0.6315
+       Episode_Termination/base_contact: 0.3688
+--------------------------------------------------------------------------------
+                         Iteration time: 5.15s
+                           Time elapsed: 00:05:14
+                                    ETA: 05:32:25
+root@da-perfect41:/workspace/student_workspace/round20_20261001# nvidia-smi --query-gpu=utilization.gpu,utilization.memory,memory.used,memory.total,power.draw,power.limit,clocks.sm,clocks.mem --format=csv
+nvidia-smi --query-compute-apps=pid,process_name,used_memory --format=csv
+ps -eo pid,ppid,pcpu,pmem,comm --sort=-pcpu | head -n 16
+cat /sys/fs/cgroup/cpu.max
+cat /sys/fs/cgroup/memory.max
+ls -lh preserved/F00/*/events*
+tail -n 36 logs/train_F00.log
+command -v iostat
+command -v pidstat
+utilization.gpu [%], utilization.memory [%], memory.used [MiB], memory.total [MiB], power.draw [W], power.limit [W], clocks.current.sm [MHz], clocks.current.memory [MHz]
+84 %, 55 %, 8036 MiB, 16303 MiB, 196.00 W, 360.00 W, 2842 MHz, 14801 MHz
+pid, process_name, used_gpu_memory [MiB]
+4251, /isaac-sim/kit/python/bin/python3, 7983 MiB
+4251, /isaac-sim/kit/python/bin/python3, 7983 MiB
+    PID    PPID %CPU %MEM COMMAND
+   4251    4246  124 11.5 python3
+    859     105  0.7  0.2 MainThread
+    105      50  0.2  0.2 MainThread
+   1155     105  0.0  0.1 MainThread
+   4232    4223  0.0  0.0 python3
+    836     105  0.0  0.1 MainThread
+      1       0  0.0  0.0 bash
+     50       1  0.0  0.1 MainThread
+    883     859  0.0  0.1 MainThread
+   4245    4240  0.0  0.0 python3
+   1166    1155  0.0  0.0 bash
+   4220       1  0.0  0.0 tmux: server
+   4221    4220  0.0  0.0 bash
+   4223    4221  0.0  0.0 python.sh
+   4233    4232  0.0  0.0 bash
+max 100000
+max
+-rw-r--r-- 1 root root 123K Oct  1 13:50 preserved/F00/2026-10-01_13-44-14_round20_F00/events.out.tfevents.1790829869.da-perfect41.4251.0
+                           Time elapsed: 00:06:00
+                                    ETA: 05:32:48
+################################################################################
+                           Learning iteration 71/4000                            
+                               Run name: round20_F00
+                            Total steps: 10616832 
+                       Steps per second: 28352 
+                        Collection time: 5.088s 
+                          Learning time: 0.113s 
+                        Mean value loss: 0.0217
+                    Mean surrogate loss: -0.0040
+                      Mean entropy loss: 11.5021
+                            Mean reward: 3.04
+                    Mean episode length: 912.84
+                        Mean action std: 0.65
+    Episode_Reward/track_lin_vel_xy_exp: 0.3803
+     Episode_Reward/track_ang_vel_z_exp: 0.3060
+            Episode_Reward/lin_vel_z_l2: -0.0455
+           Episode_Reward/ang_vel_xy_l2: -0.1830
+          Episode_Reward/dof_torques_l2: -0.0785
+              Episode_Reward/dof_acc_l2: -0.1021
+          Episode_Reward/action_rate_l2: -0.0979
+           Episode_Reward/feet_air_time: -0.0013
+     Episode_Reward/flat_orientation_l2: 0.0000
+          Episode_Reward/dof_pos_limits: 0.0000
+              Curriculum/terrain_levels: 1.7354
+     Metrics/base_velocity/error_vel_xy: 1.6441
+    Metrics/base_velocity/error_vel_yaw: 0.9328
+           Episode_Termination/time_out: 0.6509
+       Episode_Termination/base_contact: 0.3496
+--------------------------------------------------------------------------------
+                         Iteration time: 5.20s
+                           Time elapsed: 00:06:06
+                                    ETA: 05:32:49
+root@da-perfect41:/workspace/student_workspace/round20_20261001# command -v timeout
+(timeout 30s nvidia-smi --query-gpu=timestamp,utilization.gpu,utilization.memory,memory.used,power.draw,clocks.sm --format=csv --loop=1 > profile_gpu_6144.csv) &
+ps -L -p 4251 -o tid,psr,pcpu,comm --sort=-pcpu | head -n 14
+nvidia-smi topo -m
+cat /proc/4251/status | sed -n '/Cpus_allowed_list/p'
+tail -n 8 /proc/4251/io
+/usr/bin/timeout
+[1] 6616
+    TID PSR %CPU COMMAND
+   4251   2  122 python3
+        GPU0    CPU Affinity    NUMA Affinity   GPU NUMA ID
+GPU0     X      0-17    0               N/A
+Legend:
+  X    = Self
+  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)
+  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node
+  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)
+  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)
+  PIX  = Connection traversing at most a single PCIe bridge
+  NV#  = Connection traversing a bonded set of # NVLinks
+Cpus_allowed_list:      0-17
+rchar: 112865342
+wchar: 204312404
+syscr: 23890
+syscw: 14190
+read_bytes: 263749632
+write_bytes: 206737408
+cancelled_write_bytes: 20480
+root@da-perfect41:/workspace/student_workspace/round20_20261001# cp t_eval_go2.py t_eval_go2_core.py
+printf '%s' 'IiIiUmV1c2Ugb25seSBpZGVudGljYWwsIHZlcmlmaWVkIGludGVybmFsIGV2YWx1YXRpb25zOyBjb21wZXRpdGlvbiBjb2RlIHVudG91Y2hlZC4iIiIKaW1wb3J0IGhhc2hsaWIKaW1wb3J0IGpzb24KZnJvbSBwYXRobGliIGltcG9ydCBQYXRoCmltcG9ydCBydW5weQppbXBvcnQgc3lzCgpyb290ID0gUGF0aChfX2ZpbGVfXykucmVzb2x2ZSgpLnBhcmVudAphcmdzID0gc3lzLmFyZ3ZbMTpdCmRlZiBmbGFnKG5hbWUpOgogICAgcmV0dXJuIGFyZ3NbYXJncy5pbmRleChuYW1lKSsxXSBpZiBuYW1lIGluIGFyZ3MgZWxzZSBOb25lCmRlZiBzaGEocGF0aCk6CiAgICByZXR1cm4gaGFzaGxpYi5zaGEyNTYoUGF0aChwYXRoKS5yZWFkX2J5dGVzKCkpLmhleGRpZ2VzdCgpCgpvdXQgPSBmbGFnKCctLW91dCcpCmNoZWNrcG9pbnQgPSBmbGFnKCctLWNoZWNrcG9pbnQnKQppZiBvdXQgYW5kIGNoZWNrcG9pbnQgYW5kICctLW1lcmdlJyBub3QgaW4gYXJnczoKICAgIG91dCA9IFBhdGgob3V0KQogICAgbWFya2VyID0gb3V0LndpdGhfc3VmZml4KCcuY2FjaGUuanNvbicpCiAgICBmaWxlcyA9IFtyb290Lyd0X2V2YWxfZ28yX2NvcmUucHknLCByb290Lyd0X2V2YWwucHknLCBQYXRoKGNoZWNrcG9pbnQpLAogICAgICAgICAgICAgUGF0aCgnL3dvcmtzcGFjZS90cmFpbmluZy9xdWFkcnVwZWQvcXVhZHJ1cGVkX3Jld2FyZHMucHknKSwKICAgICAgICAgICAgIFBhdGgoJy93b3Jrc3BhY2UvdHJhaW5pbmcvcXVhZHJ1cGVkL2dvMl90YXNrL2Vudl9jZmcucHknKV0KICAgIGZpbmdlcnByaW50ID0gZGljdChhcmd2PWFyZ3MsIHNvdXJjZV9oYXNoZXM9e3N0cihwKTpzaGEocCkgZm9yIHAgaW4gZmlsZXN9KQogICAgaWYgb3V0LmV4aXN0cygpIGFuZCBtYXJrZXIuZXhpc3RzKCk6CiAgICAgICAgY2FjaGVkID0ganNvbi5sb2FkcyhtYXJrZXIucmVhZF90ZXh0KCkpCiAgICAgICAgcmVzdWx0ID0ganNvbi5sb2FkcyhvdXQucmVhZF90ZXh0KCkpCiAgICAgICAgaWYgKGNhY2hlZC5nZXQoJ2lucHV0cycpPT1maW5nZXJwcmludCBhbmQgY2FjaGVkLmdldCgnb3V0cHV0X3NoYTI1NicpPT1zaGEob3V0KQogICAgICAgICAgICAgICAgYW5kIHJlc3VsdC5nZXQoJ25hbl9hY3Rpb25zJywwKT09MCBhbmQgcmVzdWx0LmdldCgnY3Jhc2hlcycsMCk9PTAKICAgICAgICAgICAgICAgIGFuZCBzZXQoZmxhZygnLS1zY2VuYXJpb3MnKS5zcGxpdCgnLCcpKSA8PSBzZXQocmVzdWx0LmdldCgnc2NlbmFyaW9zJyx7fSkpKToKICAgICAgICAgICAgcHJpbnQoJ1t2ZXJpZmllZCBldmFsdWF0aW9uIGNhY2hlXSBJZGVudGljYWwgcG9saWN5LCBDTEksIGV2YWx1YXRpb24gc291cmNlIGFuZCB0YXNrIGNvbmZpZ3VyYXRpb24uJyxmbHVzaD1UcnVlKQogICAgICAgICAgICByYWlzZSBTeXN0ZW1FeGl0KDApCiAgICBydW5weS5ydW5fcGF0aChzdHIocm9vdC8ndF9ldmFsX2dvMl9jb3JlLnB5JykscnVuX25hbWU9J19fbWFpbl9fJykKICAgIGlmIG91dC5leGlzdHMoKToKICAgICAgICBtYXJrZXIud3JpdGVfdGV4dChqc29uLmR1bXBzKGRpY3QoaW5wdXRzPWZpbmdlcnByaW50LG91dHB1dF9zaGEyNTY9c2hhKG91dCkpLGluZGVudD0yKSkKZWxzZToKICAgIHJ1bnB5LnJ1bl9wYXRoKHN0cihyb29cat profile_gpu_6144.csv.log.csv) &u=timestamp,utilization.gpu,utilization.memory,memory.used,power.draw --format=csv --loop=1 >
+[1]+  Exit 124                ( timeout 30s nvidia-smi --query-gpu=timestamp,utilization.gpu,utilization.memory,memory.used,power.draw,clocks.sm --format=csv --loop=1 > profile_gpu_6144.csv )
+[1] 6989
+round20: 1 windows (created Thu Oct  1 13:44:10 2026)
+round20_eval: 1 windows (created Thu Oct  1 13:54:15 2026)
+     Metrics/base_velocity/error_vel_xy: 1.5353
+    Metrics/base_velocity/error_vel_yaw: 0.7614
+           Episode_Termination/time_out: 0.7710
+       Episode_Termination/base_contact: 0.2293
+--------------------------------------------------------------------------------
+                         Iteration time: 5.27s
+                           Time elapsed: 00:09:34
+                                    ETA: 05:32:38
+timestamp, utilization.gpu [%], utilization.memory [%], memory.used [MiB], power.draw [W], clocks.current.sm [MHz]
+2026/10/01 13:52:53.301, 94 %, 48 %, 8036 MiB, 194.68 W, 2842 MHz
+2026/10/01 13:52:54.305, 92 %, 47 %, 8036 MiB, 192.81 W, 2842 MHz
+2026/10/01 13:52:55.305, 84 %, 42 %, 8036 MiB, 190.89 W, 2842 MHz
+2026/10/01 13:52:56.305, 89 %, 46 %, 8036 MiB, 194.84 W, 2842 MHz
+2026/10/01 13:52:57.305, 91 %, 46 %, 8036 MiB, 199.61 W, 2842 MHz
+2026/10/01 13:52:58.305, 94 %, 48 %, 8036 MiB, 195.16 W, 2842 MHz
+2026/10/01 13:52:59.305, 95 %, 48 %, 8036 MiB, 196.06 W, 2842 MHz
+2026/10/01 13:53:00.305, 88 %, 44 %, 8036 MiB, 191.88 W, 2842 MHz
+2026/10/01 13:53:01.306, 94 %, 48 %, 8036 MiB, 193.99 W, 2842 MHz
+2026/10/01 13:53:02.306, 91 %, 46 %, 8036 MiB, 195.18 W, 2842 MHz
+2026/10/01 13:53:03.306, 92 %, 47 %, 8036 MiB, 198.25 W, 2842 MHz
+2026/10/01 13:53:04.306, 93 %, 47 %, 8036 MiB, 193.83 W, 2842 MHz
+2026/10/01 13:53:05.306, 92 %, 46 %, 8036 MiB, 193.20 W, 2842 MHz
+2026/10/01 13:53:06.307, 94 %, 48 %, 8036 MiB, 194.48 W, 2842 MHz
+2026/10/01 13:53:07.307, 94 %, 48 %, 8036 MiB, 195.03 W, 2842 MHz
+2026/10/01 13:53:08.307, 94 %, 47 %, 8036 MiB, 197.32 W, 2842 MHz
+2026/10/01 13:53:09.307, 89 %, 44 %, 8036 MiB, 193.06 W, 2842 MHz
+2026/10/01 13:53:10.307, 90 %, 44 %, 8036 MiB, 192.83 W, 2842 MHz
+2026/10/01 13:53:11.307, 85 %, 43 %, 8036 MiB, 192.63 W, 2842 MHz
+2026/10/01 13:53:12.308, 89 %, 44 %, 8036 MiB, 193.64 W, 2842 MHz
+2026/10/01 13:53:13.308, 87 %, 49 %, 8036 MiB, 199.88 W, 2842 MHz
+2026/10/01 13:53:14.308, 89 %, 44 %, 8036 MiB, 194.96 W, 2842 MHz
+2026/10/01 13:53:15.308, 90 %, 45 %, 8036 MiB, 195.73 W, 2842 MHz
+2026/10/01 13:53:16.309, 88 %, 45 %, 8036 MiB, 193.56 W, 2842 MHz
+2026/10/01 13:53:17.309, 91 %, 44 %, 8036 MiB, 193.67 W, 2842 MHz
+2026/10/01 13:53:18.309, 86 %, 42 %, 8036 MiB, 198.95 W, 2842 MHz
+2026/10/01 13:53:19.309, 89 %, 44 %, 8036 MiB, 195.62 W, 2842 MHz
+2026/10/01 13:53:20.309, 82 %, 42 %, 8036 MiB, 192.40 W, 2842 MHz
+2026/10/01 13:53:21.310, 89 %, 45 %, 8036 MiB, 193.41 W, 2842 MHz
+2026/10/01 13:53:22.310, 91 %, 45 %, 8036 MiB, 196.04 W, 2842 MHz
+root@da-perfect41:/workspace/student_workspace/round20_20261001# [200~tail -n 25 logs/parallel_original_A_flat.log
+bash: [200~tail: command not found
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 8 logs/train_F00.log
+     Metrics/base_velocity/error_vel_xy: 1.5196
+    Metrics/base_velocity/error_vel_yaw: 0.6905
+           Episode_Termination/time_out: 0.8115
+       Episode_Termination/base_contact: 0.1886
+--------------------------------------------------------------------------------
+                         Iteration time: 6.37s
+                           Time elapsed: 00:11:07
+                                    ETA: 05:39:28
+root@da-perfect41:/workspace/student_workspace/round20_20261001# nvidia-smi --query-gpu=utilization.gpu,utilization.memory,memory.used,power.draw --format=csv
+utilization.gpu [%], utilization.memory [%], memory.used [MiB], power.draw [W]
+96 %, 44 %, 12051 MiB, 181.62 W
+root@da-perfect41:/workspace/student_workspace/round20_20261001# ls -l eval/original_A
+total 0
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tmux ls
+round20: 1 windows (created Thu Oct  1 13:44:10 2026)
+round20_eval: 1 windows (created Thu Oct  1 13:54:15 2026)
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 5 profile_gpu_train_plus_eval.csv~
+tail: cannot open 'profile_gpu_train_plus_eval.csv~' for reading: No such file or directory
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 35 logs/parallel_original_A_flat.log
+[INFO] Using python from: /workspace/IsaacLab/_isaac_sim/python.sh             
+[INFO][AppLauncher]: Using device: cuda:0
+[INFO][AppLauncher]: Loading experience file: /workspace/IsaacLab/apps/isaaclab.python.headless.kit
+[t_eval] ckpt iter=5500 actor layers=[(512, 235), (256, 512), (128, 256), (12, 128)]
+[t_eval] 체크포인트 actor 로드: /workspace/student_workspace/round20_20261001/original_C0_model_5500.pt
+[t_eval] === terrain='flat' 환경 생성: G1, G2, G6 ===
+[INFO]: Parsing configuration from: go2_task.env_cfg:QuadrupedRoughEnvCfg
+[Quadruped:student] 6 reward 항목 로드
+  [OK] track_lin_vel_xy_exp.weight = 2.0
+  [OK] feet_air_time.weight = 0.01
+  [OK] lin_vel_z_l2.weight = -3.0
+  [OK] ang_vel_xy_l2.weight = -0.08
+  [OK] action_rate_l2.weight = -0.01
+  [OK] track_ang_vel_z_exp.weight = 0.75
+[Quadruped:student] terrain override - boxes ≤0.15m
+======================================================================================
+[INFO][IsaacLab]: Logging to file: /tmp/isaaclab/logs/isaaclab_2026-10-01_13-54-18.log
+======================================================================================
+13:54:18 [simulation_context.py] WARNING: The `enable_external_forces_every_iteration` parameter in the PhysxCfg is set to False. If you are experiencing noisy velocities, consider enabling this flag. You may need to slightly increase the number of velocity iterations (setting it to 1 or 2 rather than 0), together with this flag, to improve the accuracy of velocity updates.
+root@da-perfect41:/workspace/student_workspace/round20_20261001# ls -l eval/original_A
+tail -n 6 profile_gpu_train_plus_eval.csv
+total 0
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 6 profile_gpu_train_plus_eval.csv
+2026/10/01 13:56:38.729, 96 %, 40 %, 12051 MiB, 179.80 W
+2026/10/01 13:56:39.729, 97 %, 44 %, 12051 MiB, 179.76 W
+2026/10/01 13:56:40.729, 97 %, 44 %, 12051 MiB, 177.32 W
+2026/10/01 13:56:41.730, 91 %, 41 %, 12051 MiB, 178.06 W
+2026/10/01 13:56:42.730, 96 %, 42 %, 12051 MiB, 180.47 W
+2026/10/01 13:56:43.730, 97 %, 44 %, 12051 MiB, 178.64 W
+root@da-perfect41:/workspace/student_workspace/round20_20261001# ps -eo pid,ppid,etime,pcpu,comm --sort=-pcpu | head -n 12
+[1]+  Exit 124                ( timeout 180s nvidia-smi --query-gpu=timestamp,utilization.gpu,utilization.memory,memory.used,power.draw --format=csv --loop=1 > profile_gpu_train_plus_eval.csv )
+    PID    PPID     ELAPSED %CPU COMMAND
+   4251    4246       13:05  120 python3
+   7007    7001       03:00  113 python3
+    859     105       23:51  0.6 MainThread
+    105      50       26:19  0.2 MainThread
+   1155     105       23:07  0.0 MainThread
+   4232    4223       13:05  0.0 python3
+    836     105       23:51  0.0 MainThread
+      1       0       26:20  0.0 bash
+    883     859       23:50  0.0 MainThread
+     50       1       26:19  0.0 MainThread
+   1166    1155       23:07  0.0 bash
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 7 logs/train_F00.log
+    Metrics/base_velocity/error_vel_yaw: 0.6063
+           Episode_Termination/time_out: 0.8297
+       Episode_Termination/base_contact: 0.1705
+--------------------------------------------------------------------------------
+                         Iteration time: 6.36s
+                           Time elapsed: 00:12:43
+                                    ETA: 05:45:44
+root@da-perfect41:/workspace/student_workspace/round20_20261001# ls -l eval/original_A
+total 0
+MoJ1BlcmYvdG90YWxfZnBzJykKc3RlcHM9W2RpY3QoaXRlcj1iLnN0ZXAsd2FsbD1iLndhbGxfdGltZSxzZWNvbmRzPShiLndhbGxfdGltZS1hLndhbGxfdGltZSkvKGIuc3RlcC1hLnN0ZXApKQogICAgICAgZm9yIGEsYiBpbiB6aXAocG9pbnRzLHBvaW50c1sxOl0pIGlmIGIuc3RlcD5hLnN0ZXBdCmRlZiB0aW1pbmcoYmVnaW4sZW5kKToKICAgIHNlbGVjdGVkPVtwWydzZWNvbmRzJ10gZm9yIHAgaW4gc3RlcHMgaWYgYmVnaW48PXBbJ3dhbGwnXTw9ZW5kXQogICAgcmV0dXJuIGRpY3Qoc2FtcGxlcz1sZW4oc2VsZWN0ZWQpLG1lYW5fc2Vjb25kcz1zdGF0aXN0aWNzLm1lYW4oc2VsZWN0ZWQpIGlmIHNlbGVjdGVkIGVsc2UgTm9uZSwKICAgICAgICAgICAgICAgIG1lZGlhbl9zZWNvbmRzPXN0YXRpc3RpY3MubWVkaWFuKHNlbGVjdGVkKSBpZiBzZWxlY3RlZCBlbHNlIE5vbmUpCgpkYXRhPWRpY3Qoc29sbz1zb2xvLG92ZXJsYXA9b3ZlcmxhcCxzb2xvX3RyYWluaW5nPXRpbWluZyhzb2xvWydzdGFydCddLHNvbG9bJ2VuZCddKSwKICAgICAgICAgIG92ZXJsYXBfdHJhaW5pbmc9dGltaW5nKG92ZXJsYXBbJ3N0YXJ0J10rNDAsb3ZlcmxhcFsnZW5kJ10pLAogICAgICAgICAgcmVjZW50X3RyYWluaW5nPXRpbWluZyhwb2ludHNbLTFdLndhbGxfdGltZS02MCxwb2ludHNbLTFdLndhbGxfdGltZSksCiAgICAgICAgICBsYXRlc3RfaXRlcmF0aW9uPXBvaW50c1stMV0uc3RlcCwKICAgICAgICAgIGNhdmVhdD0nT25lIHdhcm11cC1zdGFnZSBvdmVybGFwIHRlc3QsIG5vdCBhIHN0ZWFkeS1zdGF0ZSBoYXJkd2FyZSBiZW5jaG1hcms7IHJlc291cmNlIHVzZSBpcyBub3QgdGhyb3VnaHB1dC4nKQoocm9vdC8ncHJvZmlsZV9zdW1tYXJ5Lmpzb24nKS53cml0ZV90ZXh0KGpzb24uZHVtcHMoZGF0YSxpbmRlbnQ9MikpCnByaW50KGpzb24uZHVtcHMoZGF0YSxpbmRlbnQ9MikpCg==' | base64 -d > profile_summary.py
+root@da-perfect41:/workspace/student_workspace/round20_20261001# CUDA_VISIBLE_DEVICES='' /workspace/IsaacLab/_isaac_sim/python.sh profile_summary.py
+ls -l eval/original_A
+{
+  "solo": {
+    "samples": 30,
+    "gpu_mean": 90.2,
+    "gpu_min": 82.0,
+    "gpu_max": 95.0,
+    "max_memory_mib": 8036.0,
+    "mean_power_w": 194.78633333333335,
+    "start": 1790830373.301,
+    "end": 1790830402.31
+  },
+  "overlap": {
+    "samples": 180,
+    "gpu_mean": 94.94444444444444,
+    "gpu_min": 73.0,
+    "gpu_max": 99.0,
+    "max_memory_mib": 12051.0,
+    "mean_power_w": 179.53494444444445,
+    "start": 1790830455.679,
+    "end": 1790830634.738
+  },
+  "solo_training": {
+    "samples": 5,
+    "mean_seconds": 5.227867269515992,
+    "median_seconds": 5.2301881313323975
+  },
+  "overlap_training": {
+    "samples": 22,
+    "mean_seconds": 6.406252644278786,
+    "median_seconds": 6.402124285697937
+  },
+  "recent_training": {
+    "samples": 10,
+    "mean_seconds": 6.343103766441345,
+    "median_seconds": 6.3472418785095215
+  },
+  "latest_iteration": 153,
+  "caveat": "One warmup-stage overlap test, not a steady-state hardware benchmark; resource use is not throughput."
+}
+tail -root@da-perfect41:/workspace/student_workspace/round20_20261001# ls -l eval/original_A
+ 18 logs/parallel_original_A_flat.log
+total 0
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 18 logs/parallel_original_A_flat.log
+[t_eval] 체크포인트 actor 로드: /workspace/student_workspace/round20_20261001/original_C0_model_5500.pt
+[t_eval] === terrain='flat' 환경 생성: G1, G2, G6 ===
+[INFO]: Parsing configuration from: go2_task.env_cfg:QuadrupedRoughEnvCfg
+[Quadruped:student] 6 reward 항목 로드
+  [OK] track_lin_vel_xy_exp.weight = 2.0
+  [OK] feet_air_time.weight = 0.01
+  [OK] lin_vel_z_l2.weight = -3.0
+  [OK] ang_vel_xy_l2.weight = -0.08
+  [OK] action_rate_l2.weight = -0.01
+  [OK] track_ang_vel_z_exp.weight = 0.75
+[Quadruped:student] terrain override - boxes ≤0.15m
+======================================================================================
+[INFO][IsaacLab]: Logging to file: /tmp/isaaclab/logs/isaaclab_2026-10-01_13-54-18.log
+======================================================================================
+13:54:18 [simulation_context.py] WARNING: The `enable_external_forces_every_iteration` parameter in the PhysxCfg is set to False. If you are experiencing noisy velocities, consider enabling this flag. You may need to slightly increase the number of velocity iterations (setting it to 1 or 2 rather than 0), together with this flag, to improve the accuracy of velocity updates.
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 35 /tmp/isaaclab/logs/isaaclab_2026-10-01_13-54-18.log
+|   1   | FR_hip_joint   |   0.000   |  0.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-1.047, 1.047]  |      30.100     |    1.0e+09    |
+|   2   | RL_hip_joint   |   0.000   |  0.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-1.047, 1.047]  |      30.100     |    1.0e+09    |
+|   3   | RR_hip_joint   |   0.000   |  0.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-1.047, 1.047]  |      30.100     |    1.0e+09    |
+|   4   | FL_thigh_joint |   0.000   |  0.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-1.571, 3.491]  |      30.100     |    1.0e+09    |
+|   5   | FR_thigh_joint |   0.000   |  0.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-1.571, 3.491]  |      30.100     |    1.0e+09    |
+|   6   | RL_thigh_joint |   0.000   |  0.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-0.524, 4.538]  |      30.100     |    1.0e+09    |
+|   7   | RR_thigh_joint |   0.000   |  0.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-0.524, 4.538]  |      30.100     |    1.0e+09    |
+|   8   | FL_calf_joint  |   0.000   |  0.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-2.723, -0.838] |      15.700     |    1.0e+09    |
+|   9   | FR_calf_joint  |   0.000   |  0.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-2.723, -0.838] |      15.700     |    1.0e+09    |
+|   10  | RL_calf_joint  |   0.000   |  0.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-2.723, -0.838] |      15.700     |    1.0e+09    |
+|   11  | RR_calf_joint  |   0.000   |  0.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-2.723, -0.838] |      15.700     |    1.0e+09    |
++-------+----------------+-----------+---------+----------+-----------------+------------------+------------------+------------------+-----------------+---------------+
+2026-10-01 13:54:20 [ray_caster.py:368] INFO: Created articulation view for mesh prim at path: /World/envs/env_.*/Robot/base
+2026-10-01 13:54:20 [ray_caster.py:199] INFO: Read mesh prim: /World/ground/terrain/mesh with 96 vertices and 120 faces.
+2026-10-01 13:54:20 [manager_base.py:411] INFO: [EventTermCfg:physics_material] Found entity 'robot'.
+    Joint names: None [slice(None, None, None)]
+    Body names: ['.*'] [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]]
+2026-10-01 13:54:20 [manager_base.py:417] INFO: Initializing term 'physics_material' with class 'randomize_rigid_body_material'.
+2026-10-01 13:54:20 [manager_base.py:411] INFO: [EventTermCfg:add_base_mass] Found entity 'robot'.
+    Joint names: None [slice(None, None, None)]
+    Body names: ['base'] [[0]]
+2026-10-01 13:54:20 [manager_base.py:417] INFO: Initializing term 'add_base_mass' with class 'randomize_rigid_body_mass'.
+2026-10-01 13:54:20 [manager_base.py:411] INFO: [EventTermCfg:base_external_force_torque] Found entity 'robot'.
+    Joint names: None [slice(None, None, None)]
+    Body names: ['base'] [[0]]
+2026-10-01 13:54:20 [joint_actions.py:70] INFO: Resolved joint names for the action term JointPositionAction: ['FL_hip_joint', 'FR_hip_joint', 'RL_hip_joint', 'RR_hip_joint', 'FL_thigh_joint', 'FR_thigh_joint', 'RL_thigh_joint', 'RR_thigh_joint', 'FL_calf_joint', 'FR_calf_joint', 'RL_calf_joint', 'RR_calf_joint'] [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]]
+2026-10-01 13:54:20 [manager_base.py:411] INFO: [ObservationTermCfg:policy/height_scan] Found entity 'height_scanner'.
+    Joint names: None [slice(None, None, None)]
+    Body names: None [slice(None, None, None)]
+2026-10-01 13:54:20 [manager_base.py:411] INFO: [TerminationTermCfg:base_contact] Found entity 'contact_forces'.
+    Joint names: None [slice(None, None, None)]
+    Body names: ['base'] [[0]]
+2026-10-01 13:54:20 [manager_base.py:411] INFO: [RewardTermCfg:feet_air_time] Found entity 'contact_forces'.
+    Joint names: None [slice(None, None, None)]
+    Body names: ['.*_foot'] [[4, 8, 14, 18]]
+root@da-perfect41:/workspace/student_workspace/round20_20261001# cat /proc/7007/wchan
+0root@da-perfect41:/workspace/student_workspace/round20_20261001# ls -lh eval/original_A
+total 0
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 5 logs/train_F00.log
+       Episode_Termination/base_contact: 0.1438
+--------------------------------------------------------------------------------
+                         Iteration time: 6.38s
+                           Time elapsed: 00:14:18
+                                    ETA: 05:50:13
+root@da-perfect41:/workspace/student_workspace/round20_20261001# ls -lh eval/original_A
+total 0
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 14 logs/parallel_original_A_flat.log
+[Quadruped:student] 6 reward 항목 로드
+  [OK] track_lin_vel_xy_exp.weight = 2.0
+  [OK] feet_air_time.weight = 0.01
+  [OK] lin_vel_z_l2.weight = -3.0
+  [OK] ang_vel_xy_l2.weight = -0.08
+  [OK] action_rate_l2.weight = -0.01
+  [OK] track_ang_vel_z_exp.weight = 0.75
+[Quadruped:student] terrain override - boxes ≤0.15m
+======================================================================================
+[INFO][IsaacLab]: Logging to file: /tmp/isaaclab/logs/isaaclab_2026-10-01_13-54-18.log
+======================================================================================
+13:54:18 [simulation_context.py] WARNING: The `enable_external_forces_every_iteration` parameter in the PhysxCfg is set to False. If you are experiencing noisy velocities, consider enabling this flag. You may need to slightly increase the number of velocity iterations (setting it to 1 or 2 rather than 0), together with this flag, to improve the accuracy of velocity updates.
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 6 logs/train_F00.log
+           Episode_Termination/time_out: 0.8970
+       Episode_Termination/base_contact: 0.1032
+--------------------------------------------------------------------------------
+                         Iteration time: 6.20s
+                           Time elapsed: 00:17:26
+                                    ETA: 05:55:34
+root@da-perfect41:/workspace/student_workspace/round20_20261001# kill -INT 7007
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 8 logs/parallel_original_A_flat.log
+ps -p 7007 -o pid,stat,etime,comm
+| Total Page/Swap (MB): 8191 | Free Page/Swap: 0
+|---------------------------------------------------------------------------------------------|
+2026-10-01T04:54:18Z [2,560ms] [Warning] [gpu.foundation.plugin] CPU performance profile is set to powersave. This profile sets the CPU to the lowest frequency reducing performance.
+2026-10-01T04:54:18Z [2,573ms] [Warning] [gpu.foundation.plugin] IOMMU is enabled.
+2026-10-01T04:54:18Z [2,676ms] [Warning] [omni.kvdb.plugin] Disabling key-value database because another kit process is locking it
+2026-10-01T04:54:18Z [2,857ms] [Warning] [isaaclab.envs.manager_based_env] Seed not set for the environment. The environment creation may not be deterministic.
+2026-10-01T04:54:21Z [5,292ms] [Warning] [omni.physx.fabric.plugin] FabricManager::initializePointInstancer mismatched prototypes on point instancer: /Visuals/Command/velocity_goal.
+2026-10-01T04:54:21Z [5,292ms] [Warning] [omni.physx.fabric.plugin] FabricManager::initializePointInstancer mismatched prototypes on point instancer: /Visuals/Command/velocity_current.
+root@da-perfect41:/workspace/student_workspace/round20_20261001# ps -p 7007 -o pid,stat,etime,comm
+    PID STAT     ELAPSED COMMAND
+   7007 Zl+        09:23 python3
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 6 logs/train_F00.log
+           Episode_Termination/time_out: 0.8880
+       Episode_Termination/base_contact: 0.1122
+--------------------------------------------------------------------------------
+                         Iteration time: 6.16s
+                           Time elapsed: 00:18:59
+                                    ETA: 05:57:00
+root@da-perfect41:/workspace/student_workspace/round20_20261001# ps -p 7007 -o pid,stat,etime,comm
+    PID STAT     ELAPSED COMMAND
+root@da-perfect41:/workspace/student_workspace/round20_20261001# cp t_eval_go2.py cached_go2_eval.py
+root@da-perfect41:/workspace/student_workspace/round20_20261001# cp t_eval_go2_core.py t_eval_go2.py
+root@da-perfect41:/workspace/student_workspace/round20_20261001# (timeout 30s nvidia-smi --query-gpu=timestamp,utilization.gpu,utilization.memory,memory.used,power.draw,clocks.sm --format=csv --loop=1 > profile_gpu_recovered.csv) &
+i[1] 9790
+l -n 36 logs/train_F00.log
+root@da-perfect41:/workspace/student_workspace/round20_20261001# tail -n 36 logs/train_F00.log
+                           Time elapsed: 00:19:20
+                                    ETA: 05:56:18
+################################################################################
+                          Learning iteration 206/4000                            
+                               Run name: round20_F00
+                            Total steps: 30523392 
+                       Steps per second: 29402 
+                        Collection time: 4.902s 
+                          Learning time: 0.113s 
+                        Mean value loss: 0.0278
+                    Mean surrogate loss: -0.0049
+                      Mean entropy loss: 10.8445
+                            Mean reward: 13.73
+                    Mean episode length: 980.36
+                        Mean action std: 0.62
+    Episode_Reward/track_lin_vel_xy_exp: 0.7403
+     Episode_Reward/track_ang_vel_z_exp: 0.5164
+            Episode_Reward/lin_vel_z_l2: -0.0403
+           Episode_Reward/ang_vel_xy_l2: -0.1523
+          Episode_Reward/dof_torques_l2: -0.0774
+              Episode_Reward/dof_acc_l2: -0.1551
+          Episode_Reward/action_rate_l2: -0.1094
+           Episode_Reward/feet_air_time: -0.0015
+     Episode_Reward/flat_orientation_l2: 0.0000
+          Episode_Reward/dof_pos_limits: 0.0000
+              Curriculum/terrain_levels: 0.4875
+     Metrics/base_velocity/error_vel_xy: 1.5544
+    Metrics/base_velocity/error_vel_yaw: 0.5792
+           Episode_Termination/time_out: 0.8910
+       Episode_Termination/base_contact: 0.1092
+--------------------------------------------------------------------------------
+                         Iteration time: 5.02s
+                           Time elapsed: 00:19:25
+                                    ETA: 05:56:01
+root@da-perfect41:/workspace/student_workspace/round20_20261001# ls -lh preserved/F00/*/model_*.pt
+-rw-r--r-- 1 root root 6.6M Oct  1 13:44 preserved/F00/2026-10-01_13-44-14_round20_F00/model_0.pt
+-rw-r--r-- 1 root root 6.6M Oct  1 13:53 preserved/F00/2026-10-01_13-44-14_round20_F00/model_100.pt
+-rw-r--r-- 1 root root 6.6M Oct  1 14:03 preserved/F00/2026-10-01_13-44-14_round20_F00/model_200.pt
+root@da-perfect41:/workspace/student_workspace/round20_20261001# cat profile_summary.json
+[1]+  Exit 124                ( timeout 30s nvidia-smi --query-gpu=timestamp,utilization.gpu,utilization.memory,memory.used,power.draw,clocks.sm --format=csv --loop=1 > profile_gpu_recovered.csv )
+{
+  "solo": {
+    "samples": 30,
+    "gpu_mean": 90.2,
+    "gpu_min": 82.0,
+    "gpu_max": 95.0,
+    "max_memory_mib": 8036.0,
+    "mean_power_w": 194.78633333333335,
+    "start": 1790830373.301,
+    "end": 1790830402.31
+  },
+  "overlap": {
+    "samples": 180,
+    "gpu_mean": 94.94444444444444,
+    "gpu_min": 73.0,
+    "gpu_max": 99.0,
+    "max_memory_mib": 12051.0,
+    "mean_power_w": 179.53494444444445,
+    "start": 1790830455.679,
+    "end": 1790830634.738
+  },
+  "solo_training": {
+    "samples": 5,
+    "mean_seconds": 5.227867269515992,
+    "median_seconds": 5.2301881313323975
+  },
+  "overlap_training": {
+    "samples": 22,
+    "mean_seconds": 6.406252644278786,
+    "median_seconds": 6.402124285697937
+  },
+  "recent_training": {
+    "samples": 10,
+    "mean_seconds": 6.343103766441345,
+    "median_seconds": 6.3472418785095215
+  },
+  "latest_iteration": 153,
+  "caveat": "One warmup-stage overlap test, not a steady-state hardware benchmark; resource use is not throughput."
+}root@da-perfect41:/workspace/student_workspace/round20_20261001# 

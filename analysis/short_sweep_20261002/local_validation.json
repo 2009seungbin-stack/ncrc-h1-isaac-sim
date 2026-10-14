@@ -1,0 +1,16 @@
+{
+  "scope": "CPU mock only",
+  "legacy_rmse": {
+    "vx": 0.1628,
+    "vy": 0.0671,
+    "yaw": 0.1342
+  },
+  "corrected_rmse": {
+    "vx": 0.0,
+    "vy": 0.0,
+    "yaw": 0.0
+  },
+  "unrelated_observations_preserved": true,
+  "command_resync_steps": 3,
+  "unexpected_timeout_rejected": true
+}

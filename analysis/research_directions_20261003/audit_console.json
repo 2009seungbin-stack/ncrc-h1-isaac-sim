@@ -1,0 +1,744 @@
+{
+  "models": {
+    "C0_5500": {
+      "G1": {
+        "torque_rms_Nm": 6.554784568104238,
+        "abs_torque_p99_Nm": 23.5,
+        "static_95pct_cap_joint_samples_pct": 2.036458333333333,
+        "static_95pct_cap_any_joint_robot_steps_pct": 23.79375,
+        "approx_torque_speed_boundary_joint_samples_pct": 2.0812500000000003,
+        "outside_reconstructed_boundary_gt_5pct_pct": 0.0015625,
+        "joint_speed_rms_rad_s": 2.968849936915789,
+        "abs_joint_speed_p99_rad_s": 11.917743759155279,
+        "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+        "sum_abs_tau_qvel_mean_W_diagnostic": 72.23353672530016,
+        "action_change_rms_per_20ms": 0.5493364497111322,
+        "body_vz_rms_m_s": 0.07764072473910644,
+        "body_roll_rate_rms_rad_s": 0.35219727029259995,
+        "body_pitch_rate_rms_rad_s": 0.3451159936595595
+      },
+      "G2": {
+        "torque_rms_Nm": 6.322424017803726,
+        "abs_torque_p99_Nm": 23.5,
+        "static_95pct_cap_joint_samples_pct": 1.7614583333333333,
+        "static_95pct_cap_any_joint_robot_steps_pct": 20.5125,
+        "approx_torque_speed_boundary_joint_samples_pct": 1.7770833333333333,
+        "outside_reconstructed_boundary_gt_5pct_pct": 0.0,
+        "joint_speed_rms_rad_s": 2.507637043973614,
+        "abs_joint_speed_p99_rad_s": 9.488221473693866,
+        "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+        "sum_abs_tau_qvel_mean_W_diagnostic": 55.457349976171535,
+        "action_change_rms_per_20ms": 0.5298413160270835,
+        "body_vz_rms_m_s": 0.07175002125033876,
+        "body_roll_rate_rms_rad_s": 0.4014907839737252,
+        "body_pitch_rate_rms_rad_s": 0.35756602440197294
+      },
+      "G3": {
+        "torque_rms_Nm": 6.864889571813007,
+        "abs_torque_p99_Nm": 23.5,
+        "static_95pct_cap_joint_samples_pct": 2.8723958333333335,
+        "static_95pct_cap_any_joint_robot_steps_pct": 33.21875,
+        "approx_torque_speed_boundary_joint_samples_pct": 2.9302083333333333,
+        "outside_reconstructed_boundary_gt_5pct_pct": 0.00625,
+        "joint_speed_rms_rad_s": 2.9891591701687616,
+        "abs_joint_speed_p99_rad_s": 11.428661355972293,
+        "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+        "sum_abs_tau_qvel_mean_W_diagnostic": 78.26763519826373,
+        "action_change_rms_per_20ms": 0.567278659779974,
+        "body_vz_rms_m_s": 0.08519169009058677,
+        "body_roll_rate_rms_rad_s": 0.372845641672268,
+        "body_pitch_rate_rms_rad_s": 0.38918376224623746
+      },
+      "G4": {
+        "torque_rms_Nm": 6.552038280086125,
+        "abs_torque_p99_Nm": 23.5,
+        "static_95pct_cap_joint_samples_pct": 2.40625,
+        "static_95pct_cap_any_joint_robot_steps_pct": 27.69375,
+        "approx_torque_speed_boundary_joint_samples_pct": 2.4661458333333335,
+        "outside_reconstructed_boundary_gt_5pct_pct": 0.0015625,
+        "joint_speed_rms_rad_s": 2.6458213354676254,
+        "abs_joint_speed_p99_rad_s": 10.301033315658584,
+        "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+        "sum_abs_tau_qvel_mean_W_diagnostic": 66.44653531727754,
+        "action_change_rms_per_20ms": 0.535014967061153,
+        "body_vz_rms_m_s": 0.0798204624376054,
+        "body_roll_rate_rms_rad_s": 0.3594642002799753,
+        "body_pitch_rate_rms_rad_s": 0.33910760733147416
+      },
+      "G5": {
+        "torque_rms_Nm": 6.402896500540455,
+        "abs_torque_p99_Nm": 23.5,
+        "static_95pct_cap_joint_samples_pct": 1.9494791666666667,
+        "static_95pct_cap_any_joint_robot_steps_pct": 22.625,
+        "approx_torque_speed_boundary_joint_samples_pct": 2.0161458333333333,
+        "outside_reconstructed_boundary_gt_5pct_pct": 0.0015625,
+        "joint_speed_rms_rad_s": 2.492511291530639,
+        "abs_joint_speed_p99_rad_s": 10.084226646423353,
+        "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+        "sum_abs_tau_qvel_mean_W_diagnostic": 57.74300783561797,
+        "action_change_rms_per_20ms": 0.5155985818449896,
+        "body_vz_rms_m_s": 0.08449494308031935,
+        "body_roll_rate_rms_rad_s": 0.38479107222858655,
+        "body_pitch_rate_rms_rad_s": 0.36098991857819784
+      },
+      "G6": {
+        "torque_rms_Nm": 6.854957880775566,
+        "abs_torque_p99_Nm": 23.5,
+        "static_95pct_cap_joint_samples_pct": 2.9614583333333333,
+        "static_95pct_cap_any_joint_robot_steps_pct": 33.56875,
+        "approx_torque_speed_boundary_joint_samples_pct": 3.056770833333333,
+        "outside_reconstructed_boundary_gt_5pct_pct": 0.0010416666666666667,
+        "joint_speed_rms_rad_s": 2.8062890747734945,
+        "abs_joint_speed_p99_rad_s": 10.485378866195681,
+        "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+        "sum_abs_tau_qvel_mean_W_diagnostic": 74.59300892033355,
+        "action_change_rms_per_20ms": 0.5669931851503418,
+        "body_vz_rms_m_s": 0.08395103892413257,
+        "body_roll_rate_rms_rad_s": 0.40677098401814005,
+        "body_pitch_rate_rms_rad_s": 0.40702595384886203
+      },
+      "G7": {
+        "torque_rms_Nm": 6.7596959261794085,
+        "abs_torque_p99_Nm": 23.5,
+        "static_95pct_cap_joint_samples_pct": 2.7026041666666667,
+        "static_95pct_cap_any_joint_robot_steps_pct": 31.25625,
+        "approx_torque_speed_boundary_joint_samples_pct": 2.759895833333333,
+        "outside_reconstructed_boundary_gt_5pct_pct": 0.003645833333333334,
+        "joint_speed_rms_rad_s": 2.70414239534604,
+        "abs_joint_speed_p99_rad_s": 10.18521813392642,
+        "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+        "sum_abs_tau_qvel_mean_W_diagnostic": 71.09853638842932,
+        "action_change_rms_per_20ms": 0.5443560610079506,
+        "body_vz_rms_m_s": 0.0871675356802554,
+        "body_roll_rate_rms_rad_s": 0.3691897548118985,
+        "body_pitch_rate_rms_rad_s": 0.3869354153083275
+      }
+    },
+    "F10_3000": {
+      "G1": {
+        "torque_rms_Nm": 5.926502588973582,
+        "abs_torque_p99_Nm": 20.320183410644546,
+        "static_95pct_cap_joint_samples_pct": 0.6598958333333333,
+        "static_95pct_cap_any_joint_robot_steps_pct": 7.9,
+        "approx_torque_speed_boundary_joint_samples_pct": 0.6807291666666666,
+        "outside_reconstructed_boundary_gt_5pct_pct": 0.0005208333333333333,
+        "joint_speed_rms_rad_s": 2.956457531890261,
+        "abs_joint_speed_p99_rad_s": 12.71807348251349,
+        "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+        "sum_abs_tau_qvel_mean_W_diagnostic": 67.4931970757436,
+        "action_change_rms_per_20ms": 0.5369007349202083,
+        "body_vz_rms_m_s": 0.05852738379942687,
+        "body_roll_rate_rms_rad_s": 0.3581837022344492,
+        "body_pitch_rate_rms_rad_s": 0.2793931369383658
+      },
+      "G2": {
+        "torque_rms_Nm": 5.9004132539528715,
+        "abs_torque_p99_Nm": 19.459551658630396,
+        "static_95pct_cap_joint_samples_pct": 0.39427083333333335,
+        "static_95pct_cap_any_joint_robot_steps_pct": 4.66875,
+        "approx_torque_speed_boundary_joint_samples_pct": 0.403125,
+        "outside_reconstructed_boundary_gt_5pct_pct": 0.0,
+        "joint_speed_rms_rad_s": 2.5117383684970527,
+        "abs_joint_speed_p99_rad_s": 9.66877831459046,
+        "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+        "sum_abs_tau_qvel_mean_W_diagnostic": 50.120326101961254,
+        "action_change_rms_per_20ms": 0.5286999019453961,
+        "body_vz_rms_m_s": 0.06160916056834445,
+        "body_roll_rate_rms_rad_s": 0.43517326389701927,
+        "body_pitch_rate_rms_rad_s": 0.28367711930566614
+      },
+      "G3": {
+        "torque_rms_Nm": 6.051894893162697,
+        "abs_torque_p99_Nm": 20.289368858337422,
+        "static_95pct_cap_joint_samples_pct": 0.5947916666666666,
+        "static_95pct_cap_any_joint_robot_steps_pct": 7.04375,
+        "approx_torque_speed_boundary_joint_samples_pct": 0.615625,
+        "outside_reconstructed_boundary_gt_5pct_pct": 0.0010416666666666667,
+        "joint_speed_rms_rad_s": 2.9741514827851083,
+        "abs_joint_speed_p99_rad_s": 12.375197963714644,
+        "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+        "sum_abs_tau_qvel_mean_W_diagnostic": 69.16614701345769,
+        "action_change_rms_per_20ms": 0.5322369588909206,
+        "body_vz_rms_m_s": 0.06707084621348432,
+        "body_roll_rate_rms_rad_s": 0.3789606062879423,
+        "body_pitch_rate_rms_rad_s": 0.29189394419043396
+      },
+      "G4": {
+        "torque_rms_Nm": 5.9223660423528575,
+        "abs_torque_p99_Nm": 20.52605607986452,
+        "static_95pct_cap_joint_samples_pct": 0.665625,
+        "static_95pct_cap_any_joint_robot_steps_pct": 7.9625,
+        "approx_torque_speed_boundary_joint_samples_pct": 0.7166666666666667,
+        "outside_reconstructed_boundary_gt_5pct_pct": 0.0020833333333333333,
+        "joint_speed_rms_rad_s": 2.6976685765719393,
+        "abs_joint_speed_p99_rad_s": 11.31585452079773,
+        "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+        "sum_abs_tau_qvel_mean_W_diagnostic": 59.42744608343736,
+        "action_change_rms_per_20ms": 0.5071086399161705,
+        "body_vz_rms_m_s": 0.060139437039288104,
+        "body_roll_rate_rms_rad_s": 0.3829717954625988,
+        "body_pitch_rate_rms_rad_s": 0.29274813489928203
+      },
+      "G5": {
+        "torque_rms_Nm": 5.9731821835222245,
+        "abs_torque_p99_Nm": 20.72920812606815,
+        "static_95pct_cap_joint_samples_pct": 0.7317708333333334,
+        "static_95pct_cap_any_joint_robot_steps_pct": 8.49375,
+        "approx_torque_speed_boundary_joint_samples_pct": 0.803125,
+        "outside_reconstructed_boundary_gt_5pct_pct": 0.004166666666666667,
+        "joint_speed_rms_rad_s": 2.581108580282481,
+        "abs_joint_speed_p99_rad_s": 11.291978273391738,
+        "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+        "sum_abs_tau_qvel_mean_W_diagnostic": 52.80794629915146,
+        "action_change_rms_per_20ms": 0.49994410638626774,
+        "body_vz_rms_m_s": 0.07207901587039436,
+        "body_roll_rate_rms_rad_s": 0.4203199384874614,
+        "body_pitch_rate_rms_rad_s": 0.34583849656254234
+      },
+      "G6": {
+        "torque_rms_Nm": 6.083627062865701,
+        "abs_torque_p99_Nm": 21.15052116394044,
+        "static_95pct_cap_joint_samples_pct": 0.7848958333333332,
+        "static_95pct_cap_any_joint_robot_steps_pct": 8.90625,
+        "approx_torque_speed_boundary_joint_samples_pct": 0.8604166666666666,
+        "outside_reconstructed_boundary_gt_5pct_pct": 0.003125,
+        "joint_speed_rms_rad_s": 2.896514558970152,
+        "abs_joint_speed_p99_rad_s": 12.081219940185568,
+        "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+        "sum_abs_tau_qvel_mean_W_diagnostic": 67.20261667466511,
+        "action_change_rms_per_20ms": 0.5440016512386837,
+        "body_vz_rms_m_s": 0.07008413954754521,
+        "body_roll_rate_rms_rad_s": 0.41459394806383515,
+        "body_pitch_rate_rms_rad_s": 0.34475699059390935
+      },
+      "G7": {
+        "torque_rms_Nm": 5.943802434231521,
+        "abs_torque_p99_Nm": 19.414168987274195,
+        "static_95pct_cap_joint_samples_pct": 0.39895833333333336,
+        "static_95pct_cap_any_joint_robot_steps_pct": 4.725,
+        "approx_torque_speed_boundary_joint_samples_pct": 0.4166666666666667,
+        "outside_reconstructed_boundary_gt_5pct_pct": 0.0015625,
+        "joint_speed_rms_rad_s": 2.7199271663590667,
+        "abs_joint_speed_p99_rad_s": 11.184027776718153,
+        "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+        "sum_abs_tau_qvel_mean_W_diagnostic": 60.296478471354554,
+        "action_change_rms_per_20ms": 0.512268355162944,
+        "body_vz_rms_m_s": 0.06657501477720068,
+        "body_roll_rate_rms_rad_s": 0.37834624871032324,
+        "body_pitch_rate_rms_rad_s": 0.29289340595232716
+      }
+    }
+  },
+  "g1_response": {
+    "C0_5500": [
+      {
+        "start_s": 0,
+        "command": [
+          0.30000001192092896,
+          0.0,
+          0.0
+        ],
+        "first_0_5s": {
+          "rmse_xyz": [
+            0.12181895646016934,
+            0.060964391148182154,
+            0.12626059396933537
+          ],
+          "mae_xyz": [
+            0.07566707811783999,
+            0.050762383774400635,
+            0.1014429210944445
+          ]
+        },
+        "remaining_4_5s": {
+          "rmse_xyz": [
+            0.05633362615592105,
+            0.050566033907720395,
+            0.10707013568775066
+          ],
+          "mae_xyz": [
+            0.046370933015779076,
+            0.04190453239979623,
+            0.08644296639149186
+          ]
+        },
+        "vx_settling": {
+          "definition": "First of 10 consecutive 20ms samples within +/-0.1m/s; search first 1.5s",
+          "fraction_without_qualifying_run": 0.0,
+          "median_s_among_qualifying": 0.12,
+          "p90_s_among_qualifying": 0.12
+        },
+        "motor_first_0_5s": {
+          "torque_rms_Nm": 6.09950215774067,
+          "abs_torque_p99_Nm": 21.22954200744633,
+          "static_95pct_cap_joint_samples_pct": 0.7083333333333333,
+          "static_95pct_cap_any_joint_robot_steps_pct": 8.25,
+          "approx_torque_speed_boundary_joint_samples_pct": 0.7083333333333333,
+          "outside_reconstructed_boundary_gt_5pct_pct": 0.0,
+          "joint_speed_rms_rad_s": 3.163896506815813,
+          "abs_joint_speed_p99_rad_s": 13.200110435485922,
+          "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+          "sum_abs_tau_qvel_mean_W_diagnostic": 76.9949811893893,
+          "action_change_rms_per_20ms": 0.512792563435572,
+          "body_vz_rms_m_s": 0.19464327673061277,
+          "body_roll_rate_rms_rad_s": 0.38978127920030914,
+          "body_pitch_rate_rms_rad_s": 0.5540130817792384
+        }
+      },
+      {
+        "start_s": 5,
+        "command": [
+          0.6000000238418579,
+          0.0,
+          0.0
+        ],
+        "first_0_5s": {
+          "rmse_xyz": [
+            0.1021228592045372,
+            0.06309125890789194,
+            0.1004939353463796
+          ],
+          "mae_xyz": [
+            0.0729453018726781,
+            0.05352336777174969,
+            0.08117933015525523
+          ]
+        },
+        "remaining_4_5s": {
+          "rmse_xyz": [
+            0.04045405007548248,
+            0.06302213631835189,
+            0.09739671035681993
+          ],
+          "mae_xyz": [
+            0.03203484600202905,
+            0.05328524280132746,
+            0.0789108067676999
+          ]
+        },
+        "vx_settling": {
+          "definition": "First of 10 consecutive 20ms samples within +/-0.1m/s; search first 1.5s",
+          "fraction_without_qualifying_run": 0.0,
+          "median_s_among_qualifying": 0.14,
+          "p90_s_among_qualifying": 0.22
+        },
+        "motor_first_0_5s": {
+          "torque_rms_Nm": 7.4137810965317055,
+          "abs_torque_p99_Nm": 23.5,
+          "static_95pct_cap_joint_samples_pct": 3.854166666666667,
+          "static_95pct_cap_any_joint_robot_steps_pct": 45.0,
+          "approx_torque_speed_boundary_joint_samples_pct": 4.0625,
+          "outside_reconstructed_boundary_gt_5pct_pct": 0.0,
+          "joint_speed_rms_rad_s": 3.031391699617659,
+          "abs_joint_speed_p99_rad_s": 10.694571952819837,
+          "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+          "sum_abs_tau_qvel_mean_W_diagnostic": 91.89020061293677,
+          "action_change_rms_per_20ms": 0.5793150562259892,
+          "body_vz_rms_m_s": 0.09224916968872328,
+          "body_roll_rate_rms_rad_s": 0.366083971344101,
+          "body_pitch_rate_rms_rad_s": 0.4490012622488594
+        }
+      },
+      {
+        "start_s": 10,
+        "command": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "first_0_5s": {
+          "rmse_xyz": [
+            0.13573091078313607,
+            0.06944288584754829,
+            0.11907593880122479
+          ],
+          "mae_xyz": [
+            0.09383787224069237,
+            0.057276558232924796,
+            0.09533990196983723
+          ]
+        },
+        "remaining_4_5s": {
+          "rmse_xyz": [
+            0.033366305643147694,
+            0.0643482112380517,
+            0.10179219613032318
+          ],
+          "mae_xyz": [
+            0.02676861959613032,
+            0.052275081425194055,
+            0.0825469614722854
+          ]
+        },
+        "vx_settling": {
+          "definition": "First of 10 consecutive 20ms samples within +/-0.1m/s; search first 1.5s",
+          "fraction_without_qualifying_run": 0.0,
+          "median_s_among_qualifying": 0.18,
+          "p90_s_among_qualifying": 0.26
+        },
+        "motor_first_0_5s": {
+          "torque_rms_Nm": 8.487948927013989,
+          "abs_torque_p99_Nm": 23.5,
+          "static_95pct_cap_joint_samples_pct": 6.208333333333333,
+          "static_95pct_cap_any_joint_robot_steps_pct": 66.25,
+          "approx_torque_speed_boundary_joint_samples_pct": 7.000000000000001,
+          "outside_reconstructed_boundary_gt_5pct_pct": 0.0,
+          "joint_speed_rms_rad_s": 4.5844632710201125,
+          "abs_joint_speed_p99_rad_s": 15.698317785263061,
+          "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+          "sum_abs_tau_qvel_mean_W_diagnostic": 148.1967934969223,
+          "action_change_rms_per_20ms": 0.720450388979727,
+          "body_vz_rms_m_s": 0.09124161297066363,
+          "body_roll_rate_rms_rad_s": 0.4003756961052294,
+          "body_pitch_rate_rms_rad_s": 0.605683795440794
+        }
+      },
+      {
+        "start_s": 15,
+        "command": [
+          -0.5,
+          0.0,
+          0.0
+        ],
+        "first_0_5s": {
+          "rmse_xyz": [
+            0.6561933393273551,
+            0.07993214010137972,
+            0.1425764343928634
+          ],
+          "mae_xyz": [
+            0.49164815939962864,
+            0.06430480182953033,
+            0.11142157294002572
+          ]
+        },
+        "remaining_4_5s": {
+          "rmse_xyz": [
+            0.04569695738961014,
+            0.0433099318011727,
+            0.10093458664891013
+          ],
+          "mae_xyz": [
+            0.03741331554742323,
+            0.03493250679614546,
+            0.08135901732938117
+          ]
+        },
+        "vx_settling": {
+          "definition": "First of 10 consecutive 20ms samples within +/-0.1m/s; search first 1.5s",
+          "fraction_without_qualifying_run": 0.0,
+          "median_s_among_qualifying": 0.42,
+          "p90_s_among_qualifying": 0.58
+        },
+        "motor_first_0_5s": {
+          "torque_rms_Nm": 6.289784881070364,
+          "abs_torque_p99_Nm": 22.97454841613771,
+          "static_95pct_cap_joint_samples_pct": 1.2291666666666665,
+          "static_95pct_cap_any_joint_robot_steps_pct": 13.750000000000002,
+          "approx_torque_speed_boundary_joint_samples_pct": 1.2708333333333333,
+          "outside_reconstructed_boundary_gt_5pct_pct": 0.0625,
+          "joint_speed_rms_rad_s": 2.952452775686098,
+          "abs_joint_speed_p99_rad_s": 11.51996032714845,
+          "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+          "sum_abs_tau_qvel_mean_W_diagnostic": 77.73038743197378,
+          "action_change_rms_per_20ms": 0.5363143748748044,
+          "body_vz_rms_m_s": 0.10226795299834235,
+          "body_roll_rate_rms_rad_s": 0.4747717744908053,
+          "body_pitch_rate_rms_rad_s": 0.4352138212569427
+        }
+      }
+    ],
+    "F10_3000": [
+      {
+        "start_s": 0,
+        "command": [
+          0.30000001192092896,
+          0.0,
+          0.0
+        ],
+        "first_0_5s": {
+          "rmse_xyz": [
+            0.14095138380588018,
+            0.03847193635064596,
+            0.1229738696120012
+          ],
+          "mae_xyz": [
+            0.09985094259260223,
+            0.03093335409160318,
+            0.09931578875324704
+          ]
+        },
+        "remaining_4_5s": {
+          "rmse_xyz": [
+            0.03707838015175927,
+            0.04917716094905651,
+            0.0938027413226744
+          ],
+          "mae_xyz": [
+            0.029570576149401152,
+            0.03816170329916657,
+            0.07573790210604443
+          ]
+        },
+        "vx_settling": {
+          "definition": "First of 10 consecutive 20ms samples within +/-0.1m/s; search first 1.5s",
+          "fraction_without_qualifying_run": 0.0,
+          "median_s_among_qualifying": 0.16,
+          "p90_s_among_qualifying": 0.2
+        },
+        "motor_first_0_5s": {
+          "torque_rms_Nm": 4.980084427867925,
+          "abs_torque_p99_Nm": 15.74467430114749,
+          "static_95pct_cap_joint_samples_pct": 0.020833333333333336,
+          "static_95pct_cap_any_joint_robot_steps_pct": 0.25,
+          "approx_torque_speed_boundary_joint_samples_pct": 0.020833333333333336,
+          "outside_reconstructed_boundary_gt_5pct_pct": 0.0,
+          "joint_speed_rms_rad_s": 3.0108455898972,
+          "abs_joint_speed_p99_rad_s": 14.365664892196666,
+          "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+          "sum_abs_tau_qvel_mean_W_diagnostic": 60.228888603064846,
+          "action_change_rms_per_20ms": 0.5295546684024313,
+          "body_vz_rms_m_s": 0.13915741512028706,
+          "body_roll_rate_rms_rad_s": 0.4179138171254416,
+          "body_pitch_rate_rms_rad_s": 0.4828760013538382
+        }
+      },
+      {
+        "start_s": 5,
+        "command": [
+          0.6000000238418579,
+          0.0,
+          0.0
+        ],
+        "first_0_5s": {
+          "rmse_xyz": [
+            0.09770361804886302,
+            0.04855651792846821,
+            0.08589826318948433
+          ],
+          "mae_xyz": [
+            0.07063897201791405,
+            0.038958217574518984,
+            0.06998654390510183
+          ]
+        },
+        "remaining_4_5s": {
+          "rmse_xyz": [
+            0.03343708064459778,
+            0.03918260677160598,
+            0.08048083692557587
+          ],
+          "mae_xyz": [
+            0.02706675038879944,
+            0.031870710132108744,
+            0.06565391228538361
+          ]
+        },
+        "vx_settling": {
+          "definition": "First of 10 consecutive 20ms samples within +/-0.1m/s; search first 1.5s",
+          "fraction_without_qualifying_run": 0.0,
+          "median_s_among_qualifying": 0.14,
+          "p90_s_among_qualifying": 0.24
+        },
+        "motor_first_0_5s": {
+          "torque_rms_Nm": 6.562931809655188,
+          "abs_torque_p99_Nm": 23.5,
+          "static_95pct_cap_joint_samples_pct": 1.5625,
+          "static_95pct_cap_any_joint_robot_steps_pct": 18.5,
+          "approx_torque_speed_boundary_joint_samples_pct": 1.6666666666666667,
+          "outside_reconstructed_boundary_gt_5pct_pct": 0.0,
+          "joint_speed_rms_rad_s": 3.092027922573357,
+          "abs_joint_speed_p99_rad_s": 12.871187372207665,
+          "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+          "sum_abs_tau_qvel_mean_W_diagnostic": 73.36001430974564,
+          "action_change_rms_per_20ms": 0.5583926990905436,
+          "body_vz_rms_m_s": 0.057893498715149774,
+          "body_roll_rate_rms_rad_s": 0.3690247213560716,
+          "body_pitch_rate_rms_rad_s": 0.33911098891180197
+        }
+      },
+      {
+        "start_s": 10,
+        "command": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "first_0_5s": {
+          "rmse_xyz": [
+            0.1559539054330569,
+            0.04527031631020735,
+            0.09050457172067852
+          ],
+          "mae_xyz": [
+            0.11877001494169236,
+            0.036274117695566016,
+            0.07338761834806974
+          ]
+        },
+        "remaining_4_5s": {
+          "rmse_xyz": [
+            0.04203800765138841,
+            0.040645427497580384,
+            0.08924235782540862
+          ],
+          "mae_xyz": [
+            0.033868763474747536,
+            0.032769200075375315,
+            0.07232126825261907
+          ]
+        },
+        "vx_settling": {
+          "definition": "First of 10 consecutive 20ms samples within +/-0.1m/s; search first 1.5s",
+          "fraction_without_qualifying_run": 0.0,
+          "median_s_among_qualifying": 0.26,
+          "p90_s_among_qualifying": 0.36
+        },
+        "motor_first_0_5s": {
+          "torque_rms_Nm": 7.688285030566812,
+          "abs_torque_p99_Nm": 23.5,
+          "static_95pct_cap_joint_samples_pct": 3.6458333333333335,
+          "static_95pct_cap_any_joint_robot_steps_pct": 43.5,
+          "approx_torque_speed_boundary_joint_samples_pct": 4.041666666666666,
+          "outside_reconstructed_boundary_gt_5pct_pct": 0.0,
+          "joint_speed_rms_rad_s": 4.333099820964483,
+          "abs_joint_speed_p99_rad_s": 15.695322647094727,
+          "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+          "sum_abs_tau_qvel_mean_W_diagnostic": 129.98392722746354,
+          "action_change_rms_per_20ms": 0.6791311207968198,
+          "body_vz_rms_m_s": 0.07115894094396207,
+          "body_roll_rate_rms_rad_s": 0.4106024072035452,
+          "body_pitch_rate_rms_rad_s": 0.4359294721029609
+        }
+      },
+      {
+        "start_s": 15,
+        "command": [
+          -0.5,
+          0.0,
+          0.0
+        ],
+        "first_0_5s": {
+          "rmse_xyz": [
+            0.7135113754088163,
+            0.09343970336607482,
+            0.10989830858326408
+          ],
+          "mae_xyz": [
+            0.5710652522835881,
+            0.07789422239792203,
+            0.08918365707431804
+          ]
+        },
+        "remaining_4_5s": {
+          "rmse_xyz": [
+            0.03690940170345415,
+            0.051593212063826166,
+            0.08860482671410651
+          ],
+          "mae_xyz": [
+            0.027306731125443347,
+            0.04372940895331137,
+            0.07294318419144677
+          ]
+        },
+        "vx_settling": {
+          "definition": "First of 10 consecutive 20ms samples within +/-0.1m/s; search first 1.5s",
+          "fraction_without_qualifying_run": 0.0,
+          "median_s_among_qualifying": 0.44,
+          "p90_s_among_qualifying": 0.64
+        },
+        "motor_first_0_5s": {
+          "torque_rms_Nm": 6.306104145071991,
+          "abs_torque_p99_Nm": 23.5,
+          "static_95pct_cap_joint_samples_pct": 1.9375,
+          "static_95pct_cap_any_joint_robot_steps_pct": 23.0,
+          "approx_torque_speed_boundary_joint_samples_pct": 1.9791666666666665,
+          "outside_reconstructed_boundary_gt_5pct_pct": 0.020833333333333336,
+          "joint_speed_rms_rad_s": 2.5438658982146287,
+          "abs_joint_speed_p99_rad_s": 10.12590057373047,
+          "joint_speed_ge_95pct_nominal_limit_pct": 0.0,
+          "sum_abs_tau_qvel_mean_W_diagnostic": 67.82178396100367,
+          "action_change_rms_per_20ms": 0.5066844229057917,
+          "body_vz_rms_m_s": 0.06944303720767565,
+          "body_roll_rate_rms_rad_s": 0.5574319329108066,
+          "body_pitch_rate_rms_rad_s": 0.47797826303731583
+        }
+      }
+    ]
+  },
+  "g6_push_response": {
+    "C0_5500": {
+      "first_recorded_indices": [
+        126,
+        251,
+        376,
+        501,
+        626,
+        751,
+        876
+      ],
+      "pooled_push_events_not_independent_episodes": 1792,
+      "first_0_5s": {
+        "rmse_xyz": [
+          0.2470235783037269,
+          0.35646253247029036,
+          0.15879343013770414
+        ],
+        "mae_xyz": [
+          0.15651088466934326,
+          0.2511191450317996,
+          0.11818994807542887
+        ]
+      },
+      "following_1s": {
+        "rmse_xyz": [
+          0.047688332188600885,
+          0.06031513434288245,
+          0.10497347495864269
+        ],
+        "mae_xyz": [
+          0.038361314628273246,
+          0.04965367937244102,
+          0.0845560442725107
+        ]
+      }
+    },
+    "F10_3000": {
+      "first_recorded_indices": [
+        126,
+        251,
+        376,
+        501,
+        626,
+        751,
+        876
+      ],
+      "pooled_push_events_not_independent_episodes": 1792,
+      "first_0_5s": {
+        "rmse_xyz": [
+          0.28825107972704933,
+          0.38208960475161413,
+          0.1396068085056302
+        ],
+        "mae_xyz": [
+          0.192654555653488,
+          0.28119347419875407,
+          0.10080950773984342
+        ]
+      },
+      "following_1s": {
+        "rmse_xyz": [
+          0.03533913794103643,
+          0.05537696261070673,
+          0.08615344275198213
+        ],
+        "mae_xyz": [
+          0.027696327151664132,
+          0.03974271413201464,
+          0.06943148944260084
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "status": "OFFLINE_PROSPECT_ASSESSMENT_CONDITIONAL_SENSITIVITY_NOT_VALIDATED_FORECAST",
+  "official_anchor_count": 1,
+  "qualitative_30_assumed_for_new_policies": true,
+  "primary_official_prediction": null,
+  "probability_of_93": null,
+  "long_training_score_forecast": null,
+  "server_access_policy_loading_or_new_evaluation": false,
+  "models": {
+    "C0_5500": {
+      "measured_internal_quality": 0.9090643911711052,
+      "falls_of_1792": 0,
+      "conditional_formula_outputs_NOT_official_predictions": {
+        "legacy_fixed_mse_floor": 88.14,
+        "fixed_quality_ratio": 88.14,
+        "illustrative_error_gain": 88.14000000000001
+      },
+      "conditional_delta_from_official_C0": {
+        "legacy_fixed_mse_floor": 0.0,
+        "fixed_quality_ratio": 0.0,
+        "illustrative_error_gain": 1.4210854715202004e-14
+      },
+      "counterfactual_no_falls_quality": 0.9090643911711052,
+      "fall_component_fraction_of_gap_vs_F10": 0.0,
+      "weighted_three_axis_rmse": 0.09652602676928392
+    },
+    "F10_3000": {
+      "measured_internal_quality": 0.916710606474086,
+      "falls_of_1792": 0,
+      "conditional_formula_outputs_NOT_official_predictions": {
+        "legacy_fixed_mse_floor": 88.36455325710006,
+        "fixed_quality_ratio": 88.62902031806857,
+        "illustrative_error_gain": 89.10432346049606
+      },
+      "conditional_delta_from_official_C0": {
+        "legacy_fixed_mse_floor": 0.22455325710005525,
+        "fixed_quality_ratio": 0.4890203180685688,
+        "illustrative_error_gain": 0.9643234604960611
+      },
+      "counterfactual_no_falls_quality": 0.916710606474086,
+      "fall_component_fraction_of_gap_vs_F10": null,
+      "weighted_three_axis_rmse": 0.08910014891850199
+    },
+    "S1_tracking_pair": {
+      "measured_internal_quality": 0.8811117563689871,
+      "falls_of_1792": 3,
+      "conditional_formula_outputs_NOT_official_predictions": {
+        "legacy_fixed_mse_floor": 87.0529840155363,
+        "fixed_quality_ratio": 86.35226504615198,
+        "illustrative_error_gain": 84.81288356555046
+      },
+      "conditional_delta_from_official_C0": {
+        "legacy_fixed_mse_floor": -1.0870159844637044,
+        "fixed_quality_ratio": -1.787734953848016,
+        "illustrative_error_gain": -3.327116434449536
+      },
+      "counterfactual_no_falls_quality": 0.882617498349605,
+      "fall_component_fraction_of_gap_vs_F10": 0.04229748927767346,
+      "weighted_three_axis_rmse": 0.1271826059341144
+    },
+    "R1_tracking_double": {
+      "measured_internal_quality": 0.9038446584470877,
+      "falls_of_1792": 3,
+      "conditional_formula_outputs_NOT_official_predictions": {
+        "legacy_fixed_mse_floor": 87.91067101750801,
+        "fixed_quality_ratio": 87.80616747556968,
+        "illustrative_error_gain": 87.59020093814205
+      },
+      "conditional_delta_from_official_C0": {
+        "legacy_fixed_mse_floor": -0.2293289824919924,
+        "fixed_quality_ratio": -0.33383252443032063,
+        "illustrative_error_gain": -0.5497990618579536
+      },
+      "counterfactual_no_falls_quality": 0.9054168937617019,
+      "fall_component_fraction_of_gap_vs_F10": 0.12220127979025909,
+      "weighted_three_axis_rmse": 0.10081301191539244
+    }
+  },
+  "F10_uniform_error_reduction_counterfactuals_NOT_measured": [
+    {
+      "uniform_RMSE_reduction": 0,
+      "outputs": {
+        "legacy_fixed_mse_floor": 88.36455325710006,
+        "fixed_quality_ratio": 88.62902031806857,
+        "illustrative_error_gain": 89.10432346049606
+      }
+    },
+    {
+      "uniform_RMSE_reduction": 0.1,
+      "outputs": {
+        "legacy_fixed_mse_floor": 88.6043039186334,
+        "fixed_quality_ratio": 89.14019413305525,
+        "illustrative_error_gain": 90.10936882562149
+      }
+    },
+    {
+      "uniform_RMSE_reduction": 0.2,
+      "outputs": {
+        "legacy_fixed_mse_floor": 88.82519078651143,
+        "fixed_quality_ratio": 89.65602693587388,
+        "illustrative_error_gain": 91.1322756330812
+      }
+    },
+    {
+      "uniform_RMSE_reduction": 0.25,
+      "outputs": {
+        "legacy_fixed_mse_floor": 88.92803132619007,
+        "fixed_quality_ratio": 89.91570438984398,
+        "illustrative_error_gain": 91.65053109723937
+      }
+    },
+    {
+      "uniform_RMSE_reduction": 0.3,
+      "outputs": {
+        "legacy_fixed_mse_floor": 89.02551881554447,
+        "fixed_quality_ratio": 90.1765633655387,
+        "illustrative_error_gain": 92.17337756255341
+      }
+    },
+    {
+      "uniform_RMSE_reduction": 0.4,
+      "outputs": {
+        "legacy_fixed_mse_floor": 89.20358595979617,
+        "fixed_quality_ratio": 90.7018485122455,
+        "illustrative_error_gain": 93.23301487128208
+      }
+    },
+    {
+      "uniform_RMSE_reduction": 0.5,
+      "outputs": {
+        "legacy_fixed_mse_floor": 89.35772651876347,
+        "fixed_quality_ratio": 91.23192792218332,
+        "illustrative_error_gain": 94.31153453096229
+      }
+    }
+  ],
+  "target_required_reductions_under_unvalidated_assumptions": {
+    "90": {
+      "fixed_quality_ratio": 0.2661821533504374,
+      "illustrative_error_gain": 0.08920301864072488
+    },
+    "92": {
+      "fixed_quality_ratio": 0.6433034909114972,
+      "illustrative_error_gain": 0.28346867315334157
+    },
+    "93": {
+      "fixed_quality_ratio": 0.8271228668389592,
+      "illustrative_error_gain": 0.3781608833642287
+    }
+  },
+  "official_target_arithmetic": {
+    "anchor_total": 88.14,
+    "target_total": 93,
+    "target_sim": 63,
+    "additional_points_required": 4.859999999999999,
+    "official_sim_relative_increase_required": 0.08359133126934992,
+    "remaining_official_sim_loss_recovery_fraction": 0.40978077571669475
+  },
+  "limitations": [
+    "One official policy anchor cannot identify a prediction function; C0 fit is by construction.",
+    "The three outputs are alternative assumptions, not a prediction interval or calibrated bounds.",
+    "Fixed MSE-floor artificial ceiling is not the competition ceiling and is unsuitable for target feasibility.",
+    "The error-gain function is arbitrary and is not preferred because its numbers are higher.",
+    "Uniform error reductions keep survival fixed and do not describe a trained or achievable policy.",
+    "Only one training seed; unequal training lengths and historical runtimes; no matched1500 control.",
+    "S1 evaluated1499 differs from recovered400; recovered400 has no performance measurement.",
+    "Full current archive/raw traces/events absent; summary was exactly copied but not raw-recomputed locally.",
+    "Existing F10 selection gains are already in the measured F10 baseline and cannot be counted again.",
+    "Older F10 push survival regression remains relevant; latest0/1792 does not erase all prior gates."
+  ],
+  "sources": [
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\high_score_search_20261009\\screen_summary.json",
+      "sha256": "359c18ea07b410f729d84a93cdd54d2a28ad30b6b9c690ee4e7e9b907a6faad7"
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\score_reverse_20261001\\analysis.json",
+      "sha256": "b18e8c7255e2c70886ac72fa0ccb4c423a726eae1cce78c14cb801870434b8d5"
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\high_score_search_20261009\\portal_evidence.json",
+      "sha256": "65d1fabca4c34712c1980ca48c83a252b13391549234505933e336540f27f54f"
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\high_score_search_20261009\\audit.json",
+      "sha256": "398982a33de90d386d010d84c32db24e0f38e8a0eb40a955357de130462d7644"
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\calibration_review_20261008\\calibration_audit.json",
+      "sha256": "b3509f250ed57d89932ba254d65654fec2776f16040e1e908772c8a15e62b134"
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\high_score_search_20261009\\final_analysis.txt",
+      "sha256": "6c56beb937da36c223f2f5724b4d8a90bfe6fcd59a4a3371e001b7d791ad78e2"
+    }
+  ]
+}

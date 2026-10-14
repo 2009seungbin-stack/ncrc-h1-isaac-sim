@@ -1,0 +1,79 @@
+Current short sweep operations (2026-10-02)
+
+Current server: https://36.robotics.connect.or.kr/code/?folder=/workspace
+Dashboard: https://robotics.connect.or.kr/board
+Remote root: /workspace/student_workspace/short_sweep_20261002
+Team usage before start: 61 h 18 m / 100 h.
+Conservative start: 2026-10-02 11:13 UTC. Compute deadline: 21:00 UTC.
+Server must be stopped by 21:13 UTC after result recovery, or earlier on completion.
+No official submission and no local PC shutdown are authorized by this experiment.
+
+Use the browser UI for this portal. Do not use private HTTP endpoints or page-global APIs.
+Browser 4 and tabs 330019086 (dashboard), 330019095 (editor) were live at launch.
+Inspect current browser inventory if handles are stale. Do not create duplicate server allocations.
+The integrated terminal requires /workspace/IsaacLab/isaaclab.sh -p; python/python3 are not on PATH.
+The IsaacLab installation links _isaac_sim to /isaac-sim.
+Screen Reader Optimized Mode was enabled through the command palette to expose terminal output.
+Terminal input works through tab clipboard.writeText followed by the terminal textbox Control+V, Enter.
+Shell output arrives asynchronously after an input call. Read subsequent listitem text or screenshot.
+Explorer right-click works on the outer treeitem; nested compact-folder treeitems can miss the menu.
+Upload/Download menu entries are available there. Use supported filechooser/download APIs.
+
+Running jobs
+tmux short_sweep_screen: sweep_runner.py screen --deadline 1790974800
+tmux short_sweep_queue: waits for screen session to end and requires SAVED_SCREEN_COMPLETE,
+then runs sweep_runner.py short_train --deadline 1790974800.
+The queue does not run after an evaluation failure.
+Both jobs are bounded, sequential and preserve checkpoints outside the provided wrapper's cleanup.
+Logs: controller_screen.log, controller_short.log, logs/train_<arm>.log.
+State: state.json. Model manifests: saved_models.json and, after training, short_models.json.
+Summaries: saved_ranking.json, short_ranking.json.
+Reward restore evidence: reward_restored.json. Protected source hashes: protected_sources.json.
+Final results archive: /workspace/student_workspace/short_sweep_20261002_results.tar.gz.
+Archive is regenerated when each controller ends; verify it is closed before downloading.
+
+The optional finalist_runner.py exists locally but was NOT in the original upload archive.
+It must be uploaded only if used. Select a candidate after reviewing short results.
+It supports --arm none for held-out evaluation of C0 and a selected saved F10 without more training.
+Full held-out set: 7 scenarios, n=128, reset seeds 809/1201, startup 303, terrain 9049.
+Allow time for evaluation, local recovery, hash validation, and dashboard shutdown.
+Do not reuse old experiment deadlines, old shutdown requests, or old private-API runbooks.
+
+Original input archive SHA256:
+14f385a139314b1ecf63242b275568175e504bd301a91bce6251d31a6dcdc3ba
+Remote upload: /workspace/student_workspace/ScorePreview/short_sweep_20261002_inputs.tar.gz
+Original training source hashes were checked by the screen controller before work began.
+Local CPU mock and actual GPU diagnostic both verified command slice 9:12; GPU horizon 20.0, timeout 20.1.
+
+2026-10-02 16:08 UTC update
+All four 800-iteration runs and short evaluation completed. Local short_screen_summary.json contains editor-copied result data, not the complete archive.
+Short archive: 415664784 bytes, SHA256 3fce5beaff533454f4788563ad3d22b9bdb5e47f725f087def5ccb9645a8c987. NOT retrieved; held-out stage will regenerate it.
+Original reward restoration verified before held-out run; reward/backup SHA256 09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7.
+No clear short-screen improvement and retrieval remains blocked, so no additional 3000-iteration run.
+finalist_runner.py was uploaded through Explorer Upload and remote SHA256 matched local c3a7859e9b3019d6a0138dc3af4d52e288f47e9d5c83bcf405aeefa4af5b2889.
+Running tmux short_sweep_heldout: finalist_runner.py --arm none --saved_model F10_3000 --deadline 1790974800.
+This only evaluates C0_5500 and F10_3000 on the already planned 7 held-out scenarios; no new training.
+Logs controller_heldout.log and logs/heldout_flat.log, heldout_rough.log, heldout_slope.log, heldout_stairs.log, heldout_dr.log.
+Expected output heldout_ranking.json; require 7 scenarios for both, reward restoration, protected-source hashes, fresh archive size/hash.
+summarize_short_diagnostics.py was uploaded through Explorer to collect existing per-scenario full/steady RMSE/MAE and 100-iteration averages; output short_diagnostics.json. It does not change training sources or PPO.
+
+2026-10-02 16:17 UTC completion update
+All computation is complete: HELDOUT_COMPLETE; tmux has no sessions. Do not rerun any experiment.
+Final archive is now 503786122 bytes, SHA256 1a8a5a284a6622e9a7cb60a5066e080adb15fa8061a7eb8a20f7edaaf34ca6d9. This replaces both earlier archive hashes. It is NOT yet locally recovered.
+Reward original restoration verified, SHA256 09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7.
+heldout_screen_summary.json and final_analysis.txt contain editor-copied summary and local analysis. F10_3000 internal quality 0.9167106065 vs C0 0.9090643912; relative +0.8411%; each 1792 episodes, zero falls. Not official score or statistical significance.
+Local inputs/models/F10_3000.pt and C0_5500.pt hashes match evaluated checkpoints. New 4-arm checkpoints and full traces remain remote.
+Dashboard still shows server 36 in use. Remaining work: existing user download handoff, archive size/SHA and contents validation, server shutdown, automation disable. Same 21:13 UTC hard stop applies if retrieval remains blocked.
+Automation go2 was updated to monitor recovery and shutdown only. Do not repeat unchanged download requests or start new training.
+
+User requested continue after completion status. Prepared go2_candidate_and_analysis.zip from existing local F10_3000/C0_5500 checkpoints and local analysis, with manifest and SHA256 verification of all 10 included source files (12 ZIP entries). ZIP size 13003563 bytes, SHA256 37e05b791d83961a5b1cf0d8f200fffba6ad2eca5179cf4bfc88344d2e452331.
+This is NOT the remote results archive, and does NOT contain the four new 800-iteration checkpoints or full traces. Remote recovery and server shutdown remain pending; do not confuse this ZIP with successful full recovery.
+
+2026-10-02 16:52 UTC recovery update
+User saved final 503786122-byte archive in workspace root. SHA256 matches final archive and live 16:49:54 UTC remote recheck. Safe extraction recovered 235 files; all four final checkpoint hashes, 36 preserved checkpoints, 800 log iterations per arm, events/params, 44 JSON files, and 116 trace CRCs verified. Raw aggregate RMSE matches saved/short/heldout rankings. Report: recovery_verification.json. No remaining recovery blocker; proceeding to authorized server shutdown. Current browser id 3, dashboard 330019086, editor 330019095.
+
+2026-10-02T16:59:25.221066+00:00 completion update
+User explicitly reported stopping the server and requested analysis only. Read-only dashboard confirms 서버 시작하기, with usage 66시간55분. Agent did not issue a server shutdown action. go2 automation update returned PAUSED. Offline recovered-data analysis written to post_recovery_analysis.txt, heldout_detailed_analysis.json, heldout_tail_errors.json and heldout_error_comparison.png. No new training, evaluation or official submission.
+
+2026-10-03T06:36:15.723974+00:00 user-requested empirical prediction
+Reanchored existing 3-axis MSE-floor family to current C0 heldout measurement and historical official58.14 simulation score. F10 predicted88.36455 with30 qualitative points assumed; ratio model88.62902. Model sensitivity is not a confidence interval. Four-scenario models have covered-point predictions only; no missing scenarios imputed. Corrected earlier unverified-weight statement: October1/2 records already confirmed weights; stale evaluator comment was incorrectly used. No new simulation or server actions.

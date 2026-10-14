@@ -1,0 +1,145 @@
+{
+  "review_date_local": "2026-10-08",
+  "status": "CALIBRATION_SENSITIVITY_ONLY_NOT_VALIDATED_PREDICTION",
+  "official_candidate_score": null,
+  "anchor_policy_count": 1,
+  "fixed_qualitative_points_assumption": 30,
+  "parameters": {
+    "legacy_mse_floor": 0.025220536061869164,
+    "legacy_quality_ratio": 0.9136552224880817,
+    "illustrative_error_gain": 1.9491412270803816
+  },
+  "real_measurement_inputs_hypothetical_official_outputs": {
+    "F10_3000": {
+      "legacy_additive_mse_floor": 88.36455325710006,
+      "legacy_quality_ratio": 88.62902031806857,
+      "illustrative_error_gain": 89.10432346049606
+    },
+    "C0_5500": {
+      "legacy_additive_mse_floor": 88.14,
+      "legacy_quality_ratio": 88.14000000000001,
+      "illustrative_error_gain": 88.14000000000001
+    }
+  },
+  "hypothetical_error_reductions_NOT_measured_policies": {
+    "F10_3000": [
+      {
+        "rmse_fraction_remaining": 1.0,
+        "outputs": {
+          "legacy_additive_mse_floor": 88.36455325710006,
+          "legacy_quality_ratio": 88.62902031806857,
+          "illustrative_error_gain": 89.10432346049606
+        }
+      },
+      {
+        "rmse_fraction_remaining": 0.75,
+        "outputs": {
+          "legacy_additive_mse_floor": 88.92803132619007,
+          "legacy_quality_ratio": 89.915704389844,
+          "illustrative_error_gain": 91.65053109723937
+        }
+      },
+      {
+        "rmse_fraction_remaining": 0.5,
+        "outputs": {
+          "legacy_additive_mse_floor": 89.35772651876347,
+          "legacy_quality_ratio": 91.23192792218332,
+          "illustrative_error_gain": 94.31153453096229
+        }
+      },
+      {
+        "rmse_fraction_remaining": 0.25,
+        "outputs": {
+          "legacy_additive_mse_floor": 89.62844983346459,
+          "legacy_quality_ratio": 92.57840441739278,
+          "illustrative_error_gain": 97.09278320466086
+        }
+      },
+      {
+        "rmse_fraction_remaining": 0.0,
+        "outputs": {
+          "legacy_additive_mse_floor": 89.72110610657487,
+          "legacy_quality_ratio": 93.95586557416573,
+          "illustrative_error_gain": 100.00000000000001
+        }
+      }
+    ],
+    "C0_5500": [
+      {
+        "rmse_fraction_remaining": 1.0,
+        "outputs": {
+          "legacy_additive_mse_floor": 88.14,
+          "legacy_quality_ratio": 88.14000000000001,
+          "illustrative_error_gain": 88.14000000000001
+        }
+      },
+      {
+        "rmse_fraction_remaining": 0.75,
+        "outputs": {
+          "legacy_additive_mse_floor": 88.79408341081644,
+          "legacy_quality_ratio": 89.54125705676744,
+          "illustrative_error_gain": 90.89748508871827
+        }
+      },
+      {
+        "rmse_fraction_remaining": 0.5,
+        "outputs": {
+          "legacy_additive_mse_floor": 89.29541475664388,
+          "legacy_quality_ratio": 90.97706682711058,
+          "illustrative_error_gain": 93.78880922417518
+        }
+      },
+      {
+        "rmse_fraction_remaining": 0.25,
+        "outputs": {
+          "legacy_additive_mse_floor": 89.61241212974967,
+          "legacy_quality_ratio": 92.44830388059304,
+          "illustrative_error_gain": 96.8206431355197
+        }
+      },
+      {
+        "rmse_fraction_remaining": 0.0,
+        "outputs": {
+          "legacy_additive_mse_floor": 89.72110610657487,
+          "legacy_quality_ratio": 93.95586557416573,
+          "illustrative_error_gain": 100.00000000000001
+        }
+      }
+    ]
+  },
+  "F10_single_axis_removal_NOT_measured_policies": {
+    "vx": {
+      "legacy_additive_mse_floor": 88.73919027448005,
+      "legacy_quality_ratio": 89.4605645399764,
+      "illustrative_error_gain": 90.74552600969926
+    },
+    "vy": {
+      "legacy_additive_mse_floor": 88.72979054171,
+      "legacy_quality_ratio": 89.38824136938642,
+      "illustrative_error_gain": 90.59332230465792
+    },
+    "yaw": {
+      "legacy_additive_mse_floor": 88.91087837151954,
+      "legacy_quality_ratio": 89.9905544717799,
+      "illustrative_error_gain": 91.81836009935974
+    }
+  },
+  "internal_quality_relative_change_percent": 0.8411082182121943,
+  "limitations": [
+    "The error-gain mapping is an arbitrary competing assumption, not a new preferred prediction.",
+    "All mappings match C0 by construction; none was validated on a second official policy outcome.",
+    "Their spread is not a confidence interval or probability of reaching 90.",
+    "Zero local error does not establish zero official error; synthetic error scaling preserves survival only as an assumption.",
+    "No training, simulator evaluation, server access or official submission was performed."
+  ],
+  "sources": [
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\recovered_20261003\\short_sweep_20261002\\heldout_ranking.json",
+      "sha256": "c76f48566d0995f0b4fd4a1cc58b0188daa3234015d1b9a20d815eac508ea0a9"
+    },
+    {
+      "path": "D:\\UserData\\Desktop\\issac_sim\\analysis\\short_sweep_20261002\\predicted_scores.json",
+      "sha256": "ebaf3727e8cc2ddad59e65fcdaabbbe22a8583fb1beb25c448465f4c7b5ee44f"
+    }
+  ]
+}

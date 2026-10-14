@@ -1,0 +1,49 @@
+Title: Windows Codex browser permission verification fails after reinstall, while Chrome discovery succeeds
+
+Product: Codex desktop app on Windows
+App release observed in today's diagnostic log: 26.1002.52244
+Observed date: 2026-10-08 (Asia/Seoul)
+Affected chat ID: 01a0fc08-4b18-7d01-9feb-d223556995b3
+
+Problem
+The user reports that browser automation has repeatedly failed since uninstalling and reinstalling Codex. The Chrome extension is detected, and listing browser tabs succeeds. However, opening a website through the supported Browser Use API fails before navigation or a site-permission prompt appears.
+
+Exact tool error
+"Browser Use could not complete this action because a browser security check was unavailable. Reason: Browser Use could not request permission. Browser use cannot access https://robotics.connect.or.kr because saved browser permissions could not be verified."
+
+Reproduction
+1. Open the affected existing Codex chat on Windows.
+2. Connect the ChatGPT Chrome extension. Browser and tab discovery succeed.
+3. Ask the agent to open https://robotics.connect.or.kr/board.
+4. Browser Use returns the permission-verification error above without opening the page.
+5. Repeat after reconnecting the extension: Chrome is newly recognized, but the same navigation failure persists.
+
+Expected
+A normal site-permission request, or successful navigation when the site is already authorized.
+
+Observed diagnostic evidence
+- The CUA MCP startup and in-app browser backend startup reach ready.
+- Today's desktop logs contain 19 warnings associated with this chat between 10:22:23 and 10:30:44 UTC (19:22:23-19:30:44 KST):
+  [browser-use-iab-api] IAB_LIFECYCLE "iab backend info request failed"
+  "No ChatGPT browser route is available for browser session ..."
+- These warnings concern in-app browser information requests. Their causal relationship to the Chrome permission-verification failure is unknown.
+- The exact saved-permission error was not found in the desktop logs inspected. Corruption of the permission store or installation files has not been established.
+
+Impact
+Authorized work requiring the web portal cannot begin. No server or training job was started by the agent during these failed attempts.
+
+Request
+Please investigate why the app cannot verify saved site permissions or request a permission decision for this chat despite successful extension discovery. Please provide a supported repair procedure that preserves existing chats and settings.
+
+Privacy
+This report contains a diagnostic summary only. No credentials, cookies, browser history, raw transcripts, raw logs, or project/model files are included.
+
+Related public reports checked on 2026-10-08
+- Windows exact permission error and missing route logs: https://github.com/openai/codex/issues/48670
+- Windows post-update saved-permission failure despite successful tab inventory: https://github.com/openai/codex/issues/49555
+- Related Windows IAB routing failure persisting after reboot, repair, and app-data reset: https://github.com/openai/codex/issues/45028
+- macOS symlink-specific recovery reports: https://github.com/openai/codex/issues/50717 and https://www.reddit.com/r/codex/comments/1wrtr68/fixed_saved_browser_permissions_could_not_be/
+- macOS recovery after rollback plus restart, without isolating which step mattered: https://github.com/openai/codex/issues/50180
+
+Additional local read-only check
+The default C:\Users\2009s\.codex directory, browser subdirectory, sessions subdirectory, config.toml file, and user-directory ancestors show no LinkType or Target. The specific symlink/junction condition described in the macOS reports is absent from this inspected default path. No permission-store contents were read or changed. This metadata check does not establish the active configuration path of every app process or the root cause.

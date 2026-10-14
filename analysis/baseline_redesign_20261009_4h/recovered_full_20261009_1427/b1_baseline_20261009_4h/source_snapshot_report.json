@@ -1,0 +1,19 @@
+{
+  "captured_utc": "2026-10-09T12:04:23.949136+00:00",
+  "matched": true,
+  "train_dir": "/workspace/training/quadruped",
+  "reference": "/workspace/student_workspace/b1_baseline_20261009_4h/previous_source_hashes_20261002.json",
+  "actual": {
+    "train.py": "c09ac99bcd93bb367f0eec69bdb05f4063cb8d60f0258d4667f07addf509de22",
+    "play.py": "ce703acf54eac40073e3f6d585d6002e3b4a2d9062581b3c0ed45db73ac5f9dc",
+    "go2_task/agent_cfg.py": "a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23",
+    "go2_task/env_cfg.py": "df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1"
+  },
+  "expected": {
+    "train.py": "c09ac99bcd93bb367f0eec69bdb05f4063cb8d60f0258d4667f07addf509de22",
+    "play.py": "ce703acf54eac40073e3f6d585d6002e3b4a2d9062581b3c0ed45db73ac5f9dc",
+    "go2_task/agent_cfg.py": "a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23",
+    "go2_task/env_cfg.py": "df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1"
+  },
+  "note": "Only source hashes read; no training modules imported or files modified"
+}

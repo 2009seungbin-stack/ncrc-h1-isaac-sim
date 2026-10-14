@@ -1,0 +1,47 @@
+{
+  "solo": {
+    "samples": 30,
+    "gpu_mean": 90.2,
+    "gpu_min": 82.0,
+    "gpu_max": 95.0,
+    "max_memory_mib": 8036.0,
+    "mean_power_w": 194.78633333333335,
+    "start": 1790830373.301,
+    "end": 1790830402.31
+  },
+  "overlap": {
+    "samples": 180,
+    "gpu_mean": 94.94444444444444,
+    "gpu_min": 73.0,
+    "gpu_max": 99.0,
+    "max_memory_mib": 12051.0,
+    "mean_power_w": 179.53494444444445,
+    "start": 1790830455.679,
+    "end": 1790830634.738
+  },
+  "solo_training": {
+    "samples": 5,
+    "mean_seconds": 5.227867269515992,
+    "median_seconds": 5.2301881313323975
+  },
+  "overlap_training": {
+    "samples": 22,
+    "mean_seconds": 6.406252644278786,
+    "median_seconds": 6.402124285697937
+  },
+  "recent_training": {
+    "samples": 10,
+    "mean_seconds": 6.343103766441345,
+    "median_seconds": 6.3472418785095215
+  },
+  "latest_iteration": 153,
+  "caveat": "One warmup-stage overlap test, not a steady-state hardware benchmark; resource use is not throughput.",
+  "decision": "SEQUENTIAL_6144_ENVS",
+  "overlap_evaluation_cancelled": true,
+  "overlap_evaluation_runtime_seconds_before_cancel": 563,
+  "training_time_increase_pct": 22.5404608421111,
+  "recovery_observed_iteration": 231,
+  "recovery_observed_seconds_per_iteration": 5.07,
+  "overlap_result_complete": false,
+  "reason": "Higher utilization accompanied slower training and substantially delayed evaluation; net improvement was not established."
+}

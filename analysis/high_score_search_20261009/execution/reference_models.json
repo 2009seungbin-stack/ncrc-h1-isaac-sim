@@ -1,0 +1,18 @@
+[
+  {
+    "name": "C0_5500",
+    "checkpoint": "references/C0_5500.pt",
+    "sha256": "8d553e697ed4c2856ab002431af96d626eb8b0d23e56b7c754d652193026b1d3",
+    "training_iterations": 5500,
+    "training_seed": 42,
+    "role": "fixed_comparison_only"
+  },
+  {
+    "name": "F10_3000",
+    "checkpoint": "references/F10_3000.pt",
+    "sha256": "4684a58838229b729feb2f2534ab9423a4993377e75179a0d55a95904ecf23d2",
+    "training_iterations": 3000,
+    "training_seed": 42,
+    "role": "fixed_comparison_only"
+  }
+]

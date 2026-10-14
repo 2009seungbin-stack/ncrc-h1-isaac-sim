@@ -1,0 +1,548 @@
+[3gH    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H   [INFO] Using python from: /workspace/IsaacLab/_isaac_sim/python.sh
+[INFO][AppLauncher]: Using device: cuda:0
+[INFO][AppLauncher]: Loading experience file: /workspace/IsaacLab/apps/isaaclab.python.headless.kit
+[t_eval] ckpt iter=3000 actor layers=[(512, 235), (256, 512), (128, 256), (12, 128)]
+[t_eval] 체크포인트 actor 로드: /workspace/student_workspace/go2_stress_20261002/candidate/model_3000.pt
+
+[t_eval] === terrain='flat' 환경 생성: GX1, GX5 ===
+[INFO]: Parsing configuration from: go2_task.env_cfg:QuadrupedRoughEnvCfg
+[Quadruped:student] 6 reward 항목 로드
+  [OK] track_lin_vel_xy_exp.weight = 2.0
+  [OK] feet_air_time.weight = 0.01
+  [OK] lin_vel_z_l2.weight = -3.0
+  [OK] ang_vel_xy_l2.weight = -0.08
+  [OK] action_rate_l2.weight = -0.01
+  [OK] track_ang_vel_z_exp.weight = 0.75
+[Quadruped:student] terrain override - boxes ≤0.15m
+
+[36m======================================================================================[0m
+[36m[1m[INFO][IsaacLab]: Logging to file: /tmp/isaaclab/logs/isaaclab_2026-10-02_08-30-16.log[0m
+[36m======================================================================================[0m
+
+[33m08:30:16 [simulation_context.py] WARNING: The `enable_external_forces_every_iteration` parameter in the PhysxCfg is set to False. If you are experiencing noisy velocities, consider enabling this flag. You may need to slightly increase the number of velocity iterations (setting it to 1 or 2 rather than 0), together with this flag, to improve the accuracy of velocity updates.[0m
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : None
+	Physics step-size     : 0.005
+	Rendering step-size   : 0.02
+	Environment step-size : 0.02
+[INFO] Generating terrains randomly took : 0.006370 seconds
+[INFO]: Time taken for scene creation : 0.982439 seconds
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 128
+	Environment spacing   : 2.5
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : ['/World/ground']
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Time taken for simulation start : 0.552710 seconds
+[INFO] Command Manager:  <CommandManager> contains 1 active terms.
++------------------------------------------------+
+|              Active Command Terms              |
++-------+---------------+------------------------+
+| Index | Name          |          Type          |
++-------+---------------+------------------------+
+|   0   | base_velocity | UniformVelocityCommand |
++-------+---------------+------------------------+
+
+[INFO] Event Manager:  <EventManager> contains 2 active terms.
++--------------------------------------+
+| Active Event Terms in Mode: 'startup' |
++----------+---------------------------+
+|  Index   | Name                      |
++----------+---------------------------+
+|    0     | physics_material          |
+|    1     | add_base_mass             |
++----------+---------------------------+
++---------------------------------------+
+|  Active Event Terms in Mode: 'reset'  |
++--------+------------------------------+
+| Index  | Name                         |
++--------+------------------------------+
+|   0    | base_external_force_torque   |
+|   1    | reset_base                   |
+|   2    | reset_robot_joints           |
++--------+------------------------------+
+
+[INFO] Recorder Manager:  <RecorderManager> contains 0 active terms.
++---------------------+
+| Active Recorder Terms |
++-----------+---------+
+|   Index   | Name    |
++-----------+---------+
++-----------+---------+
+
+[INFO] Action Manager:  <ActionManager> contains 1 active terms.
++------------------------------------+
+|  Active Action Terms (shape: 12)   |
++--------+-------------+-------------+
+| Index  | Name        |   Dimension |
++--------+-------------+-------------+
+|   0    | joint_pos   |          12 |
++--------+-------------+-------------+
+
+[INFO] Observation Manager: <ObservationManager> contains 1 groups.
++----------------------------------------------------------+
+| Active Observation Terms in Group: 'policy' (shape: (235,)) |
++-----------+--------------------------------+-------------+
+|   Index   | Name                           |    Shape    |
++-----------+--------------------------------+-------------+
+|     0     | base_lin_vel                   |     (3,)    |
+|     1     | base_ang_vel                   |     (3,)    |
+|     2     | projected_gravity              |     (3,)    |
+|     3     | velocity_commands              |     (3,)    |
+|     4     | joint_pos                      |    (12,)    |
+|     5     | joint_vel                      |    (12,)    |
+|     6     | actions                        |    (12,)    |
+|     7     | height_scan                    |    (187,)   |
++-----------+--------------------------------+-------------+
+
+[INFO] Termination Manager:  <TerminationManager> contains 2 active terms.
++---------------------------------+
+|     Active Termination Terms    |
++-------+--------------+----------+
+| Index | Name         | Time Out |
++-------+--------------+----------+
+|   0   | time_out     |   True   |
+|   1   | base_contact |  False   |
++-------+--------------+----------+
+
+[INFO] Reward Manager:  <RewardManager> contains 10 active terms.
++-----------------------------------------+
+|           Active Reward Terms           |
++-------+----------------------+----------+
+| Index | Name                 |   Weight |
++-------+----------------------+----------+
+|   0   | track_lin_vel_xy_exp |      2.0 |
+|   1   | track_ang_vel_z_exp  |     0.75 |
+|   2   | lin_vel_z_l2         |     -3.0 |
+|   3   | ang_vel_xy_l2        |    -0.08 |
+|   4   | dof_torques_l2       |  -0.0002 |
+|   5   | dof_acc_l2           | -2.5e-07 |
+|   6   | action_rate_l2       |    -0.01 |
+|   7   | feet_air_time        |     0.01 |
+|   8   | flat_orientation_l2  |      0.0 |
+|   9   | dof_pos_limits       |      0.0 |
++-------+----------------------+----------+
+
+[INFO] Curriculum Manager:  <CurriculumManager> contains 0 active terms.
++----------------------+
+| Active Curriculum Terms |
++-----------+----------+
+|   Index   | Name     |
++-----------+----------+
++-----------+----------+
+
+[INFO]: Completed setting up the environment...
+[t_eval] --- GX1 (STRESS 강한 밀침 2.0 m/s 주기 1.5 s) ---
+[t_eval] GX1: survival=0.926 (LCB 0.900)  tracking=0.679  score=0.629
+[t_eval] --- GX5 (STRESS 2초 급전환 x10) ---
+[t_eval] GX5: survival=1.000 (LCB 0.993)  tracking=0.820  score=0.820
+{
+  "run_id": "selected_stress",
+  "checkpoint": "/workspace/student_workspace/go2_stress_20261002/candidate/model_3000.pt",
+  "eval_seed_set": "EVAL_SET_A",
+  "scenarios": {
+    "GX1": {
+      "w": 0.0,
+      "desc": "STRESS 강한 밀침 2.0 m/s 주기 1.5 s",
+      "terrain": "flat",
+      "episodes": 512,
+      "survived": 474,
+      "survival": 0.9258,
+      "survival_lcb": 0.8998,
+      "tracking": 0.6793,
+      "score": 0.6289,
+      "rmse": {
+        "vx": 0.4013,
+        "vy": 0.4855,
+        "yaw": 0.2279
+      },
+      "rmse_used": 0.3867,
+      "rmse_extra": {
+        "vz": 0.1471,
+        "wx": 0.7377,
+        "wy": 0.6338
+      },
+      "mae": {
+        "vx": 0.1916,
+        "vy": 0.2424,
+        "yaw": 0.1245
+      },
+      "mse_seg": {
+        "vx": [
+          0.15144,
+          0.14774,
+          0.14992,
+          0.19631
+        ],
+        "vy": [
+          0.21252,
+          0.22572,
+          0.2103,
+          0.29609
+        ],
+        "yaw": [
+          0.04457,
+          0.05586,
+          0.04446,
+          0.06318
+        ]
+      },
+      "axis_mode": "all",
+      "axis_weights": {
+        "vx": 1.0,
+        "vy": 1.0,
+        "yaw": 1.0
+      },
+      "segment_cmds": [
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0,
+          0.0
+        ]
+      ],
+      "segment_tracking": [
+        0.6914,
+        0.685,
+        0.6926,
+        0.6503
+      ],
+      "segment_mean_actual": [
+        [
+          0.464,
+          -0.001,
+          0.011
+        ],
+        [
+          0.47,
+          0.022,
+          0.012
+        ],
+        [
+          0.481,
+          0.001,
+          0.009
+        ],
+        [
+          0.473,
+          0.004,
+          0.005
+        ]
+      ],
+      "segment_falls": [
+        6,
+        14,
+        3,
+        15
+      ],
+      "seg_s": 5.0,
+      "push_mag": 2.0,
+      "push_period_s": 1.5,
+      "falls": 38,
+      "nan_actions": 0,
+      "crashes": 0
+    },
+    "GX5": {
+      "w": 0.0,
+      "desc": "STRESS 2초 급전환 x10",
+      "terrain": "flat",
+      "episodes": 512,
+      "survived": 512,
+      "survival": 1.0,
+      "survival_lcb": 0.9926,
+      "tracking": 0.8196,
+      "score": 0.8196,
+      "rmse": {
+        "vx": 0.2553,
+        "vy": 0.1272,
+        "yaw": 0.1933
+      },
+      "rmse_used": 0.1989,
+      "rmse_extra": {
+        "vz": 0.0743,
+        "wx": 0.4501,
+        "wy": 0.3972
+      },
+      "mae": {
+        "vx": 0.115,
+        "vy": 0.0801,
+        "yaw": 0.1146
+      },
+      "mse_seg": {
+        "vx": [
+          0.06742,
+          0.14457,
+          0.01733,
+          0.00391,
+          0.07776,
+          0.06415,
+          0.00218,
+          0.01514,
+          0.20418,
+          0.05518
+        ],
+        "vy": [
+          0.00166,
+          0.00441,
+          0.03274,
+          0.01991,
+          0.00939,
+          0.02111,
+          0.02098,
+          0.00289,
+          0.03172,
+          0.01688
+        ],
+        "yaw": [
+          0.00938,
+          0.00922,
+          0.01414,
+          0.05,
+          0.08918,
+          0.05108,
+          0.03294,
+          0.07671,
+          0.03217,
+          0.00866
+        ]
+      },
+      "axis_mode": "all",
+      "axis_weights": {
+        "vx": 1.0,
+        "vy": 1.0,
+        "yaw": 1.0
+      },
+      "segment_cmds": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.5,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          1.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          -0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          -0.5,
+          0.0,
+          -1.0
+        ],
+        [
+          1.0,
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "segment_tracking": [
+        0.8507,
+        0.7948,
+        0.8639,
+        0.8548,
+        0.7847,
+        0.808,
+        0.8722,
+        0.8372,
+        0.7416,
+        0.8487
+      ],
+      "segment_mean_actual": [
+        [
+          0.898,
+          -0.002,
+          0.011
+        ],
+        [
+          -0.337,
+          -0.051,
+          0.018
+        ],
+        [
+          -0.043,
+          0.364,
+          0.051
+        ],
+        [
+          0.017,
+          0.053,
+          -0.917
+        ],
+        [
+          0.868,
+          -0.007,
+          0.946
+        ],
+        [
+          0.101,
+          -0.417,
+          0.047
+        ],
+        [
+          -0.002,
+          -0.053,
+          0.936
+        ],
+        [
+          -0.435,
+          -0.015,
+          -0.94
+        ],
+        [
+          0.773,
+          0.386,
+          -0.027
+        ],
+        [
+          0.093,
+          0.045,
+          0.003
+        ]
+      ],
+      "segment_falls": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seg_s": 2.0,
+      "push_mag": null,
+      "push_period_s": null,
+      "falls": 0,
+      "nan_actions": 0,
+      "crashes": 0
+    }
+  },
+  "coverage_weight": 0.0,
+  "sim_score": 0.0,
+  "sim_score_pct": 0.0,
+  "sim_score_by_axis_mode": {},
+  "official_pred": {},
+  "h_survival": null,
+  "h_survival_lcb": null,
+  "official_offset": null,
+  "falls": 0,
+  "nan_actions": 0,
+  "crashes": 0,
+  "stress": {
+    "episodes": 1024,
+    "survived": 986,
+    "falls": 38,
+    "survival": 0.9629,
+    "survival_lcb": 0.9495,
+    "per_scenario": {
+      "GX1": {
+        "survival": 0.9258,
+        "survival_lcb": 0.8998,
+        "falls": 38,
+        "tracking": 0.6793
+      },
+      "GX5": {
+        "survival": 1.0,
+        "survival_lcb": 0.9926,
+        "falls": 0,
+        "tracking": 0.8196
+      }
+    }
+  },
+  "config": {
+    "seg_s": 5.0,
+    "transient_s": 0.0,
+    "num_envs": 128,
+    "seeds": "137,389,743,1201",
+    "rough_range": [
+      0.04,
+      0.1
+    ],
+    "slope_deg": 20.0,
+    "push_period_s": 2.5,
+    "push_mag": 1.0,
+    "obs_noise": true,
+    "tracking_def": "exp(-RMSE)",
+    "axis_mode": "all",
+    "cmd_scale": 1.0,
+    "stair_height": 0.12,
+    "stair_width": 0.3
+  }
+}Loading user config located at: '/isaac-sim/kit/data/Kit/Isaac-Sim/5.1/user.config.json'
+[Info] [carb] Logging to file: /isaac-sim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261002_083013.log
+2026-10-01T23:30:14Z [165ms] [Warning] [omni.platforminfo.plugin] failed to open the default display.  Can't verify X Server version.
+2026-10-01T23:30:14Z [169ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-10-01T23:30:14Z [418ms] [Warning] [carb] Acquiring non optional plugin interface which is not listed as dependency: [omni::physx::IPhysxBenchmarks v1.0] (plugin: <default plugin>), by client: omni.physics.physx.plugin. Add it to CARB_PLUGIN_IMPL_DEPS() macro of a client.
+2026-10-01T23:30:14Z [535ms] [Warning] [omni.isaac.dynamic_control] omni.isaac.dynamic_control is deprecated as of Isaac Sim 4.5. No action is needed from end-users.
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 580.126.09    | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 5080          | Yes: 0 |     | 16303   MB | 10de      | 0          |
+|     |                                  |        |     |            | 2c02      | e8e91587.. |
+|     |                                  |        |     |            | 1         |            |
+|=============================================================================================|
+| OS: 24.04.2 LTS (Noble Numbat) ubuntu, Version: 24.04.2, Kernel: 6.8.0-136-generic
+| Processor: Intel(R) Core(TM) Ultra 5 250KF Plus
+| Cores: 18 | Logical Cores: 18
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 64006 | Free Memory: 50060
+| Total Page/Swap (MB): 8191 | Free Page/Swap: 0
+|---------------------------------------------------------------------------------------------|
+2026-10-01T23:30:16Z [2,347ms] [Warning] [gpu.foundation.plugin] CPU performance profile is set to powersave. This profile sets the CPU to the lowest frequency reducing performance.
+2026-10-01T23:30:16Z [2,359ms] [Warning] [gpu.foundation.plugin] IOMMU is enabled.
+2026-10-01T23:30:16Z [2,381ms] [Warning] [omni.kvdb.plugin] Disabling key-value database because another kit process is locking it
+2026-10-01T23:30:16Z [2,530ms] [Warning] [isaaclab.envs.manager_based_env] Seed not set for the environment. The environment creation may not be deterministic.
+2026-10-01T23:30:18Z [4,674ms] [Warning] [omni.physx.fabric.plugin] FabricManager::initializePointInstancer mismatched prototypes on point instancer: /Visuals/Command/velocity_goal.
+2026-10-01T23:30:18Z [4,674ms] [Warning] [omni.physx.fabric.plugin] FabricManager::initializePointInstancer mismatched prototypes on point instancer: /Visuals/Command/velocity_current.

@@ -1,0 +1,20 @@
+{
+  "research_execution_20261010_4h_critical.tar.gz.sha256.json": {
+    "path": "/workspace/student_workspace/research_execution_20261010_4h_critical.tar.gz",
+    "bytes": 7714191,
+    "sha256": "f61132933651529918a6da3e5d7563884dccef47c504261feb156d853d4c451f",
+    "kind": "critical_partial",
+    "created_epoch": 1791774025.409327,
+    "contains_complete_validation": true,
+    "local_retrieval_verified": false
+  },
+  "research_execution_20261010_4h_results.tar.gz.sha256.json": {
+    "path": "/workspace/student_workspace/research_execution_20261010_4h_results.tar.gz",
+    "bytes": 302998964,
+    "sha256": "56c87f384ad0fe5cafc1b5e62fb70484e5ea70587b2e61b2b0e1cd1286a82008",
+    "kind": "full",
+    "created_epoch": 1791774031.0168967,
+    "contains_complete_validation": true,
+    "local_retrieval_verified": false
+  }
+}

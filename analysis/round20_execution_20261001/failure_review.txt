@@ -1,0 +1,7 @@
+Go2 round20 partial review
+F00/F10 scratch training completed 4000 iterations each.
+F10 model3999 A DR evaluator exited 1 during Isaac Sim startup: telemetry plugin fatal backtrace, segmentation fault. No worker/train/eval process remained in the inspected process list.
+Worker restored original reward and bundled artifacts; archive SHA256 b66790910954f7661c5c73a8fb21f4dca8c75ecd9b5a79ae8c7908ea19282d1f, bytes 566387722. Local retrieval remains unverified.
+Completed A proxies: original floor58.12849 ratio58.07914; F00 3000 floor57.51959, 3999 floor57.67007; F10 3000 floor58.41931 ratio58.75294. These are heuristic proxies, not official scores.
+F10 3999 suite incomplete. B/stress/video not generated. Existing policy must remain in place; no official submission.
+Do not shut down local PC until results retrieval, actual remote shutdown confirmation and local review/report conditions are resolved.

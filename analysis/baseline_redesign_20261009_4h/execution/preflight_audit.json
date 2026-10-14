@@ -1,0 +1,166 @@
+{
+  "scope": "Independent local read-only input audit; CPU only; no server, browser, network, simulator or checkpoint deserialization",
+  "authorization_context": "User requested training after the four-hour B1 design; this file verifies package inputs only",
+  "references": [
+    {
+      "name": "C0_5500",
+      "local_path": "D:/UserData/Desktop/issac_sim/analysis/high_score_search_20261009/execution/references/C0_5500.pt",
+      "package_path": "references/C0_5500.pt",
+      "bytes": 6882293,
+      "sha256": "8d553e697ed4c2856ab002431af96d626eb8b0d23e56b7c754d652193026b1d3",
+      "matches_frozen_reference_manifest": true,
+      "deserialized": false
+    },
+    {
+      "name": "F10_3000",
+      "local_path": "D:/UserData/Desktop/issac_sim/analysis/high_score_search_20261009/execution/references/F10_3000.pt",
+      "package_path": "references/F10_3000.pt",
+      "bytes": 6882293,
+      "sha256": "4684a58838229b729feb2f2534ab9423a4993377e75179a0d55a95904ecf23d2",
+      "matches_frozen_reference_manifest": true,
+      "deserialized": false
+    }
+  ],
+  "candidate": {
+    "local_path": "D:/UserData/Desktop/issac_sim/analysis/baseline_redesign_20261009_4h/candidates/B1_selective_cost_rewards.py",
+    "bytes": 5715,
+    "sha256": "a856051f81920f603e56bd39ca0e554a69ecafed34961d6c0e70ed2073040381",
+    "original_local_path": "D:/UserData/Desktop/issac_sim/analysis/short_sweep_20261002/recovered_20261003/short_sweep_20261002/fresh_rewards_original.py",
+    "original_bytes": 9805,
+    "original_sha256": "09630e6f548b16a2fa0a81eef73aa393cf5f12eadccd0bad8a144b924e8c1be7",
+    "independently_parsed_AST_without_reward_literal_identical": true,
+    "independently_checked_bytes_before_and_after_reward_literal_identical": true,
+    "ten_finite_weights": true,
+    "weights": {
+      "track_lin_vel_xy_exp": 1.5,
+      "track_ang_vel_z_exp": 0.75,
+      "feet_air_time": 0.0,
+      "lin_vel_z_l2": -2.0,
+      "ang_vel_xy_l2": -0.05,
+      "action_rate_l2": -0.01,
+      "dof_acc_l2": -2.5e-7,
+      "dof_torques_l2": -0.0001,
+      "flat_orientation_l2": 0.0,
+      "dof_pos_limits": 0.0
+    }
+  },
+  "protected_provided_sources": {
+    "source": "analysis/high_score_search_20261009/execution/previous_source_hashes_20261002.json",
+    "actual_local_files_present": false,
+    "fresh_allocation_hash_check_required": true,
+    "expected": {
+      "train.py": "c09ac99bcd93bb367f0eec69bdb05f4063cb8d60f0258d4667f07addf509de22",
+      "play.py": "ce703acf54eac40073e3f6d585d6002e3b4a2d9062581b3c0ed45db73ac5f9dc",
+      "go2_task/agent_cfg.py": "a46dbb1c5812745744b63744d96a8557b5831b228562ba3317ef57b21eb94a23",
+      "go2_task/env_cfg.py": "df2224900f6dbd49678b986b39b902d313fbadac8ac48f2c65fbd53d5df104b1"
+    }
+  },
+  "source_snapshot_review": {
+    "local_source": "analysis/high_score_search_20261009/execution/source_snapshot.py",
+    "required_algorithm_files": ["algorithms/ppo.py", "runners/on_policy_runner.py"],
+    "recognized_actor_layouts": [["modules/actor_critic.py"], ["models/mlp_model.py", "modules/mlp.py"]],
+    "hashes_all_installed_rsl_python_files": true,
+    "imports_training_implementation": false,
+    "preserves_existing_manifests_instead_of_overwrite": true,
+    "layout_recognition_is_not_config_compatibility_proof": true,
+    "prior_runtime": {"rsl_rl_lib": "5.0.1", "torch": "2.7.0+cu128"},
+    "prior_runtime_is_current_allocation_verified": false
+  },
+  "historical_environment_evidence": {
+    "source": "analysis/high_score_search_20261009/portal_recovery_20261009/R1_tracking_double/env.yaml",
+    "sim_dt_seconds": 0.005,
+    "decimation": 4,
+    "derived_control_step_seconds": 0.02,
+    "episode_length_seconds": 20.0,
+    "contact_sensor": {
+      "scene_key": "contact_forces",
+      "body_prim_expression": "/World/envs/env_.*/Robot/.*",
+      "update_period_seconds": 0.005,
+      "history_length": 3,
+      "track_pose": false,
+      "track_air_time": true,
+      "force_threshold_newtons": 1.0,
+      "foot_name_expression_from_reward_config": ".*_foot",
+      "evaluation_requirement": "Resolve four foot indices explicitly and verify current data shape; never treat all robot bodies as feet"
+    },
+    "current_allocation_verified": false,
+    "effective_agent_config_not_locally_recovered": true
+  },
+  "historical_reference_agent_evidence": {
+    "source": "analysis/round20_execution_20261001/results/extracted/round20_20261001/preserved/F10/2026-10-01_18-55-04_round20_F10/params/agent.yaml",
+    "actor_class": "MLPModel",
+    "actor_hidden_dims": [512, 256, 128],
+    "activation": "elu",
+    "actor_obs_normalization": false,
+    "critic_obs_normalization": false,
+    "empirical_normalization": {},
+    "clip_actions": null,
+    "save_interval": 100,
+    "scope": "Stored F10 historical effective configuration; does not verify fresh B1 runtime"
+  },
+  "legacy_evaluator_issues_to_remove": [
+    "load_checkpoint_actor reconstructs only linear weights and assumes ELU; ignores normalizer state and does not explicitly sort/validate actor layer identities",
+    "run_scenario records truncated but ignores it, allowing timeout reset state to contaminate tracking samples",
+    "nan_actions are replaced with nan_to_num instead of failing evidence preservation; Infinity is not audited",
+    "step_dt is used to derive steps but not checked against the fixed 0.02-second and 1000-step contract"
+  ],
+  "required_execution_checks": [
+    "Use a fresh package directory; include frozen references and original/candidate reward files with SHA manifest",
+    "Verify provided source hashes and snapshot current installed RSL source before candidate application; mismatch prevents training",
+    "Verify effective scratch initialization with resume=false, 6144 environments, seed42, 1500 iterations and all ten B1 weights from generated runtime configuration",
+    "Verify actor architecture and normalizer against fresh effective agent config/checkpoint; reject unsupported state instead of assuming absence",
+    "Assert current environment control step is 0.02 seconds and horizon runs exactly 1000 steps per scenario/reset seed",
+    "Account for first terminal and first timeout separately; mask final timeout tick and later reset trajectories; early timeout invalidates protocol",
+    "Record raw/clipped action with actual action-manager relationship and explicit foot-contact names",
+    "Apply four-hour deadline relative to actual allocation start; independent cleanup/retrieval reserve cannot be replaced by old nominal six-hour runner deadline"
+  ],
+  "future_new_runner_and_evaluator_review_status": "LOCAL_OK_LIVE_CHECKS_REQUIRED",
+  "implementation_review": {
+    "runner_file": "execution/runner.py",
+    "evaluator_file": "execution/evaluation.py",
+    "review_mode": "Read-only independent review; implementation changes made by responsible runner/evaluator agents",
+    "initial_findings": [
+      {
+        "priority": "P1",
+        "problem": "Package-relative checkpoint paths were interpreted against training process cwd",
+        "resolution": "Evaluator normalizes relative checkpoint paths against manifest parent before hash/load; changed-cwd regression test passes",
+        "status": "resolved"
+      },
+      {
+        "priority": "P1",
+        "problem": "Runner periodically rewrote current source-audit file while evaluator asserted that file SHA was immutable",
+        "resolution": "Runner creates immutable audit_records/<phase>_<terrain>_source_audit.json for each child; periodic guard writes separate current_source_audit.json",
+        "status": "resolved"
+      },
+      {
+        "priority": "P1",
+        "problem": "Manifest asserted no normalization/action clipping without validating effective fresh agent settings",
+        "resolution": "verify_config now validates MLPModel actor/critic hidden dimensions512/256/128,ELU,obs_normalizationfalse,identity empirical normalization,explicit clip_actionsnull and physics0.02; actor normalization state/dimensions/finiteness validated at load",
+        "status": "resolved"
+      }
+    ],
+    "source_level_seed_application": {
+      "startup": "legacy.make_env assigns env_cfg.seed=int(args.startup_seed) before gym.make",
+      "terrain": "legacy.make_terrain_generator assigns tg.seed=int(args.terrain_seed)",
+      "reset": "new evaluator invokes env.unwrapped.seed(reset_seed) and torch.manual_seed(reset_seed) before reset",
+      "actual_remote_config_readback_required": true
+    },
+    "mask_review": "Tracks first terminal and timeout separately; excludes event tick and postreset states; final timeout999 is permitted, earlier timeout invalidates fixed1000-step coverage; final concurrent termination remains a fall",
+    "deadline_review": "Relative deadlines anchored to actual allocation start; monotonic fallback prevents backward wall-clock extension; process cutoff is55s before each phase deadline and process-group cleanup includes SIGINT30s/SIGTERM15s/SIGKILL5s",
+    "process_review": "Child starts a new process group; cleanup checks group existence even after shell leader exits; next GPU phase requires owned group exit; no automatic retry/resume",
+    "archive_review": "Critical selected or latest partial checkpoint preserved first; full archive follows; size and SHA receipts emitted; compression/hash reader checks portal shutdown-request deadline",
+    "independently_rerun_CPU_tests": {"runner": 18, "evaluator": 37, "all_passed": true},
+    "additional_real_format_CPU_checks": {
+      "historical_full_agent_and_environment_YAML_format_accepted_after_only_future_weight_length_values": true,
+      "activation_mutation_rejected": true,
+      "normalization_mutation_rejected": true,
+      "action_clip_mutation_rejected": true,
+      "real_torch_or_checkpoint_used": false
+    },
+    "unresolved_local_blockers": [],
+    "runtime_limits": "CPU contracts do not validate Isaac sensor/action APIs, actual environment behavior, loaded actor outputs or remote source equivalence; prescribed live preflight/readback remains necessary"
+  },
+  "local_input_package_blocker": null,
+  "live_training_readiness_confirmed": false,
+  "note": "No claims about current remote runtime or allocation state are made by this local audit"
+}

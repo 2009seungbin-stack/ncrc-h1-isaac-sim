@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-01",
+  "status": "OFFLINE_PLAN_ONLY_NO_TRAINING_OR_SUBMISSION",
+  "objective": "Maximize validated combined robot score improvement per billed server-on hour; 20h is a ceiling, not a spend target.",
+  "last_confirmed_official_scores": {
+    "Go2": 88.14,
+    "H1": 88.0,
+    "combined": 176.14
+  },
+  "hard_budget_hours": 20,
+  "cap_includes": "Startup, training, evaluation, rendering, exports, backups, downloads and server idle time across all sessions in this round.",
+  "stage_caps_hours": {
+    "shared_diagnostics": 0.75,
+    "h1_pair": 2.25,
+    "go2_three_branches": 4.75,
+    "adaptive_confirmation": 8.0,
+    "final_verification": 2.0,
+    "contingency_including_shutdown": 2.25
+  },
+  "planned_core_cap_hours": 17.75,
+  "nominal_early_stop_after_screen_hours": 7.75,
+  "contingency_hours": 2.25,
+  "protected_final_verification_hours": 2,
+  "protected_shutdown_buffer_hours": 0.5,
+  "no_new_training_after_elapsed_hours": 17.5,
+  "round_time_already_used_must_be_subtracted": true,
+  "planning_seconds_per_iteration": {
+    "Go2": 4.8,
+    "H1": 2.5
+  },
+  "h1_seconds_basis": "Historical collection+learning median about2.06s at8192env;2.5s is a conservative planning assumption, not live wall-time measurement.",
+  "training_hours_only": {
+    "h1_screen_pair_1000_each": 1.3888888888888888,
+    "go2_screen_three_1000_each": 4.0,
+    "go2_independent_scratch_4500": 6.0,
+    "h1_repeat_pair_1000_each": 1.3888888888888888,
+    "go2_conditional_combination_1000": 1.3333333333333333,
+    "h1_independent_scratch_9000": 6.25,
+    "go2_scratch_fallback_pair_4000_each": 10.666666666666666
+  },
+  "historical_marginal_evidence": {
+    "Go2_4000_to_5500": {
+      "floor_delta": 0.39955338565340526,
+      "additional_iterations": 1500,
+      "hours_planning": 2.0
+    },
+    "H1_R3A_9000_to_10000": {
+      "floor_delta": 0.00384911606440852,
+      "additional_iterations": 1000,
+      "strong_push_survival_change": -0.029299999999999993
+    },
+    "limitation": "Historical single runs, no extrapolation or training-seed CI; hardware/runtime differ by robot/run."
+  },
+  "candidates": {
+    "H1_control": {
+      "path": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\training_efficiency_20261001\\H1_CONTROL_rewards.py",
+      "sha256": "0260596a386d55e4cf098303386766123e3a16196dc95a38ea27bc7b03964d29",
+      "status": "UNTRAINED"
+    },
+    "H1_yaw": {
+      "path": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\training_efficiency_20261001\\HY30_rewards.py",
+      "sha256": "2889b67864bff4c6c10e0d85c7f74a6b3b0afe72d67ed7813fa8242161ab4813",
+      "status": "UNTRAINED"
+    },
+    "Go2_control": {
+      "path": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\deep_research_20261001\\F00_rewards.py",
+      "sha256": "4570c277b0aa58fa64d8aa8886232bfe92b4d46bc8d07f3b42377c9420deb9ff",
+      "status": "UNTRAINED"
+    },
+    "Go2_yaw": {
+      "path": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\deep_research_20261001\\F10_rewards.py",
+      "sha256": "0a9b91a9d21e4d8a422520bcc814f4735546a13b5afa9f88fecccc94353fd5a9",
+      "status": "UNTRAINED"
+    },
+    "Go2_action": {
+      "path": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\deep_research_20261001\\F01_rewards.py",
+      "sha256": "eaf553ba4e6a6ec70feb6cea258cd0f9828ec42246e3316be4dee70346c153bc",
+      "status": "UNTRAINED"
+    },
+    "Go2_combination_conditional": {
+      "path": "C:\\Users\\2009s\\Desktop\\issac_sim\\analysis\\deep_research_20261001\\F11_rewards.py",
+      "sha256": "2a5bd78aea4f06a2128729e4c04eba1fabb6275afa7530e46bf63a1d24ba0a7d",
+      "status": "UNTRAINED"
+    }
+  },
+  "screening_gate": {
+    "proxy_min_gain": 0.15,
+    "gate_is_heuristic_not_statistical_significance": true,
+    "require_both_proxy_deltas_positive": true,
+    "require_consistent_repeated_evaluation_and_scenario_results": true,
+    "no_unexplained_fall_increase": true,
+    "same_parent_and_reset_conditions": true,
+    "short_run_negative_is_inconclusive_if_terrain_curriculum_not_recovered": true
+  },
+  "allocation_rule": "Among eligible candidates, rank min(delta_floor,delta_ratio)/actual total server-on hours for the experiment. This is a noisy heuristic, not expected official return or a confidence bound.",
+  "adaptive_paths": {
+    "both_clear": "Go2 winner independent scratch up to4500 plus H1 control/winner repeated1000 each with another train seed, only if predicted cost including setup fits8h.",
+    "go2_clear_only": "Go2 independent scratch up to4500; conditional F11 only if both single factors help and its full cost fits8h. Combination screening precedes selecting the scratch reward file.",
+    "h1_clear_only": "H1 independent scratch up to9000; keep original Go2. Verify learning trajectory, do not assume9000 required or always achievable.",
+    "neither_clear": "Stop further training. Use final-validation allocation only as needed; typically stop within8-10h. Early curriculum-limited negatives remain inconclusive.",
+    "go2_resume_failed": "Replace Go2 screen+confirmation stages with two scratch runs, control and one candidate, up to4000 each, full cost <=12.75h; or concentrate on confirmed H1 opportunity. Do not add this path to normal spending.",
+    "resume_unavailable": "Skip short H1 resume pair; reallocate only within total20h to supported scratch runs. No unsupported checkpoint manipulation or environment changes."
+  },
+  "limitations": [
+    "No reliable probability of candidate gains; optimum and official score return cannot be established from current evidence.",
+    "Score proxies are calibrated on two policies and do not certify official gains.",
+    "Changing train seed while resuming same parent is not independent initialization; H1 repetition is weaker than full scratch replication.",
+    "One independent scratch candidate without a new scratch control checks performance, not causal attribution to reward weights.",
+    "Reset seeds do not change current fixed terrain geometry; boundary tests remain necessary."
+  ]
+}
